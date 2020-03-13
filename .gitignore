@@ -4,3 +4,4 @@ template/*
 system/*
 image/*
 catalog/view/theme/default/martis
+nutrition_warehouse_db.sql
