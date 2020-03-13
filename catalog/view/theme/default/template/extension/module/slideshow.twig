@@ -1,0 +1,99 @@
+<div class="swiper-viewport" style="display: none">
+  <div id="slideshow{{ module }}" class="swiper-container">
+    <div class="swiper-wrapper"> {% for banner in banners %}
+      <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
+      {% endfor %} </div>
+  </div>
+  <div class="swiper-pagination slideshow{{ module }}"></div>
+  <div class="swiper-pager">
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+
+<!-- ############ Slide ################ -->
+<div class="region region-content-wide-top">
+    
+<div id="block-home01-slider" class="fullwidth block-title-1 block-title-left block slide-block block-block-content block-block-content9848243d-b738-4214-b77b-16c936693f06" >
+<div class="container-wrap clearfix">
+
+
+  
+	<div class="hero slide-carousel owl-carousel" data-nav="true" data-items="1" data-dots="true" data-autoplay="true" data-autoplayspeed="1500" data-autoplaytimeout="8000" data-loop="true">
+		          <div><div  data-history-node-id="159" role="article" about="/martis/en/slide/slide-3" >
+  
+  
+	<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_1.jpg" alt="Home 1 slide 1"/></div>
+		<div class="slide-content-wrap">
+		<div class="container slide-wrap">
+		<div class="slide-content ">
+		<div class="slide-content-main float-left text-left">
+				<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
+      <div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
+              <div class="field-item">Bamm 100%  My Whey</div>
+          </div>
+  </div>
+						<div class="heading-text">
+                <div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">Men Slim</div></div>
+              <div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">be handsome &amp; Gentle</div></div>
+        </div>
+								<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
+		<a class="button slide-button-link" href="#">Shop now »</a>
+		</div>
+				</div>
+		</div>
+		</div>
+	</div>
+			<a class="slide-content-link" href="#">view</a>
+	</div>
+</div>
+          <div><div  data-history-node-id="174" role="article" about="/martis/en/slide/home-1-slide-2" >
+  
+  
+	<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_2.jpg" alt="Home 1 Slide 2"/></div>
+		<div class="slide-content-wrap">
+		<div class="container slide-wrap">
+		<div class="slide-content ">
+		<div class="slide-content-main float-center text-center">
+				<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
+      <div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
+              <div class="field-item">Lean Whey Hers</div>
+          </div>
+  </div>
+						<div class="heading-text">
+                <div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">Beautiful slim body</div></div>
+        </div>
+						<div class="slide-content-body" data-animation-in="slideInRight" data-animation-out="animate-out fadeOut">
+            <div class="field field-body field-type-text-with-summary field-label-hidden field-item"><p>Get your body slim with our product.</p></div>
+      </div>
+						<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
+		<a class="button slide-button-link" href="">Order Now »</a>
+		</div>
+				</div>
+		</div>
+		</div>
+	</div>
+		</div>
+</div>
+    
+	</div>
+ </div>
+</div>
+</div>
+
+
+<script type="text/javascript"><!--
+$('#slideshow{{ module }}').swiper({
+	mode: 'horizontal',
+	slidesPerView: 1,
+	pagination: '.slideshow{{ module }}',
+	paginationClickable: true,
+	nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+	autoplay: 2500,
+    autoplayDisableOnInteraction: true,
+	loop: true
+});
+--></script>

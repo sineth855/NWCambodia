@@ -1,0 +1,45 @@
+{% if currencies|length > 1 %}
+<form class="commerce-currency-resolver-select-form" enctype="multipart/form-data" data-drupal-selector="commerce-currency-resolver-select-form" action="{{ action }}" method="post" id="commerce-currency-resolver-select-form" accept-charset="UTF-8">
+  <div class="form-item js-form-item form-type-select js-form-type-select form-item-currency js-form-item-currency form-no-label">
+    <div class="select-wrapper">
+    <!-- <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-currency"> -->
+      <select onChange="this.form.submit()" data-drupal-selector="edit-currency" id="edit-currency" name="currency" class="form-select form-control">
+        {% for currency in currencies %}
+          {% if currency.symbol_left %}
+          <option>
+            <button class="currency-select btn btn-link btn-block" type="button" name="{{ currency.code }}">{{ currency.symbol_left }} {{ currency.title }}</button>
+          </option>
+          {% else %}
+          <option>
+          <button class="currency-select btn btn-link btn-block" type="button" name="{{ currency.code }}">{{ currency.symbol_right }} {{ currency.title }}</button>
+          </option>
+          {% endif %}
+          {% endfor %}
+        <!-- <option value="EUR">Euro</option>
+        <option value="USD" selected="selected">US Dollar</option> -->
+      </select>
+        <!-- <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">{% for currency in currencies %}
+        {% if currency.symbol_left and currency.code == code %} <strong>{{ currency.symbol_left }}</strong> {% elseif currency.symbol_right and currency.code == code %} <strong>{{ currency.symbol_right }}</strong> {% endif %}
+        {% endfor %} <span class="hidden-xs hidden-sm hidden-md">{{ text_currency }}</span>&nbsp;<i class="fa fa-caret-down"></i></button>
+        <ul class="dropdown-menu">
+          {% for currency in currencies %}
+          {% if currency.symbol_left %}
+          <li>
+            <button class="currency-select btn btn-link btn-block" type="button" name="{{ currency.code }}">{{ currency.symbol_left }} {{ currency.title }}</button>
+          </li>
+          {% else %}
+          <li>
+            <button class="currency-select btn btn-link btn-block" type="button" name="{{ currency.code }}">{{ currency.symbol_right }} {{ currency.title }}</button>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul> -->
+      <input type="hidden" name="code" value="" />
+      <input type="hidden" name="redirect" value="{{ redirect }}" />
+    <!-- </form> -->
+  </div>
+  </div>
+  <input data-drupal-selector="edit-submit" type="submit" id="edit-submit--2" name="op" value="Submit" class="button js-form-submit form-submit" /><input autocomplete="off" data-drupal-selector="form-klgvunfh80szodezelsibybi2ggk5-lt-b6fbavyhrq" type="hidden" name="form_build_id" value="form-KlGvUNfh80szODezeLsiBYbi2GGk5_LT_b6fbAVYHRQ" /><input data-drupal-selector="edit-commerce-currency-resolver-select-form" type="hidden" name="form_id" value="commerce_currency_resolver_select_form" />
+</form>
+
+{% endif %} 
