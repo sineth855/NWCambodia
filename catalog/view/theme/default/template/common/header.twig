@@ -31,7 +31,7 @@
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/thirdparty/jquery.flipcountdown.css" />
 
 {% for style in styles %}
-<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+<!-- <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" /> -->
 {% endfor %}
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
@@ -346,43 +346,78 @@
               </div>
                 
               
-                  <div class="header-item header-element">
-                  
-                            <!-- <button class="header-element-item search-button" type="button" data-toggle="collapse" data-target="#header-search" aria-expanded="false" aria-controls="header-search">
-                    <i class="ti-search"></i>
-                  </button> -->
-                  
-                  <!-- <span class="mobile-flag">
-                    <img height="10px" src="catalog/view/theme/default/image/kh.png"/> &nbsp;
-                    <img height="10px" src="catalog/view/theme/default/image/gb.png"/>
-                  </span> -->
-                  
+              <div class="header-item header-element">
+					
+          <button class="header-element-item search-button" type="button" data-toggle="collapse" data-target="#header-search" aria-expanded="false" aria-controls="header-search">
+  <i class="ti-search"></i>
+</button>
+  
+
+          <div class="header-element-item header-cart dark-cart_icon">
+    <div class="region region-header-cart">
+
+<div id="block-martis-cart" class="norm-width block-title-1 block-title-left block block-commerce-cart" >
+<div class="container-wrap clearfix">
 
 
-                  <div class="header-element-item header-cart dark-cart_icon">
-                    <div class="region region-header-cart">
-                      
-                      <div id="cart block-martis-cart" class="norm-width block-title-1 block-title-left block block-commerce-cart" >
-                        <div class="container-wrap clearfix">
-                    
-                      
-                          <div class="block-content clearfix"><div class="cart--cart-block">
-                            <div class="cart-block--summary">
-                        
-                              <a class="cart-block--link__expand" href="/martis/en/cart">
-                                <i class="ti-shopping-cart"></i>
-                                <span class="cart-block--summary__count"> 0 </span>
-                              </a>
-                            </div>
-                            <div class="cart-block--contents text-center cart-block-empty">
-                              Cart is empty.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+<div class="block-content clearfix"><div class="cart--cart-block">
+<div class="cart-block--summary">
+<a class="cart-block--link__expand" href="/martis/en/cart">
+<i class="ti-shopping-cart"></i>
+<span class="cart-block--summary__count"> 1</span>
+</a>
+</div>
+<div class="cart-block--contents">
+<div class="cart-block--contents__inner">
+<div class="cart-block--contents__items">
+<div class="cart cart-block"><div class="views-element-container"><div class="js-view-dom-id-2877648bd34c6683fd60694b6d39912773e84bbec2e7937b2ff0b4be3ce844d9">
+
+
+
+
+
+
+
+
+<table class="cols-0">
+<tbody>
+<tr>
+                                                                              <td class="views-field views-field-field-image">  <img src="/martis/sites/martis/files/styles/100x100/public/products/new-balance-runnng-shoe.jpg?itok=vOhyZAHY" width="100" height="100" alt="New Balance Running Shoe" typeof="foaf:Image" />
+
+
+</td>
+                                                                              <td class="views-field views-field-title">New Balance Running Shoe - 7 US          </td>
+                                                                              <td class="views-field views-field-quantity">1&nbsp;×          </td>
+                                                                              <td class="views-field views-field-total-price__number">$59.95          </td>
+    </tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+<div class="cart-block--contents__links cart-block-link">
+<a href="/martis/en/cart">Cart</a>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+
+</div>
+
+          </div>
                 <!-- <div style="position: relative; left: -100pt;">
                     <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                       <i class="ti-menu"></i>
@@ -398,7 +433,7 @@
     <div class="header-menu">
       <div class="navbar navbar-expand-md nav-menu">
         <div class="container p-0">
-          <div id="main-menu-left" class="col-md-3 main-menu-left">
+          <div id="main-menu-left" class="main-menu-left">
             <div class="region region-header-category-menu">
               <nav aria-labelledby="block-category-menu" id="block-category-menu" class="block-facet--links norm-width block-title-1 block-title-left block block-facets category-menu" >
                 <div class="container-wrap clearfix mega-menu">      

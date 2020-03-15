@@ -1,6 +1,7 @@
 html, body {
     font-style: normal !important;
     overflow-x: hidden;
+    background-color: #f9f9f9;
   }
   body {
     position: relative
@@ -64,13 +65,18 @@ html, body {
     .header-element{
         top: 18px !important;
     }
-
-    .col-sm-6 {
+    .col-sm-6.box-icon-items{
         flex: 0 0 50%;
         max-width: 50%;
+    }
+
+    .col-sm-6 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
         padding-right: 5px;
         padding-left: 5px;
     }
+    
     .grid-item{
         margin-bottom: 10px;
     }
@@ -84,6 +90,21 @@ html, body {
         padding-right: 5px !important;
     }
     
+    .header-item .search-button{
+        display: none !important;
+    }
+    .header-element{
+        color: #f3de2b;
+    }
+
+    .top-category{
+        background-color: #ffffff;
+        padding: 10px 20px 0px 20px !important;
+    }
+    .page-wrapper, .content-wide .block {
+        padding-top: 10px !important;
+        padding-bottom: 0 !important;
+    }
 }
 
 
@@ -91,10 +112,13 @@ html, body {
     .container-wrap {
         max-width: 100%;
     }
-
-    .col-sm-6 {
+    .col-sm-6.box-icon-items{
         flex: 0 0 50%;
         max-width: 50%;
+    }
+    .col-sm-6 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
         padding-right: 5px;
         padding-left: 5px;
     }
@@ -117,7 +141,7 @@ html, body {
     padding: 20px;
     text-align: center;
     color: #ffffff;
-    margin-bottom: 40px;;
+    /* margin-bottom: 40px; */
 }
 h2.timer{text-transform: uppercase; color: #ffffff;}
 
@@ -135,4 +159,16 @@ h2.timer{text-transform: uppercase; color: #ffffff;}
 .product-category-name-wrap a{
     top: 0 !important;
     margin-top: 0;
+}
+
+/* ############## Home ############### */
+.top-category{
+    background-color: #ffffff;
+    padding: 30px 20px 20px 20px;
+}
+#block-shop-icon-box{
+    background-color: #ffffff;
+}
+.row-top-category{
+    padding-bottom: 10px;
 }
