@@ -102,13 +102,16 @@ html, body {
         padding: 10px 20px 0px 20px !important;
     }
     .page-wrapper, .content-wide .block {
-        padding-top: 10px !important;
         padding-bottom: 0 !important;
+    }
+    .product-teaser .product-title {
+        min-height: 35px;
     }
 }
 
 
 @media (max-width: 576px){
+    
     .container-wrap {
         max-width: 100%;
     }
@@ -132,6 +135,9 @@ html, body {
     }
     .suppliment-plan{
         margin-bottom: 0 !important;
+    }
+    .product-teaser .product-title {
+        min-height: 35px;
     }
 }
 
