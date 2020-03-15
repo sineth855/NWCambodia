@@ -6,3 +6,4 @@ image/*
 catalog/view/theme/default/martis
 nutrition_warehouse_db.sql
 storage/storage/cache/*
+catalog.zip

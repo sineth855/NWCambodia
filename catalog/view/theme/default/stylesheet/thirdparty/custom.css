@@ -107,6 +107,17 @@ html, body {
     .product-teaser .product-title {
         min-height: 35px;
     }
+    .brand.logo img{
+        width: 53px;
+    }
+    .nav-button{
+        line-height: 30px;
+    }
+    button.mobile-top-20.pull-left.navbar-toggler.nav-button{
+        width: 30px;
+        height: 30px;
+        margin-top: 17px;
+    }
 }
 
 
