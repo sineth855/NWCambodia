@@ -1,5 +1,5 @@
 {{ header }}
-<div id="checkout-cart" class="container">
+<div id="checkout-cart" style="display: none" class="container">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -116,4 +116,145 @@
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
+
+
+		<!-- Page Title -->
+    <section id="page-title" class="page-title dark-page-title">
+		<div class="container">
+			  <div class="region region-page-title">
+    
+<div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
+<div class="container-wrap clearfix">
+  
+    
+        <div class="block-content clearfix">
+  <h1>Shopping cart</h1>
+
+</div>
+  </div>
+</div>
+  </div>
+
+			  <div class="region region-breadcrumb">
+    
+<div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
+<div class="container-wrap clearfix">
+  
+    
+        <div class="block-content clearfix">  <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ul>
+          <li>
+                  <a href="/martis/en">Home</a>
+              </li>
+          <li>
+                  Shopping cart
+              </li>
+        </ul>
+  </nav>
+</div>
+  </div>
+</div>
+  </div>
+
+		</div>
+	</section>
+	  <!-- End Page Title -->
+		
+		<!-- layout -->
+	<section id="page-wrapper" class="page-wrapper">
+		<div class="container">
+			<div class="row content-layout">
+			  
+			  			  <!--- Start content -->
+				<div class="col-md-12 main-content">
+					  <div class="region region-content">
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+<div id="block-martis-content--3" class="norm-width block-title-1 block-title-left block block-system block-system-main-block" >
+<div class="container-wrap clearfix">
+  
+    
+        <div class="block-content clearfix"><div class="cart cart-form"><div class="views-element-container"><div class="js-view-dom-id-01b94958731a8c5680d1c052f99b92a04c0433f78dcd381627ddac5314eafa06">
+  
+  
+  
+
+  
+  
+  
+
+  <div class="views-form"><form data-drupal-selector="views-form-commerce-cart-form-default-35" action="/martis/en/cart" method="post" id="views-form-commerce-cart-form-default-35" accept-charset="UTF-8">
+  <table class="cols-6">
+        <thead>
+      <tr>
+                                                  <th class="views-field views-field-field-image" scope="col"></th>
+                                                  <th id="view-purchased-entity-table-column" class="views-field views-field-purchased-entity" scope="col">Name &amp; Description</th>
+                                                  <th id="view-unit-price-number-table-column" class="views-field views-field-unit-price__number" scope="col">Price</th>
+                                                  <th id="view-edit-quantity-table-column" class="views-field views-field-edit-quantity" scope="col">Quantity</th>
+                                                  <th id="view-total-price-number-table-column" class="views-field views-field-total-price__number" scope="col">Total</th>
+                                                  <th id="view-remove-button-table-column" class="views-field views-field-remove-button" scope="col">Remove</th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr>
+                                                                                        <td class="views-field views-field-field-image">  <img src="./catalog/view/theme/default/image/bamm.png" width="100" height="100" alt="New Balance Running Shoe" typeof="foaf:Image" />
+
+
+          </td>
+                                                                                        <td headers="view-purchased-entity-table-column" class="views-field views-field-purchased-entity"><a href="/martis/en/product/new-balance-running-shoe?v=83" hreflang="en">Bamm - 7 US</a>          </td>
+                                                                                        <td headers="view-unit-price-number-table-column" class="views-field views-field-unit-price__number">$59.95          </td>
+                                                                                        <td headers="view-edit-quantity-table-column" class="views-field views-field-edit-quantity"><div class="form-item js-form-item form-type-number js-form-type-number form-item-edit-quantity-0 js-form-item-edit-quantity-0 form-no-label">
+      <label for="edit-edit-quantity-0" class="control-label sr-only js-form-required form-required">Quantity</label>
+  
+  
+  <input data-drupal-selector="edit-edit-quantity-0" type="number" id="edit-edit-quantity-0" name="edit_quantity[0]" value="1" step="1" min="0" max="9999" size="4" class="form-number required" required="required" aria-required="true" />
+
+  
+  
+  </div>
+          </td>
+                                                                                        <td headers="view-total-price-number-table-column" class="views-field views-field-total-price__number">$59.95          </td>
+                                                                                        <td headers="view-remove-button-table-column" class="views-field views-field-remove-button"><input class="delete-order-item button js-form-submit form-submit" data-drupal-selector="edit-remove-button-0" type="submit" id="edit-remove-button-0" name="delete-order-item-0" value="Remove" />          </td>
+              </tr>
+      </tbody>
+</table>
+
+            <div class="field field-total-price field-type-commerce-price field-label-hidden field-item">
+<div>
+  <div class="order-total-line order-total-line__subtotal">
+    <span class="order-total-line-label">Subtotal </span><span class="order-total-line-value">$59.95</span>
+  </div>
+    <div class="order-total-line order-total-line__total">
+    <span class="order-total-line-label">Total </span><span class="order-total-line-value">$59.95</span>
+  </div>
+</div>
+</div>
+      <input autocomplete="off" data-drupal-selector="form-ixseyucvvnvnuacg4dc6hzyly4iavrigk0e-guwlvkg" type="hidden" name="form_build_id" value="form-IXSeYUcvVNVnUAcG4Dc6hzYLY4iAVrigK0E-gUwLVkg" /><input data-drupal-selector="edit-views-form-commerce-cart-form-default-35" type="hidden" name="form_id" value="views_form_commerce_cart_form_default_35" /><div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Update cart" class="button js-form-submit form-submit" /><input data-drupal-selector="edit-checkout" type="submit" id="edit-checkout" name="op" value="Checkout" class="button js-form-submit form-submit" /></div>
+
+</form>
+</div>
+  
+  
+
+  
+  
+
+  
+  
+</div>
+</div>
+</div></div>
+  </div>
+</div>
+  </div>
+
+				</div>
+			  <!---End content -->
+			  
+			  			</div>
+		</div>
+	</section>
+	<!-- End layout -->
+	
 {{ footer }} 
