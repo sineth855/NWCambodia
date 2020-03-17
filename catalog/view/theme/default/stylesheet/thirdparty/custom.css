@@ -6,6 +6,9 @@ html, body {
   body {
     position: relative
   }
+  body *{
+    font-style: normal;
+  }
 @media (max-width:768px){
     .bg-header{
         background-color: #303030;
@@ -29,7 +32,7 @@ html, body {
     }
     .brand.logo {
         position: absolute;
-        left: 0;
+        left: -9px;
         right: 0;
         z-index: 99;
         top: 11px;

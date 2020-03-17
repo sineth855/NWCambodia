@@ -5,5 +5,8 @@ system/*
 image/*
 catalog/view/theme/default/martis
 nutrition_warehouse_db.sql
+storage/cache/*
 storage/storage/cache/*
 catalog.zip
+storage/logs/*
+storage/logs/error.log
