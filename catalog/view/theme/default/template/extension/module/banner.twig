@@ -1,10 +1,23 @@
-<div class="swiper-viewport">
+<div class="swiper-viewport" style="display:none;">
   <div id="banner{{ module }}" class="swiper-container">
-    <div class="swiper-wrapper">{% for banner in banners %}
-      <div class="swiper-slide">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
-      {% endfor %}</div>
+    <div class="swiper-wrapper">
+		{% for banner in banners %}
+      		<div class="swiper-slide">
+			  	{% if banner.link %}
+			  		<a href="{{ banner.link }}">
+						<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+					</a>
+				{% else %}
+					<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+				{% endif %}
+			</div>
+      	{% endfor %}
+	</div>
   </div>
 </div>
+
+
+
 <script type="text/javascript"><!--
 $('#banner{{ module }}').swiper({
 	effect: 'fade',
@@ -12,3 +25,147 @@ $('#banner{{ module }}').swiper({
     autoplayDisableOnInteraction: false
 });
 --></script> 
+
+
+
+
+<!-- our partner- -->
+<section id="content-wide" class="content-wide container">
+	<div class="region region-content-wide">
+		<div class="views-element-container norm-width block-title-1 block-title-left block block-views block-views-blockproduct-taxonomy-brand-logos" id="block-views-block-product-taxonomy-brand-logos">
+			<div class="clearfix text-center">
+				<div class="block-title-content">
+					<h2 class="block-title">Our Parter</h2>
+				</div>
+			</div>
+			<div class="container-wrap clearfix">
+				<div class="block-content clearfix">
+					<div>
+						<div class="js-view-dom-id-5e814f7e3baac71618e3a1d3c433a62155d2e458908ed816bce7efa86697ceba">
+							<div data-settings="{&quot;grouping&quot;:[],&quot;row_class&quot;:&quot;&quot;,&quot;default_row_class&quot;:false,&quot;uses_fields&quot;:false,&quot;items&quot;:7,&quot;margin&quot;:30,&quot;autoplay&quot;:true,&quot;autoplaySpeed&quot;:1000,&quot;autoplayHoverPause&quot;:true,&quot;autoplayTimeout&quot;:4000,&quot;nav&quot;:true,&quot;navSpeed&quot;:800,&quot;loop&quot;:true,&quot;navRewind&quot;:false,&quot;rewindSpeed&quot;:1000,&quot;dots&quot;:false,&quot;dotsSpeed&quot;:800,&quot;slideBy&quot;:1,&quot;mouseDrag&quot;:true,&quot;touchDrag&quot;:true,&quot;pullDrag&quot;:false,&quot;freeDrag&quot;:false,&quot;stagePadding&quot;:0,&quot;merge&quot;:false,&quot;mergeFit&quot;:false,&quot;center&quot;:false,&quot;autoWidth&quot;:false,&quot;video&quot;:false,&quot;videoHeight&quot;:0,&quot;videoWidth&quot;:0}" class="owl-slider-wrapper owl-carousel owl-responsive">
+								{% for banner in banners %}
+								<div>
+									{% if banner.link %}
+									{# <a class="brand-logo" href="#">
+										<img src="./catalog/view/theme/default/martis/sites/martis/files/products/brand/new-balance-logo.png" width="300" height="150" alt="New Balance" typeof="Image"/>
+									</a> #}
+									<a href="{{ banner.link }}" class="brand-logo">
+										<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="300" height="150" typeof="Image"/>
+									</a>
+									{% else %}
+										<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="300" height="150" typeof="Image" />
+									{% endif %}
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- #End our partner -->
+
+<!-- Promotion -->
+<section id="content-wide" class="content-wide">
+	<div id="block-home01-banner1" class="fullwidth framewidth block-title-1 block-title-left block promotion-block block-block-content block-block-contenta3992df5-fb03-445a-869a-a6dfe5a54b63" style="padding-top: 0px;padding-bottom: 0px;">
+		<div class="container-wrap">
+			<div class="block-content promotion-layout promotion-layout3">
+				<div class="row grid-wrapper">
+					<div class="field field-item banner-item-field grid-item">
+						<div data-history-node-id="226" role="article" about="#" class="promotion-item">
+							<div class="promotion-container ">
+								<div class="promotion-image">
+									<div class="field field-field-image field-type-image field-label-hidden field-item">
+										<img src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_1.jpg " width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/>
+									</div>
+								</div>
+								<div class="promotion-meta-wrap">
+									<div class="promotion-meta float-right text-right">
+										<div class="promotion-content-meta">
+											<div class="promotion-title clearfix">
+												<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
+													<div class="field-item">100% Pure Creation</div>
+												</div>
+											</div>
+											<div class="promotion-content">
+												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+													<p>Here is description</p>
+												</div>
+											</div>
+											<div class="nav menu alt-button mt-2 promotion-link">
+												<a href="/" class="button promotion-button">Shop Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="field field-item banner-item-field grid-item">
+						<div data-history-node-id="227" role="article" about="/martis/en/banner/women-accessories" class="promotion-item">
+							<div class="promotion-container ">
+								<div class="promotion-image">
+									<div class="field field-field-image field-type-image field-label-hidden field-item">
+										<img src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_2.jpg" width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/>
+									</div>
+								</div>
+								<div class="promotion-meta-wrap">
+									<div class="promotion-meta float-right text-right">
+										<div class="promotion-content-meta">
+											<div class="promotion-title clearfix">
+												<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
+													<div class="field-item">Bamm Cut 168</div>
+												</div>
+											</div>
+											<div class="promotion-content">
+												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+													<p>Classic collections from $10</p>
+												</div>
+											</div>
+											<div class="nav menu alt-button mt-2 promotion-link">
+												<a href="" class="button promotion-button">View Collections</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="field field-item banner-item-field grid-item">
+						<div data-history-node-id="227" role="article" about="/martis/en/banner/women-accessories" class="promotion-item">
+							<div class="promotion-container ">
+								<div class="promotion-image">
+									<div class="field field-field-image field-type-image field-label-hidden field-item">
+										<img src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_2.jpg" width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/>
+									</div>
+								</div>
+								<div class="promotion-meta-wrap">
+									<div class="promotion-meta float-right text-right">
+										<div class="promotion-content-meta">
+											<div class="promotion-title clearfix">
+												<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
+													<div class="field-item">Bamm Cut 168</div>
+												</div>
+											</div>
+											<div class="promotion-content">
+												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+													<p>Classic collections from $10</p>
+												</div>
+											</div>
+											<div class="nav menu alt-button mt-2 promotion-link">
+												<a href="" class="button promotion-button">View Collections</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- #End promotion -->
