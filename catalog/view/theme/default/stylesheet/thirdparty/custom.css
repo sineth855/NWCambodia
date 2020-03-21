@@ -210,3 +210,14 @@ span.mobile-flag {
 .row-top-category {
     padding-bottom: 10px;
 }
+
+
+/* price */
+
+.price-old {
+    padding: 0 10px 0 0;
+    text-decoration: line-through;
+    color: #999;
+    font: lighter 15px "Helvetica";
+    float: left;
+}

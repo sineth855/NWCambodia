@@ -30,7 +30,7 @@ $('#banner{{ module }}').swiper({
 
 
 <!-- our partner- -->
-<section id="content-wide" class="content-wide container">
+<section style="display: none;" id="content-wide" class="content-wide container">
 	<div class="region region-content-wide">
 		<div class="views-element-container norm-width block-title-1 block-title-left block block-views block-views-blockproduct-taxonomy-brand-logos" id="block-views-block-product-taxonomy-brand-logos">
 			<div class="clearfix text-center">
@@ -73,96 +73,45 @@ $('#banner{{ module }}').swiper({
 		<div class="container-wrap">
 			<div class="block-content promotion-layout promotion-layout3">
 				<div class="row grid-wrapper">
-					<div class="field field-item banner-item-field grid-item">
-						<div data-history-node-id="226" role="article" about="#" class="promotion-item">
-							<div class="promotion-container ">
-								<div class="promotion-image">
-									<div class="field field-field-image field-type-image field-label-hidden field-item">
-										<img src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_1.jpg " width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/>
+					{% for banner in banners %}
+						<div class="field field-item banner-item-field grid-item">
+							<div data-history-node-id="226" role="article" about="#" class="promotion-item">
+								<div class="promotion-container ">
+									<div class="promotion-image">
+										<div class="field field-field-image field-type-image field-label-hidden field-item">
+											{# <mg src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_1.jpg " width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/> #}
+											{% if banner.link %}
+												<a href="{{ banner.link }}">
+													<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+												</a>
+											{% else %}
+												<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+											{% endif %}
+										</div>
 									</div>
-								</div>
-								<div class="promotion-meta-wrap">
-									<div class="promotion-meta float-right text-right">
-										<div class="promotion-content-meta">
-											<div class="promotion-title clearfix">
-												<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
-													<div class="field-item">100% Pure Creation</div>
+									<div class="promotion-meta-wrap">
+										<div class="promotion-meta float-right text-right">
+											<div class="promotion-content-meta">
+												<div class="promotion-title clearfix">
+													<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
+														<div class="field-item">100% Pure Creation</div>
+													</div>
 												</div>
-											</div>
-											<div class="promotion-content">
-												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
-													<p>Here is description</p>
+												<div class="promotion-content">
+													<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+														<p>Here is description</p>
+													</div>
 												</div>
-											</div>
-											<div class="nav menu alt-button mt-2 promotion-link">
-												<a href="/" class="button promotion-button">Shop Now</a>
+												<div class="nav menu alt-button mt-2 promotion-link">
+													<a href="/" class="button promotion-button">Shop Now</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="field field-item banner-item-field grid-item">
-						<div data-history-node-id="227" role="article" about="/martis/en/banner/women-accessories" class="promotion-item">
-							<div class="promotion-container ">
-								<div class="promotion-image">
-									<div class="field field-field-image field-type-image field-label-hidden field-item">
-										<img src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_2.jpg" width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/>
-									</div>
-								</div>
-								<div class="promotion-meta-wrap">
-									<div class="promotion-meta float-right text-right">
-										<div class="promotion-content-meta">
-											<div class="promotion-title clearfix">
-												<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
-													<div class="field-item">Bamm Cut 168</div>
-												</div>
-											</div>
-											<div class="promotion-content">
-												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
-													<p>Classic collections from $10</p>
-												</div>
-											</div>
-											<div class="nav menu alt-button mt-2 promotion-link">
-												<a href="" class="button promotion-button">View Collections</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="field field-item banner-item-field grid-item">
-						<div data-history-node-id="227" role="article" about="/martis/en/banner/women-accessories" class="promotion-item">
-							<div class="promotion-container ">
-								<div class="promotion-image">
-									<div class="field field-field-image field-type-image field-label-hidden field-item">
-										<img src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_2.jpg" width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/>
-									</div>
-								</div>
-								<div class="promotion-meta-wrap">
-									<div class="promotion-meta float-right text-right">
-										<div class="promotion-content-meta">
-											<div class="promotion-title clearfix">
-												<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
-													<div class="field-item">Bamm Cut 168</div>
-												</div>
-											</div>
-											<div class="promotion-content">
-												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
-													<p>Classic collections from $10</p>
-												</div>
-											</div>
-											<div class="nav menu alt-button mt-2 promotion-link">
-												<a href="" class="button promotion-button">View Collections</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>

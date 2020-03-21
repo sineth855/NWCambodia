@@ -78,9 +78,11 @@
 														<div class="product-teaser-bg"></div>
 														<div class="product-teaser-container">
 															<div class="post-image product-image">
+
 																<div class="product-badge">
 																	<span class="badge-label badge-sale">Sale</span>
 																</div>
+
 																<div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
 																	<div class="field-item">
 																		{# <a href="#" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="L-Cranitine x500" typeof="foaf:Image"/></a> #}
@@ -95,8 +97,29 @@
 																		</a>
 																	</div>
 																</div>
+
+                	<div class="product-icon-wrap">
+																		<div class="product-icon product-add-wishlist">
+																			<div class="flag flag-wishlist flag-wishlist-60 action-flag">
+																				<a type="button" title="Wishlist" class="use-ajax flag-link" rel="nofollow" onclick="wishlist.add('{{ product.product_id }}');">
+																					<i class="ti-heart"></i>
+																					<span class="flag-title">{{ button_wishlist }}</span>
+																				</a>
+																			</div>
+																		</div>
+																		<div class="product-icon product-add-compare">
+																			<div class="flag flag-compare flag-compare-60 action-flag">
+																				<a title="Compare" type="button" class="use-ajax flag-link" rel="nofollow" onclick="compare.add('{{ product.product_id }}');">
+																					<i class="ti-control-shuffle"></i>
+																					<span class="flag-title">{{ button_compare }}</span>
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+
 																<!--remove which list -->
 															</div>
+               
 															<div class="product-meta-wrap">
 																<div class="product-meta">
 																	<div class="product-ratings">

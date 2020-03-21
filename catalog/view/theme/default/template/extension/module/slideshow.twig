@@ -1,85 +1,104 @@
 <div class="swiper-viewport" style="display: none">
-  <div id="slideshow{{ module }}" class="swiper-container">
-    <div class="swiper-wrapper"> {% for banner in banners %}
-      <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
-      {% endfor %} </div>
-  </div>
-  <div class="swiper-pagination slideshow{{ module }}"></div>
-  <div class="swiper-pager">
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
+	<div id="slideshow{{ module }}" class="swiper-container">
+		<div class="swiper-wrapper">
+			{% for banner in banners %}
+				<div class="swiper-slide text-center">
+					{% if banner.link %}
+						<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive"/></a>
+						{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive"/>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="swiper-pagination slideshow{{ module }}"></div>
+	<div class="swiper-pager">
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>
 </div>
 
 
 <!-- ############ Slide ################ -->
-<section id="content-wide-top" class="content-wide">  
+<section id="content-wide-top" class="content-wide">
 	<div class="region region-content-wide-top">
-		
-		<div id="block-home01-slider" class="fullwidth block-title-1 block-title-left block slide-block block-block-content block-block-content9848243d-b738-4214-b77b-16c936693f06" >
-		<div class="container-wrap clearfix">
+
+		<div id="block-home01-slider" class="fullwidth block-title-1 block-title-left block slide-block block-block-content block-block-content9848243d-b738-4214-b77b-16c936693f06">
+			<div class="container-wrap clearfix">
 
 
-		
-			<div class="hero slide-carousel owl-carousel" data-nav="true" data-items="1" data-dots="true" data-autoplay="true" data-autoplayspeed="1500" data-autoplaytimeout="8000" data-loop="true">
-						<div><div  data-history-node-id="159" role="article" about="/martis/en/slide/slide-3" >
-		
-		
-			<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_1.jpg" alt="Home 1 slide 1"/></div>
-				<div class="slide-content-wrap">
-				<div class="container slide-wrap">
-				<div class="slide-content ">
-				<div class="slide-content-main float-left text-left">
-						<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
-			<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
-					<div class="field-item">Bamm 100%  My Whey</div>
-				</div>
-		</div>
-								<div class="heading-text">
-						<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">Men Slim</div></div>
-					<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">be handsome &amp; Gentle</div></div>
-				</div>
-										<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
-				<a class="button slide-button-link" href="#">Shop now »</a>
-				</div>
+				<div class="hero slide-carousel owl-carousel" data-nav="true" data-items="1" data-dots="true" data-autoplay="true" data-autoplayspeed="1500" data-autoplaytimeout="8000" data-loop="true">
+					{% for banner in banners %}
+					<div>
+						<div data-history-node-id="159" role="article" about="/martis/en/slide/slide-3">
+
+							<div class="slide-image">
+								<img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_1.jpg" alt="Home 1 slide 1"/>
+							</div>
+							<div class="slide-content-wrap">
+								<div class="container slide-wrap">
+									<div class="slide-content ">
+										<div class="slide-content-main float-left text-left">
+											<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
+												<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
+													<div class="field-item">Bamm 100%  My Whey</div>
+												</div>
+											</div>
+											<div class="heading-text">
+												<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp">
+													<div class="heading-text-content">Men Slim</div>
+												</div>
+												<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp">
+													<div class="heading-text-content">be handsome &amp; Gentle</div>
+												</div>
+											</div>
+											<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
+												<a class="button slide-button-link" href="#">Shop now »</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a class="slide-content-link" href="#">view</a>
 						</div>
-				</div>
-				</div>
-			</div>
-					<a class="slide-content-link" href="#">view</a>
-			</div>
-		</div>
-				<div><div  data-history-node-id="174" role="article" about="/martis/en/slide/home-1-slide-2" >
-		
-		
-			<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_2.jpg" alt="Home 1 Slide 2"/></div>
-				<div class="slide-content-wrap">
-				<div class="container slide-wrap">
-				<div class="slide-content ">
-				<div class="slide-content-main float-center text-center">
-						<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
-			<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
-					<div class="field-item">Lean Whey Hers</div>
-				</div>
-		</div>
-								<div class="heading-text">
-						<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">Beautiful slim body</div></div>
-				</div>
-								<div class="slide-content-body" data-animation-in="slideInRight" data-animation-out="animate-out fadeOut">
-					<div class="field field-body field-type-text-with-summary field-label-hidden field-item"><p>Get your body slim with our product.</p></div>
-			</div>
-								<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
-				<a class="button slide-button-link" href="">Order Now »</a>
-				</div>
+					</div>
+					{% endfor %}
+					{# <div>
+						<div data-history-node-id="174" role="article" about="/martis/en/slide/home-1-slide-2">
+
+
+							<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_2.jpg" alt="Home 1 Slide 2"/></div>
+							<div class="slide-content-wrap">
+								<div class="container slide-wrap">
+									<div class="slide-content ">
+										<div class="slide-content-main float-center text-center">
+											<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
+												<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
+													<div class="field-item">Lean Whey Hers</div>
+												</div>
+											</div>
+											<div class="heading-text">
+												<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp">
+													<div class="heading-text-content">Beautiful slim body</div>
+												</div>
+											</div>
+											<div class="slide-content-body" data-animation-in="slideInRight" data-animation-out="animate-out fadeOut">
+												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+													<p>Get your body slim with our product.</p>
+												</div>
+											</div>
+											<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
+												<a class="button slide-button-link" href="">Order Now »</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-				</div>
+					</div> #}
+
 				</div>
 			</div>
-				</div>
-		</div>
-			
-			</div>
-		</div>
 		</div>
 	</div>
 </section>
@@ -158,7 +177,8 @@
 
 
 <!-- ###########Top-10-Category########### -->
-<section id="top-10" class="container">
+<section
+	id="top-10" class="container">
 	<!-- ###################### -->
 	<div class="top-category">
 		<div class="row">
@@ -387,11 +407,11 @@
 																</select>
 																<!-- <label class="form-field-title">Manufacturer</label> -->
 																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
-																																								<g fill="currentColor" fill-rule="evenodd">
-																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
-																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
-																																								</g>
-																																								</svg> -->
+																																																																								<g fill="currentColor" fill-rule="evenodd">
+																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																								</g>
+																																																																								</svg> -->
 															</div>
 														</div>
 														<br>
@@ -405,11 +425,11 @@
 																</select>
 																<!-- <label class="form-field-title">Manufacturer</label> -->
 																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
-																																									<g fill="currentColor" fill-rule="evenodd">
-																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
-																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
-																																									</g>
-																																								</svg> -->
+																																																																									<g fill="currentColor" fill-rule="evenodd">
+																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																									</g>
+																																																																								</svg> -->
 															</div>
 														</div>
 														<br>
@@ -422,11 +442,11 @@
 																</select>
 																<!-- <label class="form-field-title">Manufacturer</label> -->
 																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
-																																									<g fill="currentColor" fill-rule="evenodd">
-																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
-																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
-																																									</g>
-																																								</svg> -->
+																																																																									<g fill="currentColor" fill-rule="evenodd">
+																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																									</g>
+																																																																								</svg> -->
 															</div>
 														</div>
 														<br>
@@ -440,11 +460,11 @@
 																</select>
 																<!-- <label class="form-field-title">Manufacturer</label> -->
 																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
-																																									<g fill="currentColor" fill-rule="evenodd">
-																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
-																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
-																																									</g>
-																																								</svg> -->
+																																																																									<g fill="currentColor" fill-rule="evenodd">
+																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																									</g>
+																																																																								</svg> -->
 															</div>
 														</div>
 														<br>
@@ -457,20 +477,20 @@
 
 									<script type="text/javascript">
 										function DropDown_ShopBy_Category_onChange(arg_value) {
-												if (arg_value !== "") {
-												window.location.href = arg_value;
-												}
-												}
+if (arg_value !== "") {
+window.location.href = arg_value;
+}
+}
 									</script>
 								</div>
 
 
 								<script type="text/javascript">
 									function DropDown_ShopBy_Category_onChange(arg_value) {
-										if (arg_value !== "") {
-										window.location.href = arg_value;
-										}
-										}
+if (arg_value !== "") {
+window.location.href = arg_value;
+}
+}
 								</script>
 							</div>
 						</div>
@@ -485,17 +505,20 @@
 <!-- ###########End-Top-10-Category########### -->
 
 
-<script type="text/javascript"><!--
-$('#slideshow{{ module }}').swiper({
-	mode: 'horizontal',
-	slidesPerView: 1,
-	pagination: '.slideshow{{ module }}',
-	paginationClickable: true,
-	nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    spaceBetween: 30,
-	autoplay: 2500,
-    autoplayDisableOnInteraction: true,
-	loop: true
+<script
+	type="text/javascript">
+	<!--
+	$('#slideshow  {{ module }}').swiper({
+mode: 'horizontal',
+slidesPerView: 1,
+pagination: '.slideshow  {{ module }}',
+paginationClickable: true,
+nextButton: '.swiper-button-next',
+prevButton: '.swiper-button-prev',
+spaceBetween: 30,
+autoplay: 2500,
+autoplayDisableOnInteraction: true,
+loop: true
 });
---></script>
+	-->
+</script>
