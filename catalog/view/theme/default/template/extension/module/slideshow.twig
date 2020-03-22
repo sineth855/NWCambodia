@@ -65,7 +65,9 @@
 										</div>
 									</div>
 								</div>
-								<a class="slide-content-link" href="#">view</a>
+								{% if banner.link %}
+								<a class="slide-content-link" href="{{ banner.link }}">view</a>
+								{% endif %}
 							</div>
 						</div>
 					{% endfor %}
