@@ -1,24 +1,60 @@
 {% if languages|length > 1 %}
-<div class="pull-left">
-  <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
-    <div class="btn-group">
-      <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-      {% for language in languages %}
-      {% if language.code == code %} 
-      <img src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}">
-      {% endif %}
-      {% endfor %}
-      <span class="hidden-xs hidden-sm hidden-md">{{ text_language }}</span>&nbsp;<i class="fa fa-caret-down"></i></button>
-      <ul class="dropdown-menu">
-        {% for language in languages %}
-        <li>
-          <button class="btn btn-link btn-block language-select" type="button" name="{{ language.code }}"><img src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}" /> {{ language.name }}</button>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <input type="hidden" name="code" value="" />
-    <input type="hidden" name="redirect" value="{{ redirect }}" />
-  </form>
-</div>
+	<div class="pull-left" style="display: none;">
+		<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
+			<div class="btn-group">
+				<button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+					{% for language in languages %}
+						{% if language.code == code %}
+							<img src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}">
+						{% endif %}
+					{% endfor %}
+					<span class="hidden-xs hidden-sm hidden-md">{{ text_language }}</span>&nbsp;<i class="fa fa-caret-down"></i>
+				</button>
+				<ul class="dropdown-menu">
+					{% for language in languages %}
+						<li>
+							<button class="btn btn-link btn-block language-select" type="button" name="{{ language.code }}"><img src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}"/>
+								{{ language.name }}</button>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<input type="hidden" name="code" value=""/>
+			<input type="hidden" name="redirect" value="{{ redirect }}"/>
+		</form>
+	</div>
+{% endif %}
+
+{% if languages|length > 1 %}
+	<div id="block-language-dropdown-switcher" class="norm-width block-title-1 block-title-left block block-lang-dropdown block-language-dropdown-blocklanguage-interface">
+		<div class="container-wrap clearfix">
+			<div class="block-content clearfix">
+				<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
+					<div class="form-item js-form-item form-type-select js-form-type-select form-item-lang-dropdown-select js-form-item-lang-dropdown-select form-no-label">
+						<label for="edit-lang-dropdown-select" class="control-label sr-only">
+							Select your language
+						</label>
+						<div
+							class="select-wrapper">
+							<!-- <select style="width:165px" class="lang-dropdown-select-element form-select form-control" id="lang-dropdown-select-lang_dropdown_form5e4d60d9aedfd0.47338846" data-drupal-selector="edit-lang-dropdown-select" name="lang_dropdown_select"><option
+													                              value="en" selected="selected">English</option><option
+													                              value="fr">French</option>
+													                          </select> -->
+							{% for language in languages %}
+								<a class="language-select" type="button" name="{{ language.code }}">
+                	{{ language.name }}
+									{# <img src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}"/> #}
+								</a> |
+							{% endfor %}
+							{# <a href=""><img width="25px" src="catalog/view/theme/default/image/kh.png"/></a>
+													|
+													<a href=""><img width="30px" src="catalog/view/theme/default/image/gb.png"/></a> #}
+						</div>
+					</div>
+					<input type="hidden" name="code" value=""/>
+					<input type="hidden" name="redirect" value="{{ redirect }}"/>
+				</form>
+			</div>
+		</div>
+	</div>
 {% endif %}

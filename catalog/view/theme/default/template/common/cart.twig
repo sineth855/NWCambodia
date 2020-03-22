@@ -1,4 +1,4 @@
-<div id="cart" class="btn-group btn-block">
+<div id="cart" class="btn-group btn-block" style="display:none;">
   <button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fa fa-shopping-cart"></i> <span id="cart-total">{{ text_items }}</span></button>
   <ul class="dropdown-menu pull-right">
     {% if products or vouchers %}
@@ -49,3 +49,59 @@
     {% endif %}
   </ul>
 </div>
+
+
+  <div class="header-item header-element">
+              <button class="header-element-item search-button" type="button" data-toggle="collapse"
+                data-target="#header-search" aria-expanded="false" aria-controls="header-search">
+                <i class="ti-search"></i>
+              </button>
+              <div class="header-element-item header-cart dark-cart_icon">
+                <div class="region region-header-cart">
+                  <div id="block-martis-cart" class="norm-width block-title-1 block-title-left block block-commerce-cart">
+                    <div class="container-wrap clearfix">
+                      <div class="block-content clearfix">
+                        <div class="cart--cart-block">
+                          <div class="cart-block--summary">
+                            <a class="cart-block--link__expand" href="/martis/en/cart">
+                              <i class="ti-shopping-cart"></i>
+                              <span class="cart-block--summary__count"> 1</span>
+                            </a>
+                          </div>
+                          <div class="cart-block--contents">
+                            <div class="cart-block--contents__inner">
+                              <div class="cart-block--contents__items">
+                                <div class="cart cart-block">
+                                  <div class="views-element-container">
+                                    <div class="js-view-dom-id-2877648bd34c6683fd60694b6d39912773e84bbec2e7937b2ff0b4be3ce844d9">
+                                      <table class="cols-0">
+                                        <tbody>
+                                          <tr>
+                                            <td class="views-field views-field-field-image"> <img
+                                                src="./catalog/view/theme/default/image/bamm.png" width="100"
+                                                height="100" alt="Bamm" typeof="foaf:Image" />
+                                            </td>
+                                            <td class="views-field views-field-title">Bamm - 7 US </td>
+                                            <td class="views-field views-field-quantity">1&nbsp;× </td>
+                                            <td class="views-field views-field-total-price__number">$59.95 </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="cart-block--contents__links cart-block-link">
+                                <a href="/martis/en/cart">Cart</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
