@@ -23,8 +23,7 @@ class ControllerExtensionModuleBanner extends Controller {
 					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
 					// 'image' => $this->model_tool_image->resize($result['image'], 300, 150)
 				);
-			}
-			print_r($data['banners']);
+			}			
 		}
 
 		$data['module'] = $module++;
