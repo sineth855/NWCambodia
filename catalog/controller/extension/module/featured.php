@@ -21,9 +21,11 @@ class ControllerExtensionModuleFeatured extends Controller {
 
 				if ($product_info) {
 					if ($product_info['image']) {
-						$image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+						// $image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+						$image = $this->model_tool_image->resize($product_info['image'], 480, 480);
 					} else {
-						$image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
+						// $image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
+						$image = $this->model_tool_image->resize('placeholder.png', 480, 480);
 					}
 
 					if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
