@@ -1,13 +1,14 @@
 html, body {
     font-style: normal !important;
     overflow-x: hidden;
-    background-color: #f9f9f9;
+    background-color: #ffffff !important;
   }
   body {
     position: relative
   }
   body *{
     font-style: normal;
+    font-weight: normal;
   }
 @media (max-width:768px){
     .bg-header{
@@ -121,8 +122,25 @@ html, body {
         height: 30px;
         margin-top: 17px;
     }
+
+    .cart-desktop{
+        display: none !important;
+    }
+    .cart-mobile{
+        display: block !important;
+    }
+    
 }
 
+.form-wrapper__returning-customer {
+    width: 48%;
+    float: left;
+}
+
+.form-wrapper__guest-checkout {
+    width: 48%;
+    float: right;
+}
 
 @media (max-width: 576px){
     
@@ -191,4 +209,39 @@ h2.timer{text-transform: uppercase; color: #ffffff;}
 }
 .row-top-category{
     padding-bottom: 10px;
+}
+
+#account-register {
+    padding-bottom: 50px;
+}
+
+input, select, textarea{
+    border: 1px solid #b8b8b8 !important;
+}
+input.search{
+    border: none !important;
+}
+
+[type="checkbox"] {
+    position: inherit;
+    left: -9999px;
+    visibility: visible;
+}
+span.pull-left, .pull-left{
+    float: left;
+}
+span.pull-right, .pull-right{
+    float: right;
+}
+.padding-left-15{
+    padding-left: 15px;
+}
+.dropdown-menu{
+    min-width: 20rem !important;
+}
+.cart-desktop{
+    display: block;
+}
+.cart-mobile{
+    display: none;
 }

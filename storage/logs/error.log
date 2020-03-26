@@ -35,3 +35,23 @@
 2020-03-08 11:11:42 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 57
 2020-03-08 11:11:42 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 59
 2020-03-17 2:26:49 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\SIM SINETH\Project\Web\personal\NWCambodia\system\library\mail\mail.php on line 77
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177

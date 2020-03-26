@@ -1,0 +1,1907 @@
+{{ header }}
+<!-- breadcrumb -->
+<section id="page-title" class="page-title dark-page-title">
+  <div class="container">
+    <div class="region region-page-title">
+      <div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix">
+            <h1>{{heading_title}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-left region region-breadcrumb">
+      <div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix"> 
+            <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+              <!-- <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2> -->
+              <ul>
+                {% for breadcrumb in breadcrumbs %}
+                  <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div style="display: none;" id="checkout-checkout" class="container">
+  <!-- <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul> -->
+  {% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_option }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-checkout-option">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% if not logged and account != 'guest' %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_account }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-payment-address">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% else %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_payment_address }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-payment-address">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% endif %}
+        {% if shipping_required %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-shipping-address">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-shipping-method">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% endif %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-payment-method">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_confirm }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-checkout-confirm">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+
+<!-- Check Out Page -->
+<!-- layout -->
+<section id="page-wrapper" class="page-wrapper">
+		<div class="container">
+			<div class="row content-layout">
+			  
+			  			  <!--- Start content -->
+				<div class="col-md-12 main-content">
+					  <div class="region region-content">
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+<div id="block-checkout-progress" class="norm-width block-title-1 block-title-left block block-commerce-checkout block-commerce-checkout-progress" >
+<div class="container-wrap clearfix">
+  
+    
+        <div class="block-content clearfix"><ol class="checkout-progress clearfix">
+        <li class="checkout-progress--step checkout-progress--step__previous">Login</li>
+        <li class="checkout-progress--step checkout-progress--step__current">Order information</li>
+        <li class="checkout-progress--step checkout-progress--step__next">Review</li>
+        <li class="checkout-progress--step checkout-progress--step__next">Complete</li>
+  </ol>
+</div>
+  </div>
+</div>
+<div id="block-martis-content--3" class="norm-width block-title-1 block-title-left block block-system block-system-main-block" >
+<div class="container-wrap clearfix">
+  
+    
+        <div class="block-content clearfix"><form class="commerce-checkout-flow-multistep-default commerce-checkout-flow" data-drupal-selector="commerce-checkout-flow-multistep-default" action="/martis/en/checkout/35/order_information" method="post" id="commerce-checkout-flow-multistep-default" accept-charset="UTF-8">
+  <div class="layout-checkout-form clearfix">
+  <div class="row">
+    <div class="layout-region layout-region-checkout-main col-xs-12 col-md-7">
+      <fieldset class="checkout-pane checkout-pane-contact-information js-form-item form-item js-form-wrapper form-wrapper" data-drupal-selector="edit-contact-information" id="edit-contact-information">
+      <legend>
+    <span class="fieldset-legend">Contact information</span>
+  </legend>
+  <div class="fieldset-wrapper">
+            <div class="form-item js-form-item form-type-email js-form-type-email form-item-contact-information-email js-form-item-contact-information-email">
+      <label for="edit-contact-information-email" class="control-label js-form-required form-required">Email</label>
+  
+  
+  <input data-drupal-selector="edit-contact-information-email" type="email" id="edit-contact-information-email" name="contact_information[email]" value="" size="60" maxlength="254" class="form-email required" required="required" aria-required="true" />
+
+  
+  
+  </div>
+
+
+          </div>
+</fieldset>
+<div id="shipping-information-wrapper"><fieldset class="checkout-pane checkout-pane-shipping-information js-form-item form-item js-form-wrapper form-wrapper" data-drupal-selector="edit-shipping-information" id="edit-shipping-information">
+      <legend>
+    <span class="fieldset-legend">Shipping information</span>
+  </legend>
+  <div class="fieldset-wrapper">
+            <div data-drupal-selector="edit-shipping-information-shipping-profile" id="edit-shipping-information-shipping-profile" class="js-form-wrapper form-wrapper"><div class="field--type-address field--name-address field--widget-address-default js-form-wrapper form-wrapper" data-drupal-selector="edit-shipping-information-shipping-profile-address-wrapper" id="edit-shipping-information-shipping-profile-address-wrapper">
+      <div data-drupal-selector="edit-shipping-information-shipping-profile-address-0" id="edit-shipping-information-shipping-profile-address-0" class="js-form-wrapper form-wrapper"><div id="shipping-information-shipping-profile-address-0-address-ajax-wrapper"><div data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address" id="edit-shipping-information-shipping-profile-address-0-address" class="js-form-wrapper form-wrapper"><div data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-country-code" id="edit-shipping-information-shipping-profile-address-0-address-country-code" class="js-form-wrapper form-wrapper"><div class="form-item js-form-item form-type-select js-form-type-select form-item-shipping-information-shipping-profile-address-0-address-country-code js-form-item-shipping-information-shipping-profile-address-0-address-country-code">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-country-code--2" class="control-label js-form-required form-required">Country</label>
+  
+  
+  <div class="select-wrapper"><select class="country form-select required form-control" autocomplete="country" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-country-code" id="edit-shipping-information-shipping-profile-address-0-address-country-code--2" name="shipping_information[shipping_profile][address][0][address][country_code]" required="required" aria-required="true"><option
+            value="AF">Afghanistan</option><option
+            value="AX">Åland Islands</option><option
+            value="AL">Albania</option><option
+            value="DZ">Algeria</option><option
+            value="AS">American Samoa</option><option
+            value="AD">Andorra</option><option
+            value="AO">Angola</option><option
+            value="AI">Anguilla</option><option
+            value="AQ">Antarctica</option><option
+            value="AG">Antigua &amp; Barbuda</option><option
+            value="AR">Argentina</option><option
+            value="AM">Armenia</option><option
+            value="AW">Aruba</option><option
+            value="AC">Ascension Island</option><option
+            value="AU">Australia</option><option
+            value="AT">Austria</option><option
+            value="AZ">Azerbaijan</option><option
+            value="BS">Bahamas</option><option
+            value="BH">Bahrain</option><option
+            value="BD">Bangladesh</option><option
+            value="BB">Barbados</option><option
+            value="BY">Belarus</option><option
+            value="BE">Belgium</option><option
+            value="BZ">Belize</option><option
+            value="BJ">Benin</option><option
+            value="BM">Bermuda</option><option
+            value="BT">Bhutan</option><option
+            value="BO">Bolivia</option><option
+            value="BA">Bosnia &amp; Herzegovina</option><option
+            value="BW">Botswana</option><option
+            value="BV">Bouvet Island</option><option
+            value="BR">Brazil</option><option
+            value="IO">British Indian Ocean Territory</option><option
+            value="VG">British Virgin Islands</option><option
+            value="BN">Brunei</option><option
+            value="BG">Bulgaria</option><option
+            value="BF">Burkina Faso</option><option
+            value="BI">Burundi</option><option
+            value="KH">Cambodia</option><option
+            value="CM">Cameroon</option><option
+            value="CA">Canada</option><option
+            value="IC">Canary Islands</option><option
+            value="CV">Cape Verde</option><option
+            value="BQ">Caribbean Netherlands</option><option
+            value="KY">Cayman Islands</option><option
+            value="CF">Central African Republic</option><option
+            value="EA">Ceuta &amp; Melilla</option><option
+            value="TD">Chad</option><option
+            value="CL">Chile</option><option
+            value="CN">China</option><option
+            value="CX">Christmas Island</option><option
+            value="CP">Clipperton Island</option><option
+            value="CC">Cocos (Keeling) Islands</option><option
+            value="CO">Colombia</option><option
+            value="KM">Comoros</option><option
+            value="CG">Congo - Brazzaville</option><option
+            value="CD">Congo - Kinshasa</option><option
+            value="CK">Cook Islands</option><option
+            value="CR">Costa Rica</option><option
+            value="CI">Côte d’Ivoire</option><option
+            value="HR">Croatia</option><option
+            value="CU">Cuba</option><option
+            value="CW">Curaçao</option><option
+            value="CY">Cyprus</option><option
+            value="CZ">Czechia</option><option
+            value="DK">Denmark</option><option
+            value="DG">Diego Garcia</option><option
+            value="DJ">Djibouti</option><option
+            value="DM">Dominica</option><option
+            value="DO">Dominican Republic</option><option
+            value="EC">Ecuador</option><option
+            value="EG">Egypt</option><option
+            value="SV">El Salvador</option><option
+            value="GQ">Equatorial Guinea</option><option
+            value="ER">Eritrea</option><option
+            value="EE">Estonia</option><option
+            value="SZ">Eswatini</option><option
+            value="ET">Ethiopia</option><option
+            value="FK">Falkland Islands</option><option
+            value="FO">Faroe Islands</option><option
+            value="FJ">Fiji</option><option
+            value="FI">Finland</option><option
+            value="FR">France</option><option
+            value="GF">French Guiana</option><option
+            value="PF">French Polynesia</option><option
+            value="TF">French Southern Territories</option><option
+            value="GA">Gabon</option><option
+            value="GM">Gambia</option><option
+            value="GE">Georgia</option><option
+            value="DE">Germany</option><option
+            value="GH">Ghana</option><option
+            value="GI">Gibraltar</option><option
+            value="GR">Greece</option><option
+            value="GL">Greenland</option><option
+            value="GD">Grenada</option><option
+            value="GP">Guadeloupe</option><option
+            value="GU">Guam</option><option
+            value="GT">Guatemala</option><option
+            value="GG">Guernsey</option><option
+            value="GN">Guinea</option><option
+            value="GW">Guinea-Bissau</option><option
+            value="GY">Guyana</option><option
+            value="HT">Haiti</option><option
+            value="HM">Heard &amp; McDonald Islands</option><option
+            value="HN">Honduras</option><option
+            value="HK">Hong Kong SAR China</option><option
+            value="HU">Hungary</option><option
+            value="IS">Iceland</option><option
+            value="IN">India</option><option
+            value="ID">Indonesia</option><option
+            value="IR">Iran</option><option
+            value="IQ">Iraq</option><option
+            value="IE">Ireland</option><option
+            value="IM">Isle of Man</option><option
+            value="IL">Israel</option><option
+            value="IT">Italy</option><option
+            value="JM">Jamaica</option><option
+            value="JP">Japan</option><option
+            value="JE">Jersey</option><option
+            value="JO">Jordan</option><option
+            value="KZ">Kazakhstan</option><option
+            value="KE">Kenya</option><option
+            value="KI">Kiribati</option><option
+            value="XK">Kosovo</option><option
+            value="KW">Kuwait</option><option
+            value="KG">Kyrgyzstan</option><option
+            value="LA">Laos</option><option
+            value="LV">Latvia</option><option
+            value="LB">Lebanon</option><option
+            value="LS">Lesotho</option><option
+            value="LR">Liberia</option><option
+            value="LY">Libya</option><option
+            value="LI">Liechtenstein</option><option
+            value="LT">Lithuania</option><option
+            value="LU">Luxembourg</option><option
+            value="MO">Macao SAR China</option><option
+            value="MG">Madagascar</option><option
+            value="MW">Malawi</option><option
+            value="MY">Malaysia</option><option
+            value="MV">Maldives</option><option
+            value="ML">Mali</option><option
+            value="MT">Malta</option><option
+            value="MH">Marshall Islands</option><option
+            value="MQ">Martinique</option><option
+            value="MR">Mauritania</option><option
+            value="MU">Mauritius</option><option
+            value="YT">Mayotte</option><option
+            value="MX">Mexico</option><option
+            value="FM">Micronesia</option><option
+            value="MD">Moldova</option><option
+            value="MC">Monaco</option><option
+            value="MN">Mongolia</option><option
+            value="ME">Montenegro</option><option
+            value="MS">Montserrat</option><option
+            value="MA">Morocco</option><option
+            value="MZ">Mozambique</option><option
+            value="MM">Myanmar (Burma)</option><option
+            value="NA">Namibia</option><option
+            value="NR">Nauru</option><option
+            value="NP">Nepal</option><option
+            value="NL">Netherlands</option><option
+            value="NC">New Caledonia</option><option
+            value="NZ">New Zealand</option><option
+            value="NI">Nicaragua</option><option
+            value="NE">Niger</option><option
+            value="NG">Nigeria</option><option
+            value="NU">Niue</option><option
+            value="NF">Norfolk Island</option><option
+            value="KP">North Korea</option><option
+            value="MK">North Macedonia</option><option
+            value="MP">Northern Mariana Islands</option><option
+            value="NO">Norway</option><option
+            value="OM">Oman</option><option
+            value="PK">Pakistan</option><option
+            value="PW">Palau</option><option
+            value="PS">Palestinian Territories</option><option
+            value="PA">Panama</option><option
+            value="PG">Papua New Guinea</option><option
+            value="PY">Paraguay</option><option
+            value="PE">Peru</option><option
+            value="PH">Philippines</option><option
+            value="PN">Pitcairn Islands</option><option
+            value="PL">Poland</option><option
+            value="PT">Portugal</option><option
+            value="PR">Puerto Rico</option><option
+            value="QA">Qatar</option><option
+            value="RE">Réunion</option><option
+            value="RO">Romania</option><option
+            value="RU">Russia</option><option
+            value="RW">Rwanda</option><option
+            value="WS">Samoa</option><option
+            value="SM">San Marino</option><option
+            value="ST">São Tomé &amp; Príncipe</option><option
+            value="SA">Saudi Arabia</option><option
+            value="SN">Senegal</option><option
+            value="RS">Serbia</option><option
+            value="SC">Seychelles</option><option
+            value="SL">Sierra Leone</option><option
+            value="SG">Singapore</option><option
+            value="SX">Sint Maarten</option><option
+            value="SK">Slovakia</option><option
+            value="SI">Slovenia</option><option
+            value="SB">Solomon Islands</option><option
+            value="SO">Somalia</option><option
+            value="ZA">South Africa</option><option
+            value="GS">South Georgia &amp; South Sandwich Islands</option><option
+            value="KR">South Korea</option><option
+            value="SS">South Sudan</option><option
+            value="ES">Spain</option><option
+            value="LK">Sri Lanka</option><option
+            value="BL">St. Barthélemy</option><option
+            value="SH">St. Helena</option><option
+            value="KN">St. Kitts &amp; Nevis</option><option
+            value="LC">St. Lucia</option><option
+            value="MF">St. Martin</option><option
+            value="PM">St. Pierre &amp; Miquelon</option><option
+            value="VC">St. Vincent &amp; Grenadines</option><option
+            value="SD">Sudan</option><option
+            value="SR">Suriname</option><option
+            value="SJ">Svalbard &amp; Jan Mayen</option><option
+            value="SE">Sweden</option><option
+            value="CH">Switzerland</option><option
+            value="SY">Syria</option><option
+            value="TW">Taiwan</option><option
+            value="TJ">Tajikistan</option><option
+            value="TZ">Tanzania</option><option
+            value="TH">Thailand</option><option
+            value="TL">Timor-Leste</option><option
+            value="TG">Togo</option><option
+            value="TK">Tokelau</option><option
+            value="TO">Tonga</option><option
+            value="TT">Trinidad &amp; Tobago</option><option
+            value="TA">Tristan da Cunha</option><option
+            value="TN">Tunisia</option><option
+            value="TR">Turkey</option><option
+            value="TM">Turkmenistan</option><option
+            value="TC">Turks &amp; Caicos Islands</option><option
+            value="TV">Tuvalu</option><option
+            value="UM">U.S. Outlying Islands</option><option
+            value="VI">U.S. Virgin Islands</option><option
+            value="UG">Uganda</option><option
+            value="UA">Ukraine</option><option
+            value="AE">United Arab Emirates</option><option
+            value="GB">United Kingdom</option><option
+            value="US" selected="selected">United States</option><option
+            value="UY">Uruguay</option><option
+            value="UZ">Uzbekistan</option><option
+            value="VU">Vanuatu</option><option
+            value="VA">Vatican City</option><option
+            value="VE">Venezuela</option><option
+            value="VN">Vietnam</option><option
+            value="WF">Wallis &amp; Futuna</option><option
+            value="EH">Western Sahara</option><option
+            value="YE">Yemen</option><option
+            value="ZM">Zambia</option><option
+            value="ZW">Zimbabwe</option></select></div>
+
+  
+  
+  </div>
+</div>
+<input data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-langcode" type="hidden" name="shipping_information[shipping_profile][address][0][address][langcode]" value="en" /><div class="address-container-inline js-form-wrapper form-wrapper" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-container0" id="edit-shipping-information-shipping-profile-address-0-address-container0"><div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-shipping-information-shipping-profile-address-0-address-given-name js-form-item-shipping-information-shipping-profile-address-0-address-given-name">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-given-name" class="control-label js-form-required form-required">First name</label>
+  
+  
+  <input class="given-name form-text required" autocomplete="given-name" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-given-name" type="text" id="edit-shipping-information-shipping-profile-address-0-address-given-name" name="shipping_information[shipping_profile][address][0][address][given_name]" value="" size="25" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-shipping-information-shipping-profile-address-0-address-family-name js-form-item-shipping-information-shipping-profile-address-0-address-family-name">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-family-name" class="control-label js-form-required form-required">Last name</label>
+  
+  
+  <input class="family-name form-text required" autocomplete="family-name" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-family-name" type="text" id="edit-shipping-information-shipping-profile-address-0-address-family-name" name="shipping_information[shipping_profile][address][0][address][family_name]" value="" size="25" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+</div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-shipping-information-shipping-profile-address-0-address-organization js-form-item-shipping-information-shipping-profile-address-0-address-organization">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-organization" class="control-label">Company</label>
+  
+  
+  <input class="organization form-text" autocomplete="organization" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-organization" type="text" id="edit-shipping-information-shipping-profile-address-0-address-organization" name="shipping_information[shipping_profile][address][0][address][organization]" value="" size="60" maxlength="128" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-shipping-information-shipping-profile-address-0-address-address-line1 js-form-item-shipping-information-shipping-profile-address-0-address-address-line1">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-address-line1" class="control-label js-form-required form-required">Street address</label>
+  
+  
+  <input class="address-line1 form-text required" autocomplete="address-line1" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-address-line1" type="text" id="edit-shipping-information-shipping-profile-address-0-address-address-line1" name="shipping_information[shipping_profile][address][0][address][address_line1]" value="" size="60" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-shipping-information-shipping-profile-address-0-address-address-line2 js-form-item-shipping-information-shipping-profile-address-0-address-address-line2 form-no-label">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-address-line2" class="control-label sr-only">Street address line 2</label>
+  
+  
+  <input class="address-line2 form-text" autocomplete="address-line2" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-address-line2" type="text" id="edit-shipping-information-shipping-profile-address-0-address-address-line2" name="shipping_information[shipping_profile][address][0][address][address_line2]" value="" size="60" maxlength="128" />
+
+  
+  
+  </div>
+<div class="address-container-inline js-form-wrapper form-wrapper" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-container4" id="edit-shipping-information-shipping-profile-address-0-address-container4"><div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-shipping-information-shipping-profile-address-0-address-locality js-form-item-shipping-information-shipping-profile-address-0-address-locality">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-locality" class="control-label js-form-required form-required">City</label>
+  
+  
+  <input class="locality form-text required" autocomplete="address-level2" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-locality" type="text" id="edit-shipping-information-shipping-profile-address-0-address-locality" name="shipping_information[shipping_profile][address][0][address][locality]" value="" size="30" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-select js-form-type-select form-item-shipping-information-shipping-profile-address-0-address-administrative-area js-form-item-shipping-information-shipping-profile-address-0-address-administrative-area">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-administrative-area" class="control-label js-form-required form-required">State</label>
+  
+  
+  <div class="select-wrapper"><select class="administrative-area form-select required form-control" autocomplete="address-level1" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-administrative-area" id="edit-shipping-information-shipping-profile-address-0-address-administrative-area" name="shipping_information[shipping_profile][address][0][address][administrative_area]" required="required" aria-required="true"><option
+            value="" selected="selected">- Select -</option><option
+            value="AL">Alabama</option><option
+            value="AK">Alaska</option><option
+            value="AS">American Samoa</option><option
+            value="AZ">Arizona</option><option
+            value="AR">Arkansas</option><option
+            value="AA">Armed Forces (AA)</option><option
+            value="AE">Armed Forces (AE)</option><option
+            value="AP">Armed Forces (AP)</option><option
+            value="CA">California</option><option
+            value="CO">Colorado</option><option
+            value="CT">Connecticut</option><option
+            value="DE">Delaware</option><option
+            value="DC">District of Columbia</option><option
+            value="FL">Florida</option><option
+            value="GA">Georgia</option><option
+            value="GU">Guam</option><option
+            value="HI">Hawaii</option><option
+            value="ID">Idaho</option><option
+            value="IL">Illinois</option><option
+            value="IN">Indiana</option><option
+            value="IA">Iowa</option><option
+            value="KS">Kansas</option><option
+            value="KY">Kentucky</option><option
+            value="LA">Louisiana</option><option
+            value="ME">Maine</option><option
+            value="MH">Marshall Islands</option><option
+            value="MD">Maryland</option><option
+            value="MA">Massachusetts</option><option
+            value="MI">Michigan</option><option
+            value="FM">Micronesia</option><option
+            value="MN">Minnesota</option><option
+            value="MS">Mississippi</option><option
+            value="MO">Missouri</option><option
+            value="MT">Montana</option><option
+            value="NE">Nebraska</option><option
+            value="NV">Nevada</option><option
+            value="NH">New Hampshire</option><option
+            value="NJ">New Jersey</option><option
+            value="NM">New Mexico</option><option
+            value="NY">New York</option><option
+            value="NC">North Carolina</option><option
+            value="ND">North Dakota</option><option
+            value="MP">Northern Mariana Islands</option><option
+            value="OH">Ohio</option><option
+            value="OK">Oklahoma</option><option
+            value="OR">Oregon</option><option
+            value="PW">Palau</option><option
+            value="PA">Pennsylvania</option><option
+            value="PR">Puerto Rico</option><option
+            value="RI">Rhode Island</option><option
+            value="SC">South Carolina</option><option
+            value="SD">South Dakota</option><option
+            value="TN">Tennessee</option><option
+            value="TX">Texas</option><option
+            value="UT">Utah</option><option
+            value="VT">Vermont</option><option
+            value="VI">Virgin Islands</option><option
+            value="VA">Virginia</option><option
+            value="WA">Washington</option><option
+            value="WV">West Virginia</option><option
+            value="WI">Wisconsin</option><option
+            value="WY">Wyoming</option></select></div>
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-shipping-information-shipping-profile-address-0-address-postal-code js-form-item-shipping-information-shipping-profile-address-0-address-postal-code">
+      <label for="edit-shipping-information-shipping-profile-address-0-address-postal-code" class="control-label js-form-required form-required">Zip code</label>
+  
+  
+  <input class="postal-code form-text required" autocomplete="postal-code" data-drupal-selector="edit-shipping-information-shipping-profile-address-0-address-postal-code" type="text" id="edit-shipping-information-shipping-profile-address-0-address-postal-code" name="shipping_information[shipping_profile][address][0][address][postal_code]" value="" size="10" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+</div>
+</div>
+</div></div>
+
+  </div>
+</div>
+<input data-drupal-selector="edit-shipping-information-recalculate-shipping" formnovalidate="formnovalidate" type="submit" id="edit-shipping-information-recalculate-shipping" name="op" value="Recalculate shipping" class="button js-form-submit form-submit" /><div data-drupal-selector="edit-shipping-information-shipments" id="edit-shipping-information-shipments" class="js-form-wrapper form-wrapper"></div>
+
+
+          </div>
+</fieldset>
+</div><fieldset class="checkout-pane checkout-pane-payment-information js-form-item form-item js-form-wrapper form-wrapper" data-drupal-selector="edit-payment-information" id="edit-payment-information">
+      <legend>
+    <span class="fieldset-legend">Payment information</span>
+  </legend>
+  <div class="fieldset-wrapper">
+            <fieldset data-drupal-selector="edit-payment-information-payment-method" id="edit-payment-information-payment-method--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper">
+      <legend>
+    <span class="fieldset-legend">Payment method</span>
+  </legend>
+  <div class="fieldset-wrapper">
+            <div id="edit-payment-information-payment-method" class="radios"><div class="form-item js-form-item form-type-radio js-form-type-radio form-item-payment-information-payment-method js-form-item-payment-information-payment-method">
+  
+  
+  <input class="payment-method--new form-radio" data-drupal-selector="edit-payment-information-payment-method-new-credit-card-example-credit-card" type="radio" id="edit-payment-information-payment-method-new-credit-card-example-credit-card" name="payment_information[payment_method]" value="new--credit_card--example_credit_card" checked="checked" />
+
+      <label for="edit-payment-information-payment-method-new-credit-card-example-credit-card" class="control-label option">Credit card</label>
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-radio js-form-type-radio form-item-payment-information-payment-method js-form-item-payment-information-payment-method">
+  
+  
+  <input class="payment-method--new form-radio" data-drupal-selector="edit-payment-information-payment-method-cash-on-delivery" type="radio" id="edit-payment-information-payment-method-cash-on-delivery" name="payment_information[payment_method]" value="cash_on_delivery" />
+
+      <label for="edit-payment-information-payment-method-cash-on-delivery" class="control-label option">Cash on delivery</label>
+  
+  
+  </div>
+</div>
+          </div>
+</fieldset>
+<div data-drupal-selector="edit-payment-information-add-payment-method" id="edit-payment-information-add-payment-method" class="js-form-wrapper form-wrapper"><div class="credit-card-form js-form-wrapper form-wrapper" data-drupal-selector="edit-payment-information-add-payment-method-payment-details" id="edit-payment-information-add-payment-method-payment-details"><input data-drupal-selector="edit-payment-information-add-payment-method-payment-details-type" type="hidden" name="payment_information[add_payment_method][payment_details][type]" value="" /><div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-payment-details-number js-form-item-payment-information-add-payment-method-payment-details-number">
+      <label for="edit-payment-information-add-payment-method-payment-details-number" class="control-label js-form-required form-required">Card number</label>
+  
+  
+  <input autocomplete="off" data-drupal-selector="edit-payment-information-add-payment-method-payment-details-number" type="text" id="edit-payment-information-add-payment-method-payment-details-number" name="payment_information[add_payment_method][payment_details][number]" value="4111111111111111" size="20" maxlength="19" class="form-text required" required="required" aria-required="true" />
+
+  
+  
+  </div>
+<div class="credit-card-form__expiration js-form-wrapper form-wrapper" data-drupal-selector="edit-payment-information-add-payment-method-payment-details-expiration" id="edit-payment-information-add-payment-method-payment-details-expiration"><div class="form-item js-form-item form-type-select js-form-type-select form-item-payment-information-add-payment-method-payment-details-expiration-month js-form-item-payment-information-add-payment-method-payment-details-expiration-month">
+      <label for="edit-payment-information-add-payment-method-payment-details-expiration-month" class="control-label js-form-required form-required">Month</label>
+  
+  
+  <div class="select-wrapper"><select data-drupal-selector="edit-payment-information-add-payment-method-payment-details-expiration-month" id="edit-payment-information-add-payment-method-payment-details-expiration-month" name="payment_information[add_payment_method][payment_details][expiration][month]" class="form-select required form-control" required="required" aria-required="true"><option
+            value="01">01</option><option
+            value="02">02</option><option
+            value="03" selected="selected">03</option><option
+            value="04">04</option><option
+            value="05">05</option><option
+            value="06">06</option><option
+            value="07">07</option><option
+            value="08">08</option><option
+            value="09">09</option><option
+            value="10">10</option><option
+            value="11">11</option><option
+            value="12">12</option></select></div>
+
+  
+  
+  </div>
+<div id="edit-payment-information-add-payment-method-payment-details-expiration-divider" class="form-item js-form-item form-type-item js-form-type-item form-item-payment-information-add-payment-method-payment-details-expiration-divider js-form-item-payment-information-add-payment-method-payment-details-expiration-divider">
+      
+  
+  
+  <span class="credit-card-form__divider">/</span>
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-select js-form-type-select form-item-payment-information-add-payment-method-payment-details-expiration-year js-form-item-payment-information-add-payment-method-payment-details-expiration-year">
+      <label for="edit-payment-information-add-payment-method-payment-details-expiration-year" class="control-label js-form-required form-required">Year</label>
+  
+  
+  <div class="select-wrapper"><select data-drupal-selector="edit-payment-information-add-payment-method-payment-details-expiration-year" id="edit-payment-information-add-payment-method-payment-details-expiration-year" name="payment_information[add_payment_method][payment_details][expiration][year]" class="form-select required form-control" required="required" aria-required="true"><option
+            value="2020" selected="selected">20</option><option
+            value="2021">21</option><option
+            value="2022">22</option><option
+            value="2023">23</option><option
+            value="2024">24</option><option
+            value="2025">25</option><option
+            value="2026">26</option><option
+            value="2027">27</option><option
+            value="2028">28</option><option
+            value="2029">29</option></select></div>
+
+  
+  
+  </div>
+</div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-payment-details-security-code js-form-item-payment-information-add-payment-method-payment-details-security-code">
+      <label for="edit-payment-information-add-payment-method-payment-details-security-code" class="control-label js-form-required form-required">CVV</label>
+  
+  
+  <input autocomplete="off" data-drupal-selector="edit-payment-information-add-payment-method-payment-details-security-code" type="text" id="edit-payment-information-add-payment-method-payment-details-security-code" name="payment_information[add_payment_method][payment_details][security_code]" value="" size="4" maxlength="4" class="form-text required" required="required" aria-required="true" />
+
+  
+  
+  </div>
+</div>
+<div data-drupal-selector="edit-payment-information-add-payment-method-billing-information" id="edit-payment-information-add-payment-method-billing-information" class="js-form-wrapper form-wrapper"><div class="field--type-address field--name-address field--widget-address-default js-form-wrapper form-wrapper" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-wrapper" id="edit-payment-information-add-payment-method-billing-information-address-wrapper">
+      <div data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0" id="edit-payment-information-add-payment-method-billing-information-address-0" class="js-form-wrapper form-wrapper"><div id="payment-information-add-payment-method-billing-information-address-0-address-ajax-wrapper"><div data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address" id="edit-payment-information-add-payment-method-billing-information-address-0-address" class="js-form-wrapper form-wrapper"><div data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-country-code" id="edit-payment-information-add-payment-method-billing-information-address-0-address-country-code" class="js-form-wrapper form-wrapper"><div class="form-item js-form-item form-type-select js-form-type-select form-item-payment-information-add-payment-method-billing-information-address-0-address-country-code js-form-item-payment-information-add-payment-method-billing-information-address-0-address-country-code">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-country-code--2" class="control-label js-form-required form-required">Country</label>
+  
+  
+  <div class="select-wrapper"><select class="country form-select required form-control" autocomplete="country" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-country-code" id="edit-payment-information-add-payment-method-billing-information-address-0-address-country-code--2" name="payment_information[add_payment_method][billing_information][address][0][address][country_code]" required="required" aria-required="true"><option
+            value="AF">Afghanistan</option><option
+            value="AX">Åland Islands</option><option
+            value="AL">Albania</option><option
+            value="DZ">Algeria</option><option
+            value="AS">American Samoa</option><option
+            value="AD">Andorra</option><option
+            value="AO">Angola</option><option
+            value="AI">Anguilla</option><option
+            value="AQ">Antarctica</option><option
+            value="AG">Antigua &amp; Barbuda</option><option
+            value="AR">Argentina</option><option
+            value="AM">Armenia</option><option
+            value="AW">Aruba</option><option
+            value="AC">Ascension Island</option><option
+            value="AU">Australia</option><option
+            value="AT">Austria</option><option
+            value="AZ">Azerbaijan</option><option
+            value="BS">Bahamas</option><option
+            value="BH">Bahrain</option><option
+            value="BD">Bangladesh</option><option
+            value="BB">Barbados</option><option
+            value="BY">Belarus</option><option
+            value="BE">Belgium</option><option
+            value="BZ">Belize</option><option
+            value="BJ">Benin</option><option
+            value="BM">Bermuda</option><option
+            value="BT">Bhutan</option><option
+            value="BO">Bolivia</option><option
+            value="BA">Bosnia &amp; Herzegovina</option><option
+            value="BW">Botswana</option><option
+            value="BV">Bouvet Island</option><option
+            value="BR">Brazil</option><option
+            value="IO">British Indian Ocean Territory</option><option
+            value="VG">British Virgin Islands</option><option
+            value="BN">Brunei</option><option
+            value="BG">Bulgaria</option><option
+            value="BF">Burkina Faso</option><option
+            value="BI">Burundi</option><option
+            value="KH">Cambodia</option><option
+            value="CM">Cameroon</option><option
+            value="CA">Canada</option><option
+            value="IC">Canary Islands</option><option
+            value="CV">Cape Verde</option><option
+            value="BQ">Caribbean Netherlands</option><option
+            value="KY">Cayman Islands</option><option
+            value="CF">Central African Republic</option><option
+            value="EA">Ceuta &amp; Melilla</option><option
+            value="TD">Chad</option><option
+            value="CL">Chile</option><option
+            value="CN">China</option><option
+            value="CX">Christmas Island</option><option
+            value="CP">Clipperton Island</option><option
+            value="CC">Cocos (Keeling) Islands</option><option
+            value="CO">Colombia</option><option
+            value="KM">Comoros</option><option
+            value="CG">Congo - Brazzaville</option><option
+            value="CD">Congo - Kinshasa</option><option
+            value="CK">Cook Islands</option><option
+            value="CR">Costa Rica</option><option
+            value="CI">Côte d’Ivoire</option><option
+            value="HR">Croatia</option><option
+            value="CU">Cuba</option><option
+            value="CW">Curaçao</option><option
+            value="CY">Cyprus</option><option
+            value="CZ">Czechia</option><option
+            value="DK">Denmark</option><option
+            value="DG">Diego Garcia</option><option
+            value="DJ">Djibouti</option><option
+            value="DM">Dominica</option><option
+            value="DO">Dominican Republic</option><option
+            value="EC">Ecuador</option><option
+            value="EG">Egypt</option><option
+            value="SV">El Salvador</option><option
+            value="GQ">Equatorial Guinea</option><option
+            value="ER">Eritrea</option><option
+            value="EE">Estonia</option><option
+            value="SZ">Eswatini</option><option
+            value="ET">Ethiopia</option><option
+            value="FK">Falkland Islands</option><option
+            value="FO">Faroe Islands</option><option
+            value="FJ">Fiji</option><option
+            value="FI">Finland</option><option
+            value="FR">France</option><option
+            value="GF">French Guiana</option><option
+            value="PF">French Polynesia</option><option
+            value="TF">French Southern Territories</option><option
+            value="GA">Gabon</option><option
+            value="GM">Gambia</option><option
+            value="GE">Georgia</option><option
+            value="DE">Germany</option><option
+            value="GH">Ghana</option><option
+            value="GI">Gibraltar</option><option
+            value="GR">Greece</option><option
+            value="GL">Greenland</option><option
+            value="GD">Grenada</option><option
+            value="GP">Guadeloupe</option><option
+            value="GU">Guam</option><option
+            value="GT">Guatemala</option><option
+            value="GG">Guernsey</option><option
+            value="GN">Guinea</option><option
+            value="GW">Guinea-Bissau</option><option
+            value="GY">Guyana</option><option
+            value="HT">Haiti</option><option
+            value="HM">Heard &amp; McDonald Islands</option><option
+            value="HN">Honduras</option><option
+            value="HK">Hong Kong SAR China</option><option
+            value="HU">Hungary</option><option
+            value="IS">Iceland</option><option
+            value="IN">India</option><option
+            value="ID">Indonesia</option><option
+            value="IR">Iran</option><option
+            value="IQ">Iraq</option><option
+            value="IE">Ireland</option><option
+            value="IM">Isle of Man</option><option
+            value="IL">Israel</option><option
+            value="IT">Italy</option><option
+            value="JM">Jamaica</option><option
+            value="JP">Japan</option><option
+            value="JE">Jersey</option><option
+            value="JO">Jordan</option><option
+            value="KZ">Kazakhstan</option><option
+            value="KE">Kenya</option><option
+            value="KI">Kiribati</option><option
+            value="XK">Kosovo</option><option
+            value="KW">Kuwait</option><option
+            value="KG">Kyrgyzstan</option><option
+            value="LA">Laos</option><option
+            value="LV">Latvia</option><option
+            value="LB">Lebanon</option><option
+            value="LS">Lesotho</option><option
+            value="LR">Liberia</option><option
+            value="LY">Libya</option><option
+            value="LI">Liechtenstein</option><option
+            value="LT">Lithuania</option><option
+            value="LU">Luxembourg</option><option
+            value="MO">Macao SAR China</option><option
+            value="MG">Madagascar</option><option
+            value="MW">Malawi</option><option
+            value="MY">Malaysia</option><option
+            value="MV">Maldives</option><option
+            value="ML">Mali</option><option
+            value="MT">Malta</option><option
+            value="MH">Marshall Islands</option><option
+            value="MQ">Martinique</option><option
+            value="MR">Mauritania</option><option
+            value="MU">Mauritius</option><option
+            value="YT">Mayotte</option><option
+            value="MX">Mexico</option><option
+            value="FM">Micronesia</option><option
+            value="MD">Moldova</option><option
+            value="MC">Monaco</option><option
+            value="MN">Mongolia</option><option
+            value="ME">Montenegro</option><option
+            value="MS">Montserrat</option><option
+            value="MA">Morocco</option><option
+            value="MZ">Mozambique</option><option
+            value="MM">Myanmar (Burma)</option><option
+            value="NA">Namibia</option><option
+            value="NR">Nauru</option><option
+            value="NP">Nepal</option><option
+            value="NL">Netherlands</option><option
+            value="NC">New Caledonia</option><option
+            value="NZ">New Zealand</option><option
+            value="NI">Nicaragua</option><option
+            value="NE">Niger</option><option
+            value="NG">Nigeria</option><option
+            value="NU">Niue</option><option
+            value="NF">Norfolk Island</option><option
+            value="KP">North Korea</option><option
+            value="MK">North Macedonia</option><option
+            value="MP">Northern Mariana Islands</option><option
+            value="NO">Norway</option><option
+            value="OM">Oman</option><option
+            value="PK">Pakistan</option><option
+            value="PW">Palau</option><option
+            value="PS">Palestinian Territories</option><option
+            value="PA">Panama</option><option
+            value="PG">Papua New Guinea</option><option
+            value="PY">Paraguay</option><option
+            value="PE">Peru</option><option
+            value="PH">Philippines</option><option
+            value="PN">Pitcairn Islands</option><option
+            value="PL">Poland</option><option
+            value="PT">Portugal</option><option
+            value="PR">Puerto Rico</option><option
+            value="QA">Qatar</option><option
+            value="RE">Réunion</option><option
+            value="RO">Romania</option><option
+            value="RU">Russia</option><option
+            value="RW">Rwanda</option><option
+            value="WS">Samoa</option><option
+            value="SM">San Marino</option><option
+            value="ST">São Tomé &amp; Príncipe</option><option
+            value="SA">Saudi Arabia</option><option
+            value="SN">Senegal</option><option
+            value="RS">Serbia</option><option
+            value="SC">Seychelles</option><option
+            value="SL">Sierra Leone</option><option
+            value="SG">Singapore</option><option
+            value="SX">Sint Maarten</option><option
+            value="SK">Slovakia</option><option
+            value="SI">Slovenia</option><option
+            value="SB">Solomon Islands</option><option
+            value="SO">Somalia</option><option
+            value="ZA">South Africa</option><option
+            value="GS">South Georgia &amp; South Sandwich Islands</option><option
+            value="KR">South Korea</option><option
+            value="SS">South Sudan</option><option
+            value="ES">Spain</option><option
+            value="LK">Sri Lanka</option><option
+            value="BL">St. Barthélemy</option><option
+            value="SH">St. Helena</option><option
+            value="KN">St. Kitts &amp; Nevis</option><option
+            value="LC">St. Lucia</option><option
+            value="MF">St. Martin</option><option
+            value="PM">St. Pierre &amp; Miquelon</option><option
+            value="VC">St. Vincent &amp; Grenadines</option><option
+            value="SD">Sudan</option><option
+            value="SR">Suriname</option><option
+            value="SJ">Svalbard &amp; Jan Mayen</option><option
+            value="SE">Sweden</option><option
+            value="CH">Switzerland</option><option
+            value="SY">Syria</option><option
+            value="TW">Taiwan</option><option
+            value="TJ">Tajikistan</option><option
+            value="TZ">Tanzania</option><option
+            value="TH">Thailand</option><option
+            value="TL">Timor-Leste</option><option
+            value="TG">Togo</option><option
+            value="TK">Tokelau</option><option
+            value="TO">Tonga</option><option
+            value="TT">Trinidad &amp; Tobago</option><option
+            value="TA">Tristan da Cunha</option><option
+            value="TN">Tunisia</option><option
+            value="TR">Turkey</option><option
+            value="TM">Turkmenistan</option><option
+            value="TC">Turks &amp; Caicos Islands</option><option
+            value="TV">Tuvalu</option><option
+            value="UM">U.S. Outlying Islands</option><option
+            value="VI">U.S. Virgin Islands</option><option
+            value="UG">Uganda</option><option
+            value="UA">Ukraine</option><option
+            value="AE">United Arab Emirates</option><option
+            value="GB">United Kingdom</option><option
+            value="US" selected="selected">United States</option><option
+            value="UY">Uruguay</option><option
+            value="UZ">Uzbekistan</option><option
+            value="VU">Vanuatu</option><option
+            value="VA">Vatican City</option><option
+            value="VE">Venezuela</option><option
+            value="VN">Vietnam</option><option
+            value="WF">Wallis &amp; Futuna</option><option
+            value="EH">Western Sahara</option><option
+            value="YE">Yemen</option><option
+            value="ZM">Zambia</option><option
+            value="ZW">Zimbabwe</option></select></div>
+
+  
+  
+  </div>
+</div>
+<input data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-langcode" type="hidden" name="payment_information[add_payment_method][billing_information][address][0][address][langcode]" value="en" /><div class="address-container-inline js-form-wrapper form-wrapper" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-container0" id="edit-payment-information-add-payment-method-billing-information-address-0-address-container0"><div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-billing-information-address-0-address-given-name js-form-item-payment-information-add-payment-method-billing-information-address-0-address-given-name">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-given-name" class="control-label js-form-required form-required">First name</label>
+  
+  
+  <input class="given-name form-text required" autocomplete="given-name" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-given-name" type="text" id="edit-payment-information-add-payment-method-billing-information-address-0-address-given-name" name="payment_information[add_payment_method][billing_information][address][0][address][given_name]" value="" size="25" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-billing-information-address-0-address-family-name js-form-item-payment-information-add-payment-method-billing-information-address-0-address-family-name">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-family-name" class="control-label js-form-required form-required">Last name</label>
+  
+  
+  <input class="family-name form-text required" autocomplete="family-name" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-family-name" type="text" id="edit-payment-information-add-payment-method-billing-information-address-0-address-family-name" name="payment_information[add_payment_method][billing_information][address][0][address][family_name]" value="" size="25" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+</div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-billing-information-address-0-address-organization js-form-item-payment-information-add-payment-method-billing-information-address-0-address-organization">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-organization" class="control-label">Company</label>
+  
+  
+  <input class="organization form-text" autocomplete="organization" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-organization" type="text" id="edit-payment-information-add-payment-method-billing-information-address-0-address-organization" name="payment_information[add_payment_method][billing_information][address][0][address][organization]" value="" size="60" maxlength="128" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-billing-information-address-0-address-address-line1 js-form-item-payment-information-add-payment-method-billing-information-address-0-address-address-line1">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-address-line1" class="control-label js-form-required form-required">Street address</label>
+  
+  
+  <input class="address-line1 form-text required" autocomplete="address-line1" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-address-line1" type="text" id="edit-payment-information-add-payment-method-billing-information-address-0-address-address-line1" name="payment_information[add_payment_method][billing_information][address][0][address][address_line1]" value="" size="60" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-billing-information-address-0-address-address-line2 js-form-item-payment-information-add-payment-method-billing-information-address-0-address-address-line2 form-no-label">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-address-line2" class="control-label sr-only">Street address line 2</label>
+  
+  
+  <input class="address-line2 form-text" autocomplete="address-line2" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-address-line2" type="text" id="edit-payment-information-add-payment-method-billing-information-address-0-address-address-line2" name="payment_information[add_payment_method][billing_information][address][0][address][address_line2]" value="" size="60" maxlength="128" />
+
+  
+  
+  </div>
+<div class="address-container-inline js-form-wrapper form-wrapper" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-container4" id="edit-payment-information-add-payment-method-billing-information-address-0-address-container4"><div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-billing-information-address-0-address-locality js-form-item-payment-information-add-payment-method-billing-information-address-0-address-locality">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-locality" class="control-label js-form-required form-required">City</label>
+  
+  
+  <input class="locality form-text required" autocomplete="address-level2" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-locality" type="text" id="edit-payment-information-add-payment-method-billing-information-address-0-address-locality" name="payment_information[add_payment_method][billing_information][address][0][address][locality]" value="" size="30" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-select js-form-type-select form-item-payment-information-add-payment-method-billing-information-address-0-address-administrative-area js-form-item-payment-information-add-payment-method-billing-information-address-0-address-administrative-area">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-administrative-area" class="control-label js-form-required form-required">State</label>
+  
+  
+  <div class="select-wrapper"><select class="administrative-area form-select required form-control" autocomplete="address-level1" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-administrative-area" id="edit-payment-information-add-payment-method-billing-information-address-0-address-administrative-area" name="payment_information[add_payment_method][billing_information][address][0][address][administrative_area]" required="required" aria-required="true"><option
+            value="" selected="selected">- Select -</option><option
+            value="AL">Alabama</option><option
+            value="AK">Alaska</option><option
+            value="AS">American Samoa</option><option
+            value="AZ">Arizona</option><option
+            value="AR">Arkansas</option><option
+            value="AA">Armed Forces (AA)</option><option
+            value="AE">Armed Forces (AE)</option><option
+            value="AP">Armed Forces (AP)</option><option
+            value="CA">California</option><option
+            value="CO">Colorado</option><option
+            value="CT">Connecticut</option><option
+            value="DE">Delaware</option><option
+            value="DC">District of Columbia</option><option
+            value="FL">Florida</option><option
+            value="GA">Georgia</option><option
+            value="GU">Guam</option><option
+            value="HI">Hawaii</option><option
+            value="ID">Idaho</option><option
+            value="IL">Illinois</option><option
+            value="IN">Indiana</option><option
+            value="IA">Iowa</option><option
+            value="KS">Kansas</option><option
+            value="KY">Kentucky</option><option
+            value="LA">Louisiana</option><option
+            value="ME">Maine</option><option
+            value="MH">Marshall Islands</option><option
+            value="MD">Maryland</option><option
+            value="MA">Massachusetts</option><option
+            value="MI">Michigan</option><option
+            value="FM">Micronesia</option><option
+            value="MN">Minnesota</option><option
+            value="MS">Mississippi</option><option
+            value="MO">Missouri</option><option
+            value="MT">Montana</option><option
+            value="NE">Nebraska</option><option
+            value="NV">Nevada</option><option
+            value="NH">New Hampshire</option><option
+            value="NJ">New Jersey</option><option
+            value="NM">New Mexico</option><option
+            value="NY">New York</option><option
+            value="NC">North Carolina</option><option
+            value="ND">North Dakota</option><option
+            value="MP">Northern Mariana Islands</option><option
+            value="OH">Ohio</option><option
+            value="OK">Oklahoma</option><option
+            value="OR">Oregon</option><option
+            value="PW">Palau</option><option
+            value="PA">Pennsylvania</option><option
+            value="PR">Puerto Rico</option><option
+            value="RI">Rhode Island</option><option
+            value="SC">South Carolina</option><option
+            value="SD">South Dakota</option><option
+            value="TN">Tennessee</option><option
+            value="TX">Texas</option><option
+            value="UT">Utah</option><option
+            value="VT">Vermont</option><option
+            value="VI">Virgin Islands</option><option
+            value="VA">Virginia</option><option
+            value="WA">Washington</option><option
+            value="WV">West Virginia</option><option
+            value="WI">Wisconsin</option><option
+            value="WY">Wyoming</option></select></div>
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-payment-information-add-payment-method-billing-information-address-0-address-postal-code js-form-item-payment-information-add-payment-method-billing-information-address-0-address-postal-code">
+      <label for="edit-payment-information-add-payment-method-billing-information-address-0-address-postal-code" class="control-label js-form-required form-required">Zip code</label>
+  
+  
+  <input class="postal-code form-text required" autocomplete="postal-code" data-drupal-selector="edit-payment-information-add-payment-method-billing-information-address-0-address-postal-code" type="text" id="edit-payment-information-add-payment-method-billing-information-address-0-address-postal-code" name="payment_information[add_payment_method][billing_information][address][0][address][postal_code]" value="" size="10" maxlength="128" required="required" aria-required="true" />
+
+  
+  
+  </div>
+</div>
+</div>
+</div></div>
+
+  </div>
+</div>
+</div>
+
+
+          </div>
+</fieldset>
+<input autocomplete="off" data-drupal-selector="form-8aqysb0ecnfwf7jkjsfcksi6s4dffgze4rzdft7miyc" type="hidden" name="form_build_id" value="form-8aqysb0ECnfWF7JkJSfckSi6s4dFfGZE4rZDFt7MIYc" /><input data-drupal-selector="edit-commerce-checkout-flow-multistep-default" type="hidden" name="form_id" value="commerce_checkout_flow_multistep_default" />
+    </div>
+    <div class="layout-region layout-region-checkout-secondary col-xs-12 col-md-5">
+      <h4>Order Summary</h4>
+      <div class="checkout-pane checkout-pane-order-summary js-form-wrapper form-wrapper" data-drupal-selector="edit-order-summary" id="edit-order-summary"><div data-drupal-selector="edit-sidebar-order-summary-summary" class="views-element-container js-form-wrapper form-wrapper" id="edit-sidebar-order-summary-summary"><div class="js-view-dom-id-2a3fc5125151994fee321d800d9cbc2c8c3143e06c0dacc43fe1b85246d0915a">
+  
+  
+  
+
+  
+  
+  
+
+  <table class="cols-0">
+      <tbody>
+          <tr>
+                                                                                        <td class="views-field views-field-field-image">  <img src="./catalog/view/theme/default/image/bamm.png" width="100" height="100" alt="New Balance Running Shoe" typeof="foaf:Image" />
+
+
+          </td>
+                                                                                        <td class="views-field views-field-title">Bamm - 7 US          </td>
+                                                                                        <td class="views-field views-field-quantity">1&nbsp;x          </td>
+                                                                                        <td class="views-field views-field-total-price__number">$59.95          </td>
+              </tr>
+      </tbody>
+</table>
+
+  
+  
+
+  
+  
+
+      <footer>
+      
+            <div class="field field-total-price field-type-commerce-price field-label-hidden field-item">
+<div>
+  <div class="order-total-line order-total-line__subtotal">
+    <span class="order-total-line-label">Subtotal </span><span class="order-total-line-value">$59.95</span>
+  </div>
+    <div class="order-total-line order-total-line__total">
+    <span class="order-total-line-label">Total </span><span class="order-total-line-value">$59.95</span>
+  </div>
+</div>
+</div>
+      
+    </footer>
+  
+  
+</div>
+</div>
+</div>
+
+    </div>
+  </div>
+  <div class="layout-region layout-region-checkout-footer col-xs-12">
+      <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-actions-next" type="submit" id="edit-actions-next" name="op" value="Continue to review" class="button button--primary js-form-submit form-submit" /><a href="/martis/en/checkout/35/login" class="link--previous">Go back</a></div>
+
+  </div>
+</div>
+
+</form>
+</div>
+  </div>
+</div>
+  </div>
+
+				</div>
+			  <!---End content -->
+			  
+			  			</div>
+		</div>
+	</section>
+	<!-- End layout -->
+<!-- #End Check Out -->
+
+<!-- Script -->
+<script type="text/javascript"><!--
+$(document).on('change', 'input[name=\'account\']', function() {
+	if ($('#collapse-payment-address').parent().find('.panel-heading .panel-title > *').is('a')) {
+		if (this.value == 'register') {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_account }} <i class="fa fa-caret-down"></i></a>');
+		} else {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+		}
+	} else {
+		if (this.value == 'register') {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_account }}');
+		} else {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_address }}');
+		}
+	}
+});
+
+{% if not logged %}
+$(document).ready(function() {
+    $.ajax({
+        url: 'index.php?route=checkout/login',
+        dataType: 'html',
+        success: function(html) {
+           $('#collapse-checkout-option .panel-body').html(html);
+
+			$('#collapse-checkout-option').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-option" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_option }} <i class="fa fa-caret-down"></i></a>');
+
+			$('a[href=\'#collapse-checkout-option\']').trigger('click');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+{% else %}
+$(document).ready(function() {
+    $.ajax({
+        url: 'index.php?route=checkout/payment_address',
+        dataType: 'html',
+        success: function(html) {
+            $('#collapse-payment-address .panel-body').html(html);
+
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+
+			$('a[href=\'#collapse-payment-address\']').trigger('click');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+{% endif %}
+
+// Checkout
+$(document).delegate('#button-account', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/' + $('input[name=\'account\']:checked').val(),
+        dataType: 'html',
+        beforeSend: function() {
+        	$('#button-account').button('loading');
+		},
+        complete: function() {
+			$('#button-account').button('reset');
+        },
+        success: function(html) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            $('#collapse-payment-address .panel-body').html(html);
+
+			if ($('input[name=\'account\']:checked').val() == 'register') {
+				$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_account }} <i class="fa fa-caret-down"></i></a>');
+			} else {
+				$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+			}
+
+			$('a[href=\'#collapse-payment-address\']').trigger('click');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Login
+$(document).delegate('#button-login', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/login/save',
+        type: 'post',
+        data: $('#collapse-checkout-option :input'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-login').button('loading');
+		},
+        complete: function() {
+            $('#button-login').button('reset');
+        },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+            $('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#collapse-checkout-option .panel-body').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				// Highlight any found errors
+				$('input[name=\'email\']').parent().addClass('has-error');
+				$('input[name=\'password\']').parent().addClass('has-error');
+		   }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Register
+$(document).delegate('#button-register', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/register/save',
+        type: 'post',
+        data: $('#collapse-payment-address input[type=\'text\'], #collapse-payment-address input[type=\'date\'], #collapse-payment-address input[type=\'datetime-local\'], #collapse-payment-address input[type=\'time\'], #collapse-payment-address input[type=\'password\'], #collapse-payment-address input[type=\'hidden\'], #collapse-payment-address input[type=\'checkbox\']:checked, #collapse-payment-address input[type=\'radio\']:checked, #collapse-payment-address textarea, #collapse-payment-address select'),
+        dataType: 'json',
+        beforeSend: function() {
+			$('#button-register').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+            $('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-register').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-payment-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            } else {
+                {% if shipping_required %}
+                var shipping_address = $('#payment-address input[name=\'shipping_address\']:checked').prop('value');
+
+                if (shipping_address) {
+                    $.ajax({
+                        url: 'index.php?route=checkout/shipping_method',
+                        dataType: 'html',
+                        success: function(html) {
+							// Add the shipping address
+                            $.ajax({
+                                url: 'index.php?route=checkout/shipping_address',
+                                dataType: 'html',
+                                success: function(html) {
+                                    $('#collapse-shipping-address .panel-body').html(html);
+
+									$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+                                },
+                                error: function(xhr, ajaxOptions, thrownError) {
+                                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                                }
+                            });
+
+							$('#collapse-shipping-method .panel-body').html(html);
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i></a>');
+
+   							$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        url: 'index.php?route=checkout/shipping_address',
+                        dataType: 'html',
+                        success: function(html) {
+                            $('#collapse-shipping-address .panel-body').html(html);
+
+							$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+
+							$('a[href=\'#collapse-shipping-address\']').trigger('click');
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                }
+                {% else %}
+                $.ajax({
+                    url: 'index.php?route=checkout/payment_method',
+                    dataType: 'html',
+                    success: function(html) {
+                        $('#collapse-payment-method .panel-body').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+                {% endif %}
+
+                $.ajax({
+                    url: 'index.php?route=checkout/payment_address',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-register').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-payment-address .panel-body').html(html);
+
+						$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Payment Address
+$(document).delegate('#button-payment-address', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/payment_address/save',
+        type: 'post',
+        data: $('#collapse-payment-address input[type=\'text\'], #collapse-payment-address input[type=\'date\'], #collapse-payment-address input[type=\'datetime-local\'], #collapse-payment-address input[type=\'time\'], #collapse-payment-address input[type=\'password\'], #collapse-payment-address input[type=\'checkbox\']:checked, #collapse-payment-address input[type=\'radio\']:checked, #collapse-payment-address input[type=\'hidden\'], #collapse-payment-address textarea, #collapse-payment-address select'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-payment-address').button('loading');
+		},
+        complete: function() {
+			$('#button-payment-address').button('reset');
+        },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-warning alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-payment-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().parent().addClass('has-error');
+            } else {
+                {% if shipping_required %}
+                $.ajax({
+                    url: 'index.php?route=checkout/shipping_address',
+                    dataType: 'html',
+                    success: function(html) {
+                        $('#collapse-shipping-address .panel-body').html(html);
+
+						$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-shipping-address\']').trigger('click');
+
+						$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                }).done(function() {
+					$.ajax({
+						url: 'index.php?route=checkout/payment_address',
+						dataType: 'html',
+						success: function(html) {
+							$('#collapse-payment-address .panel-body').html(html);
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});
+				});
+                {% else %}
+                $.ajax({
+                    url: 'index.php?route=checkout/payment_method',
+                    dataType: 'html',
+                    success: function(html) {
+                        $('#collapse-payment-method .panel-body').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                }).done(function() {
+					$.ajax({
+						url: 'index.php?route=checkout/payment_address',
+						dataType: 'html',
+						success: function(html) {
+							$('#collapse-payment-address .panel-body').html(html);
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});				
+				});
+                {% endif %}
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Shipping Address
+$(document).delegate('#button-shipping-address', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/shipping_address/save',
+        type: 'post',
+        data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
+        dataType: 'json',
+        beforeSend: function() {
+			$('#button-shipping-address').button('loading');
+	    },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-shipping-address').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-shipping-address .panel-body').prepend('<div class="alert alert-warning alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-shipping-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().parent().addClass('has-error');
+            } else {
+                $.ajax({
+                    url: 'index.php?route=checkout/shipping_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-shipping-address').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-shipping-method .panel-body').html(html);
+
+						$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+						
+                        $.ajax({
+                            url: 'index.php?route=checkout/shipping_address',
+                            dataType: 'html',
+                            success: function(html) {
+                                $('#collapse-shipping-address .panel-body').html(html);
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                            }
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                }).done(function() {
+					$.ajax({
+						url: 'index.php?route=checkout/payment_address',
+						dataType: 'html',
+						success: function(html) {
+							$('#collapse-payment-address .panel-body').html(html);
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});
+				});
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Guest
+$(document).delegate('#button-guest', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/guest/save',
+        type: 'post',
+        data: $('#collapse-payment-address input[type=\'text\'], #collapse-payment-address input[type=\'date\'], #collapse-payment-address input[type=\'datetime-local\'], #collapse-payment-address input[type=\'time\'], #collapse-payment-address input[type=\'checkbox\']:checked, #collapse-payment-address input[type=\'radio\']:checked, #collapse-payment-address input[type=\'hidden\'], #collapse-payment-address textarea, #collapse-payment-address select'),
+        dataType: 'json',
+        beforeSend: function() {
+       		$('#button-guest').button('loading');
+	    },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-guest').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-warning alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-payment-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            } else {
+                {% if shipping_required %}
+                var shipping_address = $('#collapse-payment-address input[name=\'shipping_address\']:checked').prop('value');
+
+                if (shipping_address) {
+                    $.ajax({
+                        url: 'index.php?route=checkout/shipping_method',
+                        dataType: 'html',
+                        complete: function() {
+                            $('#button-guest').button('reset');
+                        },
+                        success: function(html) {
+							// Add the shipping address
+                            $.ajax({
+                                url: 'index.php?route=checkout/guest_shipping',
+                                dataType: 'html',
+                                success: function(html) {
+                                    $('#collapse-shipping-address .panel-body').html(html);
+
+									$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+                                },
+                                error: function(xhr, ajaxOptions, thrownError) {
+                                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                                }
+                            });
+
+						    $('#collapse-shipping-method .panel-body').html(html);
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i></a>');
+
+							$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        url: 'index.php?route=checkout/guest_shipping',
+                        dataType: 'html',
+                        complete: function() {
+                            $('#button-guest').button('reset');
+                        },
+                        success: function(html) {
+                            $('#collapse-shipping-address .panel-body').html(html);
+
+							$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+
+							$('a[href=\'#collapse-shipping-address\']').trigger('click');
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                }
+                {% else %}
+                $.ajax({
+                    url: 'index.php?route=checkout/payment_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-guest').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-payment-method .panel-body').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+                {% endif %}
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Guest Shipping
+$(document).delegate('#button-guest-shipping', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/guest_shipping/save',
+        type: 'post',
+        data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-guest-shipping').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-guest-shipping').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-shipping-address .panel-body').prepend('<div class="alert alert-danger alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-shipping-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            } else {
+                $.ajax({
+                    url: 'index.php?route=checkout/shipping_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-guest-shipping').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-shipping-method .panel-body').html(html);
+
+						$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i>');
+
+						$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$(document).delegate('#button-shipping-method', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/shipping_method/save',
+        type: 'post',
+        data: $('#collapse-shipping-method input[type=\'radio\']:checked, #collapse-shipping-method textarea'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-shipping-method').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-shipping-method').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-shipping-method .panel-body').prepend('<div class="alert alert-danger alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+            } else {
+                $.ajax({
+                    url: 'index.php?route=checkout/payment_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-shipping-method').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-payment-method .panel-body').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$(document).delegate('#button-payment-method', 'click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/payment_method/save',
+        type: 'post',
+        data: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
+        dataType: 'json',
+        beforeSend: function() {
+         	$('#button-payment-method').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-payment-method').button('reset');
+                
+                if (json['error']['warning']) {
+                    $('#collapse-payment-method .panel-body').prepend('<div class="alert alert-danger alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+            } else {
+                $.ajax({
+                    url: 'index.php?route=checkout/confirm',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-payment-method').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-checkout-confirm .panel-body').html(html);
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-confirm" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_confirm }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-checkout-confirm\']').trigger('click');
+					},
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+//--></script>
+{{ footer }}

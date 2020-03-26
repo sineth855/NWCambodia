@@ -1,10 +1,45 @@
 {{ header }}
-<div id="checkout-cart" style="display: none" class="container">
-  <ul class="breadcrumb">
+<div id="checkout-cart" style="_display: none">
+  <!-- <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
-  </ul>
+  </ul> -->
+  <!-- breadcrumb -->
+	<section id="page-title" class="page-title dark-page-title">
+		<div class="container">
+      <div class="region region-page-title">
+        <div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
+          <div class="container-wrap clearfix">
+            <div class="block-content clearfix">
+              <h1>{{heading_title}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-left region region-breadcrumb">
+        <div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
+          <div class="container-wrap clearfix">
+            <div class="block-content clearfix"> 
+              <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+                <!-- <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2> -->
+                <ul>
+                  {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                  {% endfor %}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+		</div>
+	</section>
+    <!-- End breadcrumb -->
+</div>
+<div class="container">
   {% if attention %}
   <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ attention }}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -118,51 +153,10 @@
 </div>
 
 
-		<!-- Page Title -->
-    <section id="page-title" class="page-title dark-page-title">
-		<div class="container">
-			  <div class="region region-page-title">
-    
-<div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
-<div class="container-wrap clearfix">
-  
-    
-        <div class="block-content clearfix">
-  <h1>Shopping cart</h1>
-
-</div>
-  </div>
-</div>
-  </div>
-
-			  <div class="region region-breadcrumb">
-    
-<div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
-<div class="container-wrap clearfix">
-  
-    
-        <div class="block-content clearfix">  <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
-    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
-    <ul>
-          <li>
-                  <a href="/martis/en">Home</a>
-              </li>
-          <li>
-                  Shopping cart
-              </li>
-        </ul>
-  </nav>
-</div>
-  </div>
-</div>
-  </div>
-
-		</div>
-	</section>
-	  <!-- End Page Title -->
+	
 		
 		<!-- layout -->
-	<section id="page-wrapper" class="page-wrapper">
+	<section style="display: none;" id="page-wrapper" class="page-wrapper">
 		<div class="container">
 			<div class="row content-layout">
 			  

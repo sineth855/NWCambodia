@@ -1,10 +1,61 @@
 {{ header }}
+<!-- breadcrumb -->
+<section id="page-title" class="page-title dark-page-title">
+  <div class="container">
+    <div class="region region-page-title">
+      <div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix">
+            <h1>{{heading_title}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-left region region-breadcrumb">
+      <div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix"> 
+            <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+              <!-- <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2> -->
+              <ul>
+                {% for breadcrumb in breadcrumbs %}
+                  <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="" style="background-color: #e4e4e4;padding: 20px 0; margin-bottom: 20px; color: #000000;">
+  <div class="container">
+    <!-- <ul class="breadcrumb">
+      {% for breadcrumb in breadcrumbs %}
+      <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+      {% endfor %}
+    </ul> -->
+  </div>
+</div>
+
+<style>
+  ul.breadcrumb{
+    padding: 0;
+    margin: 0;
+  }
+  ul.breadcrumb li{
+    display: inline;
+    padding: 20px 0;
+  }
+  ul.breadcrumb li a{
+    color: #000000;    
+  }
+</style>
+
 <div id="account-register" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-  </ul>
   {% if error_warning %}
   <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
   {% endif %}
@@ -21,7 +72,10 @@
       <p>{{ text_account_already }}</p>
       <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset id="account">
-          <legend>{{ text_your_details }}</legend>
+          <!-- <legend>{{ text_your_details }}</legend> -->
+          <legend>
+            <span class="fieldset-legend">Customer Login</span>
+          </legend>
           <div class="form-group required" style="display: {% if customer_groups|length > 1 %} block {% else %} none {% endif %};">
             <label class="col-sm-2 control-label">{{ entry_customer_group }}</label>
             <div class="col-sm-10">{% for customer_group in customer_groups %}
@@ -43,7 +97,8 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-firstname">{{ entry_firstname }}</label>
             <div class="col-sm-10">
-              <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" class="form-control" />
+              <!-- <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" class="form-control" /> -->
+              <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" size="60" maxlength="60" class="form-text" />
               {% if error_firstname %}
               <div class="text-danger">{{ error_firstname }}</div>
               {% endif %} </div>
@@ -51,7 +106,7 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">{{ entry_lastname }}</label>
             <div class="col-sm-10">
-              <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-lastname" class="form-control" />
+              <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-lastname" size="60" maxlength="60" class="form-text" />
               {% if error_lastname %}
               <div class="text-danger">{{ error_lastname }}</div>
               {% endif %} </div>
@@ -59,7 +114,7 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
             <div class="col-sm-10">
-              <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+              <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" size="60" maxlength="60" class="form-text" />
               {% if error_email %}
               <div class="text-danger">{{ error_email }}</div>
               {% endif %} </div>
@@ -67,7 +122,7 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }}</label>
             <div class="col-sm-10">
-              <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
+              <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" size="60" maxlength="60" class="form-text" />
               {% if error_telephone %}
               <div class="text-danger">{{ error_telephone }}</div>
               {% endif %} </div>
@@ -241,7 +296,7 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-password">{{ entry_password }}</label>
             <div class="col-sm-10">
-              <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+              <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" size="60" maxlength="60" class="form-text" />
               {% if error_password %}
               <div class="text-danger">{{ error_password }}</div>
               {% endif %} </div>
@@ -249,7 +304,7 @@
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-confirm">{{ entry_confirm }}</label>
             <div class="col-sm-10">
-              <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="input-confirm" class="form-control" />
+              <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="input-confirm" size="60" maxlength="60" class="form-text" />
               {% if error_confirm %}
               <div class="text-danger">{{ error_confirm }}</div>
               {% endif %} </div>
@@ -281,9 +336,9 @@
         <div class="buttons">
           <div class="pull-right">{{ text_agree }}
             {% if agree %}
-            <input type="checkbox" name="agree" value="1" checked="checked" />
+            <input type="checkbox" class="privacy-policy" name="agree" value="1" checked="checked" />
             {% else %}
-            <input type="checkbox" name="agree" value="1" />
+            <input type="checkbox" class="privacy-policy" name="agree" value="1" />
             {% endif %}
             &nbsp;
             <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
