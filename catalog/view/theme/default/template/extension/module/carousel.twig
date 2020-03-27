@@ -1,4 +1,4 @@
-<div class="swiper-viewport">
+{# <div class="swiper-viewport">
   <div id="carousel{{ module }}" class="swiper-container">
     <div class="swiper-wrapper">{% for banner in banners %}
       <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
@@ -9,7 +9,47 @@
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
-</div>
+</div> #}
+
+
+<!-- our partner- -->
+<section style="_display: none;" id="content-wide" class="content-wide container">
+	<div class="region region-content-wide">
+		<div class="views-element-container norm-width block-title-1 block-title-left block block-views block-views-blockproduct-taxonomy-brand-logos" id="block-views-block-product-taxonomy-brand-logos">
+			<div class="clearfix text-center">
+				<div class="block-title-content">
+					<h2 class="block-title">Our Parter</h2>
+				</div>
+			</div>
+			<div class="container-wrap clearfix">
+				<div class="block-content clearfix">
+					<div>
+						<div class="js-view-dom-id-5e814f7e3baac71618e3a1d3c433a62155d2e458908ed816bce7efa86697ceba">
+							<div data-settings="{&quot;grouping&quot;:[],&quot;row_class&quot;:&quot;&quot;,&quot;default_row_class&quot;:false,&quot;uses_fields&quot;:false,&quot;items&quot;:7,&quot;margin&quot;:30,&quot;autoplay&quot;:true,&quot;autoplaySpeed&quot;:1000,&quot;autoplayHoverPause&quot;:true,&quot;autoplayTimeout&quot;:4000,&quot;nav&quot;:true,&quot;navSpeed&quot;:800,&quot;loop&quot;:true,&quot;navRewind&quot;:false,&quot;rewindSpeed&quot;:1000,&quot;dots&quot;:false,&quot;dotsSpeed&quot;:800,&quot;slideBy&quot;:1,&quot;mouseDrag&quot;:true,&quot;touchDrag&quot;:true,&quot;pullDrag&quot;:false,&quot;freeDrag&quot;:false,&quot;stagePadding&quot;:0,&quot;merge&quot;:false,&quot;mergeFit&quot;:false,&quot;center&quot;:false,&quot;autoWidth&quot;:false,&quot;video&quot;:false,&quot;videoHeight&quot;:0,&quot;videoWidth&quot;:0}" class="owl-slider-wrapper owl-carousel owl-responsive">
+								{% for banner in banners %}
+								<div>
+									{% if banner.link %}
+									{# <a class="brand-logo" href="#">
+										<img src="./catalog/view/theme/default/martis/sites/martis/files/products/brand/new-balance-logo.png" width="300" height="150" alt="New Balance" typeof="Image"/>
+									</a> #}
+									<a href="{{ banner.link }}" class="brand-logo">
+										<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="300" height="150" typeof="Image"/>
+									</a>
+									{% else %}
+										<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="300" height="150" typeof="Image" />
+									{% endif %}
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- #End our partner -->
+
 <script type="text/javascript"><!--
 $('#carousel{{ module }}').swiper({
 	mode: 'horizontal',

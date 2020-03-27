@@ -1,100 +1,532 @@
 <div class="swiper-viewport" style="display: none">
-  <div id="slideshow{{ module }}" class="swiper-container">
-    <div class="swiper-wrapper"> {% for banner in banners %}
-      <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
-      {% endfor %} </div>
-  </div>
-  <div class="swiper-pagination slideshow{{ module }}"></div>
-  <div class="swiper-pager">
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
+	<div id="slideshow{{ module }}" class="swiper-container">
+		<div class="swiper-wrapper">
+			{% for banner in banners %}
+				<div class="swiper-slide text-center">
+					{% if banner.link %}
+						<a href="{{ banner.link }}">
+							<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive"/>
+						</a>
+						{% else %}
+						<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive"/>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="swiper-pagination slideshow{{ module }}"></div>
+	<div class="swiper-pager">
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>
 </div>
 
 
 <!-- ############ Slide ################ -->
-<section id="content-wide-top" class="content-wide">  
+<section id="content-wide-top" class="content-wide">
 	<div class="region region-content-wide-top">
-		
-		<div id="block-home01-slider" class="fullwidth block-title-1 block-title-left block slide-block block-block-content block-block-content9848243d-b738-4214-b77b-16c936693f06" >
-		<div class="container-wrap clearfix">
+
+		<div id="block-home01-slider" class="fullwidth block-title-1 block-title-left block slide-block block-block-content block-block-content9848243d-b738-4214-b77b-16c936693f06">
+			<div class="container-wrap clearfix">
 
 
-		
-			<div class="hero slide-carousel owl-carousel" data-nav="true" data-items="1" data-dots="true" data-autoplay="true" data-autoplayspeed="1500" data-autoplaytimeout="8000" data-loop="true">
-						<div><div  data-history-node-id="159" role="article" about="/martis/en/slide/slide-3" >
-		
-		
-			<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_1.jpg" alt="Home 1 slide 1"/></div>
-				<div class="slide-content-wrap">
-				<div class="container slide-wrap">
-				<div class="slide-content ">
-				<div class="slide-content-main float-left text-left">
-						<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
-			<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
-					<div class="field-item">Bamm 100%  My Whey</div>
-				</div>
-		</div>
-								<div class="heading-text">
-						<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">Men Slim</div></div>
-					<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">be handsome &amp; Gentle</div></div>
-				</div>
-										<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
-				<a class="button slide-button-link" href="#">Shop now »</a>
-				</div>
+				<div class="hero slide-carousel owl-carousel" data-nav="true" data-items="1" data-dots="true" data-autoplay="true" data-autoplayspeed="1500" data-autoplaytimeout="8000" data-loop="true">
+					{% for banner in banners %}
+						<div>
+							<div data-history-node-id="159" role="article" about="/martis/en/slide/slide-3">
+
+								<div class="slide-image">
+									{# <img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_1.jpg" alt="Home 1 slide 1"/> #}
+									<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive"/>
+								</div>
+								<div class="slide-content-wrap">
+									<div class="container slide-wrap">
+										<div class="slide-content ">
+											<div class="slide-content-main float-left text-left">
+												<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
+													<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
+														<div class="field-item">{{ banner.title }}</div>
+													</div>
+												</div>
+												<div class="heading-text">
+													{# <div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp">
+														<div class="heading-text-content">Men Slim</div>
+													</div> #}
+													<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp">
+														<div class="heading-text-content">{{ banner.description}}</div>
+													</div>
+												</div>
+												{% if banner.link %}
+													<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
+														<a class="button slide-button-link" href="{{ banner.link }}">Shop now »</a>
+													</div>
+												{% endif %}
+											</div>
+										</div>
+									</div>
+								</div>
+								{% if banner.link %}
+								<a class="slide-content-link" href="{{ banner.link }}">view</a>
+								{% endif %}
+							</div>
 						</div>
-				</div>
+					{% endfor %}
+					{# <div>
+											<div data-history-node-id="174" role="article" about="/martis/en/slide/home-1-slide-2">
+					
+					
+												<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_2.jpg" alt="Home 1 Slide 2"/></div>
+												<div class="slide-content-wrap">
+													<div class="container slide-wrap">
+														<div class="slide-content ">
+															<div class="slide-content-main float-center text-center">
+																<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
+																	<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
+																		<div class="field-item">Lean Whey Hers</div>
+																	</div>
+																</div>
+																<div class="heading-text">
+																	<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp">
+																		<div class="heading-text-content">Beautiful slim body</div>
+																	</div>
+																</div>
+																<div class="slide-content-body" data-animation-in="slideInRight" data-animation-out="animate-out fadeOut">
+																	<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+																		<p>Get your body slim with our product.</p>
+																	</div>
+																</div>
+																<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
+																	<a class="button slide-button-link" href="">Order Now »</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div> #}
+
 				</div>
 			</div>
-					<a class="slide-content-link" href="#">view</a>
-			</div>
-		</div>
-				<div><div  data-history-node-id="174" role="article" about="/martis/en/slide/home-1-slide-2" >
-		
-		
-			<div class="slide-image"><img src="catalog/view/theme/default/martis/sites/martis/files/slider/h1_slide_2.jpg" alt="Home 1 Slide 2"/></div>
-				<div class="slide-content-wrap">
-				<div class="container slide-wrap">
-				<div class="slide-content ">
-				<div class="slide-content-main float-center text-center">
-						<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
-			<div class="field field-field-pre-heading-text field-type-string field-label-hidden field-items">
-					<div class="field-item">Lean Whey Hers</div>
-				</div>
-		</div>
-								<div class="heading-text">
-						<div class="field field-field-heading-text field-label-hidden field-item" data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">Beautiful slim body</div></div>
-				</div>
-								<div class="slide-content-body" data-animation-in="slideInRight" data-animation-out="animate-out fadeOut">
-					<div class="field field-body field-type-text-with-summary field-label-hidden field-item"><p>Get your body slim with our product.</p></div>
-			</div>
-								<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
-				<a class="button slide-button-link" href="">Order Now »</a>
-				</div>
-						</div>
-				</div>
-				</div>
-			</div>
-				</div>
-		</div>
-			
-			</div>
-		</div>
 		</div>
 	</div>
 </section>
 
-<script type="text/javascript"><!--
-$('#slideshow{{ module }}').swiper({
-	mode: 'horizontal',
-	slidesPerView: 1,
-	pagination: '.slideshow{{ module }}',
-	paginationClickable: true,
-	nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    spaceBetween: 30,
-	autoplay: 2500,
-    autoplayDisableOnInteraction: true,
-	loop: true
+
+<!--##############-Shipping-goods############-->
+<section>
+	<div class="content-wide">
+		<div id="block-shop-icon-box" class="norm-width block-title-1 block-title-left block block-block-content block-block-content27318079-24d3-47d4-8fa9-15234a0d8327">
+			<div class="container-wrap clearfix">
+				<div class="block-content clearfix">
+					<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+						<div class="text-md-center box-icon">
+							<div class="row">
+								<div class="col-lg-3 col-sm-6 box-icon-items">
+									<div class="box-icon-item">
+										<div class="box-icon">
+											<i class="ti-truck"></i>
+										</div>
+										<div class="box-desc">
+											<h5 class="box-icon-title">Free Shipping</h5>
+											<p>For Order Above $50</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-6 box-icon-items">
+									<div class="box-icon-item">
+										<div class="box-icon">
+											<i class="ti-reload"></i>
+										</div>
+										<div class="box-desc">
+											<h5 class="box-icon-title">30 Days Return</h5>
+											<p>Get Money Back</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-6 box-icon-items">
+									<div class="box-icon-item">
+										<div class="box-icon">
+											<i class="ti-headphone-alt"></i>
+										</div>
+										<div class="box-desc">
+											<h5 class="box-icon-title">24/7 Support</h5>
+											<p>Online 24 Hours</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-6 box-icon-items">
+									<div class="box-icon-item">
+										<div class="box-icon">
+											<i class="ti-gift"></i>
+										</div>
+										<div class="box-desc">
+											<h5 class="box-icon-title">Lowest Price</h5>
+											<p>Best Deals</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- count-down-timer -->
+		<div class="count-down-timer">
+			<h2 class="timer">Count Down Timer</h2>
+			<p>
+				<span>We ship as late as 14:00 (Mon-Sat) regular time.</span>
+			</p>
+			<div id="retroclockbox_lg"></div>
+		</div>
+		<!--#Endcountdowntimer-->
+	</div>
+</section>
+
+
+<!-- ###########Top-10-Category########### -->
+<section
+	id="top-10" class="container">
+	<!-- ###################### -->
+	<div class="top-category">
+		<div class="row">
+			<div class="col-lg-2 col-sm-6 row-top-category">
+				<img src="./catalog/view/theme/default/image/FAT.png"/>
+			</div>
+			<div class="col-lg-2 col-sm-6 row-top-category">
+				<img src="./catalog/view/theme/default/image/PRE.png"/>
+			</div>
+			<div class="col-lg-2 col-sm-6 row-top-category">
+				<img src="./catalog/view/theme/default/image/PROTEIN.png"/>
+			</div>
+			<div class="col-lg-2 col-sm-6 row-top-category">
+				<img src="./catalog/view/theme/default/image/PROTEIN.png"/>
+			</div>
+			<div class="col-lg-2 col-sm-6 row-top-category">
+				<img src="./catalog/view/theme/default/image/VITA.png"/>
+			</div>
+			<div class="col-lg-2 col-sm-6 row-top-category">
+				<img src="./catalog/view/theme/default/image/WOMAN.png"/>
+			</div>
+		</div>
+
+		<div style="display: none" class="views-element-container fullwidth framewidth block-title-1 block-title-left block block-views block-views-blockproduct-taxonomy-product-category-count" id="block-views-block-product-taxonomy-product-category-count" style="padding-top: 0px;">
+			<div class="container-wrap clearfix">
+				<div class="block-content clearfix">
+					<div>
+						<div class="js-view-dom-id-b8b77c93ff4e1ab1462445b1288b91b91357f4e17d85233716213316b2b2b2a5">
+
+
+							<div data-settings="{&quot;grouping&quot;:[],&quot;row_class&quot;:&quot;&quot;,&quot;default_row_class&quot;:false,&quot;uses_fields&quot;:false,&quot;items&quot;:5,&quot;margin&quot;:20,&quot;autoplay&quot;:false,&quot;autoplaySpeed&quot;:1000,&quot;autoplayHoverPause&quot;:false,&quot;autoplayTimeout&quot;:4000,&quot;nav&quot;:true,&quot;navSpeed&quot;:800,&quot;loop&quot;:true,&quot;navRewind&quot;:false,&quot;rewindSpeed&quot;:1000,&quot;dots&quot;:false,&quot;dotsSpeed&quot;:800,&quot;slideBy&quot;:1,&quot;mouseDrag&quot;:true,&quot;touchDrag&quot;:true,&quot;pullDrag&quot;:false,&quot;freeDrag&quot;:false,&quot;stagePadding&quot;:0,&quot;merge&quot;:false,&quot;mergeFit&quot;:false,&quot;center&quot;:false,&quot;autoWidth&quot;:false,&quot;video&quot;:false,&quot;videoHeight&quot;:0,&quot;videoWidth&quot;:0}" class="owl-slider-wrapper owl-carousel owl-responsive">
+								<div>
+									<div class="product-category count-product-category">
+										<div class="product-category-image">
+											<a href="#">
+												<img src="catalog/view/theme/default/image/FAT.png" width="480" height="480" alt="Mobile Phones" typeof="Image"/>
+
+
+											</a>
+										</div>
+										<div class="product-category-name-wrap">
+											<a class="button product-category-url" href="#">
+												<span class="product-category-name">&nbsp;<span class="product-category-count">2</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div class="product-category count-product-category">
+										<div class="product-category-image">
+											<a href="#">
+												<img src="catalog/view/theme/default/image/PRE.png" width="480" height="480" alt="clothings" typeof="Image"/>
+
+
+											</a>
+										</div>
+										<div class="product-category-name-wrap">
+											<a class="button product-category-url" href="#">
+												<span class="product-category-name">&nbsp;<span class="product-category-count">12</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-2 col-sm-6 col-md-6 col-lg-2 grid-item">
+									<div class="product-category count-product-category">
+										<div class="product-category-image">
+											<a href="#">
+												<img src="catalog/view/theme/default/image/PROTEIN.png" width="480" height="480" alt="Laptops" typeof="Image"/>
+
+
+											</a>
+										</div>
+										<div class="product-category-name-wrap">
+											<a class="button product-category-url" href="#">
+												<span class="product-category-name">&nbsp;<span class="product-category-count">1</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-2 col-sm-6 col-md-6 col-lg-2 grid-item">
+									<div class="product-category count-product-category">
+										<div class="product-category-image">
+											<a href="#">
+												<img src="catalog/view/theme/default/image/SHAKER.png" width="480" height="480" alt="shoes" typeof="Image"/>
+
+
+											</a>
+										</div>
+										<div class="product-category-name-wrap">
+											<a class="button product-category-url" href="#">
+												<span class="product-category-name">&nbsp;<span class="product-category-count">5</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-2 col-sm-6 col-md-6 col-lg-2 grid-item">
+									<div class="product-category count-product-category">
+										<div class="product-category-image">
+											<a href="#">
+												<img src="catalog/view/theme/default/image/VITA.png" width="480" height="480" alt="Bags &amp; Wallets" typeof="Image"/>
+
+
+											</a>
+										</div>
+										<div class="product-category-name-wrap">
+											<a class="button product-category-url" href="#">
+												<span class="product-category-name">&nbsp;<span class="product-category-count">7</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-2 col-sm-6 col-md-6 col-lg-2 grid-item">
+									<div class="product-category count-product-category">
+										<div class="product-category-image">
+											<a href="#">
+												<img src="catalog/view/theme/default/image/WOMAN.png" width="480" height="480" alt="Watches" typeof="Image"/>
+
+
+											</a>
+										</div>
+										<div class="product-category-name-wrap">
+											<a class="button product-category-url" href="#">
+												<span class="product-category-name">&nbsp;<span class="product-category-count">8</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+					<!-- ###################### -->
+
+					<!-- Suppliment Plan -->
+					<div class="suppliment-plan" style="margin-bottom: 70px;">
+						<div class="container">
+							<div class="_row">
+								<div id="shopify-section-1536087454355" class="shopify-section product--section">
+									<script src="./catalog/view/javascript/thirdparty/SupplementPlan.js?4351"></script>
+									<link type="text/css" rel="stylesheet" href="./catalog/view/theme/default/stylesheet/thirdparty/SupplementPlan.css?4351">
+
+									<div class="menulist--container">
+										<div class="home-section--content menulist--blocks-count-1">
+											<div class="row">
+												<div class="col-lg-8 col-sm-12">
+													<div id="fsp_container" class="row">
+														<div id="-left" class="col-lg-8 col-sm-12">
+															<div class="fsp_header">
+																FREE SUPPLEMENT PLAN
+															</div>
+															<div class="fsp_title">
+																FIND YOUR<br><b>FREE SUPPLEMENT PLAN</b>
+															</div>
+															<div class="fsp_text">
+																It's simple, just tell us a little about yourself and your goals, and we'll create a supplement plan tailored just for you!
+															</div>
+														</div>
+														<div
+															id="right" class="col-lg-4 col-sm-12">
+															<!-- Question #1 -->
+															<div id="Slide1" style="height: 215px;">
+																<div class="fsp_text gender">Gender</div>
+																<div>
+																	<img id="Male" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/Male.png" no-repeat;="">
+																	<img id="Female" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/Female.png" no-repeat;="">
+																</div>
+															</div>
+
+															<!-- Question #2 -->
+															<div id="Slide2" style="height: 0px;">
+																<div class="fsp_text age">Age</div>
+																<div>
+																	<div class="male">
+																		<img id="Under21M" class="under21" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/under21M.png" no-repeat;="">
+																		<img id="Over21M" class="over21" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/over21M.png" no-repeat;="">
+																	</div>
+																	<div class="female">
+																		<img id="Under21F" class="under21" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/under21F.png" no-repeat;="">
+																		<img id="Over21F" class="over21" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/over21F.png" no-repeat;="">
+																	</div>
+																</div>
+															</div>
+
+															<!-- Question #3 -->
+															<div id="Slide3" style="height: 0px;">
+																<div class="fsp_text goal">Goal</div>
+																<div>
+																	<div class="male">
+																		<img id="FatLossM" class="fatLoss" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/FatLossM.png" no-repeat;="">
+																		<img id="MuscleBuildingM" class="muscleBuilding" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/MuscleBuildingM.png" no-repeat;="">
+																		<img id="PerformanceM" class="performance" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/performanceM.png" no-repeat;="">
+																	</div>
+																	<div class="female">
+																		<img id="FatLossF" class="fatLoss" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/FatLossF.png" no-repeat;="">
+																		<img id="MuscleBuildingF" class="muscleBuilding" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/MuscleBuildingF.png" no-repeat;="">
+																		<img id="PerformanceF" class="performance" src="https://cdn.shopify.com/s/files/1/0133/8576/0826/files/performanceF.png" no-repeat;="">
+																	</div>
+																</div>
+															</div>
+															<ul class="steps">
+																<li id="step1" class="active"></li>
+																<li id="step2" class=""></li>
+																<li id="step3" class=""></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-4 col-sm-12">
+													<section id="productFinder">
+														<h1 class="home-section--title" style="margin-top: 0px !important; margin-bottom: 27px;">Product Finder</h1>
+														<div class="form-field visible" style="width: 100%; margin-bottom: 10px;">
+															<div class="form-field-select-wrapper">
+																<select style="width: 100%;" name="prodfindbymanufac" onchange="DropDown_ShopBy_Category_onChange(this.value)" class="form-field-input form-field-select form-field-filled">
+																	<option selected="">Shop By Brand</option>
+																	<option selected="">Brand A</option>
+																	<option selected="">Brand B</option>
+																	<option selected="">Brand C</option>
+
+																</select>
+																<!-- <label class="form-field-title">Manufacturer</label> -->
+																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
+																																																																																								<g fill="currentColor" fill-rule="evenodd">
+																																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																																								</g>
+																																																																																								</svg> -->
+															</div>
+														</div>
+														<br>
+														<div class="form-field visible" style="width: 100%; margin-bottom: 10px;">
+															<div class="form-field-select-wrapper">
+																<select style="width: 100%;" name="prodfindbymanufac" onchange="DropDown_ShopBy_Category_onChange(this.value)" class="form-field-input form-field-select form-field-filled">
+																	<option selected="">Shop By Category</option>
+																	<option>Shop A</option>
+																	<option>Shop B</option>
+																	<option>Shop C</option>
+																</select>
+																<!-- <label class="form-field-title">Manufacturer</label> -->
+																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
+																																																																																									<g fill="currentColor" fill-rule="evenodd">
+																																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																																									</g>
+																																																																																								</svg> -->
+															</div>
+														</div>
+														<br>
+														<div class="form-field visible" style="width: 100%; margin-bottom: 10px;">
+															<div class="form-field-select-wrapper">
+																<select style="width: 100%;" name="prodfindbymanufac" onchange="DropDown_ShopBy_Category_onChange(this.value)" class="form-field-input form-field-select form-field-filled">
+																	<option selected="">Shop By Goals</option>
+																	<option selected="">Gold A</option>
+																	<option selected="">Gold B</option>
+																</select>
+																<!-- <label class="form-field-title">Manufacturer</label> -->
+																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
+																																																																																									<g fill="currentColor" fill-rule="evenodd">
+																																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																																									</g>
+																																																																																								</svg> -->
+															</div>
+														</div>
+														<br>
+														<div class="form-field visible" style="width: 100%; margin-bottom: 10px;">
+															<div class="form-field-select-wrapper">
+																<select style="width: 100%;" name="prodfindbymanufac" onchange="DropDown_ShopBy_Category_onChange(this.value)" class="form-field-input form-field-select form-field-filled">
+																	<option selected="">Shop By Best Seller</option>
+																	<option selected="">Example A</option>
+																	<option selected="">Example B</option>
+																	<option selected="">Example C</option>
+																</select>
+																<!-- <label class="form-field-title">Manufacturer</label> -->
+																<!-- <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6">
+																																																																																									<g fill="currentColor" fill-rule="evenodd">
+																																																																																									<polygon class="icon-chevron-down-left" points="4 5.371 7.668 1.606 6.665 .629 4 3.365"></polygon>
+																																																																																									<polygon class="icon-chevron-down-right" points="4 3.365 1.335 .629 1.335 .629 .332 1.606 4 5.371"></polygon>
+																																																																																									</g>
+																																																																																								</svg> -->
+															</div>
+														</div>
+														<br>
+													</section>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<script type="text/javascript">
+										function DropDown_ShopBy_Category_onChange(arg_value) {
+if (arg_value !== "") {
+window.location.href = arg_value;
+}
+}
+									</script>
+								</div>
+
+
+								<script type="text/javascript">
+									function DropDown_ShopBy_Category_onChange(arg_value) {
+if (arg_value !== "") {
+window.location.href = arg_value;
+}
+}
+								</script>
+							</div>
+						</div>
+					</div>
+					<!-- #End Suppliment Plan -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ###########End-Top-10-Category########### -->
+
+
+<script
+	type="text/javascript">
+	<!--
+	$('#slideshow   {{ module }}').swiper({
+mode: 'horizontal',
+slidesPerView: 1,
+pagination: '.slideshow   {{ module }}',
+paginationClickable: true,
+nextButton: '.swiper-button-next',
+prevButton: '.swiper-button-prev',
+spaceBetween: 30,
+autoplay: 2500,
+autoplayDisableOnInteraction: true,
+loop: true
 });
---></script>
+	-->
+</script>
