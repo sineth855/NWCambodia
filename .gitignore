@@ -10,3 +10,4 @@ storage/storage/cache/*
 catalog.zip
 storage/logs/*
 storage/logs/error.log
+catalog/view/theme/default/template.zip
