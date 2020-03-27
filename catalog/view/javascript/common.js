@@ -51,10 +51,22 @@ $(document).ready(function() {
 	});
 
 	/* Search */
-	$('#search input[name=\'search\']').parent().find('button').on('click', function() {
+	// $('#search input[name=\'search\']').parent().find('button').on('click', function() {
+	// 	var value = $('#search input[name=\'search\']').val();
+	// 	var url = $('base').attr('href') + 'index.php?route=product/search';
+
+
+	// 	if (value) {
+	// 		url += '&search=' + encodeURIComponent(value);
+	// 	}
+
+	// 	location = url;
+	// });
+	$('.search-action').on('click', function() {
+		var value = $('#search input#search-val').val();
+		alert(value);
 		var url = $('base').attr('href') + 'index.php?route=product/search';
 
-		var value = $('header #search input[name=\'search\']').val();
 
 		if (value) {
 			url += '&search=' + encodeURIComponent(value);

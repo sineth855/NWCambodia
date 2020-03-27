@@ -12,6 +12,10 @@ body * {
     font-style: normal;
     font-weight: normal;
   }
+.col-lg-55 {
+    /* -ms-flex: 0 0 20%; */
+    max-width: 100%;
+}
 @media (max-width:768px){
     .bg-header{
         background-color: #303030;
@@ -104,6 +108,14 @@ body * {
     .col-xl-55 {
         padding-left: 5px !important;
         padding-right: 5px !important;
+    }
+    .col-12{
+        flex: 0 0 50% !important;
+        width: 50% !important;
+    }
+    .col-12.list-grid{
+        flex: 0 0 100% !important;
+        width: 100% !important;
     }
     .header-item .search-button {
         display: none !important;

@@ -115,16 +115,12 @@
 					   <div id="block-language-dropdown-switcher" class="norm-width block-title-1 block-title-left block block-lang-dropdown block-language-dropdown-blocklanguage-interface" >
 						  <div class="container-wrap clearfix">
 							 <div class="block-content clearfix">
-								<form class="lang-dropdown-form lang_dropdown_form language_interface" id="lang_dropdown_form_lang_dropdown_form5e4d60d9aedfd0.47338846" data-drupal-selector="lang-dropdown-form" action="/martis/en" method="post" accept-charset="UTF-8">
+                <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
 								   <div class="form-item js-form-item form-type-select js-form-type-select form-item-lang-dropdown-select js-form-item-lang-dropdown-select form-no-label">
 									  <label for="edit-lang-dropdown-select" class="control-label sr-only">Select your language</label>      
 									  <div class="select-wrapper">
-										 <!-- <select style="width:165px" class="lang-dropdown-select-element form-select form-control" id="lang-dropdown-select-lang_dropdown_form5e4d60d9aedfd0.47338846" data-drupal-selector="edit-lang-dropdown-select" name="lang_dropdown_select"><option
-											   value="en" selected="selected">English</option><option
-											   value="fr">French</option>
-										 </select> -->
-										 <a href=""><img width="25px" src="catalog/view/theme/default/image/kh.png"/></a> | 
-										 <a href=""><img width="30px" src="catalog/view/theme/default/image/gb.png"/></a>
+                      <a class="language-select" type="button" name="kh-gb"><img width="25px" src="./catalog/view/theme/default/image/kh.png"/></a> |
+                      <a class="language-select" type="button" name="en-gb"><img width="30px" src="./catalog/view/theme/default/image/gb.png"/></a> 
 									  </div>
 		
 								   </div>
@@ -181,13 +177,19 @@
 					</button>
 					<div class="pull-left border-line"></div>
 					<div class="pull-left lang-top">
-					   <div class="pull-left">
-							 <img width="25px" src="catalog/view/theme/default/image/kh.png"/>
-					   </div>
-					   <div class="pull-left line-lang"></div>
-					   <div class="pull-left">
-							 <img width="25px" src="catalog/view/theme/default/image/gb.png"/>
-					   </div>
+            <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
+              <div class="pull-left">
+                <a class="language-select" type="button" name="kh-gb">
+                  <img width="25px" src="./catalog/view/theme/default/image/kh.png"/>
+                </a>
+              </div>
+              <div class="pull-left line-lang"></div>
+              <div class="pull-left">
+                <a class="language-select" type="button" name="en-gb">
+                  <img width="25px" src="./catalog/view/theme/default/image/gb.png"/>
+                </a>
+              </div>
+            </form>
 					</div>
 					<div class="pull-left border-line"></div>
 				 </div>
@@ -211,13 +213,17 @@
 				 <div class="mobile-flag" style="position: absolute;right: 35pt;top: 0;">
 					<div class="pull-left border-line"></div>
 					<div class="pull-left lang-top">
-					   <div class="pull-left">
-							 <img width="20px" src="catalog/view/theme/default/image/phone-icon.png"/>
-					   </div>
-					   <div class="pull-left line-lang"></div>
-					   <div class="pull-left">
-							 <img width="20px" src="catalog/view/theme/default/image/location-icon.png"/>
-					   </div>
+            <div class="pull-left">
+              <a href="call:{{telephone}}">
+                <img width="20px" src="catalog/view/theme/default/image/phone-icon.png"/>
+              </a>
+            </div>
+            <div class="pull-left line-lang"></div>
+            <div class="pull-left">
+              <a href="{{contact}}">
+                <img width="20px" src="catalog/view/theme/default/image/location-icon.png"/>
+              </a>
+            </div>
 					</div>
 					<div class="pull-left border-line"></div>
 				 </div>
@@ -228,83 +234,7 @@
 					   <div class="views-exposed-form bef-exposed-form norm-width block-title-1 block-title-left block block-views block-views-exposed-filter-blockproduct-catalog-product-catalog-search" data-drupal-selector="views-exposed-form-product-catalog-product-catalog-search" id="block-exposedformproduct-catalogproduct-catalog-search" >
 						  <div class="container-wrap clearfix">
 							 <div class="block-content clearfix">
-							 <form action="/martis/en/catalog" method="get" id="views-exposed-form-product-catalog-product-catalog-search" accept-charset="UTF-8">
-								<div class="form-item js-form-item form-type-select js-form-type-select form-item-field-product-category js-form-item-field-product-category">
-								   <div class="select-wrapper">
-								   <select data-drupal-selector="edit-field-product-category" id="edit-field-product-category" name="field_product_category" class="form-select form-control">
-									  <option
-										 value="All" selected="selected">All Categories</option><option
-										 value="61">Phones &amp; Tablets</option><option
-										 value="125">-Mobile Phones</option><option
-										 value="126">--Smartphones</option><option
-										 value="127">---Android Phones</option><option
-										 value="128">---iOS Phones</option><option
-										 value="129">--Basic Phones</option><option
-										 value="136">-Tablets</option><option
-										 value="137">--iPads</option><option
-										 value="154">--Other Tablets</option><option
-										 value="138">--Tablet Accessories</option><option
-										 value="117">-Phone Accessories</option><option
-										 value="133">--Headsets</option><option
-										 value="130">--Phone Cases</option><option
-										 value="132">--Batteries</option><option
-										 value="131">--Screen Protectors</option><option
-										 value="134">--Chargers &amp; Power Adapters</option><option
-										 value="62">Computing</option><option
-										 value="148">-Laptops</option><option
-										 value="114">--Notebook</option><option
-										 value="113">--2-in-1</option><option
-										 value="149">-Desktops</option><option
-										 value="147">-Computer Accessories</option><option
-										 value="139">--Keyboards &amp; Mice</option><option
-										 value="115">--Data Storage</option><option
-										 value="142">---External Hard Drives</option><option
-										 value="141">---Flash Drives</option><option
-										 value="144">--Monitors</option><option
-										 value="145">--Software</option><option
-										 value="146">--Operating Systems</option><option
-										 value="143">--Scanners</option><option
-										 value="116">-Printers</option><option
-										 value="158">--Inkject Printers</option><option
-										 value="159">--Laser Printers</option><option
-										 value="140">--Printer Ink &amp; Toner</option><option
-										 value="118">Electronics</option><option
-										 value="63">Television &amp; Video</option><option
-										 value="119">-Televisions</option><option
-										 value="151">--LED TVs</option><option
-										 value="150">--Smart TVs</option><option
-										 value="153">--OLED TVs</option><option
-										 value="152">--Curved TVs</option><option
-										 value="120">-Players &amp; Recorders</option><option
-										 value="108">Audio System</option><option
-										 value="121">-Home Theater</option><option
-										 value="122">-Speakers</option><option
-										 value="123">-Sound Bars</option><option
-										 value="124">-Radios &amp; Stereos</option><option
-										 value="107">Camera &amp; Photo</option><option
-										 value="135">-Digital Cameras</option><option
-										 value="156">-Lenses</option><option
-										 value="157">-Camcorders</option><option
-										 value="155">-Projectors</option><option
-										 value="101">Fashion</option><option
-										 value="66">-Clothings</option><option
-										 value="67">-Shoes</option><option
-										 value="68">-Bags &amp; Wallets</option><option
-										 value="72">-Watches</option><option
-										 value="112">-Fashion Accessories</option><option
-										 value="110">Home &amp; Office</option><option
-										 value="111">-Appliances</option><option
-										 value="102">-Furniture</option><option
-										 value="69">Health &amp; Beauty</option><option
-										 value="103">Game &amp; Toys</option>
-								   </select>
-								   </div>
-								</div>
-								<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-text js-form-item-text">
-								   <input placeholder="Search products" data-drupal-selector="edit-text" type="text" id="edit-text" name="text" value="" size="30" maxlength="128" class="form-text search" />
-								</div>
-								<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit-product-catalog" type="submit" id="edit-submit-product-catalog" value="Search" class="button js-form-submit form-submit" /></div>
-							 </form>
+                {{search}}
 							 </div>
 						  </div>
 					   </div>
@@ -320,7 +250,7 @@
 					   <div class="container-wrap clearfix">
 						  <div class="block-content clearfix">
 						  <div class="field field-body field-type-text-with-summary field-label-hidden field-item"><strong class="text-sm">CALL TO ORDER</strong>
-							 <h4>+123 4567 890</h4>
+							 <h4>{{telephone}}</h4>
 						  </div>
 						  </div>
 					   </div>
