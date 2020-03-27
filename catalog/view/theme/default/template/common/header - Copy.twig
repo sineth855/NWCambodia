@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<<<<<<< HEAD
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<!-- <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" /> -->
+<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
+<!-- ################Third Party CSS ############################ -->
+<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_2zTAJL2IAOjUy0eTBfXpuy73tesSVH-Sn1uqOKE1cy8.css" />
+<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_1iMxpiIfuxpPQAZYfk4crDYaNUNNB25-OqIj6rbd4Rg.css" />
+<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_djFUWByxl_MSsBsfh2GGTKSNHvSlhtPrWikXimb7IAk.css" />
+<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/custom.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/thirdparty/jquery.flipcountdown.css" />
+<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_eLFvMGWDT--gioCML8qYgvp1w9pfgrfyPYzN0x0vd-I.css" />
+<link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_z3NY3PjTQcjkEnW5E8tRYLbJqubtIoM_SCGo_OVfSlY.css"/>
+<!-- <link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_oh7VoMxXbRU2mJvO77i6Y0UZNTRHJG6hq7HPYv8OCg0.css"/> -->
+
+{% for style in styles %}
+  <!--<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />-->
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+
+</head>
+<body>
+<nav id="top" style="display: none">
+  <div class="container">{{ currency }}
+    {{ language }}
+    <div id="top-links" class="nav pull-right">
+      <ul class="list-inline">
+        <li><a href="{{ contact }}"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span></li>
+        <li class="dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            {% if logged %}
+            <li><a href="{{ account }}">{{ text_account }}</a></li>
+            <li><a href="{{ order }}">{{ text_order }}</a></li>
+            <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+            <li><a href="{{ download }}">{{ text_download }}</a></li>
+            <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+            {% else %}
+            <li><a href="{{ register }}">{{ text_register }}</a></li>
+            <li><a href="{{ login }}">{{ text_login }}</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
+        <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
+        <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header style="display: none">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div id="logo">{% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
+          <h1><a href="{{ home }}">{{ name }}</a></h1>
+          {% endif %}</div>
+      </div>
+      <div class="col-sm-5">{{ search }}</div>
+      <div class="col-sm-3">{{ cart }}</div>
+    </div>
+  </div>
+</header>
+
+<!-- Header Start -->
+<header class="header">
+   <div class="header-top dark-header-top">
+      <div class="container">
+         <div class="row">	
+            <div class="col-md-6">
+               <div class="header-top-first">
+                  <div class="region region-header-top-first">
+                     <div id="block-clearance-sales" class="norm-width block-title-1 block-title-left block block-block-content block-block-content9aa5ff88-bebe-4f37-94b7-8e475b514f45" >
+                        <div class="container-wrap clearfix">
+                           <div class="block-content clearfix">
+                              <div class="field field-body field-type-text-with-summary field-label-hidden field-item">Clearance sales upto 40% off. <a href="#">Shop Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="header-top-second">
+                  <div class="region region-header-top-second">
+                     <div id="block-language-dropdown-switcher" class="norm-width block-title-1 block-title-left block block-lang-dropdown block-language-dropdown-blocklanguage-interface" >
+                        <div class="container-wrap clearfix">
+                           <div class="block-content clearfix">
+                              <form class="lang-dropdown-form lang_dropdown_form language_interface" id="lang_dropdown_form_lang_dropdown_form5e4d60d9aedfd0.47338846" data-drupal-selector="lang-dropdown-form" action="/martis/en" method="post" accept-charset="UTF-8">
+                                 <div class="form-item js-form-item form-type-select js-form-type-select form-item-lang-dropdown-select js-form-item-lang-dropdown-select form-no-label">
+                                    <label for="edit-lang-dropdown-select" class="control-label sr-only">Select your language</label>      
+                                    <div class="select-wrapper">
+                                       <!-- <select style="width:165px" class="lang-dropdown-select-element form-select form-control" id="lang-dropdown-select-lang_dropdown_form5e4d60d9aedfd0.47338846" data-drupal-selector="edit-lang-dropdown-select" name="lang_dropdown_select"><option
+                                             value="en" selected="selected">English</option><option
+                                             value="fr">French</option>
+                                       </select> -->
+                                       <a href=""><img width="25px" src="catalog/view/theme/default/image/kh.png"/></a> | 
+                                       <a href=""><img width="30px" src="catalog/view/theme/default/image/gb.png"/></a>
+                                    </div>
+      
+                                 </div>
+                                 <input data-drupal-selector="edit-en" type="hidden" name="en" value="/martis/en" /><input data-drupal-selector="edit-fr" type="hidden" name="fr" value="/martis/fr" /><noscript><div><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Go" class="button js-form-submit form-submit" /></div></noscript><input autocomplete="off" data-drupal-selector="form-klatgnw-3htw-mjo0v5ysqsig1dx5sphyylbqnwc1da" type="hidden" name="form_build_id" value="form-KLATgNW_3hTW-mjO0V5ysQsIg1Dx5sPHYylBQNwC1DA" /><input data-drupal-selector="edit-lang-dropdown-form" type="hidden" name="form_id" value="lang_dropdown_form" />
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="block-currency-block" class="norm-width block-title-1 block-title-left block block-commerce-currency-resolver" >
+                        <div class="container-wrap clearfix">
+                           <div class="block-content clearfix">
+                              {{currency}}
+                           </div>
+                        </div>
+                     </div>
+                     <nav aria-labelledby="block-user-account-menu" id="block-user-account-menu" class="norm-width block-title-1 block-title-left block block-system block-system-menu-blockaccount"  >
+                        <div class="container-wrap clearfix menu-wrap">
+                           <button type="button" class="dropdown-toggle header-icon account-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
+                           <div id="user-account-block-wrap" class="dropdown-menu user-account-block-wrap">
+                        
+                              <ul class="nav menu menu-parent">
+                                 {% if logged %}
+                                    <li><a href="{{ account }}">{{ text_account }}</a></li>
+                                    <li><a href="{{ order }}">{{ text_order }}</a></li>
+                                    <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+                                    <li><a href="{{ download }}">{{ text_download }}</a></li>
+                                    <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+                                    {% else %}
+                                    <li><a href="{{ register }}">{{ text_register }}</a></li>
+                                    <li><a href="{{ login }}">{{ text_login }}</a></li>
+                                 {% endif %}
+                                 <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
+                                 <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
+                                 <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </nav>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  
+   <div class="container-wrap header-wrap">
+      <div class="bg-header">
+         <div class="navbar header-center">
+            <div class="container">
+               <div class="mobile-flag" style="position: absolute;left: 0px;top: 0;">
+                  <button class="mobile-top-20 pull-left navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                     <i class="ti-menu"></i>
+                  </button>
+                  <div class="pull-left border-line"></div>
+                  <div class="pull-left lang-top">
+                     <div class="pull-left">
+                           <img width="25px" src="catalog/view/theme/default/image/kh.png"/>
+                     </div>
+                     <div class="pull-left line-lang"></div>
+                     <div class="pull-left">
+                           <img width="25px" src="catalog/view/theme/default/image/gb.png"/>
+                     </div>
+                  </div>
+                  <div class="pull-left border-line"></div>
+               </div>
+               <div class="header-side navbar-brand">
+                  <center>
+                     <div class="region region-branding">
+                  
+                        <div id="block-martis-branding" class="site-branding block block-system block-system-branding-block" >
+                           <div class="container-wrap clearfix">
+                           <div class="brand logo">
+                              <a href="/" title="Home" rel="home" class="site-branding-logo">
+                                 <img width="100px" src="./catalog/view/theme/default/image/logo.png" alt="Home" />
+                              </a>
+                           </div>
+                           </div>
+                        </div>
+                     </div>
+                  </center>   
+               </div>
+
+               <div class="mobile-flag" style="position: absolute;right: 35pt;top: 0;">
+                  <div class="pull-left border-line"></div>
+                  <div class="pull-left lang-top">
+                     <div class="pull-left">
+                           <img width="20px" src="catalog/view/theme/default/image/phone-icon.png"/>
+                     </div>
+                     <div class="pull-left line-lang"></div>
+                     <div class="pull-left">
+                           <img width="20px" src="catalog/view/theme/default/image/location-icon.png"/>
+                     </div>
+                  </div>
+                  <div class="pull-left border-line"></div>
+               </div>
+
+               <div class="header-main-wrap">
+                  <div id="header-search" class="collapse header-item header-search">
+                     <div class="region region-header-search">
+                     <div class="views-exposed-form bef-exposed-form norm-width block-title-1 block-title-left block block-views block-views-exposed-filter-blockproduct-catalog-product-catalog-search" data-drupal-selector="views-exposed-form-product-catalog-product-catalog-search" id="block-exposedformproduct-catalogproduct-catalog-search" >
+                        <div class="container-wrap clearfix">
+                           <div class="block-content clearfix">
+                           <form action="/martis/en/catalog" method="get" id="views-exposed-form-product-catalog-product-catalog-search" accept-charset="UTF-8">
+                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-field-product-category js-form-item-field-product-category">
+                                 <div class="select-wrapper">
+                                 <select data-drupal-selector="edit-field-product-category" id="edit-field-product-category" name="field_product_category" class="form-select form-control">
+                                    <option
+                                       value="All" selected="selected">All Categories</option><option
+                                       value="61">Phones &amp; Tablets</option><option
+                                       value="125">-Mobile Phones</option><option
+                                       value="126">--Smartphones</option><option
+                                       value="127">---Android Phones</option><option
+                                       value="128">---iOS Phones</option><option
+                                       value="129">--Basic Phones</option><option
+                                       value="136">-Tablets</option><option
+                                       value="137">--iPads</option><option
+                                       value="154">--Other Tablets</option><option
+                                       value="138">--Tablet Accessories</option><option
+                                       value="117">-Phone Accessories</option><option
+                                       value="133">--Headsets</option><option
+                                       value="130">--Phone Cases</option><option
+                                       value="132">--Batteries</option><option
+                                       value="131">--Screen Protectors</option><option
+                                       value="134">--Chargers &amp; Power Adapters</option><option
+                                       value="62">Computing</option><option
+                                       value="148">-Laptops</option><option
+                                       value="114">--Notebook</option><option
+                                       value="113">--2-in-1</option><option
+                                       value="149">-Desktops</option><option
+                                       value="147">-Computer Accessories</option><option
+                                       value="139">--Keyboards &amp; Mice</option><option
+                                       value="115">--Data Storage</option><option
+                                       value="142">---External Hard Drives</option><option
+                                       value="141">---Flash Drives</option><option
+                                       value="144">--Monitors</option><option
+                                       value="145">--Software</option><option
+                                       value="146">--Operating Systems</option><option
+                                       value="143">--Scanners</option><option
+                                       value="116">-Printers</option><option
+                                       value="158">--Inkject Printers</option><option
+                                       value="159">--Laser Printers</option><option
+                                       value="140">--Printer Ink &amp; Toner</option><option
+                                       value="118">Electronics</option><option
+                                       value="63">Television &amp; Video</option><option
+                                       value="119">-Televisions</option><option
+                                       value="151">--LED TVs</option><option
+                                       value="150">--Smart TVs</option><option
+                                       value="153">--OLED TVs</option><option
+                                       value="152">--Curved TVs</option><option
+                                       value="120">-Players &amp; Recorders</option><option
+                                       value="108">Audio System</option><option
+                                       value="121">-Home Theater</option><option
+                                       value="122">-Speakers</option><option
+                                       value="123">-Sound Bars</option><option
+                                       value="124">-Radios &amp; Stereos</option><option
+                                       value="107">Camera &amp; Photo</option><option
+                                       value="135">-Digital Cameras</option><option
+                                       value="156">-Lenses</option><option
+                                       value="157">-Camcorders</option><option
+                                       value="155">-Projectors</option><option
+                                       value="101">Fashion</option><option
+                                       value="66">-Clothings</option><option
+                                       value="67">-Shoes</option><option
+                                       value="68">-Bags &amp; Wallets</option><option
+                                       value="72">-Watches</option><option
+                                       value="112">-Fashion Accessories</option><option
+                                       value="110">Home &amp; Office</option><option
+                                       value="111">-Appliances</option><option
+                                       value="102">-Furniture</option><option
+                                       value="69">Health &amp; Beauty</option><option
+                                       value="103">Game &amp; Toys</option>
+                                 </select>
+                                 </div>
+                              </div>
+                              <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-text js-form-item-text">
+                                 <input placeholder="Search products" data-drupal-selector="edit-text" type="text" id="edit-text" name="text" value="" size="30" maxlength="128" class="form-text search" />
+                              </div>
+                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit-product-catalog" type="submit" id="edit-submit-product-catalog" value="Search" class="button js-form-submit form-submit" /></div>
+                           </form>
+                           </div>
+                        </div>
+                     </div>
+                     </div>
+
+                  </div>
+               </div>
+
+               <div class="header-side header-right-wrap">
+               <div class="header-item header-right">
+                  <div class="region region-header-right">
+                  <div id="block-call-to-order" class="norm-width block-title-1 block-title-left block block-block-content block-block-contentee24b9ac-7075-4cae-9e55-6e293b996fcc" >
+                     <div class="container-wrap clearfix">
+                        <div class="block-content clearfix">
+                        <div class="field field-body field-type-text-with-summary field-label-hidden field-item"><strong class="text-sm">CALL TO ORDER</strong>
+                           <h4>+123 4567 890</h4>
+                        </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+               </div>
+               <div class="header-item header-element">
+                  <button class="header-element-item search-button" type="button" data-toggle="collapse" data-target="#header-search" aria-expanded="false" aria-controls="header-search">
+                     <i class="ti-search"></i>
+                  </button>
+                  <div class="header-element-item header-cart dark-cart_icon">
+                     <div class="region region-header-cart">
+                        <div id="block-martis-cart" class="norm-width block-title-1 block-title-left block block-commerce-cart" >
+                           <div class="container-wrap clearfix">
+                              <div class="block-content clearfix">
+                                 <div class="cart-desktop">
+                                    {{ cart }}
+                                 </div>
+                                 <div class="cart-mobile cart--cart-block">
+                                    <div id="cart" class="cart-block--summary">
+                                       <a class="cart-block--link__expand" href="/martis/en/cart">
+                                          <i class="ti-shopping-cart"></i>
+                                          <span class="cart-block--summary__count"> 1</span>
+                                       </a>
+                                    </div>
+                                    <div class="cart-block--contents">
+                                       <div class="cart-block--contents__inner">
+                                          <div class="cart-block--contents__items">
+                                                <div class="cart cart-block">
+                                                   <div class="views-element-container">
+                                                      <div class="js-view-dom-id-2877648bd34c6683fd60694b6d39912773e84bbec2e7937b2ff0b4be3ce844d9">
+                                                         <table class="cols-0">
+                                                            <tbody>
+                                                               <tr>
+                                                                  <td class="views-field views-field-field-image">
+                                                                  <img src="./catalog/view/theme/default/image/bamm.png" width="100" height="100" alt="Bamm" typeof="foaf:Image" />
+                                                                  </td>
+                                                                  <td class="views-field views-field-title">Bamm - 7 US          </td>
+                                                                  <td class="views-field views-field-quantity">1&nbsp;×          </td>
+                                                                  <td class="views-field views-field-total-price__number">$59.95          </td>
+                                                               </tr>
+                                                            </tbody>
+                                                         </table>
+
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                          </div>
+                                          <div class="cart-block--contents__links cart-block-link">
+                                             <a href="/martis/en/cart">Cart</a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+            
+               </div>
+            <!-- <div style="position: relative; left: -100pt;">
+               <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="ti-menu"></i>
+               </button>
+               <img height="10px" src="catalog/view/theme/default/image/kh.png"/> &nbsp;
+               <img height="10px" src="catalog/view/theme/default/image/gb.png"/>
+            </div> -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>   
+   <div class="header-menu">
+      <div class="navbar navbar-expand-md nav-menu">
+      <div class="container">
+         <div id="main-menu-left" class="main-menu-left">
+            <div class="region region-header-category-menu">
+            <nav aria-labelledby="block-category-menu" id="block-category-menu" class="block-facet--links norm-width block-title-1 block-title-left block block-facets category-menu" >
+               <div class="container-wrap clearfix mega-menu">      
+                  <div class="block-title-wrap clearfix">
+                  <div class="block-title-content">
+                     <h4 class="block-title"><span class="cat-label">All Categories</span> <span class="cat-icon ti-menu"></span></h4>
+                  </div>
+                  </div>
+                  <ul data-drupal-facet-id="category_menu" data-drupal-facet-alias="categories" class="js-facets-links item-list__links nav menu menu-parent facet-list"><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-61" data-drupal-facet-item-value="61"><span class="facet-item__value">Phones &amp; Tablets</span>
+                  </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-62" data-drupal-facet-item-value="62"><span class="facet-item__value">Computing</span>
+                  </a></li><li class="facet-item"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-118" data-drupal-facet-item-value="118"><span class="facet-item__value">Electronics</span>
+                  </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-63" data-drupal-facet-item-value="63"><span class="facet-item__value">Television &amp; Video</span>
+                  </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-108" data-drupal-facet-item-value="108"><span class="facet-item__value">Audio System</span>
+                  </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-107" data-drupal-facet-item-value="107"><span class="facet-item__value">Camera &amp; Photo</span>
+                  </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-101" data-drupal-facet-item-value="101"><span class="facet-item__value">Fashion</span>
+                  </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-110" data-drupal-facet-item-value="110"><span class="facet-item__value">Home &amp; Office</span>
+                  </a></li><li class="facet-item"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-103" data-drupal-facet-item-value="103"><span class="facet-item__value">Game &amp; Toys</span>
+                  </a></li>
+                  </ul>
+               </div>
+            </nav>
+            </div>
+         </div>
+         <div id="main-menu" class="col-md-9 collapse navbar-collapse primary-menu nav-left">
+            <div class="region region-main-menu">
+            <nav aria-labelledby="block-martis-main-menu" id="block-martis-main-menu" class="norm-width block-title-1 block-title-left block block-system main-menu" >
+               <div class="container-wrap clearfix mega-menu main-menu-wrap">
+                  <ul class="menu menu-parent">
+                  <li class="menu-item menu-item--expanded">
+                     <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Home</a>
+                        <ul class="menu">
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Home 01</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/176">Home 02</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/189">Home 03</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/197">Home 04</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/202">Home 05</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/208">Home 06</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/243">Home 07</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/245">Home 08</a>
+                        </li>
+                        <li class="menu-item">
+                           <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/250">Home 09</a>
+                        </li>
+                        </ul>
+                     </li>
+                  <li class="menu-item">
+                  <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/25">About</a>
+                  </li>
+                  <li class="menu-item">
+                  <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="products">Products</a>
+                  </li>
+                  <li class="menu-item">
+                  <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="services">Services</a>
+                  </li>
+                  <li class="menu-item">
+                  <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="blog">Blog</a>
+                  </li>
+                  <li class="menu-item menu-item--expanded">
+                  <a href="">Pages</a>
+                                 <ul class="menu">
+                     <li class="menu-item menu-item--expanded">
+         <a href="">Features</a>
+                                 <ul class="menu">
+                     <li class="menu-item">
+         <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/63">FAQ</a>
+               </li>
+                  <li class="menu-item">
+         <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="portfolio">Portfolio</a>
+               </li>
+                  <li class="menu-item">
+         <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="team">Team</a>
+               </li>
+         </ul>
+   
+               </li>
+                  <li class="menu-item menu-item--expanded">
+         <a href="">Terms</a>
+                                 <ul class="menu">
+                     <li class="menu-item">
+         <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/217">Terms and Conditions</a>
+               </li>
+                  <li class="menu-item">
+         <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/219">Orders, Shipping and Returns</a>
+               </li>
+                  <li class="menu-item">
+         <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/218">Privacy Policy</a>
+               </li>
+         </ul>
+   
+               </li>
+         </ul>
+   
+               </li>
+                  <li class="menu-item">
+         <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="contact">Contact</a>
+               </li>
+         </ul>
+   
+=======
+	<html
+	dir="{{ direction }}" lang="{{ lang }}"> <!--<![endif]-->
+
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{ title }}</title>
+		<base href="{{ base }}"/>
+		{% if description %}
+			<meta name="description" content="{{ description }}"/>
+		{% endif %}
+		{% if keywords %}
+			<meta name="keywords" content="{{ keywords }}"/>
+		{% endif %}
+		<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+		<!-- <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" /> -->
+		<!-- <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
+		<!-- <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
+		<!-- ################Third Party CSS ############################ -->
+		<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_2zTAJL2IAOjUy0eTBfXpuy73tesSVH-Sn1uqOKE1cy8.css"/> <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_1iMxpiIfuxpPQAZYfk4crDYaNUNNB25-OqIj6rbd4Rg.css"/>
+		<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_djFUWByxl_MSsBsfh2GGTKSNHvSlhtPrWikXimb7IAk.css"/>
+		<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/custom.css"/>
+		<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/thirdparty/jquery.flipcountdown.css"/>
+		<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_eLFvMGWDT--gioCML8qYgvp1w9pfgrfyPYzN0x0vd-I.css"/>
+		{% for style in styles %}
+			<!-- <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" /> -->
+		{% endfor %}
+		{% for script in scripts %}
+			<script src="{{ script }}" type="text/javascript"></script>
+		{% endfor %}
+		<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+		{% for link in links %}
+			<link href="{{ link.href }}" rel="{{ link.rel }}"/>
+		{% endfor %}
+		{% for analytic in analytics %}
+			{{ analytic }}
+		{% endfor %}
+
+	</head>
+
+	<body>
+		<nav id="top" style="display: none">
+			<div class="container">{{ currency }}
+				{{ language }}
+				<div id="top-links" class="nav pull-right">
+					<ul class="list-inline">
+						<li>
+							<a href="{{ contact }}">
+								<i class="fa fa-phone"></i>
+							</a>
+							<span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span>
+						</li>
+						<li class="dropdown">
+							<a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-user"></i>
+								<span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span>
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right">
+								{% if logged %}
+									<li>
+										<a href="{{ account }}">{{ text_account }}</a>
+									</li>
+									<li>
+										<a href="{{ order }}">{{ text_order }}</a>
+									</li>
+									<li>
+										<a href="{{ transaction }}">{{ text_transaction }}</a>
+									</li>
+									<li>
+										<a href="{{ download }}">{{ text_download }}</a>
+									</li>
+									<li>
+										<a href="{{ logout }}">{{ text_logout }}</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="{{ register }}">{{ text_register }}</a>
+									</li>
+									<li>
+										<a href="{{ login }}">{{ text_login }}</a>
+									</li>
+								{% endif %}
+							</ul>
+						</li>
+						<li>
+							<a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}">
+								<i class="fa fa-heart"></i>
+								<span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
+								<i class="fa fa-shopping-cart"></i>
+								<span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{ checkout }}" title="{{ text_checkout }}">
+								<i class="fa fa-share"></i>
+								<span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<header style="display: none">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div id="logo">
+							{% if logo %}
+								<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive"/></a>
+							{% else %}
+								<h1>
+									<a href="{{ home }}">{{ name }}</a>
+								</h1>
+							{% endif %}
+						</div>
+					</div>
+					<div class="col-sm-5">{{ search }}</div>
+					<div class="col-sm-3">{{ cart }}</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Header Start -->
+		<header class="header">
+			<div class="header-top dark-header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="header-top-first">
+								<div class="region region-header-top-first">
+									<div id="block-clearance-sales" class="norm-width block-title-1 block-title-left block block-block-content block-block-content9aa5ff88-bebe-4f37-94b7-8e475b514f45">
+										<div class="container-wrap clearfix">
+											<div class="block-content clearfix">
+												<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+													Clearance sales upto 40% off.
+													<a href="#">Shop Now</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="header-top-second">
+								<div
+									class="region region-header-top-second">
+									<!--lang-->
+									{{ language }}
+									<div id="block-currency-block" class="norm-width block-title-1 block-title-left block block-commerce-currency-resolver">
+										<div class="container-wrap clearfix">
+											<div class="block-content clearfix">
+												{{currency}}
+											</div>
+										</div>
+									</div>
+									<nav aria-labelledby="block-user-account-menu" id="block-user-account-menu" class="norm-width block-title-1 block-title-left block block-system block-system-menu-blockaccount">
+										<div class="container-wrap clearfix menu-wrap">
+
+
+											<button type="button" class="dropdown-toggle header-icon account-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
+											<div id="user-account-block-wrap" class="dropdown-menu user-account-block-wrap">
+
+												<ul class="nav menu menu-parent">
+													{% if logged %}
+														<li>
+															<a href="{{ account }}">{{ text_account }}</a>
+														</li>
+														<li>
+															<a href="{{ order }}">{{ text_order }}</a>
+														</li>
+														<li>
+															<a href="{{ transaction }}">{{ text_transaction }}</a>
+														</li>
+														<li>
+															<a href="{{ download }}">{{ text_download }}</a>
+														</li>
+														<li>
+															<a href="{{ logout }}">{{ text_logout }}</a>
+														</li>
+													{% else %}
+														<li>
+															<a href="{{ register }}">{{ text_register }}</a>
+														</li>
+														<li>
+															<a href="{{ login }}">{{ text_login }}</a>
+														</li>
+													{% endif %}
+													<li>
+														<a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}">
+															<i class="fa fa-heart"></i>
+															<span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span>
+														</a>
+													</li>
+													<li>
+														<a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
+															<i class="fa fa-shopping-cart"></i>
+															<span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span>
+														</a>
+													</li>
+													<li>
+														<a href="{{ checkout }}" title="{{ text_checkout }}">
+															<i class="fa fa-share"></i>
+															<span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span>
+														</a>
+													</li>
+												</ul>
+
+
+											</div>
+										</div>
+									</nav>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-wrap header-wrap">
+				<div class="bg-header">
+					<div class="navbar header-center">
+						<div class="container">
+							<div class="mobile-flag" style="position: absolute;left: 0px;top: 0;">
+								<button class="mobile-top-20 pull-left navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+									<i class="ti-menu"></i>
+								</button>
+								<div class="pull-left border-line"></div>
+								<div class="pull-left lang-top">
+									<div class="pull-left">
+										<img width="25px" src="catalog/view/theme/default/image/kh.png"/>
+									</div>
+									<div class="pull-left line-lang"></div>
+									<div class="pull-left">
+										<img width="25px" src="catalog/view/theme/default/image/gb.png"/>
+									</div>
+								</div>
+								<div class="pull-left border-line"></div>
+							</div>
+							<div class="header-side navbar-brand">
+								<center>
+									<div class="region region-branding">
+
+										<div id="block-martis-branding" class="site-branding block block-system block-system-branding-block">
+											<div class="container-wrap clearfix">
+												<div class="brand logo">
+													<a href="/" title="Home" rel="home" class="site-branding-logo">
+														<img width="100px" src="./catalog/view/theme/default/image/logo.png" alt="Home"/>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</center>
+							</div>
+
+							<div class="mobile-flag" style="position: absolute;right: 35pt;top: 0;">
+								<div class="pull-left border-line"></div>
+								<div class="pull-left lang-top">
+									<div class="pull-left">
+										<img width="20px" src="catalog/view/theme/default/image/phone-icon.png"/>
+									</div>
+									<div class="pull-left line-lang"></div>
+									<div class="pull-left">
+										<img width="20px" src="catalog/view/theme/default/image/location-icon.png"/>
+									</div>
+								</div>
+								<div class="pull-left border-line"></div>
+							</div>
+>>>>>>> 70a28049ba555c4744fb55b4875470cec52c8655
+
+							<div class="header-main-wrap">
+
+								<div id="header-search" class="collapse header-item header-search">
+									<div class="region region-header-search">
+
+										<div class="views-exposed-form bef-exposed-form norm-width block-title-1 block-title-left block block-views block-views-exposed-filter-blockproduct-catalog-product-catalog-search" data-drupal-selector="views-exposed-form-product-catalog-product-catalog-search" id="block-exposedformproduct-catalogproduct-catalog-search">
+											<div class="container-wrap clearfix">
+												<div class="block-content clearfix">
+													<form action="/martis/en/catalog" method="get" id="views-exposed-form-product-catalog-product-catalog-search" accept-charset="UTF-8">
+														<div class="form-item js-form-item form-type-select js-form-type-select form-item-field-product-category js-form-item-field-product-category">
+															<div class="select-wrapper">
+																<select data-drupal-selector="edit-field-product-category" id="edit-field-product-category" name="field_product_category" class="form-select form-control">
+																	<option value="All" selected="selected">All Categories</option>
+																	<option value="61">Phones &amp; Tablets</option>
+																	<option value="125">-Mobile Phones</option>
+																	<option value="126">--Smartphones</option>
+																	<option value="127">---Android Phones</option>
+																	<option value="128">---iOS Phones</option>
+																	<option value="129">--Basic Phones</option>
+																	<option value="136">-Tablets</option>
+																	<option value="137">--iPads</option>
+																	<option value="154">--Other Tablets</option>
+																	<option value="138">--Tablet Accessories</option>
+																	<option value="117">-Phone Accessories</option>
+																	<option value="133">--Headsets</option>
+																	<option value="130">--Phone Cases</option>
+																	<option value="132">--Batteries</option>
+																	<option value="131">--Screen Protectors</option>
+																	<option value="134">--Chargers &amp; Power Adapters</option>
+																	<option value="62">Computing</option>
+																	<option value="148">-Laptops</option>
+																	<option value="114">--Notebook</option>
+																	<option value="113">--2-in-1</option>
+																	<option value="149">-Desktops</option>
+																	<option value="147">-Computer Accessories</option>
+																	<option value="139">--Keyboards &amp; Mice</option>
+																	<option value="115">--Data Storage</option>
+																	<option value="142">---External Hard Drives</option>
+																	<option value="141">---Flash Drives</option>
+																	<option value="144">--Monitors</option>
+																	<option value="145">--Software</option>
+																	<option value="146">--Operating Systems</option>
+																	<option value="143">--Scanners</option>
+																	<option value="116">-Printers</option>
+																	<option value="158">--Inkject Printers</option>
+																	<option value="159">--Laser Printers</option>
+																	<option value="140">--Printer Ink &amp; Toner</option>
+																	<option value="118">Electronics</option>
+																	<option value="63">Television &amp; Video</option>
+																	<option value="119">-Televisions</option>
+																	<option value="151">--LED TVs</option>
+																	<option value="150">--Smart TVs</option>
+																	<option value="153">--OLED TVs</option>
+																	<option value="152">--Curved TVs</option>
+																	<option value="120">-Players &amp; Recorders</option>
+																	<option value="108">Audio System</option>
+																	<option value="121">-Home Theater</option>
+																	<option value="122">-Speakers</option>
+																	<option value="123">-Sound Bars</option>
+																	<option value="124">-Radios &amp; Stereos</option>
+																	<option value="107">Camera &amp; Photo</option>
+																	<option value="135">-Digital Cameras</option>
+																	<option value="156">-Lenses</option>
+																	<option value="157">-Camcorders</option>
+																	<option value="155">-Projectors</option>
+																	<option value="101">Fashion</option>
+																	<option value="66">-Clothings</option>
+																	<option value="67">-Shoes</option>
+																	<option value="68">-Bags &amp; Wallets</option>
+																	<option value="72">-Watches</option>
+																	<option value="112">-Fashion Accessories</option>
+																	<option value="110">Home &amp; Office</option>
+																	<option value="111">-Appliances</option>
+																	<option value="102">-Furniture</option>
+																	<option value="69">Health &amp; Beauty</option>
+																	<option value="103">Game &amp; Toys</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-text js-form-item-text">
+															<input placeholder="Search products" data-drupal-selector="edit-text" type="text" id="edit-text" name="text" value="" size="30" maxlength="128" class="form-text"/>
+														</div>
+														<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit-product-catalog" type="submit" id="edit-submit-product-catalog" value="Search" class="button js-form-submit form-submit"/></div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="header-side header-right-wrap">
+								<div class="header-item header-right">
+									<div class="region region-header-right">
+
+										<div id="block-call-to-order" class="norm-width block-title-1 block-title-left block block-block-content block-block-contentee24b9ac-7075-4cae-9e55-6e293b996fcc">
+											<div class="container-wrap clearfix">
+
+
+												<div class="block-content clearfix">
+													<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+														<strong class="text-sm">CALL TO ORDER</strong>
+														<h4>012 XXX XXX</h4>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Block card-->
+								{{ cart }}
+
+							<!--End-Block card-->
+								<!-- <div style="position: relative; left: -100pt;">
+																								                  <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+																								                    <i class="ti-menu"></i>
+																								                  </button>
+																								                  <img height="10px" src="catalog/view/theme/default/image/kh.png"/> &nbsp;
+																								                  <img height="10px" src="catalog/view/theme/default/image/gb.png"/>
+																								              </div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<<<<<<< HEAD
+      </div>
+</nav>
+   </div>
+
+         </div>
+         
+            
+      </div>
+      </div>
+   </div>
+</header>
+<!-- Header End -->	
+<!-- {{ menu }} -->
+=======
+			{{ menu }}
+
+		</header>
+		<!-- Header End -->
+	</body>
+</html>
+>>>>>>> 70a28049ba555c4744fb55b4875470cec52c8655

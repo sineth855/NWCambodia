@@ -23,7 +23,6 @@ class ControllerExtensionModuleSlideshow extends Controller {
 					// 'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
 					'image' => $this->model_tool_image->resize($result['image'], 1920, 770)
 				);	
-				print_r($data['banners']);
 			}
 		}
 
