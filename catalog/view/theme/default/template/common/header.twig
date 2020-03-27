@@ -77,17 +77,17 @@
 		</div>
 	</nav>
   <header style="display: none">
-	<div class="container">
-	  <div class="row">
-		<div class="col-sm-4">
-		  <div id="logo">{% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
-			<h1><a href="{{ home }}">{{ name }}</a></h1>
-			{% endif %}</div>
-		</div>
-		<div class="col-sm-5">{{ search }}</div>
-		<div class="col-sm-3">{{ cart }}</div>
-	  </div>
-	</div>
+    <div class="container">
+      <div class="row">
+      <div class="col-sm-4">
+        <div id="logo">{% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
+        <h1><a href="{{ home }}">{{ name }}</a></h1>
+        {% endif %}</div>
+      </div>
+      <div class="col-sm-5">{{ search }}</div>
+      <div class="col-sm-3">{{ cart }}</div>
+      </div>
+    </div>
   </header>
   
   <!-- Header Start -->
@@ -341,12 +341,12 @@
 								   </div>
 								   <div class="cart-mobile cart--cart-block">
 									  <div id="cart" class="cart-block--summary">
-										 <a class="cart-block--link__expand" href="/martis/en/cart">
+										 <a class="cart-block--link__expand" href="{{cartLink}}">
 											<i class="ti-shopping-cart"></i>
-											<span class="cart-block--summary__count"> 1</span>
+											<!-- <span class="cart-block--summary__count"> 1</span> -->
 										 </a>
 									  </div>
-									  <div class="cart-block--contents">
+									  <!-- <div class="cart-block--contents">
 										 <div class="cart-block--contents__inner">
 											<div class="cart-block--contents__items">
 												  <div class="cart cart-block">
@@ -373,7 +373,7 @@
 											   <a href="/martis/en/cart">Cart</a>
 											</div>
 										 </div>
-									  </div>
+									  </div> -->
 								   </div>
 								</div>
 							 </div>
@@ -397,132 +397,11 @@
 	 <div class="header-menu">
 		<div class="navbar navbar-expand-md nav-menu">
 		<div class="container">
-		   <div id="main-menu-left" class="main-menu-left">
-			  <div class="region region-header-category-menu">
-			  <nav aria-labelledby="block-category-menu" id="block-category-menu" class="block-facet--links norm-width block-title-1 block-title-left block block-facets category-menu" >
-				 <div class="container-wrap clearfix mega-menu">      
-					<div class="block-title-wrap clearfix">
-					<div class="block-title-content">
-					   <h4 class="block-title"><span class="cat-label">All Categories</span> <span class="cat-icon ti-menu"></span></h4>
-					</div>
-					</div>
-					<ul data-drupal-facet-id="category_menu" data-drupal-facet-alias="categories" class="js-facets-links item-list__links nav menu menu-parent facet-list"><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-61" data-drupal-facet-item-value="61"><span class="facet-item__value">Phones &amp; Tablets</span>
-					</a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-62" data-drupal-facet-item-value="62"><span class="facet-item__value">Computing</span>
-					</a></li><li class="facet-item"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-118" data-drupal-facet-item-value="118"><span class="facet-item__value">Electronics</span>
-					</a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-63" data-drupal-facet-item-value="63"><span class="facet-item__value">Television &amp; Video</span>
-					</a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-108" data-drupal-facet-item-value="108"><span class="facet-item__value">Audio System</span>
-					</a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-107" data-drupal-facet-item-value="107"><span class="facet-item__value">Camera &amp; Photo</span>
-					</a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-101" data-drupal-facet-item-value="101"><span class="facet-item__value">Fashion</span>
-					</a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-110" data-drupal-facet-item-value="110"><span class="facet-item__value">Home &amp; Office</span>
-					</a></li><li class="facet-item"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-103" data-drupal-facet-item-value="103"><span class="facet-item__value">Game &amp; Toys</span>
-					</a></li>
-					</ul>
-				 </div>
-			  </nav>
-			  </div>
-		   </div>
-		   <div id="main-menu" class="col-md-9 collapse navbar-collapse primary-menu nav-left">
-			  <div class="region region-main-menu">
-			  <nav aria-labelledby="block-martis-main-menu" id="block-martis-main-menu" class="norm-width block-title-1 block-title-left block block-system main-menu" >
-				 <div class="container-wrap clearfix mega-menu main-menu-wrap">
-					<ul class="menu menu-parent">
-					<li class="menu-item menu-item--expanded">
-					   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Home</a>
-						  <ul class="menu">
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Home 01</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/176">Home 02</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/189">Home 03</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/197">Home 04</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/202">Home 05</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/208">Home 06</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/243">Home 07</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/245">Home 08</a>
-						  </li>
-						  <li class="menu-item">
-							 <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/250">Home 09</a>
-						  </li>
-						  </ul>
-					   </li>
-					<li class="menu-item">
-					<a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/25">About</a>
-					</li>
-					<li class="menu-item">
-					<a href="index.php?route=product/category&path=20" data-drupal-link-system-path="products">Products</a>
-					</li>
-					<li class="menu-item">
-					<a href="index.php?route=product/category&path=20" data-drupal-link-system-path="services">Services</a>
-					</li>
-					<li class="menu-item">
-					<a href="index.php?route=product/category&path=20" data-drupal-link-system-path="blog">Blog</a>
-					</li>
-					<li class="menu-item menu-item--expanded">
-					<a href="">Pages</a>
-								   <ul class="menu">
-					   <li class="menu-item menu-item--expanded">
-		   <a href="">Features</a>
-								   <ul class="menu">
-					   <li class="menu-item">
-		   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/63">FAQ</a>
-				 </li>
-					<li class="menu-item">
-		   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="portfolio">Portfolio</a>
-				 </li>
-					<li class="menu-item">
-		   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="team">Team</a>
-				 </li>
-		   </ul>
-	 
-				 </li>
-					<li class="menu-item menu-item--expanded">
-		   <a href="">Terms</a>
-								   <ul class="menu">
-					   <li class="menu-item">
-		   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/217">Terms and Conditions</a>
-				 </li>
-					<li class="menu-item">
-		   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/219">Orders, Shipping and Returns</a>
-				 </li>
-					<li class="menu-item">
-		   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="node/218">Privacy Policy</a>
-				 </li>
-		   </ul>
-	 
-				 </li>
-		   </ul>
-	 
-				 </li>
-					<li class="menu-item">
-		   <a href="index.php?route=product/category&path=20" data-drupal-link-system-path="contact">Contact</a>
-				 </li>
-		   </ul>
-	 
-  
-  
+        <!-- menu -->
+        {{ menu}}
+        <!-- #end menu -->
+      </div>
 		</div>
-  </nav>
-	 </div>
-  
-		   </div>
-		   
-			  
-		</div>
-		</div>
-	 </div>
-  </header>
-  <!-- Header End -->	
-  <!-- {{ menu }} -->
+  </div>
+</header>
+<!-- Header End -->	

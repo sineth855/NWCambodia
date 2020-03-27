@@ -15698,7 +15698,7 @@ ul {
 .page-wrapper,
 .content-widget {
     padding: 0;
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 
 .path-frontpage .page-wrapper {
@@ -15882,7 +15882,7 @@ ul {
 }
 
 #page-title h1 {
-    font-size: 20px;
+    font-size: 16px;
     display: block;
     margin-bottom: 0;
 }

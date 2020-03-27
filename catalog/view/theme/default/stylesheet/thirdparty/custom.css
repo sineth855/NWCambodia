@@ -117,7 +117,7 @@ body * {
     }
     .page-wrapper,
     .content-wide .block {
-        padding-bottom: 0 !important;
+        padding-bottom: 30px !important;
     }
     .product-teaser .product-title {
         min-height: 35px;
@@ -278,4 +278,8 @@ span.pull-right, .pull-right{
 h2.timer {
     text-transform: uppercase;
     color: #ffffff;
+}
+
+#content{
+    padding-bottom: 30px;
 }
