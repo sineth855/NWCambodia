@@ -504,7 +504,7 @@ class ControllerProductProduct extends Controller {
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
-
+			print_r($data['breadcrumbs']);
 			$data['continue'] = $this->url->link('common/home');
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');

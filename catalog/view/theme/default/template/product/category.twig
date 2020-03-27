@@ -1,224 +1,223 @@
 {{ header }}
-<div style="_display: none;" id="product-category" class="container">
-  <ul class="breadcrumb">
+<!-- breadcrumb -->
+<section id="page-title" class="page-title dark-page-title">
+  <div class="container">
+    <div class="region region-page-title">
+      <div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix">
+            <h1>{{heading_title}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-left region region-breadcrumb">
+      <div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix"> 
+            <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+              <!-- <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2> -->
+              <ul>
+                {% for breadcrumb in breadcrumbs %}
+                  <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  <!-- End breadcrumb -->
+<div style="_display: none;" id="product-category" >
+  <!-- <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
-  </ul>
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <h2>{{ heading_title }}</h2>
-      {% if thumb or description %}
-      <div class="row"> {% if thumb %}
-        <div class="col-sm-2"><img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" /></div>
-        {% endif %}
-        {% if description %}
-        <div class="col-sm-10">{{ description }}</div>
-        {% endif %}</div>
-      <hr>
-      {% endif %}
-      {% if categories %}
-      <h3>{{ text_refine }}</h3>
-      {% if categories|length <= 5 %}
-      <div class="row">
-        <div class="col-sm-3">
-          <ul>
-            {% for category in categories %}
-            <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
+  </ul> -->
+  
+  <div class="container" style="display: none;">
+    <div class="row">{{ column_left }}
+      {% if column_left and column_right %}
+      {% set class = 'col-sm-6' %}
+      {% elseif column_left or column_right %}
+      {% set class = 'col-sm-9' %}
       {% else %}
-      <div class="row">{% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
-        <div class="col-sm-3">
-          <ul>
-            {% for child in category %}
-            <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endfor %}</div>
-      <br />
+      {% set class = 'col-sm-12' %}
       {% endif %}
-      {% endif %}
-      {% if products %}
-      <div class="row">
-        <div class="col-md-2 col-sm-6 hidden-xs">
-          <div class="btn-group btn-group-sm">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="form-group"><a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a></div>
-        </div>
-        <div class="col-md-4 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
-              
-              
-              
-              {% for sorts in sorts %}
-              {% if sorts.value == '%s-%s'|format(sort, order) %}
-              
-              
-              
-              <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
-              
-              
-              
-              {% else %}
-              
-              
-              
-              <option value="{{ sorts.href }}">{{ sorts.text }}</option>
-              
-              
-              
-              {% endif %}
+      <div id="-content" class="{{ class }}">{{ content_top }}
+        <h2>{{ heading_title }}</h2>
+        {% if thumb or description %}
+        <div class="row"> {% if thumb %}
+          <div class="col-sm-2"><img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" /></div>
+          {% endif %}
+          {% if description %}
+          <div class="col-sm-10">{{ description }}</div>
+          {% endif %}</div>
+        <hr>
+        {% endif %}
+        {% if categories %}
+        <h3>{{ text_refine }}</h3>
+        {% if categories|length <= 5 %}
+        <div class="row">
+          <div class="col-sm-3">
+            <ul>
+              {% for category in categories %}
+              <li><a href="{{ category.href }}">{{ category.name }}</a></li>
               {% endfor %}
-            
-            
-            
-            </select>
+            </ul>
           </div>
         </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
-            <select id="input-limit" class="form-control" onchange="location = this.value;">
-              
-              
-              
-              {% for limits in limits %}
-              {% if limits.value == limit %}
-              
-              
-              
-              <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
-              
-              
-              
-              {% else %}
-              
-              
-              
-              <option value="{{ limits.href }}">{{ limits.text }}</option>
-              
-              
-              
-              {% endif %}
+        {% else %}
+        <div class="row">{% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
+          <div class="col-sm-3">
+            <ul>
+              {% for child in category %}
+              <li><a href="{{ child.href }}">{{ child.name }}</a></li>
               {% endfor %}
-            
-            
-            
-            </select>
+            </ul>
           </div>
-        </div>
-      </div>
-      <div class="row"> {% for product in products %}
-        <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
-            <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
-            <div>
-              <div class="caption">
-                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
-                <p>{{ product.description }}</p>
-                {% if product.price %}
-                <p class="price"> {% if not product.special %}
-                  {{ product.price }}
-                  {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
-                  {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+          {% endfor %}</div>
+        <br />
+        {% endif %}
+        {% endif %}
+        {% if products %}
+        <div class="row">
+          <div class="col-md-2 col-sm-6 hidden-xs">
+            <div class="btn-group btn-group-sm">
+              <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="ti-view-list-alt"></i></button>
+              <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="ti-layout-grid3"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="form-group"><a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a></div>
+          </div>
+          <div class="col-md-4 col-xs-6">
+            <div class="form-group input-group input-group-sm">
+              <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+              <select id="input-sort" class="form-control" onchange="location = this.value;">
+                
+                
+                
+                {% for sorts in sorts %}
+                {% if sorts.value == '%s-%s'|format(sort, order) %}
+                
+                
+                
+                <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+                
+                
+                
+                {% else %}
+                
+                
+                
+                <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+                
+                
+                
                 {% endif %}
-                {% if product.rating %}
-                <div class="rating"> {% for i in 1..5 %}
-                  {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endif %}
-                  {% endfor %} </div>
-                {% endif %} </div>
-              <div class="button-group">
-                <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
-              </div>
+                {% endfor %}
+              
+              
+              
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="form-group input-group input-group-sm">
+              <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
+              <select id="input-limit" class="form-control" onchange="location = this.value;">
+                
+                
+                
+                {% for limits in limits %}
+                {% if limits.value == limit %}
+                
+                
+                
+                <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
+                
+                
+                
+                {% else %}
+                
+                
+                
+                <option value="{{ limits.href }}">{{ limits.text }}</option>
+                
+                
+                
+                {% endif %}
+                {% endfor %}
+              
+              
+              
+              </select>
             </div>
           </div>
         </div>
-        {% endfor %} </div>
-      <div class="row">
-        <div class="col-sm-6 text-left">{{ pagination }}</div>
-        <div class="col-sm-6 text-right">{{ results }}</div>
-      </div>
-      {% endif %}
-      {% if not categories and not products %}
-      <p>{{ text_empty }}</p>
-      <div class="buttons">
-        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
-      </div>
-      {% endif %}
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
-</div>
-
-	<!-- Page Title -->
-	<section id="page-title" class="page-title dark-page-title">
-		<div class="container">
-			  <div class="region region-page-title">
-    
-<div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
-<div class="container-wrap clearfix">
-  
-    
-        <div class="block-content clearfix">
-  <h1>Products</h1>
-
-</div>
-  </div>
-</div>
-  </div>
-
-			  <div class="region region-breadcrumb">
-    
-<div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
-<div class="container-wrap clearfix">
-  
-    
-        <div class="block-content clearfix">  <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
-    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
-    <ul>
-          <li>
-                  <a href="/martis/en">Home</a>
-              </li>
-          <li>
-                  Products
-              </li>
-        </ul>
-  </nav>
-</div>
-  </div>
-</div>
+        <div class="row"> 
+          {% for product in products %}
+            <div class="product-layout product-list col-12 col-sm-12 col-md-6 col-lg-3">
+              <div class="product-thumb">
+                <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+                <div>
+                  <div class="caption">
+                    <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                    <p>{{ product.description }}</p>
+                    {% if product.price %}
+                    <p class="price"> {% if not product.special %}
+                      {{ product.price }}
+                      {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+                      {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+                    {% endif %}
+                    {% if product.rating %}
+                    <div class="rating"> {% for i in 1..5 %}
+                      {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endif %}
+                      {% endfor %} </div>
+                    {% endif %} 
+                  </div>
+                  <div class="button-group">
+                    <button type="button" class="btn btn-link" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="ti-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+                    <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="ti-heart"></i></button>
+                    <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="ti-control-shuffle"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %} 
+        </div>
+        <div class="row">
+          <div class="col-sm-6 text-left">{{ pagination }}</div>
+          <div class="col-sm-6 text-right">{{ results }}</div>
+        </div>
+        {% endif %}
+        {% if not categories and not products %}
+        <p>{{ text_empty }}</p>
+        <div class="buttons">
+          <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+        </div>
+        {% endif %}
+        {{ content_bottom }}</div>
+      {{ column_right }}</div>
   </div>
 
-		</div>
-	</section>
-	  <!-- End Page Title -->
 
-
+<div id="" class="container"></div>
 <!-- layout -->
 <section id="page-wrapper" class="page-wrapper">
   <div class="container">
+    <div class="col-sm-12">
+      <div id="content"></div>
+    </div>
     <div class="row content-layout">
       <!--- Start Left SideBar -->
-      <div class ="col-md-3 sidebar">
-        <div class="region region-sidebar-first">  
+      <!-- <div class ="col-md-3 sidebar"> -->
+        <!-- <div class="region region-sidebar-first">  
           <div id="block-category" class="block-facet--checkbox norm-width block-title-1 block-title-left block block-facets block-facet-blockcategory" >
             <div class="container-wrap clearfix">
               <div class="block-title-wrap clearfix">
@@ -286,8 +285,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> -->
+        {{ column_left }}
+      <!-- </div> -->
+  
 			<!---End Right SideBar -->
 			  
       <!--- Start content -->
@@ -306,66 +307,80 @@
                         </div>
                       </header>
 
-                      <form class="views-exposed-form" data-drupal-selector="views-exposed-form-product-catalog-product-catalog" action="/martis/en/products" method="get" id="views-exposed-form-product-catalog-product-catalog" accept-charset="UTF-8">
+                      <form class="views-exposed-form" data-drupal-selector="views-exposed-form-product-catalog-product-catalog" action="#" method="get" id="views-exposed-form-product-catalog-product-catalog" accept-charset="UTF-8">
                         <div class="form-item js-form-item form-type-select js-form-type-select form-item-sort-by js-form-item-sort-by">
-                          <label for="edit-sort-by" class="control-label">Sort by</label>
+                          <label for="edit-sort-by" class="control-label">{{ text_sort }}</label>
                           <div class="select-wrapper">
-                            <select data-drupal-selector="edit-sort-by" id="edit-sort-by" name="sort_by" class="form-select form-control">
-                              <option value="created" selected="selected">Default</option>
-                              <option value="title">Name (A-Z)</option>
-                              <option value="title_1">Name (Z-A)</option>
-                              <option value="price">Lowest Price</option>
-                              <option value="price_1">Highest Price</option>
+                            <select id="input-sort edit-sort-by" class="form-select form-control" onchange="location = this.value;">
+                              {% for sorts in sorts %}
+                                {% if sorts.value == '%s-%s'|format(sort, order) %}
+                                  <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+                                {% else %}
+                                  <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+                                {% endif %}
+                              {% endfor %}
                             </select>
                           </div>
                         </div>
-                        <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
-                          <input data-drupal-selector="edit-submit-product-catalog" type="submit" id="edit-submit-product-catalog" value="Apply" class="button js-form-submit form-submit" />
+
+                        <div class="form-item js-form-item form-type-select js-form-type-select form-item-sort-by js-form-item-sort-by">
+                          <label for="edit-sort-by" class="control-label">{{ text_limit }}</label>
+                          <div class="select-wrapper">
+                            <select id="input-limit edit-sort-by" class="form-select form-control" onchange="location = this.value;">
+                              {% for limits in limits %}
+                                {% if limits.value == limit %}
+                                  <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
+                                {% else %}
+                                  <option value="{{ limits.href }}">{{ limits.text }}</option>
+                                {% endif %}
+                              {% endfor %}
+                            </select>
+                          </div>
                         </div>
                       </form>
 
                       <div class="row grid-wrapper">
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
+                        {% for product in products %}
+                          <!-- Grid Product -->
+                          <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
+                            <div class="col-sm-12 product-teaser-wrap product-teaser-attribute">
+                              <div class="product-teaser">
+                                <div class="product-teaser-bg"></div>
+                                <div class="product-teaser-container">
+                                  <div class="post-image product-image">
+                                    <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
+                                      <div class="field-item">  
+                                        <a href="{{ product.href }}" hreflang="en">
+                                          <img src="{{ product.thumb }}" width="480" height="480" name="{{ product.name }}" alt="{{ product.name }}" typeof="foaf:Image" />
+                                        </a>
+                                      </div>
+                                      <div class="field-item">
+                                        <a href="{{ product.name }}" hreflang="en"><img src="{{ product.thumb }}" width="480" height="480" name="{{ product.name }}" alt="{{ product.name }}"typeof="foaf:Image" /></a>
                                       </div>
                                     </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
+                                    <div class="product-icon-wrap">
+                                      <div class="product-icon product-view">
+                                        <a href="{{product.href}}" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
+                                      </div>
+                                      <div class="product-icon product-add-wishlist">
+                                        <div class="flag flag-wishlist flag-wishlist-69 action-flag">
+                                          <a title="Wishlist" href="javascript:void(0);" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">{{button_wishlist}}</span></a>
+                                        </div>
+                                      </div>
+                                      <div class="product-icon product-add-compare">
+                                        <div class="flag flag-compare flag-compare-69 action-flag">
+                                          <a title="Compare" href="javascript:void(0);" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">{{button_compare}}</span></a>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
 
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
+                                  </div>
+                                  <div class="product-meta-wrap">
+                                    <div class="product-meta">
+                                      <div class="product-ratings">
                                         <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
                                           <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
+                                            <!-- <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
                                               <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
                                                 <div class="select-wrapper">
                                                   <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
@@ -378,871 +393,82 @@
                                                 </div>
                                               </div>
                                               <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
+                                            </form> -->
+                                            {% if product.rating %}
+                                              <div class="rating"> {% for i in 1..5 %}
+                                                {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endif %}
+                                                {% endfor %} 
+                                              </div>
+                                            {% endif %} 
                                           </div>
                                         </div>
                                       </div>
                                       <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
+                                        <a class="product-title-link" href="{{ product.href }}">
+                                          <div class="field field-title field-type-string field-label-hidden field-item">{{ product.name }}</div>
                                         </a>
                                       </div>
                                       <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
+                                        {% if product.price %}
+                                          {% if not product.special %}
+                                            <div class="product-price">
+                                              <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">{{product.price}}</div>
+                                            </div>
+                                          {% else %} 
+                                            <div class="product-old-price">
+                                              <del>
+                                                <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">{{product.price}}</div>
+                                              </del>
+                                            </div>
+                                            <div class="product-price">
+                                              <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">{{product.special}}</div>
+                                            </div>
+                                          {% endif %}
+                                        {% endif %}
+                                      </div>
+                                      {% if product.tax %} 
+                                        <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> 
+                                      {% endif %} 
                                     </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
+                            
+                                    <div class="-product-variation-wrap">
+                                      <div class="-product-add-cart">
+                                        <div class="has-no-option-variation">
+                                          <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
+                                            <div class="field-item">
+                                              <div id="commerce-product-add-to-cart-form">
+                                                <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
+                                                  <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
+                                                    <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
+                                                  </div>
+                                                  <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
+                                                  <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
+                                                  <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
+                                                    <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
+                                                      <label for="edit-quantity-0-value" class="control-label">Quantity</label>
+                                                      <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
+                                                    </div>
+                                                  </div>
+                                                  <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+                                                    <input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" type="button" id="edit-submit" name="op" value="Add to Cart" />
+                                                  </div>
+                                                </form>
                                               </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
-                                      </div>
-                                    </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
-                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-                                          <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
-                                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-                                                <div class="select-wrapper">
-                                                  <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
-                                                    <option value="1">Poor</option>
-                                                    <option value="2">Not so poor</option>
-                                                    <option value="3">average</option>
-                                                    <option value="4">good</option>
-                                                    <option value="5" selected="selected">very good</option>
-                                                  </select>
-                                                </div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
-                                        </a>
-                                      </div>
-                                      <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
-                                    </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
-                                      </div>
-                                    </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
-                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-                                          <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
-                                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-                                                <div class="select-wrapper">
-                                                  <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
-                                                    <option value="1">Poor</option>
-                                                    <option value="2">Not so poor</option>
-                                                    <option value="3">average</option>
-                                                    <option value="4">good</option>
-                                                    <option value="5" selected="selected">very good</option>
-                                                  </select>
-                                                </div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
-                                        </a>
-                                      </div>
-                                      <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
-                                    </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
-                                      </div>
-                                    </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
-                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-                                          <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
-                                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-                                                <div class="select-wrapper">
-                                                  <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
-                                                    <option value="1">Poor</option>
-                                                    <option value="2">Not so poor</option>
-                                                    <option value="3">average</option>
-                                                    <option value="4">good</option>
-                                                    <option value="5" selected="selected">very good</option>
-                                                  </select>
-                                                </div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
-                                        </a>
-                                      </div>
-                                      <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
-                                    </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
-                                      </div>
-                                    </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
-                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-                                          <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
-                                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-                                                <div class="select-wrapper">
-                                                  <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
-                                                    <option value="1">Poor</option>
-                                                    <option value="2">Not so poor</option>
-                                                    <option value="3">average</option>
-                                                    <option value="4">good</option>
-                                                    <option value="5" selected="selected">very good</option>
-                                                  </select>
-                                                </div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
-                                        </a>
-                                      </div>
-                                      <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
-                                    </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
-                                      </div>
-                                    </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
-                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-                                          <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
-                                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-                                                <div class="select-wrapper">
-                                                  <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
-                                                    <option value="1">Poor</option>
-                                                    <option value="2">Not so poor</option>
-                                                    <option value="3">average</option>
-                                                    <option value="4">good</option>
-                                                    <option value="5" selected="selected">very good</option>
-                                                  </select>
-                                                </div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
-                                        </a>
-                                      </div>
-                                      <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
-                                    </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
-                                      </div>
-                                    </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
-                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-                                          <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
-                                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-                                                <div class="select-wrapper">
-                                                  <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
-                                                    <option value="1">Poor</option>
-                                                    <option value="2">Not so poor</option>
-                                                    <option value="3">average</option>
-                                                    <option value="4">good</option>
-                                                    <option value="5" selected="selected">very good</option>
-                                                  </select>
-                                                </div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
-                                        </a>
-                                      </div>
-                                      <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
-                                    </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        <!-- Grid Product -->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 grid-item">
-                          <div class="product-teaser-wrap product-teaser-attribute">
-                            <div class="product-teaser">
-                              <div class="product-teaser-bg"></div>
-                              <div class="product-teaser-container">
-                                <div class="post-image product-image">
-                                  <div class="product--variation-field--variation_field_image__69 field field-field-image field-type-image field-label-hidden field-items">
-                                    <div class="field-item">  
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en">
-                                        <img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" />
-                                      </a>
-                                    </div>
-                                    <div class="field-item">
-                                      <a href="/martis/en/product/samsung-gear-vr?v=107" hreflang="en"><img src="./catalog/view/theme/default/image/bamm.png" width="480" height="480" alt="Samsung Gear VR" typeof="foaf:Image" /></a>
-                                    </div>
-                                  </div>
-                                  <div class="product-icon-wrap">
-                                    <div class="product-icon product-view">
-                                      <a href="/martis/en/product/samsung-gear-vr" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal" title="Quick View"><i class="ti-search"></i><span class="flag-title">Quick View</span></a>
-                                    </div>
-                                    <div class="product-icon product-add-wishlist">
-                                      <div class="flag flag-wishlist flag-wishlist-69 action-flag">
-                                        <a title="Wishlist" href="/martis/en/flag/flag/wishlist/69?destination=/martis/en/products&amp;token=U88k28pVTCGMPkbMxSItL0KOanjUWWNidABUh3kve6I" class="use-ajax flag-link" rel="nofollow"><i class="ti-heart"></i><span class="flag-title">Add to Wishlist</span></a>
-                                      </div>
-                                    </div>
-                                    <div class="product-icon product-add-compare">
-                                      <div class="flag flag-compare flag-compare-69 action-flag">
-                                        <a title="Compare" href="/martis/en/flag/flag/compare/69?destination=/martis/en/products&amp;token=PihljAtZWgWQ0y25X_Cj0cR85d355pN5p2H9BQl_drE" class="use-ajax flag-link" rel="nofollow"><i class="ti-control-shuffle"></i><span class="flag-title">Compare</span></a>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="product-meta-wrap">
-                                  <div class="product-meta">
-                                    <div class="product-ratings">
-                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-                                          <div class="votingapi-widgets fivestar">
-                                            <form class="commerce-product-basic-product-69-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form" data-drupal-selector="commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" action="/martis/en/products" method="post" accept-charset="UTF-8">
-                                              <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-                                                <div class="select-wrapper">
-                                                  <select autocomplete="off" data-result-value="5" data-vote-value="5" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value" name="value" class="form-select form-control">
-                                                    <option value="1">Poor</option>
-                                                    <option value="2">Not so poor</option>
-                                                    <option value="3">average</option>
-                                                    <option value="4">good</option>
-                                                    <option value="5" selected="selected">very good</option>
-                                                  </select>
-                                                </div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-esdq-ujry1p4yrvwhyegcpncs5ydaaef9ndsgoflrlm" type="hidden" name="form_build_id" value="form-eSdQ-uJry1P4YRvwHYEgCPncS5yDaAef9NDSgoflrlM" /><input data-drupal-selector="edit-commerce-product-basic-product-69-vote-field-ratings-vote-vote-votingapi-fivestar-form" type="hidden" name="form_id" value="commerce_product_basic_product_69_vote_field_ratings__vote_vote_votingapi_fivestar_form" /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--3" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="product-title">
-                                        <a class="product-title-link" href="/martis/en/product/samsung-gear-vr">
-                                          <div class="field field-title field-type-string field-label-hidden field-item">Samsung Gear VR</div>
-                                        </a>
-                                      </div>
-                                      <div class="product-price-wrap">
-                                        <div class="product-old-price">
-                                          <del>
-                                            <div class="product--variation-field--variation_list_price__69 field field-list-price field-type-commerce-price field-label-hidden field-item">$112.99</div>
-                                          </del>
-                                        </div>
-                                      <div class="product-price">
-                                      <div class="product--variation-field--variation_price__69 field field-price field-type-commerce-price field-label-hidden field-item">$94.99</div>
-                                    </div>
-                                  </div>
-                                </div>
-                          
-                                <div class="product-variation-wrap">
-                                  <div class="product-add-cart">
-                                    <div class="has-no-option-variation">
-                                      <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-                                        <div class="field-item">
-                                          <div id="commerce-product-add-to-cart-form">
-                                            <form class="commerce-order-item-add-to-cart-form-commerce-product-69 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-69" action="/martis/en/products" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-69" accept-charset="UTF-8">
-                                              <div class="field--type-entity-reference field--name-purchased-entity field--widget-commerce-product-variation-attributes js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-wrapper" id="edit-purchased-entity-wrapper">
-                                                <div class="attribute-widgets js-form-wrapper form-wrapper" data-drupal-selector="edit-purchased-entity-0-attributes" id="edit-purchased-entity-0-attributes"></div>
-                                              </div>
-                                              <input autocomplete="off" data-drupal-selector="form-ksolm2wiar0nb38i731waf6ahw-oc3tqyudm5qfiaaa" type="hidden" name="form_build_id" value="form-KsOLM2WIar0Nb38I731waF6ahw-Oc3TQYUDM5qFiAAA" />
-                                              <input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-69" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_69" />
-                                              <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper">
-                                                <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value form-disabled">
-                                                  <label for="edit-quantity-0-value" class="control-label">Quantity</label>
-                                                  <input data-drupal-selector="edit-quantity-0-value" disabled="disabled" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                                </div>
-                                              </div>
-                                              <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" disabled="disabled" type="submit" id="edit-submit" name="op" value="Add to Cart" /></div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="form-actions product-select has-option-variation">
-                                      <a class="button" href="/martis/en/product/samsung-gear-vr">Select Option</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="product-desc">
-                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-                                      <p>The Samsung Gear VR with <span>Controller, </span>powered by Oculus allows you to enjoy 2D, 3D, and 360-degree content by connecting it with your mobile device.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div><!-- #End Grid Product -->
-
-                        
+                          </div><!-- #End Grid Product -->
+                        {% endfor %}
 
                       </div>
                 
-                <nav class="pager" aria-labelledby="pagination-heading">
+                <!-- <nav class="pager" aria-labelledby="pagination-heading">
                   <h4 id="pagination-heading" class="visually-hidden">Pagination</h4>
                   <ul class="pager__items js-pager__items">
                     <li class="pager__item is-active">
@@ -1285,10 +511,12 @@
                       </a>
                     </li>
                   </ul>
-                </nav>
-                <footer>
-                Showing 1 - 16 of 49
-              </footer>
+                </nav> -->
+            
+            {{ pagination }}
+            <footer>
+              {{ results }}
+            </footer>
           </div>
         </div>
       </div>

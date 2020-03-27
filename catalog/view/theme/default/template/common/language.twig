@@ -42,13 +42,11 @@
 													                          </select> -->
 							{% for language in languages %}
 								<a class="language-select" type="button" name="{{ language.code }}">
-                	{{ language.name }}
-									{# <img src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}"/> #}
+                					<!-- {{ language.name }} -->
+									<img width="25px" src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}"/>
 								</a> |
 							{% endfor %}
-							{# <a href=""><img width="25px" src="catalog/view/theme/default/image/kh.png"/></a>
-													|
-													<a href=""><img width="30px" src="catalog/view/theme/default/image/gb.png"/></a> #}
+							
 						</div>
 					</div>
 					<input type="hidden" name="code" value=""/>

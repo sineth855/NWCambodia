@@ -98,24 +98,24 @@
 																	</div>
 																</div>
 
-                	<div class="product-icon-wrap">
-																		<div class="product-icon product-add-wishlist">
-																			<div class="flag flag-wishlist flag-wishlist-60 action-flag">
-																				<a type="button" title="Wishlist" class="use-ajax flag-link" rel="nofollow" onclick="wishlist.add('{{ product.product_id }}');">
-																					<i class="ti-heart"></i>
-																					<span class="flag-title">{{ button_wishlist }}</span>
-																				</a>
-																			</div>
-																		</div>
-																		<div class="product-icon product-add-compare">
-																			<div class="flag flag-compare flag-compare-60 action-flag">
-																				<a title="Compare" type="button" class="use-ajax flag-link" rel="nofollow" onclick="compare.add('{{ product.product_id }}');">
-																					<i class="ti-control-shuffle"></i>
-																					<span class="flag-title">{{ button_compare }}</span>
-																				</a>
-																			</div>
+																<div class="product-icon-wrap">
+																	<div class="product-icon product-add-wishlist">
+																		<div class="flag flag-wishlist flag-wishlist-60 action-flag">
+																			<a type="button" title="Wishlist" class="use-ajax flag-link" rel="nofollow" onclick="wishlist.add('{{ product.product_id }}');">
+																				<i class="ti-heart"></i>
+																				<span class="flag-title">{{ button_wishlist }}</span>
+																			</a>
 																		</div>
 																	</div>
+																	<div class="product-icon product-add-compare">
+																		<div class="flag flag-compare flag-compare-60 action-flag">
+																			<a title="Compare" type="button" class="use-ajax flag-link" rel="nofollow" onclick="compare.add('{{ product.product_id }}');">
+																				<i class="ti-control-shuffle"></i>
+																				<span class="flag-title">{{ button_compare }}</span>
+																			</a>
+																		</div>
+																	</div>
+																</div>
 
 																<!--remove which list -->
 															</div>
@@ -176,17 +176,11 @@
 																			{% endif %}
 																		</p>
 																	{% endif %}
-																	{# <div class="product-price-wrap">
-																		<div class="product-price">
-																			<div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-																				$14.25
-																			</div>
-																		</div>
-																	</div> #}
+																	
 																</div>
 
-																<div class="product-variation-wrap">
-																	<div class="product-add-cart">
+																<div class="-product-variation-wrap">
+																	<div class="-product-add-cart">
 																		<div class="has-no-option-variation">
 																			<div class="field field-variations field-type-entity-reference field-label-hidden field-items">
 																				<div class="field-item">
@@ -198,7 +192,9 @@
 																									<input data-drupal-selector="edit-quantity-0-value" type="number" id="edit-quantity-0-value--18" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number"/>
 																								</div>
 																							</div>
-																							<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--35"><input class="button--add-to-cart button button--primary js-form-submit form-submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit--52" name="op" value="Add to cart"/></div>
+																							<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--35">
+																								<input class="button--add-to-cart button button--primary js-form-submit form-submit" data-drupal-selector="edit-submit" type="button" onclick="cart.add('{{ product.product_id }}');" id="edit-submit--52" name="op" value="Add to cart"/>
+																							</div>
 																						</form>
 																					</div>
 																				</div>

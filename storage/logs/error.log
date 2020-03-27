@@ -1,0 +1,79 @@
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 9
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 25
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 63
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 47
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 25
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 63
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 47
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 25
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 63
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 47
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 25
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:33 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:34 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:34 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 8:43:34 - PHP Notice:  Use of undefined constant DIR_CACHE - assumed 'DIR_CACHE' in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\template\twig.php on line 26
+2020-03-08 11:11:42 - PHP Warning:  fopen(D:/SIM SINETH/Project/Web/personal/NutritionWhareHouse/development/storage/storage/cache/cache.catalog.language.1583669502): failed to open stream: No such file or directory in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 49
+2020-03-08 11:11:42 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 51
+2020-03-08 11:11:42 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 53
+2020-03-08 11:11:42 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 55
+2020-03-08 11:11:42 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 57
+2020-03-08 11:11:42 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 59
+2020-03-08 11:11:42 - PHP Warning:  fopen(D:/SIM SINETH/Project/Web/personal/NutritionWhareHouse/development/storage/storage/cache/cache.currency.1583669502): failed to open stream: No such file or directory in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 49
+2020-03-08 11:11:42 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 51
+2020-03-08 11:11:42 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 53
+2020-03-08 11:11:42 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 55
+2020-03-08 11:11:42 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 57
+2020-03-08 11:11:42 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in D:\SIM SINETH\Project\Web\personal\NutritionWhareHouse\development\upload\system\library\cache\file.php on line 59
+2020-03-17 2:26:49 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\SIM SINETH\Project\Web\personal\NWCambodia\system\library\mail\mail.php on line 77
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:21:47 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:21:51 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:22:20 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:22:41 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 160
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 167
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 174
+2020-03-20 15:23:11 - PHP Notice:  Undefined index: email in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\account\login.php on line 177
+2020-03-26 10:12:42 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 10:12:42 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 10:13:28 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 10:13:28 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 10:13:36 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 10:13:36 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 10:18:55 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 10:18:55 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\extension\module\slideshow.php on line 21
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:20 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:35:29 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 89
+2020-03-26 16:42:15 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 27
+2020-03-26 16:42:15 - PHP Notice:  Undefined index: description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\design\banner.php on line 27

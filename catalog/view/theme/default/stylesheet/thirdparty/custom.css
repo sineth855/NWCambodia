@@ -2,7 +2,7 @@ html,
 body {
     font-style: normal !important;
     overflow-x: hidden;
-    background-color: #f9f9f9;
+    background-color: #ffffff !important;
 }
 
 body {
@@ -11,6 +11,12 @@ body {
 
 body * {
     font-style: normal;
+    font-weight: normal;
+}
+
+.col-lg-55 {
+    /* -ms-flex: 0 0 20%; */
+    max-width: 100%;
 }
 
 @media (max-width:768px) {
@@ -109,6 +115,14 @@ body * {
         padding-left: 5px !important;
         padding-right: 5px !important;
     }
+    .col-12 {
+        flex: 0 0 50% !important;
+        width: 50% !important;
+    }
+    .col-12.list-grid {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+    }
     .header-item .search-button {
         display: none !important;
     }
@@ -121,7 +135,7 @@ body * {
     }
     .page-wrapper,
     .content-wide .block {
-        padding-bottom: 0 !important;
+        padding-bottom: 30px !important;
     }
     .product-teaser .product-title {
         min-height: 35px;
@@ -138,6 +152,12 @@ body * {
         height: 30px;
         margin-top: 17px;
     }
+    .cart-desktop {
+        display: none !important;
+    }
+    .cart-mobile {
+        display: block !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -145,6 +165,14 @@ body * {
         display: block;
         width: 100%;
         height: 200px;
+    }
+    .form-wrapper__returning-customer {
+        width: 48%;
+        float: left;
+    }
+    .form-wrapper__guest-checkout {
+        width: 48%;
+        float: right;
     }
     .container-wrap {
         max-width: 100%;
@@ -220,6 +248,56 @@ span.mobile-flag {
     padding-bottom: 10px;
 }
 
+#account-register {
+    padding-bottom: 50px;
+}
+
+input,
+select,
+textarea {
+    border: 1px solid #b8b8b8 !important;
+}
+
+input.search {
+    border: none !important;
+}
+
+input.search {
+    border: none !important;
+}
+
+[type="checkbox"] {
+    position: inherit;
+    left: -9999px;
+    visibility: visible;
+}
+
+span.pull-left,
+.pull-left {
+    float: left;
+}
+
+span.pull-right,
+.pull-right {
+    float: right;
+}
+
+.padding-left-15 {
+    padding-left: 15px;
+}
+
+.dropdown-menu {
+    min-width: 20rem !important;
+}
+
+.cart-desktop {
+    display: block;
+}
+
+.cart-mobile {
+    display: none;
+}
+
 
 /* price */
 
@@ -229,4 +307,13 @@ span.mobile-flag {
     color: #999;
     font: lighter 15px "Helvetica";
     float: left;
+}
+
+h2.timer {
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+#content {
+    padding-bottom: 30px;
 }

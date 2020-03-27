@@ -5615,8 +5615,8 @@ a.badge-dark:focus {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff
+    background-color: #f3de2b;
+    border-color: #f3de2b;
 }
 
 .list-group-horizontal {
@@ -15698,7 +15698,7 @@ ul {
 .page-wrapper,
 .content-widget {
     padding: 0;
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 
 .path-frontpage .page-wrapper {
@@ -15872,7 +15872,7 @@ ul {
 #page-title {
     padding: 15px 0;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     position: relative;
     border-bottom: 1px solid rgba(0, 0, 0, 0.02);
 }
@@ -15882,7 +15882,7 @@ ul {
 }
 
 #page-title h1 {
-    font-size: 20px;
+    font-size: 16px;
     display: block;
     margin-bottom: 0;
 }
@@ -15935,7 +15935,7 @@ ul {
 }
 
 .breadcrumb a {
-    color: #aaaaaa;
+    color: #5d5b5b;
 }
 
 .breadcrumb ul li:after {
@@ -16455,7 +16455,7 @@ input[type="submit"] {
 
 .button+.button,
 .btn+.btn {
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .btn:hover,
@@ -23804,7 +23804,7 @@ input[type="submit"],
         padding: 10px;
         width: 100%;
         display: block;
-        color: #333333 !important;
+        color: #cec6c6 !important;
     }
     .mega-menu>ul>li>ul {
         position: relative;
@@ -23842,8 +23842,8 @@ input[type="submit"],
         position: static;
     }
     .primary-menu {
-        background-color: #ffffff !important;
-        margin-top: 20px;
+        background-color: #202020 !important;
+        /* margin-top: 20px; */
     }
     .primary-menu .main-menu {
         padding: 15px 0;

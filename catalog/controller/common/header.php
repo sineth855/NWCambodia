@@ -34,7 +34,9 @@ class ControllerCommonHeader extends Controller {
 		$data['scripts'] = $this->document->getScripts('header');
 		$data['lang'] = $this->language->get('code');
 		$data['direction'] = $this->language->get('direction');
-
+		$data['cartLink'] = $this->url->link('checkout/cart');
+		$data['telephone'] = $this->config->get('config_telephone');
+		$data['contact'] = $this->url->link('information/contact');
 		$data['name'] = $this->config->get('config_name');
 
 		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
