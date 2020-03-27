@@ -13,3 +13,4 @@ storage/logs/error.log
 catalog/view/theme/default/template.zip
 catalog/view/theme/default/template-v1.zip
 catalog/view/theme/default/template-v2.zip
+storage/*
