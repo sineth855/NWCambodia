@@ -271,6 +271,7 @@ span.pull-right, .pull-right{
 }
 .dropdown-menu{
     min-width: 20rem !important;
+    left: -80%;
 }
 .cart-desktop{
     display: block;
@@ -294,4 +295,9 @@ h2.timer {
 
 #content{
     padding-bottom: 30px;
+}
+.checkout-progress--step:before{
+    background: green;
+    content: counter(checkout-progress) !important;
+    color: #ffffff;
 }

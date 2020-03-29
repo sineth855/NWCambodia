@@ -63,11 +63,9 @@ $(document).ready(function() {
 	// 	location = url;
 	// });
 	$('.search-action').on('click', function() {
-		var value = $('#search input#search-val').val();
+		var value = $('div#search input[name=\'search\']').val();
 		alert(value);
 		var url = $('base').attr('href') + 'index.php?route=product/search';
-
-
 		if (value) {
 			url += '&search=' + encodeURIComponent(value);
 		}
@@ -173,7 +171,7 @@ var cart = {
 
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
-						$('#cart').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
+						$('#cart > button').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
 						$('#cart-block--summary__count').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
 					}, 100);
 

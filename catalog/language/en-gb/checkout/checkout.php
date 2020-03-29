@@ -4,18 +4,20 @@ $_['heading_title']                  = 'Checkout';
 
 // Text
 $_['text_cart']                      = 'Shopping Cart';
-$_['text_checkout_option']           = 'Step %s: Checkout Options';
-$_['text_checkout_account']          = 'Step %s: Account &amp; Billing Details';
-$_['text_checkout_payment_address']  = 'Step %s: Billing Details';
-$_['text_checkout_shipping_address'] = 'Step %s: Delivery Details';
-$_['text_checkout_shipping_method']  = 'Step %s: Delivery Method';
-$_['text_checkout_payment_method']   = 'Step %s: Payment Method';
-$_['text_checkout_confirm']          = 'Step %s: Confirm Order';
+$_['text_checkout_option']           = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Checkout Options';
+$_['text_checkout_account']          = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Account &amp; Billing Details';
+$_['text_checkout_payment_address']  = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Billing Details';
+$_['text_checkout_shipping_address'] = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Delivery Details';
+$_['text_checkout_shipping_method']  = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Delivery Method';
+
+// $_['text_checkout_shipping_method']  = 'Step %s: Delivery Method';
+$_['text_checkout_payment_method']   = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Payment Method';
+$_['text_checkout_confirm']          = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Confirm Order';
 $_['text_modify']                    = 'Modify &raquo;';
 $_['text_new_customer']              = 'New Customer';
-$_['text_returning_customer']        = 'Customer Login';
+$_['text_returning_customer']        = 'Returning Customer';
 $_['text_checkout']                  = 'Checkout Options:';
-$_['text_i_am_returning_customer']   = 'I am old customer';
+$_['text_i_am_returning_customer']   = 'I am returning customer';
 $_['text_register']                  = 'Register Account';
 $_['text_guest']                     = 'Express Checkout';
 $_['text_register_account']          = 'By creating an account you will be able to shop faster, be up to date on an order\'s status, and keep track of the orders you have previously made.';
@@ -52,7 +54,7 @@ $_['entry_email_address']            = 'E-Mail Address';
 $_['entry_email']                    = 'E-Mail';
 $_['entry_password']                 = 'Password';
 $_['entry_confirm']                  = 'Password Confirm';
-$_['entry_firstname']                = 'First Name';
+$_['entry_firstname']                = 'Full Name';
 $_['entry_lastname']                 = 'Last Name';
 $_['entry_telephone']                = 'Telephone';
 $_['entry_address']                  = 'Choose Address';
