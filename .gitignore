@@ -15,3 +15,5 @@ catalog/view/theme/default/template-v1.zip
 catalog/view/theme/default/template-v2.zip
 storage/*
 storage/logs/error.log
+config.php
+admin/config.php
