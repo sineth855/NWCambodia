@@ -10,5 +10,8 @@ storage/storage/cache/*
 catalog.zip
 storage/logs/*
 storage/logs/error.log
+catalog/view/theme/default/template.zip
 catalog/view/theme/default/template-v1.zip
 catalog/view/theme/default/template-v2.zip
+storage/*
+storage/logs/error.log
