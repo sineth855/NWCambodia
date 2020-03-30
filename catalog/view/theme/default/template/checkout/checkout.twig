@@ -67,7 +67,9 @@
                     <div class="panel-body"></div>
                 </div>
             </div>
-            {% if not logged and account == 'guest' %}
+            {% if not logged %}
+                <div id="register-acc" class="register-acc" style="display: none;">
+            {% elseif account == 'guest' %}
                 <div id="register-acc" class="register-acc" style="display: none;">
             {% else %}
                 <div id="register-acc" class="register-acc">

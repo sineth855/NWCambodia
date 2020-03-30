@@ -64,7 +64,6 @@ $(document).ready(function() {
 	// });
 	$('.search-action').on('click', function() {
 		var value = $('div#search input[name=\'search\']').val();
-		alert(value);
 		var url = $('base').attr('href') + 'index.php?route=product/search';
 		if (value) {
 			url += '&search=' + encodeURIComponent(value);

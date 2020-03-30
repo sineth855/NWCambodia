@@ -8,73 +8,30 @@
 <form action="#" method="get" id="views-exposed-form-product-catalog-product-catalog-search" accept-charset="UTF-8">
   <div class="form-item js-form-item form-type-select js-form-type-select form-item-field-product-category js-form-item-field-product-category">
       <div class="select-wrapper">
-      <select data-drupal-selector="edit-field-product-category" id="edit-field-product-category" name="field_product_category" class="form-select form-control">
-      <option
-        value="All" selected="selected">All Categories</option><option
-        value="61">Phones &amp; Tablets</option><option
-        value="125">-Mobile Phones</option><option
-        value="126">--Smartphones</option><option
-        value="127">---Android Phones</option><option
-        value="128">---iOS Phones</option><option
-        value="129">--Basic Phones</option><option
-        value="136">-Tablets</option><option
-        value="137">--iPads</option><option
-        value="154">--Other Tablets</option><option
-        value="138">--Tablet Accessories</option><option
-        value="117">-Phone Accessories</option><option
-        value="133">--Headsets</option><option
-        value="130">--Phone Cases</option><option
-        value="132">--Batteries</option><option
-        value="131">--Screen Protectors</option><option
-        value="134">--Chargers &amp; Power Adapters</option><option
-        value="62">Computing</option><option
-        value="148">-Laptops</option><option
-        value="114">--Notebook</option><option
-        value="113">--2-in-1</option><option
-        value="149">-Desktops</option><option
-        value="147">-Computer Accessories</option><option
-        value="139">--Keyboards &amp; Mice</option><option
-        value="115">--Data Storage</option><option
-        value="142">---External Hard Drives</option><option
-        value="141">---Flash Drives</option><option
-        value="144">--Monitors</option><option
-        value="145">--Software</option><option
-        value="146">--Operating Systems</option><option
-        value="143">--Scanners</option><option
-        value="116">-Printers</option><option
-        value="158">--Inkject Printers</option><option
-        value="159">--Laser Printers</option><option
-        value="140">--Printer Ink &amp; Toner</option><option
-        value="118">Electronics</option><option
-        value="63">Television &amp; Video</option><option
-        value="119">-Televisions</option><option
-        value="151">--LED TVs</option><option
-        value="150">--Smart TVs</option><option
-        value="153">--OLED TVs</option><option
-        value="152">--Curved TVs</option><option
-        value="120">-Players &amp; Recorders</option><option
-        value="108">Audio System</option><option
-        value="121">-Home Theater</option><option
-        value="122">-Speakers</option><option
-        value="123">-Sound Bars</option><option
-        value="124">-Radios &amp; Stereos</option><option
-        value="107">Camera &amp; Photo</option><option
-        value="135">-Digital Cameras</option><option
-        value="156">-Lenses</option><option
-        value="157">-Camcorders</option><option
-        value="155">-Projectors</option><option
-        value="101">Fashion</option><option
-        value="66">-Clothings</option><option
-        value="67">-Shoes</option>
-        <option value="68">-Bags &amp; Wallets</option>
-        <option value="72">-Watches</option>
-        <option value="112">-Fashion Accessories</option>
-        <option value="110">Home &amp; Office</option>
-        <option value="111">-Appliances</option>
-        <option value="102">-Furniture</option>
-        <option value="69">Health &amp; Beauty</option>
-        <option value="103">Game &amp; Toys</option>
-      </select>
+        <select name="category_id" id="edit-field-product-category" class="form-select form-control">
+          <option value="0">{{ text_category }}</option>
+          {% for category_1 in categories %}
+          {% if category_1.category_id == category_id %}
+          <option value="{{ category_1.category_id }}" selected="selected">{{ category_1.name }}</option>
+          {% else %}
+          <option value="{{ category_1.category_id }}">{{ category_1.name }}</option>
+          {% endif %}
+          {% for category_2 in category_1.children %}
+          {% if category_2.category_id == category_id %}
+          <option value="{{ category_2.category_id }}" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+          {% else %}
+          <option value="{{ category_2.category_id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+          {% endif %}
+          {% for category_3 in category_2.children %}
+          {% if category_3.category_id == category_id %}
+          <option value="{{ category_3.category_id }}" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+          {% else %}
+          <option value="{{ category_3.category_id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+          {% endfor %}
+        </select>
       </div>
   </div>
   <div id="search" class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-text js-form-item-text">

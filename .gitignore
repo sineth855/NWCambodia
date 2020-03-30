@@ -17,3 +17,6 @@ storage/*
 storage/logs/error.log
 config.php
 admin/config.php
+storage/logs/error.log
+catalog/view/theme/default/template-v3.zip
+storage/logs/error.log
