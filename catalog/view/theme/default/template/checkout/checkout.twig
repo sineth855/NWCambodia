@@ -57,134 +57,147 @@
         <h1>{{ heading_title }}</h1>
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ text_checkout_option }}</h4>
+                <div class="panel-heading">
+                    <!-- <h4 class="panel-title">{{ text_checkout_option }}</h4> -->
+                    <legend>
+                        <span class="fieldset-legend"><h4 class="panel-title">{{text_checkout_option}}</h4></span>
+                    </legend>
+                </div>
+                <div class="panel-collapse collapse" id="collapse-checkout-option">
+                    <div class="panel-body"></div>
+                </div>
             </div>
-            <div class="panel-collapse collapse" id="collapse-checkout-option">
-                <div class="panel-body"></div>
-            </div>
-            </div>
-            {% if not logged and account != 'guest' %}
-            <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ text_checkout_account }}</h4>
-            </div>
-            <div class="panel-collapse collapse" id="collapse-payment-address">
-                <div class="panel-body"></div>
-            </div>
-            </div>
+            {% if not logged %}
+                <div id="register-acc" class="register-acc" style="display: none;">
+            {% elseif account == 'guest' %}
+                <div id="register-acc" class="register-acc" style="display: none;">
             {% else %}
-            <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ text_checkout_payment_address }}</h4>
-            </div>
-            <div class="panel-collapse collapse" id="collapse-payment-address">
-                <div class="panel-body"></div>
-            </div>
-            </div>
+                <div id="register-acc" class="register-acc">
             {% endif %}
-            {% if shipping_required %}
-            <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
-            </div>
-            <div class="panel-collapse collapse" id="collapse-shipping-address">
-                <div class="panel-body"></div>
-            </div>
-            </div>
-            <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
-            </div>
-            <div class="panel-collapse collapse" id="collapse-shipping-method">
-                <div class="panel-body"></div>
-            </div>
-            </div>
-            {% endif %}
-            <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
-            </div>
-            <div class="panel-collapse collapse" id="collapse-payment-method">
-                <div class="panel-body"></div>
-            </div>
-            </div>
-            <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ text_checkout_confirm }}</h4>
-            </div>
-            <div class="panel-collapse collapse" id="collapse-checkout-confirm">
-                <div class="panel-body"></div>
-            </div>
+                {% if not logged and account != 'guest' %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{ text_checkout_account }}</h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse-payment-address">
+                            <div class="panel-body"></div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{ text_checkout_payment_address }}</h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse-payment-address">
+                            <div class="panel-body"></div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if shipping_required %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse-shipping-address">
+                            <div class="panel-body"></div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse-shipping-method">
+                            <div class="panel-body"></div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
+                    </div>
+                    <div class="panel-collapse collapse" id="collapse-payment-method">
+                        <div class="panel-body"></div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">{{ text_checkout_confirm }}</h4>
+                    </div>
+                    <div class="panel-collapse collapse" id="collapse-checkout-confirm">
+                        <div class="panel-body"></div>
+                    </div>
+                </div>
             </div>
         </div>
-        {{ content_bottom }}</div>
-        {{ column_right }}</div>
+        {{ content_bottom }}
+        </div>
+        {{ column_right }}
+        </div>
 </div>
 
 <!-- Check Out Page -->
-	<!-- layout -->
-	<section id="page-wrapper" class="page-wrapper">
-		<div class="container">
-			<div class="row content-layout">
-			  
-			  			  <!--- Start content -->
-				<div class="col-md-12 main-content">
-					  <div class="region region-content">
-    <div data-drupal-messages-fallback class="hidden"></div>
+<!-- layout -->
+<section style="display:none;" id="page-wrapper" class="page-wrapper">
+    <div class="container">
+        <div class="row content-layout">
+            
+                        <!--- Start content -->
+            <div class="col-md-12 main-content">
+                    <div class="region region-content">
+<div data-drupal-messages-fallback class="hidden"></div>
 
 <div id="block-checkout-progress" class="norm-width block-title-1 block-title-left block block-commerce-checkout block-commerce-checkout-progress" >
 <div class="container-wrap clearfix">
-  
-    
-        <div class="block-content clearfix"><ol class="checkout-progress clearfix">
-        <li class="checkout-progress--step checkout-progress--step__current">Login</li>
-        <li class="checkout-progress--step checkout-progress--step__next">Order information</li>
-        <li class="checkout-progress--step checkout-progress--step__next">Review</li>
-        <li class="checkout-progress--step checkout-progress--step__next">Complete</li>
-  </ol>
+
+
+    <div class="block-content clearfix"><ol class="checkout-progress clearfix">
+    <li class="checkout-progress--step checkout-progress--step__current">Login</li>
+    <li class="checkout-progress--step checkout-progress--step__next">Order information</li>
+    <li class="checkout-progress--step checkout-progress--step__next">Review</li>
+    <li class="checkout-progress--step checkout-progress--step__next">Complete</li>
+</ol>
 </div>
-  </div>
+</div>
 </div>
 <div id="block-martis-content--3" class="norm-width block-title-1 block-title-left block block-system block-system-main-block" >
 <div class="container-wrap clearfix">
-  
-    
-        <div class="block-content clearfix"><form class="commerce-checkout-flow-multistep-default commerce-checkout-flow" data-drupal-selector="commerce-checkout-flow-multistep-default" enctype="multipart/form-data" action="/martis/en/checkout/35/login" method="post" id="commerce-checkout-flow-multistep-default" accept-charset="UTF-8">
-  <div class="layout-checkout-form clearfix">
-  <div class="checkout-pane checkout-pane-login js-form-wrapper form-wrapper" data-drupal-selector="edit-login" id="edit-login"><fieldset class="form-wrapper__login-option form-wrapper__returning-customer js-form-item form-item js-form-wrapper form-wrapper" data-drupal-selector="edit-login-returning-customer" id="edit-login-returning-customer">
-      <legend>
-    <span class="fieldset-legend">Customer Login</span>
-  </legend>
-  <div class="fieldset-wrapper">
-            <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-login-returning-customer-name js-form-item-login-returning-customer-name">
-      <label for="edit-login-returning-customer-name" class="control-label">Username</label>
-  
-  
-  <input autocorrect="none" autocapitalize="none" spellcheck="false" autofocus="autofocus" data-drupal-selector="edit-login-returning-customer-name" type="text" id="edit-login-returning-customer-name" name="login[returning_customer][name]" value="" size="60" maxlength="60" class="form-text" />
 
-  
-  
-  </div>
+
+    <div class="block-content clearfix"><form class="commerce-checkout-flow-multistep-default commerce-checkout-flow" data-drupal-selector="commerce-checkout-flow-multistep-default" enctype="multipart/form-data" action="/martis/en/checkout/35/login" method="post" id="commerce-checkout-flow-multistep-default" accept-charset="UTF-8">
+<div class="layout-checkout-form clearfix">
+<div class="checkout-pane checkout-pane-login js-form-wrapper form-wrapper" data-drupal-selector="edit-login" id="edit-login"><fieldset class="form-wrapper__login-option form-wrapper__returning-customer js-form-item form-item js-form-wrapper form-wrapper" data-drupal-selector="edit-login-returning-customer" id="edit-login-returning-customer">
+    <legend>
+<span class="fieldset-legend">Customer Login</span>
+</legend>
+<div class="fieldset-wrapper">
+        <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-login-returning-customer-name js-form-item-login-returning-customer-name">
+    <label for="edit-login-returning-customer-name" class="control-label">Username</label>
+
+
+<input autocorrect="none" autocapitalize="none" spellcheck="false" autofocus="autofocus" data-drupal-selector="edit-login-returning-customer-name" type="text" id="edit-login-returning-customer-name" name="login[returning_customer][name]" value="" size="60" maxlength="60" class="form-text" />
+
+
+
+</div>
 <div class="form-item js-form-item form-type-password js-form-type-password form-item-login-returning-customer-password js-form-item-login-returning-customer-password">
-      <label for="edit-login-returning-customer-password" class="control-label">Password</label>
-  
-  
-  <input data-drupal-selector="edit-login-returning-customer-password" type="password" id="edit-login-returning-customer-password" name="login[returning_customer][password]" size="60" maxlength="128" class="form-text" />
+    <label for="edit-login-returning-customer-password" class="control-label">Password</label>
 
-  
-  
-  </div>
+
+<input data-drupal-selector="edit-login-returning-customer-password" type="password" id="edit-login-returning-customer-password" name="login[returning_customer][password]" size="60" maxlength="128" class="form-text" />
+
+
+
+</div>
 <input formnovalidate="formnovalidate" data-drupal-selector="edit-login-returning-customer-submit" type="submit" id="edit-login-returning-customer-submit" name="op" value="Log in" class="button js-form-submit form-submit" /><a href="/martis/en/user/password" data-drupal-selector="edit-login-returning-customer-forgot-password" id="edit-login-returning-customer-forgot-password">Forgot password?</a>
-          </div>
+        </div>
 </fieldset>
 <fieldset class="form-wrapper__login-option form-wrapper__guest-checkout js-form-item form-item js-form-wrapper form-wrapper" data-drupal-selector="edit-login-guest" id="edit-login-guest">
-      <legend>
-    <span class="fieldset-legend">Guest Checkout</span>
-  </legend>
-  <div class="fieldset-wrapper">
-            <p>Proceed to checkout. You can optionally create an account at the end.</p><input formnovalidate="formnovalidate" data-drupal-selector="edit-login-guest-continue" type="submit" id="edit-login-guest-continue" name="op" value="Continue as Guest" class="button js-form-submit form-submit" />
-          </div>
+    <legend>
+<span class="fieldset-legend">Guest Checkout</span>
+</legend>
+<div class="fieldset-wrapper">
+        <p>Proceed to checkout. You can optionally create an account at the end.</p><input formnovalidate="formnovalidate" data-drupal-selector="edit-login-guest-continue" type="submit" id="edit-login-guest-continue" name="op" value="Continue as Guest" class="button js-form-submit form-submit" />
+        </div>
 </fieldset>
 
 </div>
@@ -193,36 +206,35 @@
 
 </form>
 </div>
-  </div>
 </div>
-  </div>
+</div>
+</div>
 
-				</div>
-			  <!---End content -->
-			  
-			  			</div>
-		</div>
-	</section>
-	<!-- End layout -->
+            </div>
+            <!---End content -->
+            
+                    </div>
+    </div>
+</section>
+<!-- End layout -->
 <!-- #End Check Out -->
-
 <!-- Script -->
 <script type="text/javascript"><!--
-$(document).on('change', 'input[name=\'account\']', function() {
-	if ($('#collapse-payment-address').parent().find('.panel-heading .panel-title > *').is('a')) {
-		if (this.value == 'register') {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_account }} <i class="fa fa-caret-down"></i></a>');
-		} else {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
-		}
-	} else {
-		if (this.value == 'register') {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_account }}');
-		} else {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_address }}');
-		}
-	}
-});
+    $(document).on('change', 'input[name=\'account\']', function() {
+        if ($('#collapse-payment-address').parent().find('.panel-heading .panel-title > *').is('a')) {
+            if (this.value == 'register') {
+                $('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_account }} <i class="fa fa-caret-down"></i></a>');
+            } else {
+                $('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+            }
+        } else {
+            if (this.value == 'register') {
+                $('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_account }}');
+            } else {
+                $('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_address }}');
+            }
+        }
+    });
 
 {% if not logged %}
 $(document).ready(function() {
@@ -262,6 +274,7 @@ $(document).ready(function() {
 
 // Checkout
 $(document).delegate('#button-account', 'click', function() {
+    
     $.ajax({
         url: 'index.php?route=checkout/' + $('input[name=\'account\']:checked').val(),
         dataType: 'html',
@@ -269,6 +282,12 @@ $(document).delegate('#button-account', 'click', function() {
         	$('#button-account').button('loading');
 		},
         complete: function() {
+            $('.register-acc').toggle("5000");
+            // var elmnt = document.getElementById("register-acc");
+            // elmnt.scrollIntoView();
+            var elmnt = document.getElementById("register-acc");
+            elmnt.scrollIntoView();
+
 			$('#button-account').button('reset');
         },
         success: function(html) {
@@ -659,6 +678,9 @@ $(document).delegate('#button-guest', 'click', function() {
        		$('#button-guest').button('loading');
 	    },
         success: function(json) {
+            var elmnt = document.getElementById("collapse-shipping-method");
+            elmnt.scrollIntoView();
+
             $('.alert-dismissible, .text-danger').remove();
 			$('.form-group').removeClass('has-error');
 

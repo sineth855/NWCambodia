@@ -176,21 +176,21 @@
 					   <i class="ti-menu"></i>
 					</button>
 					<div class="pull-left border-line"></div>
-					<div class="pull-left lang-top">
-            <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
-              <div class="pull-left">
-                <a class="language-select" type="button" name="kh-gb">
-                  <img width="25px" src="./catalog/view/theme/default/image/kh.png"/>
-                </a>
-              </div>
-              <div class="pull-left line-lang"></div>
-              <div class="pull-left">
-                <a class="language-select" type="button" name="en-gb">
-                  <img width="25px" src="./catalog/view/theme/default/image/gb.png"/>
-                </a>
-              </div>
-            </form>
-					</div>
+						<div class="pull-left lang-top">
+							<!-- <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language"> -->
+								<div class="pull-left">
+									<!-- <a class="language-select" type="button" name="kh-gb"> -->
+										<img width="25px" src="./catalog/view/theme/default/image/kh.png"/>
+									<!-- </a> -->
+								</div>
+								<div class="pull-left line-lang"></div>
+								<div class="pull-left">
+									<!-- <a class="language-select" type="button" name="en-gb"> -->
+										<img width="25px" src="./catalog/view/theme/default/image/gb.png"/>
+									<!-- </a> -->
+								</div>
+							<!-- </form> -->
+						</div>
 					<div class="pull-left border-line"></div>
 				 </div>
 				 <div class="header-side navbar-brand">
@@ -200,7 +200,7 @@
 						  <div id="block-martis-branding" class="site-branding block block-system block-system-branding-block" >
 							 <div class="container-wrap clearfix">
 							 <div class="brand logo">
-								<a href="{{home }}" title="Home" rel="home" class="site-branding-logo">
+								<a href="{{ home }}" title="Home" rel="home" class="site-branding-logo">
 								   <img width="100px" src="./catalog/view/theme/default/image/logo.png" alt="Home" />
 								</a>
 							 </div>
@@ -213,17 +213,17 @@
 				 <div class="mobile-flag" style="position: absolute;right: 35pt;top: 0;">
 					<div class="pull-left border-line"></div>
 					<div class="pull-left lang-top">
-            <div class="pull-left">
-              <a href="call:{{telephone}}">
-                <img width="20px" src="catalog/view/theme/default/image/phone-icon.png"/>
-              </a>
-            </div>
-            <div class="pull-left line-lang"></div>
-            <div class="pull-left">
-              <a href="{{contact}}">
-                <img width="20px" src="catalog/view/theme/default/image/location-icon.png"/>
-              </a>
-            </div>
+						<div class="pull-left">
+							<a href="tel:{{telephone}}">
+								<img width="20px" src="catalog/view/theme/default/image/phone-icon.png"/>
+							</a>
+						</div>
+						<div class="pull-left line-lang"></div>
+						<div class="pull-left">
+							<a href="{{contact}}">
+								<img width="20px" src="catalog/view/theme/default/image/location-icon.png"/>
+							</a>
+						</div>
 					</div>
 					<div class="pull-left border-line"></div>
 				 </div>
@@ -249,7 +249,7 @@
 					<div id="block-call-to-order" class="norm-width block-title-1 block-title-left block block-block-content block-block-contentee24b9ac-7075-4cae-9e55-6e293b996fcc" >
 					   <div class="container-wrap clearfix">
 						  <div class="block-content clearfix">
-						  <div class="field field-body field-type-text-with-summary field-label-hidden field-item"><strong class="text-sm">CALL TO ORDER</strong>
+						  <div class="field field-body field-type-text-with-summary field-label-hidden field-item">{{text_call_to_order}}
 							 <h4>{{telephone}}</h4>
 						  </div>
 						  </div>

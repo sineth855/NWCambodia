@@ -23345,7 +23345,8 @@ input[type="submit"],
     .mega-menu>ul>li>a {
         padding: 0 25px 0 0;
         line-height: 50px;
-        font-weight: 600;
+        font-weight: normal;
+        text-transform: uppercase;
     }
     .mega-menu>ul>li:last-child a {
         padding-right: 0;
