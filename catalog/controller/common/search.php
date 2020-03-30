@@ -2,7 +2,6 @@
 class ControllerCommonSearch extends Controller {
 	public function index() {
 		$this->load->language('common/search');
-		$this->load->language('product/search');
 
 		$this->load->model('catalog/category');
 
