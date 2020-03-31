@@ -167,7 +167,6 @@ body * {
     .count-down-timer {
         margin-bottom: 10px !important;
     }
-    
 }
 
 @media (max-width: 576px) {
@@ -328,8 +327,79 @@ h2.timer {
 #content {
     padding-bottom: 30px;
 }
-.checkout-progress--step:before{
+
+.checkout-progress--step:before {
     background: green;
     content: counter(checkout-progress) !important;
     color: #ffffff;
+}
+
+
+/* Click popup modal option select */
+
+.bodytext {
+    position: relative;
+    z-index: 99;
+    overflow: hidden;
+}
+
+#modal_container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#modal_inside {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    text-align: center;
+}
+
+#modal_inside .header-title {
+    display: block;
+    font: normal 18px "PT Sans";
+    color: #333;
+    padding: 15px 0;
+    margin: 0 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+#modal_inside.btn-wrap {
+    position: relative;
+    display: block;
+}
+
+#modal_inside .btn-wrap .continue-btn {
+    width: 180px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: bold 14px/40px "PT Sans";
+    color: #fff;
+    background: #03c;
+    margin: 24px 15px;
+}
+
+#modal_inside .btn-wrap .checkout-btn {
+    width: 180px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: bold 14px/40px "PT Sans";
+    color: #fff;
+    background: #090;
+    margin: 24px 15px;
 }
