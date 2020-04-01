@@ -361,12 +361,12 @@ h2.timer {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    text-align: center;
+    text-align: left;
 }
 
 #modal_inside .header-title {
     display: block;
-    font: normal 18px "PT Sans";
+    font: normal 18px "Arial";
     color: #333;
     padding: 15px 0;
     margin: 0 15px;
@@ -379,29 +379,59 @@ h2.timer {
 }
 
 #modal_inside .btn-wrap .continue-btn {
+    /* width: 180px; */
+    /* height: 40px; */
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    /* font: bold 14px/40px "Arial"; */
+    color: #fff;
+    background: #03c;
+    /* margin: 24px 15px; */
+    margin: 10px;
+}
+
+
+/* #modal_inside .btn-wrap .continue-btn {
     width: 180px;
     height: 40px;
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    font: bold 14px/40px "PT Sans";
+    font: bold 14px/40px "Arial";
     color: #fff;
     background: #03c;
-    margin: 24px 15px;
-}
+  margin: 24px 15px; 
+} */
+
+
+/* #modal_inside .btn-wrap .checkout-btn {
+    width: 180px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: bold 14px/40px "Arial";
+    color: #fff;
+    background: #090;
+    margin: 24px 15px; 
+} */
 
 #modal_inside .btn-wrap .checkout-btn {
     width: 180px;
-    height: 40px;
+    /* height: 40px; */
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    font: bold 14px/40px "PT Sans";
+    /* font: bold 14px/40px "Arial"; */
     color: #fff;
     background: #090;
-    margin: 24px 15px;
+    /* margin: 24px 15px; */
+    margin: 10px;
 }
 
 

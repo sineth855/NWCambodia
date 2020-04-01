@@ -39,14 +39,20 @@
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul> -->
-    <div class="bodytext" style="display: none;">
+    <div class="bodytext" style="display_: none;">
         <div id="modal_container">
             <div id="modal_inside">
                 <div class="model_content">
                     <div class="header-title">Product has been added to your cart</div>
                     <div class="btn-wrap">
-                        <a id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
-                        <a href="/cart" class="checkout-btn">checkout</a>
+                        <button id="close" class="js-modal-close continue-btn close-fancy">
+                            <i style="font-size: 20px;" class="ti-shopping-cart"></i>
+                            <span class="hidden-sm">continue shopping</span>
+                        </button>
+                        <button href="/cart" class="checkout-btn">
+                            <i class="ti-share"></i>
+                            <span class="hidden-sm">checkout</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -435,7 +441,7 @@
                                                 <td>In Stock</td>
                                                 <td>04/2022</td>
                                                 <td>
-                                                    <button id="btnShow" class="btn btn-lg btn-primary" name="cart"><i
+                                                <button id="btnShow" class="btn btn-lg btn-primary"><i
                                                             class="ti-shopping-cart"></i></button>
                                                 </td>
                                             </tr>
@@ -444,7 +450,7 @@
                                                 <td>In Stock</td>
                                                 <td>04/2022</td>
                                                 <td>
-                                                    <button id="btnShow" class="btn btn-lg btn-primary" name="cart"><i
+                                                <button id="btnShow" class="btn btn-lg btn-primary"><i
                                                             class="ti-shopping-cart"></i></button>
                                                 </td>
                                             </tr>
@@ -453,7 +459,7 @@
                                                 <td>In Stock</td>
                                                 <td>04/2022</td>
                                                 <td>
-                                                    <button id="btnShow" class="btn btn-lg btn-primary" name="cart"><i
+                                                <button id="btnShow" class="btn btn-lg btn-primary"><i
                                                             class="ti-shopping-cart"></i></button>
                                                 </td>
                                             </tr>
@@ -548,8 +554,8 @@
         $("#btnShow").click(function() {
             $(".bodytext").show();
         });
-    }); <
-    !--
+    });
+    <!--
     $('select[name=\'recurring_id\'], input[name="quantity"]').change(function() {
         $.ajax({
             url: 'index.php?route=product/product/getRecurringDescription',
