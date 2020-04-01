@@ -20,7 +20,7 @@ body * {
 }
 
 @media (max-width:768px) {
-    .owl-carousel .owl-item img {
+    .container-wrap .owl-carousel .owl-item img {
         height: 200px !important;
     }
     .bg-header {
@@ -170,7 +170,7 @@ body * {
 }
 
 @media (max-width: 576px) {
-    .owl-carousel .owl-item img {
+    .container-wrap .owl-carousel .owl-item img {
         display: block;
         width: 100%;
         height: 200px;
@@ -402,4 +402,15 @@ h2.timer {
     color: #fff;
     background: #090;
     margin: 24px 15px;
+}
+
+
+/* Login */
+
+.register_padding {
+    padding-bottom: 2vh;
+}
+
+.form-text {
+    width: 100%;
 }

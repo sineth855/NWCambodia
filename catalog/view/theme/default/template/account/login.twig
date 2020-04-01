@@ -2,95 +2,88 @@
 
 <!-- breadcrumb -->
 <section id="page-title" class="page-title dark-page-title">
-  <div class="container">
-    <div class="region region-page-title">
-      <div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
-        <div class="container-wrap clearfix">
-          <div class="block-content clearfix">
-            <h1>{{heading_title}}</h1>
-          </div>
+    <div class="container">
+        <div class="region region-page-title">
+            <div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block">
+                <div class="container-wrap clearfix">
+                    <div class="block-content clearfix">
+                        <h1>{{heading_title}}</h1>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="pull-left region region-breadcrumb">
-      <div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
-        <div class="container-wrap clearfix">
-          <div class="block-content clearfix"> 
-            <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
-              <!-- <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2> -->
-              <ul>
-                {% for breadcrumb in breadcrumbs %}
-                  <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-                {% endfor %}
-              </ul>
-            </nav>
-          </div>
+        <div class="pull-left region region-breadcrumb">
+            <div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block">
+                <div class="container-wrap clearfix">
+                    <div class="block-content clearfix">
+                        <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+                            <!-- <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2> -->
+                            <ul>
+                                {% for breadcrumb in breadcrumbs %}
+                                <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
+    </div>
 </section>
 <!-- End breadcrumb -->
 
 <div id="account-login" class="container">
-  <!-- <ul class="breadcrumb">
+    <!-- <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul> -->
 
-  
 
-  {% if success %}
-  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
-  {% endif %}
-  {% if error_warning %}
-  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
-  {% endif %}
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
+
+    {% if success %}
+    <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+    {% endif %} {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
     {% endif %}
-    <div id="content" class="{{ class }}">
-      {{ content_top }}
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="well">
-            <h2>{{ text_new_customer }}</h2>
-            <p><strong>{{ text_register }}</strong></p>
-            <p>{{ text_register_account }}</p>
-            <a href="{{ register }}" class="btn btn-primary">{{ button_continue }}</a></div>
-        </div>
-        <div class="col-sm-6">
-          <div class="well">
-            <h2>{{ text_returning_customer }}</h2>
-            <p><strong>{{ text_i_am_returning_customer }}</strong></p>
-            <form action="{{ action }}" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <label class="control-label" for="input-email">{{ entry_email }}</label>
-                <!-- <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" /> -->
-                <input type="text" name="email" id="edit-login-returning-customer-name input-email" value="{{ email }}" placeholder="{{ entry_email }}" size="60" maxlength="60" class="form-text" />
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="input-password">{{ entry_password }}</label>
-                <!-- <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" /> -->
-                <input type="password" name="password" id="edit-login-returning-customer-name input-email" value="{{ password }}" placeholder="{{ entry_password }}" size="60" maxlength="60" class="form-text" />
-                <a href="{{ forgotten }}">{{ text_forgotten }}</a></div>
-              <input type="submit" value="{{ button_login }}" class="btn btn-primary" />
-              {% if redirect %}
-              <input type="hidden" name="redirect" value="{{ redirect }}" />
-              {% endif %}
-            </form>
-          </div>
-        </div>
-      </div>
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
+    <div class="row">{{ column_left }} {% if column_left and column_right %} {% set class = 'col-sm-6' %} {% elseif column_left or column_right %} {% set class = 'col-sm-9' %} {% else %} {% set class = 'col-sm-12' %} {% endif %}
+        <div id="content" class="{{ class }}">
+            {{ content_top }}
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="well">
+                        <h2>{{ text_new_customer }}</h2>
+                        <p><strong>{{ text_register }}</strong></p>
+                        <p>{{ text_register_account }}</p>
+                        <div class="register_padding">
+                            <a href="{{ register }}" class="btn btn-primary">{{ button_continue }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="well">
+                        <h2>{{ text_returning_customer }}</h2>
+                        <p><strong>{{ text_i_am_returning_customer }}</strong></p>
+                        <form action="{{ action }}" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="control-label" for="input-email">{{ entry_email }}</label>
+                                <!-- <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" /> -->
+                                <input type="text" name="email" id="edit-login-returning-customer-name input-email" value="{{ email }}" placeholder="{{ entry_email }}" size="60" maxlength="60" class="form-text" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="input-password">{{ entry_password }}</label>
+                                <!-- <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" /> -->
+                                <input type="password" name="password" id="edit-login-returning-customer-name input-email" value="{{ password }}" placeholder="{{ entry_password }}" size="60" maxlength="60" class="form-text" />
+                                <a href="{{ forgotten }}">{{ text_forgotten }}</a></div>
+                            <input type="submit" value="{{ button_login }}" class="btn btn-primary" /> {% if redirect %}
+                            <input type="hidden" name="redirect" value="{{ redirect }}" /> {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {{ content_bottom }}</div>
+        {{ column_right }}</div>
 </div>
 {{ footer }}
