@@ -20,6 +20,9 @@ body * {
 }
 
 @media (max-width:768px) {
+    .header {
+        background-color: #303030;
+    }
     .container-wrap .owl-carousel .owl-item img {
         height: 200px !important;
     }
@@ -136,7 +139,7 @@ body * {
     .page-wrapper,
     .content-wide .block {
         padding-top: 0px !important;
-        padding-bottom: 30px !important;
+        /* padding-bottom: 30px !important; */
     }
     .product-teaser .product-title {
         min-height: 35px;
@@ -253,7 +256,11 @@ span.mobile-flag {
     background-color: #ffffff;
 }
 
-.row-top-category {
+.row-top-category_ {
+    padding-bottom: 10px;
+}
+
+.col-lg-2.col-sm-6.row-top-category__ {
     padding-bottom: 10px;
 }
 
