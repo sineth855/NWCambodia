@@ -75,9 +75,11 @@
                                 <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
 
                                     {% if thumb or images %} {% if thumb %}
-                                    <div class="field-item"> <img src="{{ popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" /></div>
+                                    <div class="field-item"> <img src="{{ popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" />
+                                    </div>
                                     {% endif %} {% if images %} {% for image in images %}
-                                    <div class="field-item"> <img src="{{ image.popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" /></div>
+                                    <div class="field-item"> <img src="{{ image.popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" />
+                                    </div>
 
                                     {% endfor %} {% endif %} {% endif %}
                                     <!-- <div class="field-item">  <img src="./catalog/view/theme/default/image/bamm.png" width="1500" height="1500" alt="Hooded Chest Stripe" typeof="foaf:Image" /></div>
@@ -90,9 +92,11 @@
                             <div class="piclist">
                                 <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
                                     {% if thumb or images %} {% if thumb %}
-                                    <div class="field-item"> <img src="{{ popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" /></div>
+                                    <div class="field-item"> <img src="{{ popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" />
+                                    </div>
                                     {% endif %} {% if images %} {% for image in images %}
-                                    <div class="field-item"> <img src="{{ image.popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" /></div>
+                                    <div class="field-item"> <img src="{{ image.popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" />
+                                    </div>
 
                                     {% endfor %} {% endif %} {% endif %}
                                     <!-- <div class="field-item">  <img src="./catalog/view/theme/default/image/bamm.png" width="1500" height="1500" alt="Hooded Chest Stripe" typeof="foaf:Image" /></div>
@@ -104,7 +108,8 @@
                         </div>
                         {% endif %}
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
+                            <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a>
+                            </li>
                             {% if attribute_groups %}
                             <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
                             {% endif %} {% if review_status %}
@@ -170,45 +175,57 @@
                                     {% else %} {{ text_login }} {% endif %}
                                 </form>
                             </div>
-                            {% endif %}</div>
+                            {% endif %}
+                        </div>
                     </div>
                     {% if column_left or column_right %} {% set class = 'col-sm-6' %} {% else %} {% set class = 'col-sm-4' %} {% endif %}
                     <div class="{{ class }}">
-                        <div class="btn-group" style="padding-bottom: 20px;">
-                            <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');"><i class="cat-icon ti-heart"></i></button>
-                            <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');"><i class="cat-icon ti-control-shuffle"></i></button>
-                        </div>
+                        <div class="row_">
+                            <div class="btn-group" style="padding-bottom: 20px;">
+                                <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');"><i
+                                        class="cat-icon ti-heart"></i></button>
+                                <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');"><i
+                                        class="cat-icon ti-control-shuffle"></i></button>
+                            </div>
 
-                        <h1>{{ heading_title }}</h1>
-                        <ul class="list-unstyled">
-                            {% if manufacturer %}
-                            <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
+                            <h1>{{ heading_title }}</h1>
+                            <ul class="list-unstyled">
+                                {% if manufacturer %}
+                                <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
+                                {% endif %}
+                                <li>{{ text_model }} {{ model }}</li>
+                                {% if reward %}
+                                <li>{{ text_reward }} {{ reward }}</li>
+                                {% endif %}
+                                <li>{{ text_stock }} {{ stock }}</li>
+                            </ul>
+                            {% if price %}
+                            <ul class="list-unstyled">
+                                {% if not special %}
+                                <br />
+                                <li>
+                                    <h2>{{ price }}</h2>
+                                </li>
+                                {% else %}
+                                <br />
+                                <li><span style="text-decoration: line-through;">{{ price }}</span></li>
+                                <li>
+                                    <h2>{{ special }}</h2>
+                                </li>
+                                <br /> {% endif %} {% if tax %}
+                                <li>{{ text_tax }} {{ tax }}</li>
+                                {% endif %} {% if points %}
+                                <li>{{ text_points }} {{ points }}</li>
+                                {% endif %} {% if discounts %}
+                                <li>
+                                    <hr>
+                                </li>
+                                {% for discount in discounts %}
+                                <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+                                {% endfor %} {% endif %}
+                            </ul>
                             {% endif %}
-                            <li>{{ text_model }} {{ model }}</li>
-                            {% if reward %}
-                            <li>{{ text_reward }} {{ reward }}</li>
-                            {% endif %}
-                            <li>{{ text_stock }} {{ stock }}</li>
-                        </ul>
-                        {% if price %}
-                        <ul class="list-unstyled">
-                            {% if not special %}
-                            <br/>
-                            <li>
-                                <h2>{{ price }}</h2>
-                            </li>
-                            {% else %}
-                            <br/>
-                            <li><span style="text-decoration: line-through;">{{ price }}</span></li>
-                            <li>
-                                <h2>{{ special }}</h2>
-                            </li>
-                            <br/> {% endif %} {% if tax %}
-                            <li>{{ text_tax }} {{ tax }}</li>
-                            {% endif %} {% if points %}
-                            <li>{{ text_points }} {{ points }}</li>
-                            {% endif %} {% if discounts %}
-                            <li>
+                            <div id="product"> {% if options %}
                                 <hr>
                             </li>
                             {% for discount in discounts %}
@@ -512,10 +529,8 @@
                                 <a class="addthis_button_pinterest_pinit"></a>
                                 <a class="addthis_counter addthis_pill_style"></a>
                             </div>
-                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
-                            <!-- AddThis Button END -->
+                            {% endif %}
                         </div>
-                        {% endif %}
                     </div>
                 </div>
                 {% if products %}
@@ -532,14 +547,22 @@
                                 <p>{{ product.description }}</p>
                                 {% if product.rating %}
                                 <div class="rating"> {% for j in 1..5 %} {% if product.rating
-                                    < j %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span> {% endif %} {% endfor %} </div>
+                                    < j %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                        {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i
+                                            class="fa fa-star-o fa-stack-1x"></i></span> {% endif %} {% endfor %} </div>
                                 {% endif %} {% if product.price %}
-                                <p class="price"> {% if not product.special %} {{ product.price }} {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %} {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>                                    {% endif %} </p>
-                                {% endif %} </div>
+                                <p class="price"> {% if not product.special %} {{ product.price }} {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %} {% if product.tax %}
+                                    <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+                                {% endif %}
+                            </div>
                             <div class="button-group">
-                                <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span> <i class="ti-shopping-cart"></i></button>
-                                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-                                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+                                <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><span
+                                        class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span> <i
+                                        class="ti-shopping-cart"></i></button>
+                                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i
+                                        class="fa fa-heart"></i></button>
+                                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i
+                                        class="fa fa-exchange"></i></button>
                             </div>
                         </div>
                     </div>
@@ -553,7 +576,8 @@
                 {% endif %} {% if tags %}
                 <p>{{ text_tags }} {% for i in 0..tags|length %} {% if i
                     < (tags|length - 1) %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a>, {% else %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a> {% endif %} {% endfor %} </p>
-                {% endif %} {{ content_bottom }}</div>
+                {% endif %} {{ content_bottom }}
+            </div>
             {{ column_right }}</div>
     </div>
 </div>
@@ -575,7 +599,8 @@
         $.ajax({
             url: 'index.php?route=product/product/getRecurringDescription',
             type: 'post',
-            data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+            data: $(
+                'input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
             dataType: 'json',
             beforeSend: function() {
                 $('#recurring-description').html('');
@@ -615,15 +640,20 @@
                             var element = $('#input-option' + i.replace('_', '-'));
 
                             if (element.parent().hasClass('input-group')) {
-                                element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                                element.parent().after('<div class="text-danger">' + json['error'][
+                                    'option'
+                                ][i] + '</div>');
                             } else {
-                                element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                                element.after('<div class="text-danger">' + json['error']['option'][
+                                    i
+                                ] + '</div>');
                             }
                         }
                     }
 
                     if (json['error']['recurring']) {
-                        $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+                        $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json[
+                            'error']['recurring'] + '</div>');
                     }
 
                     // Highlight any found errors
@@ -631,9 +661,15 @@
                 }
 
                 if (json['success']) {
-                    $('.addcart-success').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                    $('.addcart-success').after(
+                        '<div class="alert alert-success alert-dismissible">' + json[
+                            'success'] +
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button></div>'
+                    );
 
-                    $('#cart > button').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
+                    $('#cart > button').html(
+                        '<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json[
+                            'total'] + '</span>');
 
                     $('html, body').animate({
                         scrollTop: 0
@@ -647,7 +683,8 @@
             }
         });
     });
-    //-->
+    //
+    -->
 </script>
 <script type="text/javascript">
     <!--
@@ -672,7 +709,9 @@
 
         $('#form-upload').remove();
 
-        $('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+        $('body').prepend(
+            '<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>'
+        );
 
         $('#form-upload input[name=\'file\']').trigger('click');
 
@@ -702,7 +741,8 @@
                         $('.text-danger').remove();
 
                         if (json['error']) {
-                            $(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+                            $(node).parent().find('input').after(
+                                '<div class="text-danger">' + json['error'] + '</div>');
                         }
 
                         if (json['success']) {
@@ -712,13 +752,15 @@
                         }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {
-                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr
+                            .responseText);
                     }
                 });
             }
         }, 500);
     });
-    //-->
+    //
+    -->
 </script>
 <script type="text/javascript">
     <!--
@@ -750,11 +792,15 @@
                 $('.alert-dismissible').remove();
 
                 if (json['error']) {
-                    $('#review').after('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+                    $('#review').after(
+                        '<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' +
+                        json['error'] + '</div>');
                 }
 
                 if (json['success']) {
-                    $('#review').after('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+                    $('#review').after(
+                        '<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' +
+                        json['success'] + '</div>');
 
                     $('input[name=\'name\']').val('');
                     $('textarea[name=\'text\']').val('');
@@ -773,7 +819,8 @@
             }
         });
     });
-    //-->
+    //
+    -->
 </script>
 
 

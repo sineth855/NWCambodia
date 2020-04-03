@@ -21,8 +21,8 @@
     padding-left: 10%;
     padding-bottom: 5%;
     padding-top: 5%;
-    color: black; 
-    line-height: 1; 
+    color: black;
+    line-height: 1;
 }
 
 .fsp_retail_price {
@@ -30,8 +30,8 @@
     font-size: 2em;
     font-weight: 900;
     /* font-style: italic; */
-    color: #808080; 
-    line-height: 1; 
+    color: #808080;
+    line-height: 1;
     text-align: center;
     text-decoration: line-through;
 }
@@ -64,7 +64,7 @@
     padding-left: 10%;
     padding-bottom: 5%;
     padding-top: 1%;
-    color: black;  
+    color: black;
     width: 80%;
 }
 
@@ -75,19 +75,45 @@
     min-height: 350px;
 }
 
-.active { 
-    opacity: 1 !important;     
+.active {
+    opacity: 1 !important;
 }
 
+#Slide1,
+#Slide2,
+#Slide3,
+#Slide4 {
+    overflow: hidden;
+    padding-top: 0%;
+}
 
-#Slide1, #Slide2, #Slide3, #Slide4 { overflow:hidden; padding-top: 0%; }
+.male,
+.female {
+    overflow: hidden;
+    height: 0px;
+}
 
-.male, .female { overflow: hidden; height:0px; }
+#Slide1 img,
+#Slide2 img,
+#Slide3 img,
+#Slide4 img {
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity ease-in-out 0.2s;
+    -moz-transition: opacity ease-in-out 0.2s;
+    -webkit-transition: opacity ease-in-out 0.2s;
+}
 
-#Slide1 img, #Slide2 img, #Slide3 img, #Slide4 img { opacity:0.4; cursor:pointer; transition:opacity ease-in-out 0.2s; -moz-transition:opacity ease-in-out 0.2s; -webkit-transition:opacity ease-in-out 0.2s; }
-#Slide1 img:hover, #Slide2 img:hover, #Slide3 img:hover, #Slide4 img:hover { opacity:1; }
+#Slide1 img:hover,
+#Slide2 img:hover,
+#Slide3 img:hover,
+#Slide4 img:hover {
+    opacity: 1;
+}
 
-.age, .gender, .goal {
+.age,
+.gender,
+.goal {
     font-family: 'Lato', sans-serif;
     font-size: 2em !important;
     font-weight: 900;
@@ -135,7 +161,7 @@
 .steps li.active {
     margin: 10px;
     width: 15px;
-    height: 15px;   
+    height: 15px;
     border: 8px solid #f3de2b;
 }
 
@@ -159,59 +185,62 @@
     font-family: 'Lato', sans-serif;
 }
 
-@media only screen and (max-width : 1200px) {
-    #Slide1 img, #Slide2 img, #Slide3 img, #Slide4 img { opacity:1; }
+@media only screen and (max-width: 1200px) {
+    #Slide1 img,
+    #Slide2 img,
+    #Slide3 img,
+    #Slide4 img {
+        opacity: 1;
+    }
 }
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width: 768px) {
     #fsp_container {
         background-image: none;
     }
-
     .fsp_header {
         background-color: #f3de2b;
         font-size: 1.5em;
         background-image: none;
     }
-
     .fsp_title {
         padding-left: 0px;
         content: 'FIND YOUR FREE SUPPLEMENT PLAN';
     }
-
     .fsp_text {
         font-size: 1em;
         padding-left: 0px;
         width: 100%;
     }
-
     #right {
         background-image: url('../../image/SmallOrangeBg.png');
         background-repeat: no-repeat;
         background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
         padding-top: 0px;
         padding-bottom: 5%;
+        background-color: red;
     }
-
     #left {
         margin-left: 0px;
         padding-right: 0px;
         padding-left: 0px;
     }
-
-    #Slide1, #Slide2, #Slide3, #Slide4 { 
+    #Slide1,
+    #Slide2,
+    #Slide3,
+    #Slide4 {
         padding-top: 0px;
         text-align: center;
     }
-
     .slidershadow {
         display: none !important;
     }
-
     .fsp_goal {
         padding-left: 5%;
     }
-
     .steps {
         bottom: -10px;
     }

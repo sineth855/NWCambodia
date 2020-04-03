@@ -82,7 +82,7 @@ $('#banner{{ module }}').swiper({
 	<!-- ###########Top-10-Category########### -->
 	<section id="top-10">
 		<!-- ###################### -->
-		<div class="top-category">
+		<div class="top-category_">
 			<div class="row">
 				{% for banner in banners %}
 					<div class="col-lg-6 col-sm-12 row-top-category">
@@ -102,10 +102,10 @@ $('#banner{{ module }}').swiper({
 	<!-- ###########Top-10-Category########### -->
 	<section id="top-10">
 		<!-- ###################### -->
-		<div class="top-category">
+		<div class="top-category_">
 			<div class="row">
 				{% for banner in banners %}
-					<div class="col-lg-12 col-sm-12 row-top-category">
+					<div class="col-lg-12_ col-sm-12_ row-top-category__">
 						{% if banner.link %}
 							<a href="{{ banner.link }}">
 								<img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
@@ -125,7 +125,7 @@ $('#banner{{ module }}').swiper({
 		<div class="top-category">
 			<div class="row">
 				{% for banner in banners %}
-					<div class="col-lg-2 col-sm-6 row-top-category">
+					<div class="col-lg-2 col-sm-6 row-top-category__">
 						{% if banner.link %}
 							<a href="{{ banner.link }}">
 								<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
