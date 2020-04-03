@@ -790,7 +790,7 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['weight'] = '';
 		}
-
+		
 		$this->load->model('localisation/weight_class');
 
 		$data['weight_classes'] = $this->model_localisation_weight_class->getWeightClasses();
@@ -983,7 +983,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['option_values'] = array();
 
 		foreach ($data['product_options'] as $product_option) {
-			if ($product_option['type'] == 'select' || $product_option['type'] == 'radio' || $product_option['type'] == 'checkbox' || $product_option['type'] == 'image') {
+			if ($product_option['type'] == 'select' || $product_option['type'] == 'table' || $product_option['type'] == 'radio' || $product_option['type'] == 'checkbox' || $product_option['type'] == 'image') {
 				if (!isset($data['option_values'][$product_option['option_id']])) {
 					$data['option_values'][$product_option['option_id']] = $this->model_catalog_option->getOptionValues($product_option['option_id']);
 				}

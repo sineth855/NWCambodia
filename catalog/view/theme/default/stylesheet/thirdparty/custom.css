@@ -385,7 +385,7 @@ h2.timer {
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    font: bold 14px/40px "PT Sans";
+    font: normal 14px/40px "PT Sans";
     color: #fff;
     background: #03c;
     margin: 24px 15px;
@@ -398,7 +398,7 @@ h2.timer {
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    font: bold 14px/40px "PT Sans";
+    font: normal 14px/40px "PT Sans";
     color: #fff;
     background: #090;
     margin: 24px 15px;

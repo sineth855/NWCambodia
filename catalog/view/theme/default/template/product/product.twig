@@ -39,14 +39,14 @@
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul> -->
-    <div class="bodytext">
+    <div class="bodytext" style="display: none;">
         <div id="modal_container">
             <div id="modal_inside">
                 <div class="model_content">
                     <div class="header-title">Product has been added to your cart</div>
                     <div class="btn-wrap">
-                        <a id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
-                        <a href="/cart" class="checkout-btn">checkout</a>
+                        <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
+                        <a href="{{ checkout }}" class="checkout-btn">checkout</a>
                     </div>
                 </div>
             </div>
@@ -216,23 +216,87 @@
                             {% endfor %} {% endif %}
                         </ul>
                         {% endif %}
-                        <div id="product"> {% if options %}
+                        <div id="product"> 
+                            {% if options %}
                             <hr>
                             <h3>{{ text_option }}</h3>
-                            {% for option in options %} {% if option.type == 'select' %}
-                            <div class="form-group{% if option.required %} required {% endif %}">
-                                <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-                                <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
-                  <option value="">{{ text_select }}</option>
-                  {% for option_value in option.product_option_value %}
-                  <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
-                  {% if option_value.price %}
-                  ({{ option_value.price_prefix }}{{ option_value.price }})
-                  {% endif %} </option>
-                  {% endfor %}
-                </select>
-                            </div>
-                            {% endif %} {% if option.type == 'radio' %}
+                            {% for option in options %} 
+                                {% if option.type == 'select' %}
+                                <div class="form-group{% if option.required %} required {% endif %}">
+                                    <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+                                    <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
+                                        <option value="">{{ text_select }}</option>
+                                        {% for option_value in option.product_option_value %}
+                                        <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
+                                        {% if option_value.price %}
+                                        ({{ option_value.price_prefix }}{{ option_value.price }})
+                                        {% endif %} </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {% endif %} 
+
+                                {% if option.type == 'table' %}
+                                    
+                                    <div class="form-group">
+                                        <!-- <table class="table">
+                                            <tr>
+                                                <td width="35%">
+                                                    <img width="150px" src="./catalog/view/theme/default/image/bamm-cut.png" />
+                                                </td>
+                                                <td style="font-size: 17px;">
+                                                    1 LB <br/> $100
+                                                </td>
+                                            </tr>
+                                        </table> -->
+                                        <table class="table">
+                                            <tr>
+                                                <th>Flavor/Option</th>
+                                                <th>Price</th>
+                                                <th>Expiry</th>
+                                            </tr>
+                                            <!-- <div class="form-group{% if option.required %} required {% endif %}">
+                                                <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+                                                <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
+                                                    <option value="">{{ text_select }}</option> -->
+                                                <!-- </select>
+                                            </div> -->
+                                            {% for option_value in option.product_option_value %}
+                                                <tr>
+                                                    <td>
+                                                        <center>
+                                                            {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %} 
+                                                        </center>
+                                                        <br/>
+                                                        {{ option_value.name }}
+                                                        <br/>
+                                                        <small>In Stock</small><br/>
+                                                        <small>Expiry: 1 Jan, 2020</small>
+                                                    </td>
+                                                    <td>
+                                                        {% if option_value.price %}
+                                                            {{ option_value.price }}
+                                                        {% endif %}
+                                                        <div id="input-option{{ option.product_option_id }}">
+                                                            <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <button type="button" id="btnShow" class="btnShow btn btn-lg btn-primary"><i class="ti-shopping-cart"></i></button> -->
+                                                        <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btnShow button-cart btn btn-lg btn-primary btn-block"><i class="ti-shopping-cart"></i></button>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            <tr>
+                                                <td colspan="3">
+                                                    <small>Discount 639 Baht when put promotion code "BAAMRED10"</small>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                {% endif %} 
+
+                            {% if option.type == 'radio' %}
                             <div class="form-group{% if option.required %} required {% endif %}">
                                 <label class="control-label">{{ option.name }}</label>
                                 <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
@@ -325,7 +389,7 @@
                   <label for="edit-quantity-0-value" class="control-label">{{entry_qty}}</label>
                   <input data-drupal-selector="edit-quantity-0-value" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
                 </div> -->
-                                <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
+                                <input type="number" name="quantity" value="{{ minimum }}" style="width:100%" size="50" min="1" id="input-quantity" class="form-text" />
 
                                 <input type="hidden" name="product_id" value="{{ product_id }}" />
                                 <br />
@@ -335,10 +399,7 @@
                             <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>
                             {% endif %}
 
-
-
-
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <table class="table">
                                     <tr>
                                         <td width="35%">
@@ -386,9 +447,9 @@
                                         </td>
                                     </tr>
                                 </table>
-                            </div>
+                            </div> -->
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <table class="table">
                                     <tr>
                                         <td width="35%">
@@ -436,7 +497,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                            </div>
+                            </div> -->
 
                         </div>
                         {% if review_status %}
@@ -505,7 +566,7 @@
         $("#close").click(function() {
             $(".bodytext").hide();
         });
-        $("#btnShow").click(function() {
+        $(".btnShow").click(function() {
             $(".bodytext").show();
         });
     });
@@ -532,17 +593,17 @@
 </script>
 <script type="text/javascript">
     <!--
-    $('#button-cart').on('click', function() {
+    $('.button-cart').on('click', function() {
         $.ajax({
             url: 'index.php?route=checkout/cart/add',
             type: 'post',
-            data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+            data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product table, #product textarea'),
             dataType: 'json',
             beforeSend: function() {
-                $('#button-cart').button('loading');
+                $('.button-cart').button('loading');
             },
             complete: function() {
-                $('#button-cart').button('reset');
+                $('.button-cart').button('reset');
             },
             success: function(json) {
                 $('.alert-dismissible, .text-danger').remove();

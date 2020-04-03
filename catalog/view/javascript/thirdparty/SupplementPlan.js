@@ -137,16 +137,16 @@ $(document).ready(function(){
         var catID = '/collections/stacks';
         if (Sex=='male' && Age=='U21' && Goal=='FL') { catID = '67'; }
         else if (Sex=='male' && Age=='U21' && Goal=='MB') { catID = '69'; }
-        else if (Sex=='male' && Age=='U21' && Goal=='PF') { catID = '/test3'; }
+        else if (Sex=='male' && Age=='U21' && Goal=='PF') { catID = '75'; }
         else if (Sex=='male' && Age=='O21' && Goal=='FL') { catID = '68'; }
         else if (Sex=='male' && Age=='O21' && Goal=='MB') { catID = '70'; }
-        else if (Sex=='male' && Age=='O21' && Goal=='PF') { catID = '/test6'; }
+        else if (Sex=='male' && Age=='O21' && Goal=='PF') { catID = '76'; }
         else if (Sex=='female' && Age=='U21' && Goal=='FL') { catID = '71'; }
         else if (Sex=='female' && Age=='U21' && Goal=='MB') { catID = '73'; }
-        else if (Sex=='female' && Age=='U21' && Goal=='PF') { catID = '/test9'; }
+        else if (Sex=='female' && Age=='U21' && Goal=='PF') { catID = '77'; }
         else if (Sex=='female' && Age=='O21' && Goal=='FL') { catID = '72'; }
         else if (Sex=='female' && Age=='O21' && Goal=='MB') { catID = '74'; }
-        else if (Sex=='female' && Age=='O21' && Goal=='PF') { catID = '/test12'; }
+        else if (Sex=='female' && Age=='O21' && Goal=='PF') { catID = '78'; }
 
         window.location = "index.php?route=product/category&path=" + catID;
     }

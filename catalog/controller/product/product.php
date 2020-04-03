@@ -11,7 +11,7 @@ class ControllerProductProduct extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
-
+		$data['checkout'] = $this->url->link('checkout/checkout');
 		$this->load->model('catalog/category');
 
 		if (isset($this->request->get['path'])) {
@@ -506,7 +506,6 @@ class ControllerProductProduct extends Controller {
 			$this->document->setTitle($this->language->get('text_error'));
 			
 			$data['continue'] = $this->url->link('common/home');
-
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 
 			$data['column_left'] = $this->load->controller('common/column_left');

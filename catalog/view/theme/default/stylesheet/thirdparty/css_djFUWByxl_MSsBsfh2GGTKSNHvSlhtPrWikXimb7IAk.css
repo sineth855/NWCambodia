@@ -1609,8 +1609,9 @@ pre code {
 .table td,
 .table th {
     padding: .75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
 }
 
 .table thead th {

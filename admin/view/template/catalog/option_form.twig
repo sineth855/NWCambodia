@@ -55,6 +55,19 @@
                   
                 
                 {% endif %}
+                {% if type == 'table' %}
+                
+                
+                  <option value="table" selected="selected">{{ text_table }}</option>
+                  
+                
+                {% else %}
+                
+                
+                  <option value="table">{{ text_table }}</option>
+                  
+                
+                {% endif %}
                 {% if type == 'radio' %}
                 
                 
@@ -224,7 +237,7 @@
   </div>
   <script type="text/javascript"><!--
 $('select[name=\'type\']').on('change', function() {
-	if (this.value == 'select' || this.value == 'radio' || this.value == 'checkbox' || this.value == 'image') {
+	if (this.value == 'select' || this.value == 'table' || this.value == 'radio' || this.value == 'checkbox' || this.value == 'image') {
 		$('#option-value').parent().show();
 	} else {
 		$('#option-value').parent().hide();
