@@ -158,28 +158,53 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			}
 		}
 
-		if (!isset($this->request->post['payment_method'])) {
-			$json['error']['warning'] = $this->language->get('error_payment');
-		} elseif (!isset($this->session->data['payment_methods'][$this->request->post['payment_method']])) {
-			$json['error']['warning'] = $this->language->get('error_payment');
-		}
+		$this->load->model('account/customer');
 
-		if ($this->config->get('config_checkout_id')) {
-			$this->load->model('catalog/information');
+		if ($this->customer->isLogged()) {
+			if (!isset($this->request->post['payment_method'])) {
+				$json['error']['warning'] = $this->language->get('error_payment');
+			} elseif (!isset($this->session->data['payment_methods'][$this->request->post['payment_method']])) {
+				$json['error']['warning'] = $this->language->get('error_payment');
+			}
 
-			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_checkout_id'));
+			if ($this->config->get('config_checkout_id')) {
+				$this->load->model('catalog/information');
 
-			if ($information_info && !isset($this->request->post['agree'])) {
-				$json['error']['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
+				$information_info = $this->model_catalog_information->getInformation($this->config->get('config_checkout_id'));
+
+				if ($information_info && !isset($this->request->post['agree'])) {
+					$json['error']['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
+				}
+			}
+
+			if (!$json) {
+				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$this->request->post['payment_method']];
+
+				$this->session->data['comment'] = strip_tags($this->request->post['comment']);
+			}
+
+			if (!$json) {
+				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$this->request->post['payment_method']];
+
+				$this->session->data['comment'] = strip_tags($this->request->post['comment']);
+			}
+		}else{
+			// print_r($this->session->data['payment_methods'][$this->request->post['payment_method']]);
+			$paymentMethod = array(
+				"code" => "cod",
+				"title" => "Cash On Delivery",
+				"term" => "",
+				"sort_order" => 1
+			);
+			$comment = "";
+			if (!$json) {
+				$this->session->data['payment_method'] = $paymentMethod;
+
+				$this->session->data['comment'] = strip_tags($comment);
 			}
 		}
 
-		if (!$json) {
-			$this->session->data['payment_method'] = $this->session->data['payment_methods'][$this->request->post['payment_method']];
-
-			$this->session->data['comment'] = strip_tags($this->request->post['comment']);
-		}
-
+		// print_r($json);
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}

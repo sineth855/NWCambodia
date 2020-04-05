@@ -67,10 +67,10 @@
                     <div class="panel-body"></div>
                 </div>
             </div>
-            {% if not logged %}
+            {% if not logged or account != 'guest' %}
                 <div id="register-acc" class="register-acc" style="display: none;">
-            {% elseif account == 'guest' %}
-                <div id="register-acc" class="register-acc" style="display: none;">
+            {% elseif logged %}
+                    <div id="register-acc" class="register-acc">
             {% else %}
                 <div id="register-acc" class="register-acc">
             {% endif %}
@@ -111,14 +111,16 @@
                         </div>
                     </div>
                 {% endif %}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
+                {% if logged %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapse-payment-method">
+                            <div class="panel-body"></div>
+                        </div>
                     </div>
-                    <div class="panel-collapse collapse" id="collapse-payment-method">
-                        <div class="panel-body"></div>
-                    </div>
-                </div>
+                {% endif %}
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">{{ text_checkout_confirm }}</h4>
@@ -282,7 +284,8 @@ $(document).delegate('#button-account', 'click', function() {
         	$('#button-account').button('loading');
 		},
         complete: function() {
-            $('.register-acc').toggle("5000");
+            $(".return-account").toggle();
+            $('.register-acc').toggle("100");
             // var elmnt = document.getElementById("register-acc");
             // elmnt.scrollIntoView();
             var elmnt = document.getElementById("register-acc");
@@ -678,8 +681,8 @@ $(document).delegate('#button-guest', 'click', function() {
        		$('#button-guest').button('loading');
 	    },
         success: function(json) {
-            var elmnt = document.getElementById("collapse-shipping-method");
-            elmnt.scrollIntoView();
+            // var elmnt = document.getElementById("collapse-shipping-method");
+            // elmnt.scrollIntoView();
 
             $('.alert-dismissible, .text-danger').remove();
 			$('.form-group').removeClass('has-error');
@@ -768,25 +771,64 @@ $(document).delegate('#button-guest', 'click', function() {
                     });
                 }
                 {% else %}
-                $.ajax({
-                    url: 'index.php?route=checkout/payment_method',
-                    dataType: 'html',
-                    complete: function() {
-                        $('#button-guest').button('reset');
-                    },
-                    success: function(html) {
-                        $('#collapse-payment-method .panel-body').html(html);
+                    // $.ajax({
+                    //     url: 'index.php?route=checkout/payment_method',
+                    //     dataType: 'html',
+                    //     complete: function() {
+                    //         $('#button-guest').button('reset');
+                    //     },
+                    //     success: function(html) {
+                    //         $('#collapse-payment-method .panel-body').html(html);
 
-						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+                    //         $('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
 
-						$('a[href=\'#collapse-payment-method\']').trigger('click');
+                    //         $('a[href=\'#collapse-payment-method\']').trigger('click');
 
-						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-                    }
-                });
+                    //         $('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    //     },
+                    //     error: function(xhr, ajaxOptions, thrownError) {
+                    //         alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    //     }
+                    // });
+
+                    $.ajax({
+                        url: 'index.php?route=checkout/payment_method/save',
+                        dataType: 'html',
+                        complete: function() {
+                            $('#button-guest').button('reset');
+                        },
+                        success: function(html) {
+                            $('#collapse-payment-method .panel-body').html(html);
+
+                            $('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+                            $('a[href=\'#collapse-payment-method\']').trigger('click');
+
+                            $('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+
+                            // confirm
+                            $.ajax({
+                                url: 'index.php?route=checkout/confirm',
+                                dataType: 'html',
+                                complete: function() {
+                                    $('#button-payment-method').button('reset');
+                                },
+                                success: function(html) {
+                                    $('#collapse-checkout-confirm .panel-body').html(html);
+
+                                    $('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-confirm" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_confirm }} <i class="fa fa-caret-down"></i></a>');
+
+                                    $('a[href=\'#collapse-checkout-confirm\']').trigger('click');
+                                },
+                                error: function(xhr, ajaxOptions, thrownError) {
+                                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                                }
+                            });
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
                 {% endif %}
             }
         },

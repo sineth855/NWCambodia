@@ -11,7 +11,7 @@ body {
 
 body * {
     font-style: normal;
-    font-weight: normal;
+    /* font-weight: normal; */
 }
 
 .col-lg-55 {
@@ -400,7 +400,7 @@ h2.timer {
 }
 
 
-/* #modal_inside .btn-wrap .continue-btn {
+#modal_inside .btn-wrap .continue-btn {
     width: 180px;
     height: 40px;
     display: inline-block;
@@ -411,10 +411,10 @@ h2.timer {
     color: #fff;
     background: #03c;
   margin: 24px 15px; 
-} */
+}
 
 
-/* #modal_inside .btn-wrap .checkout-btn {
+#modal_inside .btn-wrap .checkout-btn {
     width: 180px;
     height: 40px;
     display: inline-block;
@@ -425,22 +425,7 @@ h2.timer {
     color: #fff;
     background: #090;
     margin: 24px 15px; 
-} */
-
-#modal_inside .btn-wrap .checkout-btn {
-    width: 180px;
-    /* height: 40px; */
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    /* font: bold 14px/40px "Arial"; */
-    color: #fff;
-    background: #090;
-    /* margin: 24px 15px; */
-    margin: 10px;
 }
-
 
 /* Login */
 
@@ -448,6 +433,6 @@ h2.timer {
     padding-bottom: 2vh;
 }
 
-.form-text {
+/* .form-text {
     width: 100%;
-}
+} */

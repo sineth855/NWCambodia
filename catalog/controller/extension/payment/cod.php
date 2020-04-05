@@ -6,7 +6,6 @@ class ControllerExtensionPaymentCod extends Controller {
 
 	public function confirm() {
 		$json = array();
-		
 		if ($this->session->data['payment_method']['code'] == 'cod') {
 			$this->load->model('checkout/order');
 

@@ -960,6 +960,7 @@ class ControllerCatalogProduct extends Controller {
 						'quantity'                => $product_option_value['quantity'],
 						'subtract'                => $product_option_value['subtract'],
 						'price'                   => $product_option_value['price'],
+						'expired_date'			  => $product_option_value['expired_date'],
 						'price_prefix'            => $product_option_value['price_prefix'],
 						'points'                  => $product_option_value['points'],
 						'points_prefix'           => $product_option_value['points_prefix'],
