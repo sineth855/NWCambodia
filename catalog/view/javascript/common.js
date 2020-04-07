@@ -171,6 +171,7 @@ var cart = {
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
 						$('#cart > button').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
+						$('#cart > a > div.cart-block--summary__count').html(json['total'].split(/(?<=^\S+)\s/)[0]);
 						$('#cart-block--summary__count').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
 					}, 100);
 

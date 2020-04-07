@@ -24,7 +24,8 @@ body * {
         background-color: #303030;
     }
     .container-wrap .owl-carousel .owl-item img {
-        height: 200px !important;
+        height: 300px !important;
+        transform: scale(1.05);
     }
     .bg-header {
         background-color: #303030;

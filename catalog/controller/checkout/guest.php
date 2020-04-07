@@ -169,9 +169,9 @@ class ControllerCheckoutGuest extends Controller {
 			// 	$json['error']['lastname'] = $this->language->get('error_lastname');
 			// }
 
-			// if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
-			// 	$json['error']['email'] = $this->language->get('error_email');
-			// }
+			if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+				$json['error']['email'] = $this->language->get('error_email');
+			}
 
 			if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 

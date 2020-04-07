@@ -204,7 +204,7 @@
                                 {% if not special %}
                                 <br />
                                 <li>
-                                    <h2>{{ price }}</h2>
+                                    <h2>{{ price }} {{priceOriginal}}</h2>
                                 </li>
                                 {% else %}
                                 <br />
@@ -287,7 +287,7 @@
                                                         <br/>
                                                         {{ option_value.name }}
                                                         <br/>
-                                                        <small>In Stock</small><br/>
+                                                        <small><b>In Stock</b></small><br/>
                                                         <small>Expiry: {{option_value.expired_date}}</small>
                                                     </td>
                                                     <td>
@@ -305,11 +305,11 @@
                                                     </td>
                                                 </tr>
                                             {% endfor %}
-                                            <tr>
+                                            <!-- <tr>
                                                 <td colspan="3">
                                                     <small>Discount 639 Baht when put promotion code "BAAMRED10"</small>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                         </table>
                                     </div>
                                 {% endif %} 
@@ -400,18 +400,21 @@
                                 <div class="help-block" id="recurring-description"></div>
                             </div>
                             {% endif %}
-
-                            <div class="form-group">
-                                <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
-                                <!-- <input autocomplete="off" data-drupal-selector="form-9hz06i2ar4e1ncsfbvks5t-rztngr6tnflwluf1sl0k" type="hidden" name="form_build_id" value="form-9hz06i2aR4e1NCsfBvks5t-RZTNgr6TnFLWLuf1Sl0k" /><input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-60" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_60" /><div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper"> -->
-                                <!-- <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value">
-                                <label for="edit-quantity-0-value" class="control-label">{{entry_qty}}</label>
-                                <input data-drupal-selector="edit-quantity-0-value" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
-                                </div> -->
-                                <input type="number" name="quantity" value="{{ minimum }}" style="width:100%" size="50" min="1" id="input-quantity" class="form-text" />
-                                <br />
-                                <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="button-cart btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
-                            </div>
+                            
+                            {% if options|length > 0 %}
+                            {% else %}
+                                <div class="form-group">
+                                    <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
+                                    <!-- <input autocomplete="off" data-drupal-selector="form-9hz06i2ar4e1ncsfbvks5t-rztngr6tnflwluf1sl0k" type="hidden" name="form_build_id" value="form-9hz06i2aR4e1NCsfBvks5t-RZTNgr6TnFLWLuf1Sl0k" /><input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-60" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_60" /><div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper"> -->
+                                    <!-- <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value">
+                                    <label for="edit-quantity-0-value" class="control-label">{{entry_qty}}</label>
+                                    <input data-drupal-selector="edit-quantity-0-value" type="number" id="edit-quantity-0-value" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
+                                    </div> -->
+                                    <input type="number" name="quantity" value="{{ minimum }}" style="width:100%" size="50" min="1" id="input-quantity" class="form-text" />
+                                    <br />
+                                    <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btnShow button-cart btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
+                                </div>
+                            {% endif %}
                             <input type="hidden" name="product_id" value="{{ product_id }}" />
                             {% if minimum > 1 %}
                             <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>
