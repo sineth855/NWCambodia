@@ -6,7 +6,7 @@ body {
 }
 
 body {
-    position: relative
+    position: relative;
 }
 
 body * {
@@ -269,6 +269,13 @@ span.mobile-flag {
     padding-bottom: 50px;
 }
 
+select {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 input,
 select,
 textarea {
@@ -400,7 +407,6 @@ h2.timer {
     margin: 10px;
 }
 
-
 #modal_inside .btn-wrap .continue-btn {
     width: 180px;
     height: 40px;
@@ -411,9 +417,8 @@ h2.timer {
     font: normal 14px/40px "PT Sans";
     color: #fff;
     background: #03c;
-  margin: 24px 15px; 
+    margin: 24px 15px;
 }
-
 
 #modal_inside .btn-wrap .checkout-btn {
     width: 180px;
@@ -425,14 +430,16 @@ h2.timer {
     font: normal 14px/40px "PT Sans";
     color: #fff;
     background: #090;
-    margin: 24px 15px; 
+    margin: 24px 15px;
 }
+
 
 /* Login */
 
 .register_padding {
     padding-bottom: 2vh;
 }
+
 
 /* .form-text {
     width: 100%;

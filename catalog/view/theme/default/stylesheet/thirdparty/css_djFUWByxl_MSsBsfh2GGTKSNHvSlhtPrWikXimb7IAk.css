@@ -339,11 +339,11 @@ progress {
 
 [type=search] {
     outline-offset: -2px;
-    -webkit-appearance: none
+    /* -webkit-appearance: none */
 }
 
 [type=search]::-webkit-search-decoration {
-    -webkit-appearance: none
+    /* -webkit-appearance: none */
 }
 
 ::-webkit-file-upload-button {
@@ -3976,9 +3976,9 @@ input[type=submit].btn-block {
     background-color: #fff;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    /* appearance: none */
 }
 
 .custom-select:focus {
@@ -4096,9 +4096,9 @@ input[type=submit].btn-block {
     height: calc(1rem + .4rem);
     padding: 0;
     background-color: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    /* appearance: none */
 }
 
 .custom-range:focus {
@@ -4129,8 +4129,8 @@ input[type=submit].btn-block {
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    -webkit-appearance: none;
-    appearance: none
+    /* -webkit-appearance: none; */
+    /* appearance: none */
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -4160,8 +4160,8 @@ input[type=submit].btn-block {
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    -moz-appearance: none;
-    appearance: none
+    /* -moz-appearance: none; */
+    /* appearance: none */
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -4194,7 +4194,7 @@ input[type=submit].btn-block {
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    appearance: none
+    /* appearance: none */
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -5910,9 +5910,9 @@ button.close {
     padding: 0;
     background-color: transparent;
     border: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    /* appearance: none */
 }
 
 a.close.disabled {
@@ -19522,7 +19522,7 @@ table .views-field-remove-button .button {
 
 .commerce-order-item-add-to-cart-form input[type=number]::-webkit-inner-spin-button,
 .commerce-order-item-add-to-cart-form input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     margin: 0;
 }
 
