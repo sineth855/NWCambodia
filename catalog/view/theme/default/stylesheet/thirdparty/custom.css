@@ -19,14 +19,13 @@ body * {
     max-width: 100%;
 }
 
-.fixHeader {
-    position: fixed;
-    z-index: 99;
-    right: 0;
-    left: 0;
-}
-
 @media (max-width:768px) {
+    .fixHeader {
+        position: fixed;
+        z-index: 99;
+        right: 0;
+        left: 0;
+    }
     .header {
         background-color: #303030;
     }
