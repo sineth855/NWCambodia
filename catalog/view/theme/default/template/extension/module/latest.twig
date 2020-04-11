@@ -1,267 +1,252 @@
 <div style="display:none;">
-	<h3>{{ heading_title }}</h3>
-	<div class="row">
-		{% for product in products %}
-			<div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
-				<div class="product-thumb transition">
-					<div class="image">
-						<a href="{{ product.href }}">
-							<img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"/>
-						</a>
-					</div>
-					<div class="caption">
-						<h4>
-							<a href="{{ product.href }}">{{ product.name }}</a>
-						</h4>
-						<p>{{ product.description }}</p>
-						{% if product.rating %}
-							<div class="rating">
-								{% for i in 1..5 %}
-									{% if product.rating < i %}
-										<span class="fa fa-stack">
-											<i class="fa fa-star-o fa-stack-2x"></i>
-										</span>
-									{% else %}
-										<span class="fa fa-stack">
+    <h3>{{ heading_title }}</h3>
+    <div class="row">
+        {% for product in products %}
+        <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="product-thumb transition">
+                <div class="image">
+                    <a href="{{ product.href }}">
+                        <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                    </a>
+                </div>
+                <div class="caption">
+                    <h4>
+                        <a href="{{ product.href }}">{{ product.name }}</a>
+                    </h4>
+                    <p>{{ product.description }}</p>
+                    {% if product.rating %}
+                    <div class="rating">
+                        {% for i in 1..5 %} {% if product.rating
+                        < i %} <span class="fa fa-stack">
+                            <i class="fa fa-star-o fa-stack-2x"></i>
+                            </span>
+                            {% else %}
+                            <span class="fa fa-stack">
 											<i class="fa fa-star fa-stack-2x"></i>
 											<i class="fa fa-star-o fa-stack-2x"></i>
-										</span>
-									{% endif %}
-								{% endfor %}
-							</div>
-						{% endif %}
-
-						{% if product.price %}
-							<p class="price">
-								{% if not product.special %}
-									{{ product.price }}
-								{% else %}
-									<span class="price-new">
+										</span> {% endif %} {% endfor %}
+                    </div>
+                    {% endif %} {% if product.price %}
+                    <p class="price">
+                        {% if not product.special %} {{ product.price }} {% else %}
+                        <span class="price-new">
 										{{ product.special }}
 									</span>
-									<span class="price-old">
+                        <span class="price-old">
 										{{ product.price }}
-									</span>
-								{% endif %}
-								{% if product.tax %}
-									<span class="price-tax">{{ text_tax }}
-										{{ product.tax }}</span>
-								{% endif %}
-							</p>
-						{% endif %}
-					</div>
-					<div class="button-group">
-						<button type="button" onclick="cart.add('{{ product.product_id }}');">
+									</span> {% endif %} {% if product.tax %}
+                        <span class="price-tax">{{ text_tax }}
+										{{ product.tax }}</span> {% endif %}
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="button-group">
+                    <button type="button" onclick="cart.add('{{ product.product_id }}');">
 							<i class="fa fa-shopping-cart"></i>
 							<span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
 						</button>
-						<button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+                    <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
 							<i class="fa fa-heart"></i>
 						</button>
-						<button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
+                    <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
 							<i class="fa fa-exchange"></i>
 						</button>
-					</div>
-				</div>
-			</div>
-		{% endfor %}
-	</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-
 
 <!-- Lastst Product -->
 <section id="page-wrapper" class="page-wrapper container">
-	<div class="container-">
-		<div
-			class="row- content-layout">
-			<!--- Start content -->
-			<div class="col-md-12 main-content">
-				<div class="region region-content">
-					<div data-drupal-messages-fallback class="hidden"></div>
-					<div class="views-element-container norm-width block-title-1 block-title-center block block-views block-views-blockproduct-catalog-basic-featured-products-grid" id="block-views-block-product-catalog-basic-featured-products-grid">
-						<div class="container-wrap clearfix">
-							<div class="block-title-wrap clearfix">
-								<div class="block-title-content">
-									<h2 class="block-title">FLASH SALE</h2>
-									<h5 class="block-subtitle">Must have products with the best deal never to miss.</h5>
-								</div>
-							</div>
+    <div class="container-">
+        <div class="row- content-layout">
+            <!--- Start content -->
+            <div class="col-md-12 main-content">
+                <div class="region region-content">
+                    <div data-drupal-messages-fallback class="hidden"></div>
+                    <div class="views-element-container norm-width block-title-1 block-title-center block block-views block-views-blockproduct-catalog-basic-featured-products-grid" id="block-views-block-product-catalog-basic-featured-products-grid">
+                        <div class="container-wrap clearfix">
+                            <div class="block-title-wrap clearfix">
+                                <div class="block-title-content">
+                                    <h2 class="block-title">FLASH SALE</h2>
+                                    <h5 class="block-subtitle">Must have products with the best deal never to miss.</h5>
+                                </div>
+                            </div>
 
-							<div class="block-content clearfix">
-								<div>
-									<div class="js-view-dom-id-af765b0634d9f64962c1ebe9c64e7232b61cb9a156352f184f5d8b1e2c5f38cf">
-										<div
-											class="row grid-wrapper">
-											<!-- grid product -->
-											{% for product in products %}
-												<div class="col-12 col-sm-6 col-md-6 col-lg-55 grid-item">
-													<div class="product-teaser-wrap product-teaser-attribute">
-														<div class="product-teaser">
-															<div class="product-teaser-bg"></div>
-															<div class="product-teaser-container">
-																<div class="post-image product-image">
-                                
-																	<div class="product-badge">
-																		<span class="badge-label badge-sale">Sale</span>
-																	</div>
+                            <div class="block-content clearfix _lastest_warpper">
+                                <div class="js-view-dom-id-af765b0634d9f64962c1ebe9c64e7232b61cb9a156352f184f5d8b1e2c5f38cf">
+                                    <div class="row grid-wrapper">
+                                        <!-- grid product -->
+                                        {% for product in products %}
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-55 grid-item">
+                                            <div class="product-teaser-wrap product-teaser-attribute">
+                                                <div class="product-teaser">
+                                                    <div class="product-teaser-bg"></div>
+                                                    <div class="product-teaser-container">
+                                                        <div class="post-image product-image">
 
-																	<div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
-																		<div class="field-item">
-																			<a href="{{product.href}}" hreflang="en">																				
-																				<img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"/>
-																			</a>
-																		</div>
-																		<div class="field-item">
-																			<a href="{{product.href}}" hreflang="en">
-																				<img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"/>
-																			</a>
-																		</div>
-																	</div>
+                                                            <div class="product-badge">
+                                                                <span class="badge-label badge-sale">Sale</span>
+                                                            </div>
 
-																	<div class="product-icon-wrap">
-																		<div class="product-icon product-add-wishlist">
-																			<div class="flag flag-wishlist flag-wishlist-60 action-flag">
-																				<a type="button" title="Wishlist" class="use-ajax flag-link" rel="nofollow" onclick="wishlist.add('{{ product.product_id }}');">
-																					<i class="ti-heart"></i>
-																					<span class="flag-title">{{ button_wishlist }}</span>
-																				</a>
-																			</div>
-																		</div>
-																		<div class="product-icon product-add-compare">
-																			<div class="flag flag-compare flag-compare-60 action-flag">
-																				<a title="Compare" type="button" class="use-ajax flag-link" rel="nofollow" onclick="compare.add('{{ product.product_id }}');">
-																					<i class="ti-control-shuffle"></i>
-																					<span class="flag-title">{{ button_compare }}</span>
-																				</a>
-																			</div>
-																		</div>
-																	</div>
+                                                            <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
+                                                                <div class="field-item">
+                                                                    <a href="{{product.href}}" hreflang="en">
+                                                                        <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="field-item">
+                                                                    <a href="{{product.href}}" hreflang="en">
+                                                                        <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
 
-																</div>
-																<div class="product-meta-wrap">
-																	<div class="product-meta">
+                                                            <div class="product-icon-wrap">
+                                                                <div class="product-icon product-add-wishlist">
+                                                                    <div class="flag flag-wishlist flag-wishlist-60 action-flag">
+                                                                        <a type="button" title="Wishlist" class="use-ajax flag-link" rel="nofollow" onclick="wishlist.add('{{ product.product_id }}');">
+                                                                            <i class="ti-heart"></i>
+                                                                            <span class="flag-title">{{ button_wishlist }}</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-icon product-add-compare">
+                                                                    <div class="flag flag-compare flag-compare-60 action-flag">
+                                                                        <a title="Compare" type="button" class="use-ajax flag-link" rel="nofollow" onclick="compare.add('{{ product.product_id }}');">
+                                                                            <i class="ti-control-shuffle"></i>
+                                                                            <span class="flag-title">{{ button_compare }}</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-																		<div class="product-ratings">
-																			<div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
-																				<div class="votingapi-widgets fivestar">
-																					<form class="commerce-product-clothing-60-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form--18" data-drupal-selector="commerce-product-clothing-60-vote-field-ratings-vote-vote-votingapi-fivestar-form-2" action="#" method="post" accept-charset="UTF-8">
-																						<div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
-																							<div class="select-wrapper">
-																								<select autocomplete="off" data-result-value="4" data-vote-value="4" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value--18" name="value" class="form-select form-control">
-																									<option value="1">Poor</option>
-																									<option value="2">Not so poor</option>
-																									<option value="3">average</option>
-																									<option value="4" selected="selected">good</option>
-																									<option value="5">very good</option>
-																								</select>
-																							</div>
-																						</div>
-																						<input autocomplete="off" data-drupal-selector="form-rx1nyjifxa-ywdliyskjk97gvxbkaqcarhnzbcu-3yk" type="hidden" name="form_build_id" value="form-Rx1NYJIFXA_YWDLIysKjK97GVXBKaQCarHNzbCU_3yk"/><input data-drupal-selector="edit-commerce-product-clothing-60-vote-field-ratings-vote-vote-votingapi-fivestar-form-2" type="hidden" name="form_id" value="commerce_product_clothing_60_vote_field_ratings__vote_vote_votingapi_fivestar_form"/><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--54" name="op" value="Save" class="button button--primary js-form-submit form-submit"/>
-																					</form>
-																				</div>
-																			</div>
-																		</div>
+                                                        </div>
+                                                        <div class="product-meta-wrap">
+                                                            <div class="product-meta">
 
-																		{% if product.rating %}
-																			<div class="rating">
-																				{% for i in 1..5 %}
-																					{% if product.rating < i %}
-																						<span class="fa fa-stack">
-																							<i class="fa fa-star-o fa-stack-2x"></i>
-																						</span>
-																					{% else %}
-																						<span class="fa fa-stack">
-																							<i class="fa fa-star fa-stack-2x"></i>
-																							<i class="fa fa-star-o fa-stack-2x"></i>
-																						</span>
-																					{% endif %}
-																				{% endfor %}
-																			</div>
-																		{% endif %}
+                                                                <div class="product-ratings">
+                                                                    <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
+                                                                        <div class="votingapi-widgets fivestar">
+                                                                            <form class="commerce-product-clothing-60-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form--18" data-drupal-selector="commerce-product-clothing-60-vote-field-ratings-vote-vote-votingapi-fivestar-form-2" action="#" method="post"
+                                                                                accept-charset="UTF-8">
+                                                                                <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
+                                                                                    <div class="select-wrapper">
+                                                                                        <select autocomplete="off" data-result-value="4" data-vote-value="4" data-style="css-stars" data-show-own-vote="false" disabled="disabled" data-drupal-selector="edit-value" id="edit-value--18" name="value" class="form-select form-control">
+																								<option value="1">Poor</option>
+																								<option value="2">Not so poor</option>
+																								<option value="3">average</option>
+																								<option value="4" selected="selected">good</option>
+																								<option value="5">very good</option>
+																							</select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <input autocomplete="off" data-drupal-selector="form-rx1nyjifxa-ywdliyskjk97gvxbkaqcarhnzbcu-3yk" type="hidden" name="form_build_id" value="form-Rx1NYJIFXA_YWDLIysKjK97GVXBKaQCarHNzbCU_3yk" /><input
+                                                                                    data-drupal-selector="edit-commerce-product-clothing-60-vote-field-ratings-vote-vote-votingapi-fivestar-form-2" type="hidden" name="form_id" value="commerce_product_clothing_60_vote_field_ratings__vote_vote_votingapi_fivestar_form"
+                                                                                /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--54" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
-																		<div class="product-title">
-																			<a class="product-title-link" href="{{ product.href }}">
-																				<div class="field field-title field-type-string field-label-hidden field-item">
-																					{{ product.name }}
-																				</div>
-																			</a>
-																		</div>
-																		{# Price #}
-																		{% if product.price %}
-																			<p class="price product-price">
-																				{% if not product.special %}
-																					{{ product.price }}
-																				{% else %}
-																					<span class="price-new">
-																						{{ product.special }}
-																					</span>
-																					<span class="price-old">
-																						<div class="product-price">
-																							<div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-																								<div style="text-decoration: line-through;">{{ product.price }}</div>
-																							</div>
-																						</div>
-																					</span>
-																				{% endif %}
-																			</p>
-																		{% endif %}
+                                                                {% if product.rating %}
+                                                                <div class="rating">
+                                                                    {% for i in 1..5 %} {% if product.rating
+                                                                    < i %} <span class="fa fa-stack">
+                                                                        <i class="fa fa-star-o fa-stack-2x"></i>
+                                                                        </span>
+                                                                        {% else %}
+                                                                        <span class="fa fa-stack">
+																						<i class="fa fa-star fa-stack-2x"></i>
+																						<i class="fa fa-star-o fa-stack-2x"></i>
+																					</span> {% endif %} {% endfor %}
+                                                                </div>
+                                                                {% endif %}
 
-																	</div>
-
-																	<div class="-product-variation-wrap">
-																		<div class="-product-add-cart">
-																			<div class="has-no-option-variation">
-																				<div class="field field-variations field-type-entity-reference field-label-hidden field-items">
-																					<div class="field-item">
-																						<div id="commerce-product-add-to-cart-form--18">
-																							<form class="commerce-order-item-add-to-cart-form-commerce-product-60 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-60-2" action="#" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-60--2" accept-charset="UTF-8">
-																								<input autocomplete="off" data-drupal-selector="form-3upt0tvjmzdug8l5uk8ymmy7g68fzt4dnmw2fx9-p0" type="hidden" name="form_build_id" value="form--3Upt0tvjmZdug8L5UK8YMMY7g68FZt4DnmW2fX9_p0"/><input data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-60-2" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_60"/><div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper--18">
-																									<div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value">
-																										<label for="edit-quantity-0-value--18" class="control-label">Quantity</label>
-																										<input data-drupal-selector="edit-quantity-0-value" type="number" id="edit-quantity-0-value--18" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number"/>
-																									</div>
-																								</div>
-																								<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--35">
-																									<input class="button--add-to-cart button button--primary js-form-submit form-submit" data-drupal-selector="edit-submit" onclick="cart.add('{{ product.product_id }}');" type="button" id="edit-submit--52" name="op" value="Add to cart"/>
-																								</div>
-																							</form>
+                                                                <div class="product-title">
+                                                                    <a class="product-title-link" href="{{ product.href }}">
+                                                                        <div class="field field-title field-type-string field-label-hidden field-item">
+                                                                            {{ product.name }}
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                {# Price #} {% if product.price %}
+                                                                <p class="price product-price">
+                                                                    {% if not product.special %} {{ product.price }} {% else %}
+                                                                    <span class="price-new">
+																					{{ product.special }}
+																				</span>
+                                                                    <span class="price-old">
+																					<div class="product-price">
+																						<div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+																							<div style="text-decoration: line-through;">{{ product.price }}</div>
 																						</div>
 																					</div>
-																				</div>
-																			</div>
-																			
-																			<!-- <div class="form-actions product-select has-option-variation">
-																				<a class="button" href="#">Add asdfto Cart</a>
-																			</div> -->
-																		</div>
-																		<div class="product-desc">
-																			<div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
-																				<p>
-																					<span>Men's Hooded Fleece Chest Stripe Sweatshirt</span>
-																					<span>i</span>s affordable, high-quality, and long-lasting everyday clothing you can rely on.</p>
-																			</div>
-																		</div>
-																	</div>
+																				</span> {% endif %}
+                                                                </p>
+                                                                {% endif %}
 
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											{% endfor %}
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-history-node-id="169" role="article" about="/martis/en/home" typeof="schema:WebPage" class="node node--type-page node--view-mode-full">
-						<span property="schema:name" content="Home" class="hidden"></span>
-					</div>
-				</div>
-			</div>
-			<!---End content -->
-		</div>
-	</div>
+                                                            </div>
+
+                                                            <div class="-product-variation-wrap">
+                                                                <div class="-product-add-cart">
+                                                                    <div class="has-no-option-variation">
+                                                                        <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
+                                                                            <div class="field-item">
+                                                                                <div id="commerce-product-add-to-cart-form--18">
+                                                                                    <form class="commerce-order-item-add-to-cart-form-commerce-product-60 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-60-2" action="#" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-60--2"
+                                                                                        accept-charset="UTF-8">
+                                                                                        <input autocomplete="off" data-drupal-selector="form-3upt0tvjmzdug8l5uk8ymmy7g68fzt4dnmw2fx9-p0" type="hidden" name="form_build_id" value="form--3Upt0tvjmZdug8L5UK8YMMY7g68FZt4DnmW2fX9_p0" /><input
+                                                                                            data-drupal-selector="edit-commerce-order-item-add-to-cart-form-commerce-product-60-2" type="hidden" name="form_id" value="commerce_order_item_add_to_cart_form_commerce_product_60"
+                                                                                        />
+                                                                                        <div class="field--type-decimal field--name-quantity field--widget-commerce-quantity js-form-wrapper form-wrapper" data-drupal-selector="edit-quantity-wrapper" id="edit-quantity-wrapper--18">
+                                                                                            <div class="form-item js-form-item form-type-number js-form-type-number form-item-quantity-0-value js-form-item-quantity-0-value">
+                                                                                                <label for="edit-quantity-0-value--18" class="control-label">Quantity</label>
+                                                                                                <input data-drupal-selector="edit-quantity-0-value" type="number" id="edit-quantity-0-value--18" name="quantity[0][value]" value="1" step="1" min="1" placeholder="" class="form-number" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--35">
+                                                                                            <input class="button--add-to-cart button button--primary js-form-submit form-submit" data-drupal-selector="edit-submit" onclick="cart.add('{{ product.product_id }}');" type="button" id="edit-submit--52" name="op" value="Add to cart" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- <div class="form-actions product-select has-option-variation">
+																			<a class="button" href="#">Add asdfto Cart</a>
+																		</div> -->
+                                                                </div>
+                                                                <div class="product-desc">
+                                                                    <div class="field field-field-short-description field-type-text-long field-label-hidden field-item">
+                                                                        <p>
+                                                                            <span>Men's Hooded Fleece Chest Stripe Sweatshirt</span>
+                                                                            <span>i</span>s affordable, high-quality, and long-lasting everyday clothing you can rely on.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-history-node-id="169" role="article" about="/martis/en/home" typeof="schema:WebPage" class="node node--type-page node--view-mode-full">
+                        <span property="schema:name" content="Home" class="hidden"></span>
+                    </div>
+                </div>
+            </div>
+            <!---End content -->
+        </div>
+    </div>
 </section>
 <!-- End Latest product -->
