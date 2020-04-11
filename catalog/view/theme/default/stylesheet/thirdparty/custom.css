@@ -24,7 +24,7 @@ body * {
         background-color: #303030;
     }
     .container-wrap .owl-carousel .owl-item img {
-        height: 300px !important;
+        height: 250px !important;
         transform: scale(1.05);
     }
     .bg-header {
@@ -444,3 +444,11 @@ h2.timer {
 /* .form-text {
     width: 100%;
 } */
+
+select.form-field-input.form-field-select.form-field-filled {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background: url(../../image/chevron-down.png) no-repeat 98%;
+    background-size: 18px;
+}

@@ -34,6 +34,7 @@ class ControllerStartupStartup extends Controller {
 
 		// Theme
 		$this->config->set('template_cache', $this->config->get('developer_theme'));
+		// $this->config->set('template_cache', false);
 		
 		// Url
 		$this->registry->set('url', new Url($this->config->get('config_url'), $this->config->get('config_ssl')));
