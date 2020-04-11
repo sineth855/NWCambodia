@@ -159,6 +159,10 @@ var cart = {
 				$('#cart > button').button('reset');
 			},
 			success: function(json) {
+				// var splitTotal = json['total'].split(/(?<=^\S+)\s/);
+				// var convertSplit = splitTotal[0];
+				var str = json['total'];
+				var splitTotal = str.substr(0,str.indexOf(' '));
 				$('.alert-dismissible, .text-danger').remove();
 
 				if (json['redirect']) {
@@ -171,7 +175,7 @@ var cart = {
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
 						$('#cart > button').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
-						$('#cart > a > div.cart-block--summary__count').html(json['total'].split(/(?<=^\S+)\s/)[0]);
+						$('#cart > a > div.cart-block--summary__count').html(splitTotal);
 						$('#cart-block--summary__count').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
 					}, 100);
 
