@@ -7,8 +7,12 @@
 <!--<![endif]-->
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->	
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta name="applicable-device" content="pc,mobile">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{{ title }}</title>
 	<base href="{{ base }}" />
 	{% if description %}
@@ -24,13 +28,13 @@
 	<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
 	<!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
 	<!-- ################Third Party CSS ############################ -->
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_2zTAJL2IAOjUy0eTBfXpuy73tesSVH-Sn1uqOKE1cy8.css" />
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_1iMxpiIfuxpPQAZYfk4crDYaNUNNB25-OqIj6rbd4Rg.css" />
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_djFUWByxl_MSsBsfh2GGTKSNHvSlhtPrWikXimb7IAk.css" />
+	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_002.css" />
+	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_systel_003.css" />
+	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_001.css" />
 	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/custom.css" />
 	<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/thirdparty/jquery.flipcountdown.css" />
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_eLFvMGWDT--gioCML8qYgvp1w9pfgrfyPYzN0x0vd-I.css" />
-	<link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_z3NY3PjTQcjkEnW5E8tRYLbJqubtIoM_SCGo_OVfSlY.css"/>
+	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_004.css" />
+	<link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_style_005.css"/>
 	<!-- <link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_oh7VoMxXbRU2mJvO77i6Y0UZNTRHJG6hq7HPYv8OCg0.css"/> -->
 
 	{% for style in styles %}
@@ -272,7 +276,8 @@
 								   <div class="cart-mobile cart--cart-block">
 									  <div id="cart" class="cart-block--summary">
 										 <a class="cart-block--link__expand" href="{{cartLink}}">
-											<i class="ti-shopping-cart"></i>
+											<!-- <i class="ti-shopping-cart"></i> -->
+											<img src="catalog/view/theme/default/image/cart.png" width="50"/>
 											<div class="cart-block--summary__count">
 												{{text_items}}
 											</div>
