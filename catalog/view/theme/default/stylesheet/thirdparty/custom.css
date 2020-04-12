@@ -20,6 +20,18 @@ body * {
 }
 
 @media (max-width:768px) {
+    .fixHeader {
+        position: fixed;
+        z-index: 99;
+        right: 0;
+        left: 0;
+    }
+    .box-icon-items {
+        border-right: none;
+        margin-bottom: 20px;
+        padding: 0;
+        margin: 0;
+    }
     ._lastest_warpper {
         margin-left: 15px;
         margin-right: 15px;
@@ -27,12 +39,6 @@ body * {
     .block-title {
         font-size: 20px;
         padding-top: 20px;
-    }
-    .fixHeader {
-        position: fixed;
-        z-index: 99;
-        right: 0;
-        left: 0;
     }
     .header {
         background-color: #303030;

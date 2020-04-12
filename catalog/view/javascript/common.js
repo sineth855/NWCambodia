@@ -32,6 +32,15 @@ $(document).ready(function() {
             $(".header").removeClass("fixHeader");
         }
     });
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > 5) {
+            $(".header").addClass("fixHeader");
+        } else {
+            $(".header").removeClass("fixHeader");
+        }
+    }, true);
 
     // Highlight any found errors
     $('.text-danger').each(function() {
