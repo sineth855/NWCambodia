@@ -675,6 +675,10 @@
                 }
 
                 if (json['success']) {
+                    // var splitTotal = json['total'].split(/(?<=^\S+)\s/);
+                    // var convertSplit = splitTotal[0];
+                    var str = json['total'];
+                    var splitTotal = str.substr(0,str.indexOf(' '));
                     $('.addcart-success').after(
                         '<div class="alert alert-success alert-dismissible">' + json[
                             'success'] +
@@ -684,7 +688,8 @@
                     $('#cart > button').html(
                         '<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json[
                             'total'] + '</span>');
-
+                    $('#cart > a > div.cart-block--summary__count').html(splitTotal);
+                    $('#cart-block--summary__count').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
                     $('html, body').animate({
                         scrollTop: 0
                     }, 'slow');
