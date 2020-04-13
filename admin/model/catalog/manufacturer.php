@@ -31,6 +31,39 @@ class ModelCatalogManufacturer extends Model {
 		return $manufacturer_id;
 	}
 
+	public function addManufacturerJson($data) {
+		// return $data["id"].'=>'.$data["name"].',';
+		// return false;
+		$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer SET manufacturer_id = " . (int)$data['id'] . ", name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "'");
+
+		$manufacturer_id = $this->db->getLastId();
+
+		if (isset($data['image'])) {
+			$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET image = '" . $this->db->escape($data['image']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+		}
+
+		if (isset($data['manufacturer_store'])) {
+			foreach ($data['manufacturer_store'] as $store_id) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_to_store SET manufacturer_id = '" . (int)$manufacturer_id . "', store_id = '" . (int)$store_id . "'");
+			}
+		}
+				
+		// SEO URL
+		if (isset($data['manufacturer_seo_url'])) {
+			foreach ($data['manufacturer_seo_url'] as $store_id => $language) {
+				foreach ($language as $language_id => $keyword) {
+					if (!empty($keyword)) {
+						$this->db->query("INSERT INTO " . DB_PREFIX . "seo_url SET store_id = '" . (int)$store_id . "', language_id = '" . (int)$language_id . "', query = 'manufacturer_id=" . (int)$manufacturer_id . "', keyword = '" . $this->db->escape($keyword) . "'");
+					}
+				}
+			}
+		}
+		
+		$this->cache->delete('manufacturer');
+
+		return $manufacturer_id;
+	}
+
 	public function editManufacturer($manufacturer_id, $data) {
 		$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
 

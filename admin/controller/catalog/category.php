@@ -8,8 +8,56 @@ class ControllerCatalogCategory extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('catalog/category');
-
 		$this->getList();
+	}
+
+	public function crawlCategory(){
+		$this->load->model('catalog/category');
+
+		date_default_timezone_set('Asia/Phnom_Penh');
+		$page = 0;//$_POST['page'];
+		$rowPerPage = 10;//$_POST['rowsPerPage'];
+		$url  = "https://nuwh.sas-ebi.com/apis/getCategory";
+		// $post = "page=".$page."&rowsPerPage=".$rowPerPage;
+		// CURL
+		$curl  = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		// curl_setopt($curl, CURLOPT_POST, 1);
+		// curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+		$result = curl_exec($curl);
+		$curl_errno = curl_errno($curl);
+		$curl_error = curl_error($curl);
+		curl_close ($curl);
+		if ($curl_errno > 0) {
+			$result['status'] = 0;
+			$result['info'] = "cURL Error ($curl_errno): $curl_error\n";
+			$return = $result;
+		} else {
+			$return = json_decode($result, true);
+		}
+
+		for($i = 0; $i < sizeof($return["category"]); $i++){
+			$dataCategory = array(
+				"id" => $return["category"][$i]["id"],
+				"language_id" => (int)$this->config->get('config_language_id'),
+				"store_id" => (int)$this->config->get('store_id'),
+				"name" => $return["category"][$i]["name"],
+				"description" => "",
+				"meta_title" => $return["category"][$i]["name"],
+				"meta_description" => $return["category"][$i]["name"],
+				"meta_keyword" => $return["category"][$i]["name"],
+				"parent_id" => 0,
+				"column" => 1,
+				"top" => 1,
+				"status" => 1,
+				"sort_order" => ($i + 1)
+			);
+			$this->model_catalog_category->addCategoryJson($dataCategory);
+		}
+		$this->response->redirect($this->url->link('catalog/category', 'user_token=' . $this->session->data['user_token'], true));
 	}
 
 	public function add() {
@@ -190,7 +238,7 @@ class ControllerCatalogCategory extends Controller {
 		$data['add'] = $this->url->link('catalog/category/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['delete'] = $this->url->link('catalog/category/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['repair'] = $this->url->link('catalog/category/repair', 'user_token=' . $this->session->data['user_token'] . $url, true);
-
+		$data['crawlCategory'] = $this->url->link('catalog/category/crawlCategory', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['categories'] = array();
 
 		$filter_data = array(

@@ -189,3 +189,260 @@
 2020-04-07 14:17:11 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\SIM SINETH\Project\Web\personal\NWCambodia\system\library\mail\mail.php on line 77
 2020-04-07 14:48:08 - PHP Notice:  Undefined variable: total in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\common\header.php on line 82
 2020-04-07 16:01:43 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\SIM SINETH\Project\Web\personal\NWCambodia\system\library\mail\mail.php on line 77
+2020-04-13 13:43:59 - PHP Notice:  Undefined index: page in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\product\product.php on line 8
+2020-04-13 13:43:59 - PHP Notice:  Undefined index: rowsPerPage in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\product\product.php on line 9
+2020-04-13 13:44:13 - PHP Notice:  Undefined index: page in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\product\product.php on line 8
+2020-04-13 13:44:13 - PHP Notice:  Undefined index: rowsPerPage in D:\SIM SINETH\Project\Web\personal\NWCambodia\catalog\controller\product\product.php on line 9
+2020-04-13 14:11:43 - PHP Notice:  Undefined index: id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 35
+2020-04-13 14:11:43 - PHP Notice:  Undefined index: name in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 36
+2020-04-13 14:12:31 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 35
+2020-04-13 14:12:31 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 36
+2020-04-13 14:13:02 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 35
+2020-04-13 14:13:02 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 36
+2020-04-13 14:13:13 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 35
+2020-04-13 14:13:13 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 36
+2020-04-13 14:13:37 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 35
+2020-04-13 14:13:37 - PHP Notice:  Undefined offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 36
+2020-04-13 14:14:02 - PHP Notice:  Undefined index: id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 35
+2020-04-13 14:14:02 - PHP Notice:  Undefined index: name in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 36
+2020-04-13 14:14:17 - PHP Notice:  Undefined index: id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 35
+2020-04-13 14:14:17 - PHP Notice:  Undefined index: name in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\manufacturer.php on line 36
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:17:15 - PHP Notice:  Array to string conversion in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\manufacturer.php on line 35
+2020-04-13 14:39:28 - PHP Notice:  Undefined index: brand in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 40
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: column in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: status in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 65
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:43:21 - PHP Notice:  Undefined index: parent_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 80
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Notice:  Undefined index: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:44:43 - PHP Warning:  Invalid argument supplied for foreach() in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 73
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:46:07 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:48:35 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'name' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'meta_title' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'meta_description' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Warning:  Illegal string offset 'meta_keyword' in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:52:10 - PHP Notice:  Uninitialized string offset: 0 in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: category_description in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\category.php on line 59
+2020-04-13 14:53:27 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:53:51 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:54:32 - PHP Notice:  Undefined variable: language_id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 74
+2020-04-13 14:57:43 - PHP Notice:  Undefined index: language_Id in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\model\catalog\category.php on line 66
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:15 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48

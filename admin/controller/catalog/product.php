@@ -4,12 +4,86 @@ class ControllerCatalogProduct extends Controller {
 
 	public function index() {
 		$this->load->language('catalog/product');
-
-		$this->document->setTitle($this->language->get('heading_title'));
-
 		$this->load->model('catalog/product');
-
+		$this->document->setTitle($this->language->get('heading_title'));
 		$this->getList();
+	}
+
+	public function crawlProduct(){
+		$this->load->model('catalog/product');
+		date_default_timezone_set('Asia/Phnom_Penh');
+		$page = 0;//$_POST['page'];
+		$rowPerPage = 10000;//$_POST['rowsPerPage'];
+		$url  = "https://nuwh.sas-ebi.com/apis/getProduct/en";
+		$post = "page=".$page."&rowsPerPage=".$rowPerPage;
+		// CURL
+		$curl  = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_POST, 1);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+		$result = curl_exec($curl);
+		$curl_errno = curl_errno($curl);
+		$curl_error = curl_error($curl);
+		curl_close ($curl);
+		if ($curl_errno > 0) {
+			$result['status'] = 0;
+			$result['info'] = "cURL Error ($curl_errno): $curl_error\n";
+			$return = $result;
+		} else {
+			$return = json_decode($result, true);
+		}
+		for($i = 0; $i < sizeof($return["item"]); $i++){
+			$dataCategory = array(
+				"id" => $return["item"][$i]["id"],
+				"language_id" => (int)$this->config->get('config_language_id'),
+				"category_id" => $return["item"][$i]["category_id"],
+				"store_id" => (int)$this->config->get('store_id'),
+				"manufacturer_id" => $return["item"][$i]["brand_id"],
+				"sku" => $return["item"][$i]["code"],
+				"uom" => $return["item"][$i]["uom"],
+				"price" => $return["item"][$i]["price"],
+				"video_link" => $return["item"][$i]["video_link"],
+				"image" => $return["item"][$i]["photo"],
+				"other_photo" => $return["item"][$i]["other_photo"],
+				"attribute" => $return["item"][$i]["spec"],
+				"overview" => $return["item"][$i]["overview"],
+				"name" => $return["item"][$i]["name"],
+				"description" => $return["item"][$i]["description"],
+				"tag" => "",
+				"meta_title" => $return["item"][$i]["name"],
+				"meta_description" => $return["item"][$i]["description"],
+				"meta_keyword" => $return["item"][$i]["name"],
+				"status" => 1,
+				"sort_order" => ($i + 1),
+				"model" => "Nutrition",
+				"upc" => "",
+				"ean" => "",
+				"jan" => "",
+				"isbn" => "",
+				"mpn" => "",
+				"location" => "Phnom Penh",
+				"quantity" => 10000,
+				"minimum" => 1,
+				"subtract" => 0,
+				"stock_status_id" => 7,
+				"shipping" => 0,
+				"points" => "",
+				"weight" => "",
+				"weight_class_id" => 1,
+				"length" => "",
+				"width" => "",
+				"height" => "",
+				"length_class_id" => 1,
+				"status" => 1,
+				"tax_class_id" => 1
+			);
+			$this->model_catalog_product->addProductJson($dataCategory);
+		}
+
+		$this->response->redirect($this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'], true));
 	}
 
 	public function add() {
@@ -317,6 +391,7 @@ class ControllerCatalogProduct extends Controller {
 
 		$data['add'] = $this->url->link('catalog/product/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['copy'] = $this->url->link('catalog/product/copy', 'user_token=' . $this->session->data['user_token'] . $url, true);
+		$data['crawlProduct'] = $this->url->link('catalog/product/crawlProduct', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['delete'] = $this->url->link('catalog/product/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
 		$data['products'] = array();

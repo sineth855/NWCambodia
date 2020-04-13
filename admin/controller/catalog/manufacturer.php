@@ -4,11 +4,57 @@ class ControllerCatalogManufacturer extends Controller {
 
 	public function index() {
 		$this->load->language('catalog/manufacturer');
-
 		$this->document->setTitle($this->language->get('heading_title'));
+		$this->load->model('catalog/manufacturer');
+		$this->getList();
+	}
 
+	public function crawlManufacturer(){
+		$this->load->language('catalog/manufacturer');
+		$this->document->setTitle($this->language->get('heading_title'));
 		$this->load->model('catalog/manufacturer');
 
+		date_default_timezone_set('Asia/Phnom_Penh');
+		$page = 0;//$_POST['page'];
+		$rowPerPage = 10;//$_POST['rowsPerPage'];
+		$url  = "https://nuwh.sas-ebi.com/apis/getBrand";
+		// $post = "page=".$page."&rowsPerPage=".$rowPerPage;
+		// CURL
+		$curl  = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		// curl_setopt($curl, CURLOPT_POST, 1);
+		// curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+		$result = curl_exec($curl);
+		$curl_errno = curl_errno($curl);
+		$curl_error = curl_error($curl);
+		curl_close ($curl);
+		if ($curl_errno > 0) {
+			$result['status'] = 0;
+			$result['info'] = "cURL Error ($curl_errno): $curl_error\n";
+			$return = $result;
+		} else {
+			$return = json_decode($result, true);
+			// print_r($return);
+			// echo sizeof($return["brand"]);
+			// $dataBrand = array();
+			$this->db->query("DELETE from " . DB_PREFIX . "manufacturer");
+			for($i = 0; $i < sizeof($return["brand"]); $i++){
+				$dataBrand = array(
+					"id"=> $return["brand"][$i]["id"],
+					"name"=> $return["brand"][$i]["name"],
+					"sort_order" => ($i + 1)
+				);
+				$this->model_catalog_manufacturer->addManufacturerJson($dataBrand);	
+				// print_r($te);
+			}
+			// print_r($dataBrand);
+			// return false;
+			// echo json_encode($return);
+		}
+		// $this->response->redirect($this->url->link('catalog/manufacturer', 'user_token=' . $this->session->data['user_token'], true));
 		$this->getList();
 	}
 
@@ -154,7 +200,7 @@ class ControllerCatalogManufacturer extends Controller {
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('catalog/manufacturer', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
-
+		$data['crawlManufacturer'] = $this->url->link('catalog/manufacturer/crawlManufacturer', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['add'] = $this->url->link('catalog/manufacturer/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['delete'] = $this->url->link('catalog/manufacturer/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
