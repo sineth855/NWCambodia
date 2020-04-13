@@ -14,12 +14,16 @@
                     <p>{{ product.description }}</p>
                     {% if product.rating %}
                     <div class="rating">
-                        {% for i in 5 %} {% if product.rating
-                        < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                        {% for i in 5 %} ]
+                            {% if product.rating < i %} 
+                                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
                             {% else %}
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %} {% endfor %}
+                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> 
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %} {% if product.price %}
+                    {% endif %} 
+                    {% if product.price %}
                     <p class="price">
                         {% if not product.special %} {{ product.price }} {% else %}
                         <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %} {% if product.tax %}
@@ -286,7 +290,20 @@
                                                                     <div class="product-ratings">
                                                                         <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
                                                                             <div class="votingapi-widgets fivestar">
-                                                                                <form class="commerce-product-clothing-60-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form--18" data-drupal-selector="commerce-product-clothing-60-vote-field-ratings-vote-vote-votingapi-fivestar-form-2" action="#" method="post"
+                                                                            {% if product.rating %}
+                                                                <div class="rating">
+                                                                    {% for i in 1..5 %} {% if product.rating
+                                                                    < i %} <span class="fa fa-stack">
+                                                                        <i class="fa fa-star-o fa-stack-2x color_rating"></i>
+                                                                        </span>
+                                                                        {% else %}
+                                                                        <span class="fa fa-stack">
+                                                                        <i class="fa fa-star fa-stack-2x color_rating"></i>
+                                                                        <i class="fa fa-star-o fa-stack-2x color_rating"></i>
+                                                                    </span> {% endif %} {% endfor %}
+                                                                </div>
+                                                                {% endif %}
+                                                                                <!-- <form class="commerce-product-clothing-60-vote-field-ratings__vote-vote-votingapi-fivestar-form vote-form" id="vote-form--18" data-drupal-selector="commerce-product-clothing-60-vote-field-ratings-vote-vote-votingapi-fivestar-form-2" action="#" method="post"
                                                                                     accept-charset="UTF-8">
                                                                                     <div class="form-item js-form-item form-type-select js-form-type-select form-item-value js-form-item-value form-no-label form-disabled">
                                                                                         <div class="select-wrapper">
@@ -302,10 +319,13 @@
                                                                                     <input autocomplete="off" data-drupal-selector="form-rx1nyjifxa-ywdliyskjk97gvxbkaqcarhnzbcu-3yk" type="hidden" name="form_build_id" value="form-Rx1NYJIFXA_YWDLIysKjK97GVXBKaQCarHNzbCU_3yk" /><input
                                                                                         data-drupal-selector="edit-commerce-product-clothing-60-vote-field-ratings-vote-vote-votingapi-fivestar-form-2" type="hidden" name="form_id" value="commerce_product_clothing_60_vote_field_ratings__vote_vote_votingapi_fivestar_form"
                                                                                     /><input data-drupal-selector="edit-submit" type="submit" id="edit-submit--54" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
-                                                                                </form>
+                                                                                </form> -->
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
+                                                                    
                                                                     <div class="product-title">
                                                                         <a class="product-title-link" href="{{ product.href }}">
                                                                             <div class="field field-title field-type-string field-label-hidden field-item">

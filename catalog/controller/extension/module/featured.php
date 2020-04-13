@@ -127,7 +127,8 @@ class ControllerExtensionModuleFeatured extends Controller {
 				}
 			}
 		}
-
+		
+		// print_r($data['products']);
 		if ($data['products']) {
 			return $this->load->view('extension/module/featured', $data);
 		}

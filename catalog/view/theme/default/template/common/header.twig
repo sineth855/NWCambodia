@@ -5,285 +5,280 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html dir="{{ direction }}" lang="{{ lang }}">
 <!--<![endif]-->
+
 <head>
-	<meta charset="UTF-8" />
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->	
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <meta name="applicable-device" content="pc,mobile">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ title }}</title>
-	<base href="{{ base }}" />
-	{% if description %}
-		<meta name="description" content="{{ description }}" />
-	{% endif %}
-	{% if keywords %}
-		<meta name="keywords" content="{{ keywords }}" />
-	{% endif %}
-	<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-	<!-- <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" /> -->
-	<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<!-- <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
-	<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
-	<!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
-	<!-- ################Third Party CSS ############################ -->
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_002.css" />
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_systel_003.css" />
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_001.css" />
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/custom.css" />
-	<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/thirdparty/jquery.flipcountdown.css" />
-	<link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_004.css" />
-	<link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_style_005.css"/>
-	<!-- <link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_oh7VoMxXbRU2mJvO77i6Y0UZNTRHJG6hq7HPYv8OCg0.css"/> -->
+    <title>{{ title }}</title>
+    <base href="{{ base }}" /> {% if description %}
+    <meta name="description" content="{{ description }}" /> {% endif %} {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}" /> {% endif %}
+    <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <!-- <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" /> -->
+    <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
+    <!-- ################Third Party CSS ############################ -->
+    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_002.css" />
+    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_systel_003.css" />
+    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_001.css" />
+    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/custom.css" />
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/thirdparty/jquery.flipcountdown.css" />
+    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_004.css" />
+    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_005.css" />
+    <!-- <link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_oh7VoMxXbRU2mJvO77i6Y0UZNTRHJG6hq7HPYv8OCg0.css"/> -->
 
-	{% for style in styles %}
-	<!--<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />-->
-	{% endfor %}
-	{% for script in scripts %}
-	<script src="{{ script }}" type="text/javascript"></script>
-	{% endfor %}
-	<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
-	{% for link in links %}
-	<link href="{{ link.href }}" rel="{{ link.rel }}" />
-	{% endfor %}
-	{% for analytic in analytics %}
-	{{ analytic }}
-	{% endfor %}
+    {% for style in styles %}
+    <!--<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />-->
+    {% endfor %} {% for script in scripts %}
+    <script src="{{ script }}" type="text/javascript"></script>
+    {% endfor %}
+    <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+    {% for link in links %}
+    <link href="{{ link.href }}" rel="{{ link.rel }}" /> {% endfor %} {% for analytic in analytics %} {{ analytic }} {% endfor %}
 
 </head>
 
-	<nav id="top" style="display: none">
-		<div class="container">{{ currency }}
-			{{ language }}
-			<div id="top-links" class="nav pull-right">
-			<ul class="list-inline">
-				<li><a href="{{ contact }}"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span></li>
-				<li class="dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span class="caret"></span></a>
-				<ul class="dropdown-menu dropdown-menu-right">
-					{% if logged %}
-					<li><a href="{{ account }}">{{ text_account }}</a></li>
-					<li><a href="{{ order }}">{{ text_order }}</a></li>
-					<li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
-					<li><a href="{{ download }}">{{ text_download }}</a></li>
-					<li><a href="{{ logout }}">{{ text_logout }}</a></li>
-					{% else %}
-					<li><a href="{{ register }}">{{ text_register }}</a></li>
-					<li><a href="{{ login }}">{{ text_login }}</a></li>
-					{% endif %}
-				</ul>
-				</li>
-				<li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
-				<li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
-				<li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
-			</ul>
-			</div>
-		</div>
-	</nav>
-  <header style="display: none">
-    <div class="container">
-      <div class="row">
-      <div class="col-sm-4">
-        <div id="logo">{% if logo %}<a href="{{ home }}/NWCambodia/"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
-        <h1><a href="{{ home }}">{{ name }}</a></h1>
-        {% endif %}</div>
-      </div>
-      <div class="col-sm-5">{{ search }}</div>
-      <div class="col-sm-3">{{ cart }}</div>
-      </div>
+<nav id="top" style="display: none">
+    <div class="container">{{ currency }} {{ language }}
+        <div id="top-links" class="nav pull-right">
+            <ul class="list-inline">
+                <li><a href="{{ contact }}"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span></li>
+                <li class="dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        {% if logged %}
+                        <li><a href="{{ account }}">{{ text_account }}</a></li>
+                        <li><a href="{{ order }}">{{ text_order }}</a></li>
+                        <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+                        <li><a href="{{ download }}">{{ text_download }}</a></li>
+                        <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+                        {% else %}
+                        <li><a href="{{ register }}">{{ text_register }}</a></li>
+                        <li><a href="{{ login }}">{{ text_login }}</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
+                <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
+                <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
+            </ul>
+        </div>
     </div>
-  </header>
-  
-  <!-- Header Start -->
-  <header class="header">
-	 <div class="header-top dark-header-top">
-		<div class="container">
-		   <div class="row">	
-			  <div class="col-md-6">
-				 <div class="header-top-first">
-					<div class="region region-header-top-first">
-					   <div id="block-clearance-sales" class="norm-width block-title-1 block-title-left block block-block-content block-block-content9aa5ff88-bebe-4f37-94b7-8e475b514f45" >
-						  <div class="container-wrap clearfix">
-							 <div class="block-content clearfix">
-								<div class="field field-body field-type-text-with-summary field-label-hidden field-item">Clearance sales upto 40% off. <a href="#">Shop Now</a></div>
-							 </div>
-						  </div>
-					   </div>
-					</div>
-  
-				 </div>
-			  </div>
-			  <div class="col-md-6">
-				 <div class="header-top-second">
-					<div class="region region-header-top-second">
-					   <div id="block-language-dropdown-switcher" class="norm-width block-title-1 block-title-left block block-lang-dropdown block-language-dropdown-blocklanguage-interface" >
-						  <div class="container-wrap clearfix">
-							 <div class="block-content clearfix">
-                <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
-								   <div class="form-item js-form-item form-type-select js-form-type-select form-item-lang-dropdown-select js-form-item-lang-dropdown-select form-no-label">
-									  <label for="edit-lang-dropdown-select" class="control-label sr-only">Select your language</label>      
-									  <div class="select-wrapper">
-										<a class="language-select" type="button" name="kh-gb"><img width="25px" src="./catalog/view/theme/default/image/kh.png"/></a> |
-										<a class="language-select" type="button" name="en-gb"><img width="30px" src="./catalog/view/theme/default/image/gb.png"/></a> 
-									  </div>
-		
-								   </div>
-								   <input data-drupal-selector="edit-en" type="hidden" name="en" value="/martis/en" /><input data-drupal-selector="edit-fr" type="hidden" name="fr" value="/martis/fr" /><noscript><div><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Go" class="button js-form-submit form-submit" /></div></noscript><input autocomplete="off" data-drupal-selector="form-klatgnw-3htw-mjo0v5ysqsig1dx5sphyylbqnwc1da" type="hidden" name="form_build_id" value="form-KLATgNW_3hTW-mjO0V5ysQsIg1Dx5sPHYylBQNwC1DA" /><input data-drupal-selector="edit-lang-dropdown-form" type="hidden" name="form_id" value="lang_dropdown_form" />
-								</form>
-							 </div>
-						  </div>
-					   </div>
-					   <div id="block-currency-block" class="norm-width block-title-1 block-title-left block block-commerce-currency-resolver" >
-						  <div class="container-wrap clearfix">
-							 <div class="block-content clearfix">
-								{{currency}}
-							 </div>
-						  </div>
-					   </div>
-					   <nav aria-labelledby="block-user-account-menu" id="block-user-account-menu" class="norm-width block-title-1 block-title-left block block-system block-system-menu-blockaccount"  >
-						  <div class="container-wrap clearfix menu-wrap">
-							 <button type="button" class="dropdown-toggle header-icon account-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
-							 <div id="user-account-block-wrap" class="dropdown-menu user-account-block-wrap">
-						  
-								<ul class="nav menu menu-parent">
-								   {% if logged %}
-									  <li><a href="{{ account }}">{{ text_account }}</a></li>
-									  <li><a href="{{ order }}">{{ text_order }}</a></li>
-									  <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
-									  <li><a href="{{ download }}">{{ text_download }}</a></li>
-									  <li><a href="{{ logout }}">{{ text_logout }}</a></li>
-									  {% else %}
-									  <li><a href="{{ register }}">{{ text_register }}</a></li>
-									  <li><a href="{{ login }}">{{ text_login }}</a></li>
-								   {% endif %}
-								   <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
-								   <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
-								   <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
-								</ul>
-							 </div>
-						  </div>
-					   </nav>
-					</div>
-  
-				 </div>
-			  </div>
-		   </div>
-		</div>
-	 </div>
-	
-	 <div class="container-wrap header-wrap">
-		<div class="bg-header">
-		   <div class="navbar header-center">
-			  <div class="container">
-				 <div class="mobile-flag" style="position: absolute;left: 0px;top: 0;">
-					<button class="mobile-top-20 pull-left navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+</nav>
+<header style="display: none">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="logo">{% if logo %}
+                    <a href="{{ home }}/NWCambodia/"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
+                    <h1><a href="{{ home }}">{{ name }}</a></h1>
+                    {% endif %}</div>
+            </div>
+            <div class="col-sm-5">{{ search }}</div>
+            <div class="col-sm-3">{{ cart }}</div>
+        </div>
+    </div>
+</header>
+
+<!-- Header Start -->
+<header class="header">
+    <div class="header-top dark-header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="header-top-first">
+                        <div class="region region-header-top-first">
+                            <div id="block-clearance-sales" class="norm-width block-title-1 block-title-left block block-block-content block-block-content9aa5ff88-bebe-4f37-94b7-8e475b514f45">
+                                <div class="container-wrap clearfix">
+                                    <div class="block-content clearfix">
+                                        <div class="field field-body field-type-text-with-summary field-label-hidden field-item">Clearance sales upto 40% off. <a href="#">Shop Now</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="header-top-second">
+                        <div class="region region-header-top-second">
+                            <div id="block-language-dropdown-switcher" class="norm-width block-title-1 block-title-left block block-lang-dropdown block-language-dropdown-blocklanguage-interface">
+                                <div class="container-wrap clearfix">
+                                    <div class="block-content clearfix">
+                                        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
+                                            <div class="form-item js-form-item form-type-select js-form-type-select form-item-lang-dropdown-select js-form-item-lang-dropdown-select form-no-label">
+                                                <label for="edit-lang-dropdown-select" class="control-label sr-only">Select your language</label>
+                                                <div class="select-wrapper">
+                                                    <a class="language-select" type="button" name="kh-gb"><img width="25px" src="./catalog/view/theme/default/image/kh.png" /></a> |
+                                                    <a class="language-select" type="button" name="en-gb"><img width="30px" src="./catalog/view/theme/default/image/gb.png" /></a>
+                                                </div>
+
+                                            </div>
+                                            <input data-drupal-selector="edit-en" type="hidden" name="en" value="/martis/en" /><input data-drupal-selector="edit-fr" type="hidden" name="fr" value="/martis/fr" /><noscript><div><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Go" class="button js-form-submit form-submit" /></div></noscript><input
+                                                autocomplete="off" data-drupal-selector="form-klatgnw-3htw-mjo0v5ysqsig1dx5sphyylbqnwc1da" type="hidden" name="form_build_id" value="form-KLATgNW_3hTW-mjO0V5ysQsIg1Dx5sPHYylBQNwC1DA" /><input data-drupal-selector="edit-lang-dropdown-form"
+                                                type="hidden" name="form_id" value="lang_dropdown_form" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="block-currency-block" class="norm-width block-title-1 block-title-left block block-commerce-currency-resolver">
+                                <div class="container-wrap clearfix">
+                                    <div class="block-content clearfix">
+                                        {{currency}}
+                                    </div>
+                                </div>
+                            </div>
+                            <nav aria-labelledby="block-user-account-menu" id="block-user-account-menu" class="norm-width block-title-1 block-title-left block block-system block-system-menu-blockaccount">
+                                <div class="container-wrap clearfix menu-wrap">
+                                    <button type="button" class="dropdown-toggle header-icon account-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</button>
+                                    <div id="user-account-block-wrap" class="dropdown-menu user-account-block-wrap">
+
+                                        <ul class="nav menu menu-parent">
+                                            {% if logged %}
+                                            <li><a href="{{ account }}">{{ text_account }}</a></li>
+                                            <li><a href="{{ order }}">{{ text_order }}</a></li>
+                                            <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+                                            <li><a href="{{ download }}">{{ text_download }}</a></li>
+                                            <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+                                            {% else %}
+                                            <li><a href="{{ register }}">{{ text_register }}</a></li>
+                                            <li><a href="{{ login }}">{{ text_login }}</a></li>
+                                            {% endif %}
+                                            <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
+                                            <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
+                                            <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-wrap header-wrap">
+        <div class="bg-header">
+            <div class="navbar header-center">
+                <div class="container">
+                    <div class="mobile-flag" style="position: absolute;left: 0px;top: 0;">
+                        <button class="mobile-top-20 pull-left navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
 					   <i class="ti-menu"></i>
 					</button>
-					<div class="pull-left border-line"></div>
-						<div class="pull-left lang-top">
-							<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
-								<div class="pull-left">
-									<span class="language-select" name="kh-gb">
+                        <div class="pull-left border-line"></div>
+                        <div class="pull-left lang-top">
+                            <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
+                                <div class="pull-left">
+                                    <span class="language-select" name="kh-gb">
 										<img width="25px" src="./catalog/view/theme/default/image/kh.png"/>
 									</span>
-								</div>
-								<div class="pull-left line-lang"></div>
-								<div class="pull-left">
-									<span class="language-select" name="en-gb">
+                                </div>
+                                <div class="pull-left line-lang"></div>
+                                <div class="pull-left">
+                                    <span class="language-select" name="en-gb">
 										<img width="25px" src="./catalog/view/theme/default/image/gb.png"/>
 									</span>
-								</div>
-							</form>
-						</div>
-					<div class="pull-left border-line"></div>
-				 </div>
-				 <div class="header-side navbar-brand">
-					<center>
-					   <div class="region region-branding">
-					
-						  <div id="block-martis-branding" class="site-branding block block-system block-system-branding-block" >
-							 <div class="container-wrap clearfix">
-							 <div class="brand logo">
-								<a href="{{ home }}" title="Home" rel="home" class="site-branding-logo">
-								   <img width="100px" src="./catalog/view/theme/default/image/logo.png" alt="Home" />
-								</a>
-							 </div>
-							 </div>
-						  </div>
-					   </div>
-					</center>   
-				 </div>
-  
-				 <div class="mobile-flag" style="position: absolute;right: 35pt;top: 0;">
-					<div class="pull-left border-line"></div>
-					<div class="pull-left lang-top">
-						<div class="pull-left">
-							<a href="tel:{{telephone}}">
-								<img width="20px" src="catalog/view/theme/default/image/phone-icon.png"/>
-							</a>
-						</div>
-						<div class="pull-left line-lang"></div>
-						<div class="pull-left">
-							<a href="{{contact}}">
-								<img width="20px" src="catalog/view/theme/default/image/location-icon.png"/>
-							</a>
-						</div>
-					</div>
-					<div class="pull-left border-line"></div>
-				 </div>
-  
-				 <div class="header-main-wrap">
-					<div id="header-search" class="collapse header-item header-search">
-					   <div class="region region-header-search">
-					   <div class="views-exposed-form bef-exposed-form norm-width block-title-1 block-title-left block block-views block-views-exposed-filter-blockproduct-catalog-product-catalog-search" data-drupal-selector="views-exposed-form-product-catalog-product-catalog-search" id="block-exposedformproduct-catalogproduct-catalog-search" >
-						  <div class="container-wrap clearfix">
-							 <div class="block-content clearfix">
-                {{search}}
-							 </div>
-						  </div>
-					   </div>
-					   </div>
-  
-					</div>
-				 </div>
-  
-				 <div class="header-side header-right-wrap">
-				 <div class="header-item header-right">
-					<div class="region region-header-right">
-					<div id="block-call-to-order" class="norm-width block-title-1 block-title-left block block-block-content block-block-contentee24b9ac-7075-4cae-9e55-6e293b996fcc" >
-					   <div class="container-wrap clearfix">
-						  <div class="block-content clearfix">
-						  <div class="field field-body field-type-text-with-summary field-label-hidden field-item">{{text_call_to_order}}
-							 <h4>{{telephone}}</h4>
-						  </div>
-						  </div>
-					   </div>
-					</div>
-					</div>
-				 </div>
-				 <div class="header-item header-element">
-					<button class="header-element-item search-button" type="button" data-toggle="collapse" data-target="#header-search" aria-expanded="false" aria-controls="header-search">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="pull-left border-line"></div>
+                    </div>
+                    <div class="header-side navbar-brand">
+                        <center>
+                            <div class="region region-branding">
+
+                                <div id="block-martis-branding" class="site-branding block block-system block-system-branding-block">
+                                    <div class="container-wrap clearfix">
+                                        <div class="brand logo">
+                                            <a href="{{ home }}" title="Home" rel="home" class="site-branding-logo">
+                                                <img width="100px" src="./catalog/view/theme/default/image/logo.png" alt="Home" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+
+                    <div class="mobile-flag" style="position: absolute;right: 35pt;top: 0;">
+                        <div class="pull-left border-line"></div>
+                        <div class="pull-left lang-top">
+                            <div class="pull-left">
+                                <a href="tel:{{telephone}}">
+                                    <img width="20px" src="catalog/view/theme/default/image/phone-icon.png" />
+                                </a>
+                            </div>
+                            <div class="pull-left line-lang"></div>
+                            <div class="pull-left">
+                                <a href="{{contact}}">
+                                    <img width="20px" src="catalog/view/theme/default/image/location-icon.png" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pull-left border-line"></div>
+                    </div>
+
+                    <div class="header-main-wrap">
+                        <div id="header-search" class="collapse header-item header-search">
+                            <div class="region region-header-search">
+                                <div class="views-exposed-form bef-exposed-form norm-width block-title-1 block-title-left block block-views block-views-exposed-filter-blockproduct-catalog-product-catalog-search" data-drupal-selector="views-exposed-form-product-catalog-product-catalog-search"
+                                    id="block-exposedformproduct-catalogproduct-catalog-search">
+                                    <div class="container-wrap clearfix">
+                                        <div class="block-content clearfix">
+                                            {{search}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="header-side header-right-wrap">
+                        <div class="header-item header-right">
+                            <div class="region region-header-right">
+                                <div id="block-call-to-order" class="norm-width block-title-1 block-title-left block block-block-content block-block-contentee24b9ac-7075-4cae-9e55-6e293b996fcc">
+                                    <div class="container-wrap clearfix">
+                                        <div class="block-content clearfix">
+                                            <div class="field field-body field-type-text-with-summary field-label-hidden field-item">{{text_call_to_order}}
+                                                <h4>{{telephone}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-item header-element">
+                            <button class="header-element-item search-button" type="button" data-toggle="collapse" data-target="#header-search" aria-expanded="false" aria-controls="header-search">
 					   <i class="ti-search"></i>
 					</button>
-					<div class="header-element-item header-cart dark-cart_icon">
-					   <div class="region region-header-cart">
-						  <div id="block-martis-cart" class="norm-width block-title-1 block-title-left block block-commerce-cart" >
-							 <div class="container-wrap clearfix">
-								<div class="block-content clearfix">
-								   <div class="cart-desktop">
-									  {{ cart }}
-								   </div>
-								   <div class="cart-mobile cart--cart-block">
-									  <div id="cart" class="cart-block--summary">
-										 <a class="cart-block--link__expand" href="{{cartLink}}">
-											<!-- <i class="ti-shopping-cart"></i> -->
-											<img src="catalog/view/theme/default/image/cart.png" width="50"/>
-											<div class="cart-block--summary__count">
-												{{text_items}}
-											</div>
-										 </a>
-									  </div>
-									  <!-- <div class="cart-block--contents">
+                            <div class="header-element-item header-cart dark-cart_icon">
+                                <div class="region region-header-cart">
+                                    <div id="block-martis-cart" class="norm-width block-title-1 block-title-left block block-commerce-cart">
+                                        <div class="container-wrap clearfix">
+                                            <div class="block-content clearfix">
+                                                <div class="cart-desktop">
+                                                    {{ cart }}
+                                                </div>
+                                                <div class="cart-mobile cart--cart-block">
+                                                    <div id="cart" class="cart-block--summary">
+                                                        <a class="cart-block--link__expand" href="{{cartLink}}">
+                                                            <!-- <i class="ti-shopping-cart"></i> -->
+                                                            <img src="catalog/view/theme/default/image/cart.png" width="50" />
+                                                            <div class="cart-block--summary__count">
+                                                                {{text_items}}
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <!-- <div class="cart-block--contents">
 										 <div class="cart-block--contents__inner">
 											<div class="cart-block--contents__items">
 												  <div class="cart cart-block">
@@ -311,34 +306,34 @@
 											</div>
 										 </div>
 									  </div> -->
-								   </div>
-								</div>
-							 </div>
-						  </div>
-					   </div>
-					</div>
-			  
-				 </div>
-			  <!-- <div style="position: relative; left: -100pt;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- <div style="position: relative; left: -100pt;">
 				 <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="ti-menu"></i>
 				 </button>
 				 <img height="10px" src="catalog/view/theme/default/image/kh.png"/> &nbsp;
 				 <img height="10px" src="catalog/view/theme/default/image/gb.png"/>
 			  </div> -->
-				 </div>
-			  </div>
-		   </div>
-		</div>
-	 </div>   
-	 <div class="header-menu">
-		<div class="navbar navbar-expand-md nav-menu">
-		<div class="container">
-        <!-- menu -->
-        {{ menu}}
-        <!-- #end menu -->
-      </div>
-		</div>
-  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu">
+        <div class="navbar navbar-expand-md nav-menu">
+            <div class="container">
+                <!-- menu -->
+                {{ menu}}
+                <!-- #end menu -->
+            </div>
+        </div>
+    </div>
 </header>
-<!-- Header End -->	
+<!-- Header End -->
