@@ -53,6 +53,10 @@ body * {
     font-size: 1.2em;
 }
 
+a.cart-block--link__expand img {
+    margin-top: 5px;
+}
+
 @media (max-width:768px) {
     .fixHeader {
         position: fixed;
