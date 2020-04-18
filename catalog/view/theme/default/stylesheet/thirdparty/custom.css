@@ -29,6 +29,10 @@ div.product-title {
     height: 20px;
 }
 
+p.price.product-price {
+    padding-top: 10px;
+}
+
 .button_none_radius {
     font-family: 'HelveticaNeueLTStd';
     -webkit-border-radius: 0px !important;
@@ -39,9 +43,9 @@ div.product-title {
     background-color: #252122;
     cursor: pointer;
     color: #e7d32b;
-    line-height: 40px;
+    /* line-height: 40px; */
     font-weight: 900;
-    padding: 0 30px;
+    padding: 10px 40px;
     border: none !important;
     display: inline-block;
     position: relative;
@@ -52,7 +56,6 @@ div.product-title {
     text-transform: uppercase;
     font-size: 16px;
     width: 100%;
-    font-style: italic;
 }
 
 .rating span {
@@ -68,7 +71,24 @@ a.cart-block--link__expand img {
     margin-top: 5px;
 }
 
+.logo-web {
+    display: block;
+}
+
+.logo-mobile {
+    display: none;
+}
+
 @media (max-width:768px) {
+    .logo-web {
+        display: none;
+    }
+    .logo-mobile {
+        display: block;
+    }
+    /* .logo-web {
+        display: none;
+    } */
     .fixHeader {
         position: fixed;
         z-index: 99;
@@ -128,7 +148,7 @@ a.cart-block--link__expand img {
         left: -0;
         right: 0;
         z-index: 99;
-        top: 16px;
+        top: -20px;
     }
     .header-top {
         display: none !important;
@@ -216,7 +236,7 @@ a.cart-block--link__expand img {
     }
     .brand.logo img {
         /* width: 53px; */
-        width: 60%;
+        width: 100%;
     }
     .nav-button {
         line-height: 30px;

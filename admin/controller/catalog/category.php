@@ -505,6 +505,14 @@ class ControllerCatalogCategory extends Controller {
 			$data['top'] = 0;
 		}
 
+		if (isset($this->request->post['url'])) {
+			$data['url'] = $this->request->post['url'];
+		} elseif (!empty($category_info)) {
+			$data['url'] = $category_info['url'];
+		} else {
+			$data['url'] = null;
+		}
+
 		if (isset($this->request->post['column'])) {
 			$data['column'] = $this->request->post['column'];
 		} elseif (!empty($category_info)) {
@@ -512,7 +520,7 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$data['column'] = 1;
 		}
-
+		
 		if (isset($this->request->post['sort_order'])) {
 			$data['sort_order'] = $this->request->post['sort_order'];
 		} elseif (!empty($category_info)) {

@@ -1,45 +1,43 @@
 {% if categories %}
 <div class="container" style="display:none;">
-  <nav id="menu" class="navbar">
-    <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
-      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        {% for category in categories %}
-        {% if category.children %}
-          <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
-            <div class="dropdown-menu">
-              <div class="dropdown-inner"> 
-                {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
-                <ul class="list-unstyled">
-                  {% for child in children %}
-                  <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-                  {% endfor %}
-                </ul>
-                {% endfor %}</div>
-              <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
-          </li>
-        {% else %}
-          <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </nav>
+    <nav id="menu" class="navbar">
+        <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
+            <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                {% for category in categories %} {% if category.children %}
+                <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-inner">
+                            {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                            <ul class="list-unstyled">
+                                {% for child in children %}
+                                <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            {% endfor %}</div>
+                        <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
+                </li>
+                {% else %}
+                <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+                {% endif %} {% endfor %}
+            </ul>
+        </div>
+    </nav>
 </div>
-{% endif %} 
+{% endif %}
 
 <div id="main-menu-left" class="main-menu-left">
-  <div class="region region-header-category-menu">
-  <nav aria-labelledby="block-category-menu" id="block-category-menu" class="block-facet--links norm-width block-title-1 block-title-left block block-facets category-menu" >
-   <div class="container-wrap clearfix mega-menu">      
-    <div class="block-title-wrap clearfix">
-    <div class="block-title-content">
-       <h4 class="block-title"><span class="cat-label">{{text_category}}</span> <span class="cat-icon ti-arrow-right"></span></h4>
-    </div>
-    </div>
-    <!-- <ul data-drupal-facet-id="category_menu" data-drupal-facet-alias="categories" class="js-facets-links item-list__links nav menu menu-parent facet-list"><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-61" data-drupal-facet-item-value="61"><span class="facet-item__value">Phones &amp; Tablets</span>
+    <div class="region region-header-category-menu">
+        <nav aria-labelledby="block-category-menu" id="block-category-menu" class="block-facet--links norm-width block-title-1 block-title-left block block-facets category-menu">
+            <div class="container-wrap clearfix mega-menu">
+                <div class="block-title-wrap clearfix">
+                    <div class="block-title-content">
+                        <h4 class="block-title"><span class="cat-label">{{text_category}}</span> <span class="cat-icon ti-arrow-right"></span></h4>
+                    </div>
+                </div>
+                <!-- <ul data-drupal-facet-id="category_menu" data-drupal-facet-alias="categories" class="js-facets-links item-list__links nav menu menu-parent facet-list"><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-61" data-drupal-facet-item-value="61"><span class="facet-item__value">Phones &amp; Tablets</span>
     </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-62" data-drupal-facet-item-value="62"><span class="facet-item__value">Computing</span>
     </a></li><li class="facet-item"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-118" data-drupal-facet-item-value="118"><span class="facet-item__value">Electronics</span>
     </a></li><li class="facet-item facet-item--collapsed"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-63" data-drupal-facet-item-value="63"><span class="facet-item__value">Television &amp; Video</span>
@@ -50,37 +48,33 @@
     </a></li><li class="facet-item"><a href="index.php?route=product/category&path=20" rel="nofollow" data-drupal-facet-item-id="categories-103" data-drupal-facet-item-value="103"><span class="facet-item__value">Game &amp; Toys</span>
     </a></li>
     </ul> -->
-   </div>
-  </nav>
-  </div>
- </div>
-
-<div id="main-menu" class="col-md-11 collapse navbar-collapse primary-menu nav-left">
-  <div class="region region-main-menu">
-    <nav aria-labelledby="block-martis-main-menu" id="block-martis-main-menu" class="norm-width block-title-1 block-title-left block block-system main-menu" >
-      <div class="container-wrap clearfix mega-menu main-menu-wrap">
-        {% if categories %}
-          <ul class="menu menu-parent">
-            {% for category in categories %}
-              {% if category.children %}
-                <li class="menu-item menu-item--expanded">
-                  <a href="{{ category.href }}">{{ category.name }}</a>
-                  {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
-                    <ul class="list-unstyled">
-                      {% for child in children %}
-                      <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-                      {% endfor %}
-                    </ul>
-                  {% endfor %}
-                </li>
-              {% else %}
-                <li class="menu-item"><a href="{{ category.href }}">{{ category.name }}</a></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        {% endif %} 
-      </div>
-    </nav>
-  </div>
+            </div>
+        </nav>
+    </div>
 </div>
 
+<div id="main-menu" class="col-md-11 collapse navbar-collapse primary-menu nav-left">
+    <div class="region region-main-menu">
+        <nav aria-labelledby="block-martis-main-menu" id="block-martis-main-menu" class="norm-width block-title-1 block-title-left block block-system main-menu">
+            <div class="container-wrap clearfix mega-menu main-menu-wrap">
+                {% if categories %}
+                <ul class="menu menu-parent">
+                    {% for category in categories %} {% if category.children %}
+                    <li class="menu-item menu-item--expanded">
+                        <a href="{{ category.href }}">{{ category.name }}</a> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                        <ul class="list-unstyled">
+                            {% for child in children %}
+                            <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endfor %}
+                    </li>
+                    {% else %}
+                    <li class="menu-item"><a href="{{ category.url }}">{{ category.name }}</a></li>
+                    {% endif %} {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+</div>

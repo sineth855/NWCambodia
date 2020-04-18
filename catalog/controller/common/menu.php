@@ -35,6 +35,7 @@ class ControllerCommonMenu extends Controller {
 				$data['categories'][] = array(
 					'name'     => $category['name'],
 					'children' => $children_data,
+					'url'   => $category['url'] ? $category['url'] : 'index.php?route=common/home',
 					'column'   => $category['column'] ? $category['column'] : 1,
 					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
 				);
