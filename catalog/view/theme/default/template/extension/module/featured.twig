@@ -292,7 +292,8 @@
                                                                             <div class="votingapi-widgets fivestar">
                                                                             {% if product.rating %}
                                                                 <div class="rating">
-                                                                    {% for i in 1..5 %} {% if product.rating
+                                                                    {% for i in 1..5 %} 
+                                                                    {% if product.rating
                                                                     < i %} <span class="fa fa-stack">
                                                                         <i class="fa fa-star-o fa-stack-2x color_rating"></i>
                                                                         </span>
@@ -329,7 +330,9 @@
                                                                     <div class="product-title">
                                                                         <a class="product-title-link" href="{{ product.href }}">
                                                                             <div class="field field-title field-type-string field-label-hidden field-item">
-                                                                                {{ product.name }}
+                                                                                <!-- {{ product.name }} -->
+                                                                                {{ product.name|striptags|length > 30 ? product.name|striptags|slice(0, 35) ~ '...' : product.name|striptags }}
+                                                                                
                                                                             </div>
                                                                         </a>
                                                                     </div>

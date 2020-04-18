@@ -80,6 +80,7 @@ class ControllerCatalogProduct extends Controller {
 				"status" => 1,
 				"tax_class_id" => 1
 			);
+			print_r($dataCategory);
 			$this->model_catalog_product->addProductJson($dataCategory);
 		}
 

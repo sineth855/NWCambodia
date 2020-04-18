@@ -169,7 +169,7 @@
                                                                 <div class="product-title">
                                                                     <a class="product-title-link" href="{{ product.href }}">
                                                                         <div class="field field-title field-type-string field-label-hidden field-item">
-                                                                            {{ product.name }}
+                                                                            {{ product.name|striptags|length > 30 ? product.name|striptags|slice(0, 35) ~ '...' : product.name|striptags }}
                                                                         </div>
                                                                     </a>
                                                                 </div>

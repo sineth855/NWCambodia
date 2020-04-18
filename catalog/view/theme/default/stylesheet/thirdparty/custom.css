@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'HelveticaNeueLTStd';
+    src: url("./../font/HelveticaNeueLTStd-HvCnO.otf") format("opentype");
+}
+
 html,
 body {
     font-style: normal !important;
@@ -19,7 +24,13 @@ body * {
     max-width: 100%;
 }
 
+div.product-title {
+    text-align: left;
+    height: 20px;
+}
+
 .button_none_radius {
+    font-family: 'HelveticaNeueLTStd';
     -webkit-border-radius: 0px !important;
     -moz-border-radius: 0px !important;
     -ms-border-radius: 0px !important;
