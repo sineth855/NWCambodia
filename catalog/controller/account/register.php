@@ -2,6 +2,37 @@
 class ControllerAccountRegister extends Controller {
 	private $error = array();
 
+	public function __index(){
+		print_r($this->config->get('config_mail_smtp_port'));
+		$this->load->language('account/register');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+		$data['title'] = sprintf("Welcome Home", "simsineth855@gmail.com");
+			
+		$data['text_from'] = sprintf("Sim Sineth", "simsineth855@gmail.com");
+		$data['text_message'] = "Weclome home";
+		$data['text_footer'] = "Footer";
+		
+		$data['image'] = '';
+
+		$data['store_name'] = $this->config->get('config_name');
+		$data['generate_url'] = $this->url->link('account/success', '', false);
+		$data['message'] = "Please click the link below to activate your account.";
+		$mail = new Mail($this->config->get('config_mail_engine'));
+		$mail->parameter = $this->config->get('config_mail_parameter');
+		$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+		$mail->smtp_username = $this->config->get('config_mail_smtp_username');
+		$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+		$mail->smtp_port = $this->config->get('config_mail_smtp_port');
+		$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+
+		$mail->setTo("simsineth855@gmail.com");
+		$mail->setFrom($this->config->get('config_name'));
+		$mail->setSender(html_entity_decode("simsineth855@gmail.com", ENT_QUOTES, 'UTF-8'));
+		$mail->setSubject(sprintf("Confirm Your Email to activate your account.", html_entity_decode("Sim Sineth", ENT_QUOTES, 'UTF-8')));
+		$mail->setHtml($this->load->view('mail/confirm_register', $data));
+		$mail->send();
+	}
 	public function index() {
 		if ($this->customer->isLogged()) {
 			$this->response->redirect($this->url->link('account/account', '', true));
@@ -24,11 +55,37 @@ class ControllerAccountRegister extends Controller {
 			// Clear any previous login attempts for unregistered accounts.
 			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
 
-			$this->customer->login($this->request->post['email'], $this->request->post['password']);
+			// $this->customer->login($this->request->post['email'], $this->request->post['password']);
+			// ################## Send Email to Confirm #######################
+			$data['title'] = sprintf($this->language->get('text_subject'), $this->request->post['email']);
+			
+			$data['text_from'] = sprintf($this->config->get('config_name'), $this->request->post['email']);
+			$data['text_message'] = $this->language->get('text_message');
+			$data['text_footer'] = $this->language->get('text_footer');
+			
+			$data['image'] = '';
+
+			$data['store_name'] = $this->config->get('config_name');
+			$data['generate_url'] = $this->url->link('account/success', '', false);
+			$data['message'] = "Please click the link below to activate your account.";
+			$mail = new Mail($this->config->get('config_mail_engine'));
+			$mail->parameter = $this->config->get('config_mail_parameter');
+			$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+			$mail->smtp_username = $this->config->get('config_mail_smtp_username');
+			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
+			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+
+			$mail->setTo($this->request->post['email']);
+			$mail->setFrom($this->config->get('config_name'));
+			$mail->setSender(html_entity_decode($this->request->post['firstname'].' '.$this->request->post['lastname'], ENT_QUOTES, 'UTF-8'));
+			$mail->setSubject(sprintf("Confirm Your Email to activate your account.", html_entity_decode($this->request->post['firstname'].' '.$this->request->post['lastname'], ENT_QUOTES, 'UTF-8')));
+			$mail->setHtml($this->load->view('mail/confirm_register', $data));
+			$mail->send();
 
 			unset($this->session->data['guest']);
 
-			$this->response->redirect($this->url->link('account/success'));
+			$this->response->redirect($this->url->link('account/confirm'));
 		}
 
 		$data['breadcrumbs'] = array();

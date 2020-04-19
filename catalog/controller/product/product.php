@@ -3,6 +3,12 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+
+		$img_file = "abc.jpg";
+		$imgData  = base64_encode(file_get_contents($img_file));
+		$src      = 'data:image/jpeg;base64,'.$imgData;
+		// echo '<img alt="Embedded Image" src="'.$src.'" />';
+
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
