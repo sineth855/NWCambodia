@@ -289,8 +289,9 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
-                                                                                                <input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" type="button" id="edit-submit" name="op" value="Add to Cart"
-                                                                                                />
+                                                                                                <!-- <input class="button--add-to-cart button button--primary js-form-submit form-submit is-disabled" data-drupal-selector="edit-submit" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" type="button" id="edit-submit" name="op" value="Add to Cart"
+                                                                                                /> -->
+                                                                                                <button type="button" id="edit-submit" name="op" class="button--add-to-cart button button--primary js-form-submit form-submit button_none_radius" onclick="cart.productDetail('{{ product.product_id }}', '{{ product.minimum }}');">{{button_buy_now}}</button>
                                                                                             </div>
                                                                                         </form>
                                                                                     </div>
