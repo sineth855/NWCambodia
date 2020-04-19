@@ -148,6 +148,10 @@ a.cart-block--link__expand img {
 }
 
 @media (max-width:768px) {
+    h1,
+    .h1 {
+        font-size: 20px;
+    }
     .product-teaser .product-meta-wrap {
         padding: 0px;
         position: relative;

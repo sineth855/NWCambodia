@@ -23895,7 +23895,7 @@ input[type="submit"],
     }
     .views-exposed-form .form-item,
     .views-exposed-form .form-actions {
-        display: block;
+        display: inline-block;
         margin-bottom: 10px;
     }
     .blog_list .post-content-wrap {
