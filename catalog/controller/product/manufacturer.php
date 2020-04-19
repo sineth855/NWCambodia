@@ -39,7 +39,7 @@ class ControllerProductManufacturer extends Controller {
 			$data['categories'][$key]['manufacturer'][] = array(
 				'name' => $result['name'],
 				'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id'])
-			);
+			);			
 		}
 
 		$data['continue'] = $this->url->link('common/home');
@@ -51,7 +51,7 @@ class ControllerProductManufacturer extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('product/manufacturer_list', $data));
+		$this->response->setOutput($this->load->view('product/manufacturer', $data));
 	}
 
 	public function info() {

@@ -23841,7 +23841,7 @@ input[type="submit"],
     }
     .primary-menu,
     .primary-menu .main-menu {
-        position: static;
+        position: relative;
     }
     .primary-menu {
         background-color: #202020 !important;
