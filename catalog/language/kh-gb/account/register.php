@@ -31,3 +31,10 @@ $_['error_custom_field']   = '%s required!';
 $_['error_password']       = 'Password must be between 4 and 20 characters!';
 $_['error_confirm']        = 'Password confirmation does not match password!';
 $_['error_agree']          = 'Warning: You must agree to the %s!';
+
+// Subject
+
+$_['text_subject']          = 'Register New Account.';
+$_['text_message']          = 'Please click the link below to activate your account.';
+$_['text_from']          = 'NWCambodia';
+$_['text_footer']          = '<p>If you have any question, please contact to our team.</p>';
