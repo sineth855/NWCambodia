@@ -446,3 +446,5 @@
 2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
 2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
 2020-04-13 15:32:40 - PHP Notice:  Undefined index: image in D:\SIM SINETH\Project\Web\personal\NWCambodia\admin\controller\catalog\product.php on line 48
+2020-04-18 9:14:08 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\SIM SINETH\Project\Web\personal\NWCambodia\system\library\mail\mail.php on line 77
+2020-04-18 10:38:00 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\SIM SINETH\Project\Web\personal\NWCambodia\system\library\mail\mail.php on line 77

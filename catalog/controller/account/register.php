@@ -24,11 +24,11 @@ class ControllerAccountRegister extends Controller {
 			// Clear any previous login attempts for unregistered accounts.
 			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
 
-			$this->customer->login($this->request->post['email'], $this->request->post['password']);
+			// $this->customer->login($this->request->post['email'], $this->request->post['password']);
 
 			unset($this->session->data['guest']);
 
-			$this->response->redirect($this->url->link('account/success'));
+			$this->response->redirect($this->url->link('account/confirm'));
 		}
 
 		$data['breadcrumbs'] = array();
