@@ -4,9 +4,9 @@ class ControllerProductProduct extends Controller {
 
 	public function index() {
 
-		$img_file = "abc.jpg";
-		$imgData  = base64_encode(file_get_contents($img_file));
-		$src      = 'data:image/jpeg;base64,'.$imgData;
+		// $img_file = "abc.jpg";
+		// $imgData  = base64_encode(file_get_contents($img_file));
+		// $src      = 'data:image/jpeg;base64,'.$imgData;
 		// echo '<img alt="Embedded Image" src="'.$src.'" />';
 
 		$this->load->language('product/product');
