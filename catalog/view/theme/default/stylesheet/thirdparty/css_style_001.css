@@ -15624,11 +15624,15 @@ a:visited {
     outline: none;
 }
 
+.display-none {
+    display: none;
+}
+
 ol,
 ul {
     padding: 0;
     margin-bottom: 0;
-    list-style-position: inside;
+    /* list-style-position: inside; */
 }
 
 .clearfix {

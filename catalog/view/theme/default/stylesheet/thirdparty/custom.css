@@ -147,6 +147,16 @@ a.cart-block--link__expand img {
     margin-bottom: 0px !important;
 }
 
+
+/* product detail block */
+
+.product_title_container h1 {
+    font-size: 30px;
+}
+
+
+/* end product detail block */
+
 @media (max-width:768px) {
     h1,
     .h1 {
@@ -224,10 +234,10 @@ a.cart-block--link__expand img {
     }
     .brand.logo {
         position: absolute;
-        left: -0;
-        right: 0;
+        left: -5px;
+        right: 0px;
         z-index: 99;
-        top: -20px;
+        top: -16px;
     }
     .header-top {
         display: none !important;
@@ -315,7 +325,7 @@ a.cart-block--link__expand img {
     }
     .brand.logo img {
         /* width: 53px; */
-        width: 100%;
+        width: 95%;
     }
     .nav-button {
         line-height: 30px;
