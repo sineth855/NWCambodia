@@ -34,8 +34,9 @@ class ControllerCatalogProduct extends Controller {
 			$return = $result;
 		} else {
 			$return = json_decode($result, true);
-			print_r($result);
 		}
+		// echo json_encode($return);
+		// return false;
 		for($i = 0; $i < sizeof($return["item"]); $i++){
 			$dataCategory = array(
 				"id" => $return["item"][$i]["id"],
@@ -79,7 +80,7 @@ class ControllerCatalogProduct extends Controller {
 				"height" => "",
 				"length_class_id" => 1,
 				"status" => 1,
-				"tax_class_id" => 1
+				"tax_class_id" => 0
 			);			
 			$this->model_catalog_product->addProductJson($dataCategory);
 		}

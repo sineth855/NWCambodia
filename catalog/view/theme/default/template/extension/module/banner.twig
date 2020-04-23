@@ -1,142 +1,139 @@
 <div class="swiper-viewport" style="display:none;">
-  <div id="banner{{ module }}" class="swiper-container">
-    <div class="swiper-wrapper">
-		{% for banner in banners %}
-      		<div class="swiper-slide">
-			  	{% if banner.link %}
-			  		<a href="{{ banner.link }}">
-						<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-					</a>
-				{% else %}
-					<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-				{% endif %}
-			</div>
-      	{% endfor %}
-	</div>
-  </div>
+    <div id="banner{{ module }}" class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for banner in banners %}
+            <div class="swiper-slide">
+                {% if banner.link %}
+                <a href="{{ banner.link }}">
+                    <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                </a>
+                {% else %}
+                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 
 
-<script type="text/javascript"><!--
-$('#banner{{ module }}').swiper({
-	effect: 'fade',
-	autoplay: 2500,
-    autoplayDisableOnInteraction: false
-});
---></script> 
+<script type="text/javascript">
+    <!--
+    $('#banner{{ module }}').swiper({
+        effect: 'fade',
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+    -->
+</script>
 
 
-<!-- Promotion --> 
-{% if (banners | length == 3)  %}
-	<section id="content-wide" class="content-wide">
-		<div id="block-home01-banner1" class="fullwidth framewidth block-title-1 block-title-left block promotion-block block-block-content block-block-contenta3992df5-fb03-445a-869a-a6dfe5a54b63" style="padding-top: 0px;padding-bottom: 0px;">
-			<div class="container-wrap">
-				<div class="block-content promotion-layout promotion-layout3">
-					<div class="row grid-wrapper">
-						{% for banner in banners %}
-							<div class="field field-item banner-item-field grid-item">
-								<div data-history-node-id="226" role="article" about="#" class="promotion-item">
-									<div class="promotion-container ">
-										<div class="promotion-image">
-											<div class="field field-field-image field-type-image field-label-hidden field-item">
-												{# <mg src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_1.jpg " width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image"/> #}
-												{% if banner.link %}
-													<a href="{{ banner.link }}">
-														<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-													</a>
-												{% else %}
-													<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-												{% endif %}
-											</div>
-										</div>
-										<div class="promotion-meta-wrap">
-											<div class="promotion-meta float-right text-right">
-												<div class="promotion-content-meta">
-													<div class="promotion-title clearfix">
-														<div class="field field-field-heading-text field-type-string field-label-hidden field-items">
-															<div class="field-item">{{banner.title}}</div>
-														</div>
-													</div>
-													<div class="promotion-content">
-														<div class="field field-body field-type-text-with-summary field-label-hidden field-item">
-															<p>{{banner.description}}</p>
-														</div>
-													</div>
-													<div class="nav menu alt-button mt-2 promotion-link">
-														<a href="{{banner.link}}" class="button promotion-button">Shop Now</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						{% endfor %}
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<!-- Promotion -->
+{% if (banners | length == 3) %}
+<section id="content-wide" class="content-wide">
+    <div id="block-home01-banner1" class="fullwidth framewidth block-title-1 block-title-left block promotion-block block-block-content block-block-contenta3992df5-fb03-445a-869a-a6dfe5a54b63" style="padding-top: 0px;padding-bottom: 0px;">
+        <div class="container-wrap">
+            <div class="block-content promotion-layout promotion-layout3">
+                <div class="row grid-wrapper">
+                    {% for banner in banners %}
+                    <div class="field field-item banner-item-field grid-item">
+                        <div data-history-node-id="226" role="article" about="#" class="promotion-item">
+                            <div class="promotion-container ">
+                                <div class="promotion-image">
+                                    <div class="field field-field-image field-type-image field-label-hidden field-item">
+                                        {#
+                                        <mg src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_1.jpg " width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image" /> #} {% if banner.link %}
+                                        <a href="{{ banner.link }}">
+                                            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                                        </a>
+                                        {% else %}
+                                        <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> {% endif %}
+                                    </div>
+                                </div>
+                                <div class="promotion-meta-wrap">
+                                    <div class="promotion-meta float-right text-right">
+                                        <div class="promotion-content-meta">
+                                            <div class="promotion-title clearfix">
+                                                <div class="field field-field-heading-text field-type-string field-label-hidden field-items">
+                                                    <div class="field-item">{{banner.title}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="promotion-content">
+                                                <div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+                                                    <p>{{banner.description}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="nav menu alt-button mt-2 promotion-link">
+                                                <a href="{{banner.link}}" class="button promotion-button">Shop Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% elseif (banners | length == 2) %}
-	<!-- ###########Top-10-Category########### -->
-	<section id="top-10">
-		<!-- ###################### -->
-		<div class="top-category_">
-			<div class="row">
-				{% for banner in banners %}
-					<div class="col-lg-6 col-sm-12 row-top-category">
-						{% if banner.link %}
-							<a href="{{ banner.link }}">
-								<img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-							</a>
-						{% else %}
-							<img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-						{% endif %}
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+<!-- ###########Top-10-Category########### -->
+<section id="top-10">
+    <!-- ###################### -->
+    <div class="top-category_">
+        <div class="row">
+            {% for banner in banners %}
+            <div class="col-lg-6 col-sm-12 row-top-category">
+                {% if banner.link %}
+                <a href="{{ banner.link }}">
+                    <img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                </a>
+                {% else %}
+                <img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% elseif (banners | length == 1) %}
-	<!-- ###########Top-10-Category########### -->
-	<section id="top-10">
-		<!-- ###################### -->
-		<div class="top-category_">
-			<div class="row">
-				{% for banner in banners %}
-					<div class="col-lg-12_ col-sm-12_ row-top-category__">
-						{% if banner.link %}
-							<a href="{{ banner.link }}">
-								<img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-							</a>
-						{% else %}
-							<img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-						{% endif %}
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+<!-- ###########Top-10-Category########### -->
+<section id="top-10">
+    <!-- ###################### -->
+    <div class="top-category_">
+        <div class="row">
+            {% for banner in banners %}
+            <div class="col-lg-12 col-sm-12 row-top-category__">
+                {% if banner.link %}
+                <a href="{{ banner.link }}">
+                    <img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                </a>
+                {% else %}
+                <img width="100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% else %}
-	<!-- ###########Top-10-Category########### -->
-	<section id="top-10">
-		<!-- ###################### -->
-		<div class="top-category">
-			<div class="row">
-				{% for banner in banners %}
-					<div class="col-lg-2 col-sm-6 row-top-category__">
-						{% if banner.link %}
-							<a href="{{ banner.link }}">
-								<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-							</a>
-						{% else %}
-							<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-						{% endif %}
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+<!-- ###########Top-10-Category########### -->
+<section id="top-10">
+    <!-- ###################### -->
+    <div class="top-category">
+        <div class="row">
+            {% for banner in banners %}
+            <div class="col-lg-2 col-sm-6 row-top-category__">
+                {% if banner.link %}
+                <a href="{{ banner.link }}">
+                    <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                </a>
+                {% else %}
+                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endif %}
 <!-- #End promotion -->
