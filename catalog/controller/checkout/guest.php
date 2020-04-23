@@ -47,6 +47,12 @@ class ControllerCheckoutGuest extends Controller {
 			$data['telephone'] = '';
 		}
 
+		if (isset($this->session->data['guest']['social_contact'])) {
+			$data['social_contact'] = $this->session->data['guest']['social_contact'];
+		} else {
+			$data['social_contact'] = '';
+		}
+
 		if (isset($this->session->data['payment_address']['company'])) {
 			$data['company'] = $this->session->data['payment_address']['company'];
 		} else {
@@ -240,6 +246,7 @@ class ControllerCheckoutGuest extends Controller {
 			$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
 			$this->session->data['guest']['email'] = $this->request->post['email'];
 			$this->session->data['guest']['telephone'] = $this->request->post['telephone'];
+			$this->session->data['guest']['social_contact'] = $this->request->post['social_contact'];
 
 			if (isset($this->request->post['custom_field']['account'])) {
 				$this->session->data['guest']['custom_field'] = $this->request->post['custom_field']['account'];

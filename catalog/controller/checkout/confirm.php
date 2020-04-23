@@ -133,6 +133,7 @@ class ControllerCheckoutConfirm extends Controller {
 				$order_data['lastname'] = $this->session->data['guest']['lastname'];
 				$order_data['email'] = $this->session->data['guest']['email'];
 				$order_data['telephone'] = $this->session->data['guest']['telephone'];
+				$order_data['social_contact'] = $this->session->data['guest']['social_contact'];
 				$order_data['custom_field'] = $this->session->data['guest']['custom_field'];
 			}
 
