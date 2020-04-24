@@ -2,7 +2,7 @@
 class ControllerAccountSuccess extends Controller {
 	public function index() {
 		$this->load->language('account/success');
-
+		$this->load->model('account/customer');
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$data['breadcrumbs'] = array();
@@ -21,6 +21,8 @@ class ControllerAccountSuccess extends Controller {
 			'text' => $this->language->get('text_success'),
 			'href' => $this->url->link('account/success')
 		);
+		
+		$this->model_account_customer->activeCustomer($this->request->get);
 
 		if ($this->customer->isLogged()) {
 			$data['text_message'] = sprintf($this->language->get('text_message'), $this->url->link('information/contact'));

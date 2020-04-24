@@ -50,7 +50,7 @@ class ControllerAccountRegister extends Controller {
 		$this->load->model('account/customer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$customer_id = $this->model_account_customer->addCustomer($this->request->post);
+			$customerData = $this->model_account_customer->addCustomer($this->request->post);
 
 			// Clear any previous login attempts for unregistered accounts.
 			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
@@ -66,7 +66,8 @@ class ControllerAccountRegister extends Controller {
 			$data['image'] = '';
 
 			$data['store_name'] = $this->config->get('config_name');
-			$data['generate_url'] = $this->url->link('account/success', '', false);
+			$data['salt'] = $customerData["salt"];
+			$data['generate_url'] = $this->url->link('account/success&salt='.$customerData["salt"].'', '', false);
 			$data['message'] = "Please click the link below to activate your account.";
 			$mail = new Mail($this->config->get('config_mail_engine'));
 			$mail->parameter = $this->config->get('config_mail_parameter');
