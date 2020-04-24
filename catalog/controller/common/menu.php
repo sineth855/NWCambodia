@@ -8,6 +8,9 @@
 
 			$this->load->model('catalog/product');
 
+			$data["register"] = $this->url->link('account/register', '', false);
+			$data["login"] = $this->url->link('account/login', '', false);
+
 			$data['categories'] = array();
 
 			$categories = $this->model_catalog_category->getCategories(0);

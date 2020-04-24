@@ -16,7 +16,7 @@ class ControllerCatalogManufacturer extends Controller {
 
 		date_default_timezone_set('Asia/Phnom_Penh');
 		$page = 0;//$_POST['page'];
-		$rowPerPage = 10;//$_POST['rowsPerPage'];
+		$rowPerPage = 1000;//$_POST['rowsPerPage'];
 		$url  = "https://nuwh.sas-ebi.com/apis/getBrand";
 		// $post = "page=".$page."&rowsPerPage=".$rowPerPage;
 		// CURL
@@ -55,6 +55,7 @@ class ControllerCatalogManufacturer extends Controller {
 			// echo json_encode($return);
 		}
 		// $this->response->redirect($this->url->link('catalog/manufacturer', 'user_token=' . $this->session->data['user_token'], true));
+		$this->session->data['success'] = "Brand has been crawled.";
 		$this->getList();
 	}
 

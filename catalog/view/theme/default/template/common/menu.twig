@@ -75,30 +75,37 @@
         <nav aria-labelledby="block-martis-main-menu" id="block-martis-main-menu" class="norm-width block-title-1 block-title-left block block-system main-menu">
             <div class="container-wrap clearfix mega-menu main-menu-wrap">
                 {% if categories %}
-                <ul class="menu menu-parent">
-                    {% for category in categories %} {% if category.children %}
-                    <li class="menu-item menu-item--expanded">
-                        <a href="{{ category.href }}">{{ category.name }}</a> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
-                        <ul class="list-unstyled">
-                            {% for child in children %}
-                            <li>
-                                <a href="{{ child.href }}">{{ child.name }}</a>
-                            </li>
+                    <ul class="menu menu-parent">
+                        {% for category in categories %} {% if category.children %}
+                        <li class="menu-item menu-item--expanded">
+                            <a href="{{ category.href }}">{{ category.name }}</a> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                            <ul class="list-unstyled">
+                                {% for child in children %}
+                                <li>
+                                    <a href="{{ child.href }}">{{ child.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
                             {% endfor %}
-                        </ul>
-                        {% endfor %}
-                    </li>
-                    {% else %} {% if category.url != null %}
-                    <li class="menu-item">
-                        <a href="{{ category.url }}">{{ category.name }}</a>
-                    </li>
-                    {% else %}
-                    <li class="menu-item">
-                        <a href="{{ category.href }}">{{ category.name }}</a>
-                    </li>
-                    {% endif%} {% endif %} {% endfor %}
-                </ul>
+                        </li>
+                        {% else %} {% if category.url != null %}
+                        <li class="menu-item">
+                            <a href="{{ category.url }}">{{ category.name }}</a>
+                        </li>
+                        {% else %}
+                        <li class="menu-item">
+                            <a href="{{ category.href }}">{{ category.name }}</a>
+                        </li>
+                        {% endif%} {% endif %} {% endfor %}
+                    </ul>
                 {% endif %}
+                <!-- Login & Register -->
+                <div class="mobile-register">
+                    <ul>
+                        <li><a href="{{login}}"><i class="ti-user"></i> &nbsp; Login</a></li>
+                        <li><a href="{{register}}"><i class="ti-lock"></i> &nbsp; Register</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>

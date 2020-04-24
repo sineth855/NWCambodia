@@ -84,7 +84,7 @@ class ControllerCatalogProduct extends Controller {
 			);			
 			$this->model_catalog_product->addProductJson($dataCategory);
 		}
-
+		$this->session->data['success'] = "Product has been crawled.";
 		$this->response->redirect($this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'], true));
 	}
 

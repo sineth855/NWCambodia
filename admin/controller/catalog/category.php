@@ -16,7 +16,7 @@ class ControllerCatalogCategory extends Controller {
 
 		date_default_timezone_set('Asia/Phnom_Penh');
 		$page = 0;//$_POST['page'];
-		$rowPerPage = 10;//$_POST['rowsPerPage'];
+		$rowPerPage = 1000;//$_POST['rowsPerPage'];
 		$url  = "https://nuwh.sas-ebi.com/apis/getCategory";
 		// $post = "page=".$page."&rowsPerPage=".$rowPerPage;
 		// CURL
@@ -57,6 +57,7 @@ class ControllerCatalogCategory extends Controller {
 			);
 			$this->model_catalog_category->addCategoryJson($dataCategory);
 		}
+		$this->session->data['success'] = "Category has been crawled.";
 		$this->response->redirect($this->url->link('catalog/category', 'user_token=' . $this->session->data['user_token'], true));
 	}
 
