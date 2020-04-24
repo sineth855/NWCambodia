@@ -223,6 +223,10 @@ tbody tr td {
     text-align: center;
 }
 
+.product--variation-field--variation_price__69.field.field-price.field-type-commerce-price.field-label-hidden.field-item {
+    color: red;
+}
+
 
 /* end product detail block */
 
