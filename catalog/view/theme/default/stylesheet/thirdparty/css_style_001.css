@@ -24353,6 +24353,7 @@ input[type="submit"],
 [type="radio"]:checked+label:after,
 [type="checkbox"]:checked+label:after {
     background-color: #f3de2b;
+    color: black;
 }
 
 .btn-primary,

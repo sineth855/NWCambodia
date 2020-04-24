@@ -54,6 +54,10 @@ p.price.product-price {
     padding-top: 10px;
 }
 
+.display_none {
+    display: none;
+}
+
 .button_none_radius {
     font-family: 'HelveticaNeueLTStd';
     -webkit-border-radius: 0px !important;
@@ -224,6 +228,10 @@ tbody tr td {
 }
 
 .product--variation-field--variation_price__69.field.field-price.field-type-commerce-price.field-label-hidden.field-item {
+    color: red;
+}
+
+.product--variation-field--variation_price__60.field.field-price.field-type-commerce-price.field-label-hidden.field-item {
     color: red;
 }
 
