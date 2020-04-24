@@ -243,7 +243,14 @@ tbody tr td {
 
 /* end product detail block */
 
+.mobile-register {
+    display: none;
+}
+
 @media (max-width:768px) {
+    .mobile-register {
+        display: block;
+    }
     .menu_set_table table td,
     .table th {
         padding: 0px;
