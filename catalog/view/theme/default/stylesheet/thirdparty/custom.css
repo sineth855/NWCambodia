@@ -247,7 +247,21 @@ tbody tr td {
     display: none;
 }
 
+.display_web {
+    display: block;
+}
+
+.display_mobile {
+    display: none;
+}
+
 @media (max-width:768px) {
+    .display_web {
+        display: none;
+    }
+    .display_mobile {
+        display: block;
+    }
     .mobile-register {
         display: block !important;
     }
@@ -727,7 +741,7 @@ select.form-field-input.form-field-select.form-field-filled {
 
 .mobile-register {
     display: none;
-    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
 }
 
 .mobile-register ul {
