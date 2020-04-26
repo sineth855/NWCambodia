@@ -78,13 +78,12 @@
                 <div class="mobile-register">
                     {% if logged == null %}
                     <ul>
-
                         <li><a href="{{login}}"><i class="ti-user"></i> &nbsp; Login</a></li>
                         <li><a href="{{register}}"><i class="ti-lock"></i> &nbsp; Register</a></li>
                     </ul>
                     {% else %}
                     <ul>
-                        <li><a href="{{login}}"><i class="ti-user"></i> &nbsp; {{lastname}} {{firstname}}</a></li>
+                        <li><a href="#"><i class="ti-user"></i> &nbsp; {{lastname}} {{firstname}}</a></li>
                         <li><a href="{{logout}}"><i class="ti-lock"></i> &nbsp; Logout</a></li>
                     </ul>
                     {% endif %}

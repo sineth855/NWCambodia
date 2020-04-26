@@ -4,12 +4,12 @@
 			$this->load->language('common/menu');
 			$data['logged'] = $this->customer->isLogged();
 			if($data['logged']) {
-				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
-				$data['firstname'] = $customer_info['firstname'];
-				$data['lastname'] = $customer_info['lastname'];
+				$data['firstname'] = $this->customer->getFirstName();
+				$data['lastname'] = $this->customer->getLastName();
+				$data['logout'] = $this->url->link('account/logout', '', false);
 			}
-			$data['logout'] = $this->url->link('account/logout', '', true);				
 			// Menu
+			
 			$this->load->model('catalog/category');
 
 			$this->load->model('catalog/product');
