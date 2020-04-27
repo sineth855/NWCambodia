@@ -88,7 +88,7 @@
               <td class="text-center">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail_" /></a> {% endif %}</td>
               <td class="text-left">
                 <a href="{{ product.href }}">{{ product.name }}</a><br/>
-                <small>
+                <small class="display-none">
                   {{ column_model }} : {{ product.model }}
                 </small>
                 {% if not product.stock %} <span class="text-danger">***</span> {% endif %}
@@ -100,7 +100,8 @@
                 <small>{{ product.reward }}</small> {% endif %}
                 {% if product.recurring %} <br />
                 <span class="label label-info">{{ text_recurring_item }}</span> 
-                <small>{{ product.recurring }}</small> {% endif %}</td>
+                <small>{{ product.recurring }}</small> {% endif %}
+              </td>
               <!-- <td class="text-left">{{ product.model }}</td> -->
               <td class="text-left">
                 <div class="input-group btn-block">
