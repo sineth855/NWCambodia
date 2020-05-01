@@ -243,8 +243,26 @@ tbody tr td {
 
 /* end product detail block */
 
+.mobile-register {
+    display: none;
+}
+
+.display_web {
+    display: block;
+}
+
+.display_mobile {
+    display: none;
+}
+
 @media (max-width:768px) {
-    .mobile-register{
+    .display_web {
+        display: none;
+    }
+    .display_mobile {
+        display: block;
+    }
+    .mobile-register {
         display: block !important;
     }
     .menu_set_table table td,
@@ -721,13 +739,18 @@ select.form-field-input.form-field-select.form-field-filled {
     background-size: 18px;
 }
 
-.mobile-register{display: none; border-top: 1px solid #ffffff;}
-.mobile-register ul{
+.mobile-register {
+    display: none;
+    border-bottom: 1px solid #ffffff;
+}
+
+.mobile-register ul {
     margin-top: 10px;
     padding: 0 12px;
     list-style: none;
 }
-.mobile-register ul li a{
+
+.mobile-register ul li a {
     line-height: 35px;
     color: #e2d7d7;
 }

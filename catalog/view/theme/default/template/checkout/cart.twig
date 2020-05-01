@@ -66,7 +66,7 @@
     <div id="content" class="{{ class }}">{{ content_top }}
       <h3>{{ heading_title }}
         {% if weight %}
-        &nbsp;({{ weight }})
+        <!-- &nbsp;({{ weight }}) -->
         {% endif %} </h3>
       <form action="{{ action }}" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
@@ -85,10 +85,10 @@
             
             {% for product in products %}
             <tr>
-              <td class="text-center">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a> {% endif %}</td>
+              <td class="text-center">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail_" /></a> {% endif %}</td>
               <td class="text-left">
                 <a href="{{ product.href }}">{{ product.name }}</a><br/>
-                <small>
+                <small class="display-none">
                   {{ column_model }} : {{ product.model }}
                 </small>
                 {% if not product.stock %} <span class="text-danger">***</span> {% endif %}
@@ -99,13 +99,15 @@
                 {% if product.reward %} <br />
                 <small>{{ product.reward }}</small> {% endif %}
                 {% if product.recurring %} <br />
-                <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small> {% endif %}</td>
+                <span class="label label-info">{{ text_recurring_item }}</span> 
+                <small>{{ product.recurring }}</small> {% endif %}
+              </td>
               <!-- <td class="text-left">{{ product.model }}</td> -->
               <td class="text-left">
                 <div class="input-group btn-block">
-                  <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-text" />&nbsp;&nbsp;
+                  <input type="text" readonly name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-text" />&nbsp;&nbsp;
                   <span class="input-group-btn">
-                    <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="ti-control-shuffle"></i></button>
+                    <!-- <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="ti-control-shuffle"></i></button> -->
                     <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="ti-trash"></i></button>
                   </span>
                 </div>

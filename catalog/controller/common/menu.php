@@ -2,8 +2,14 @@
 	class ControllerCommonMenu extends Controller {
 		public function index() {
 			$this->load->language('common/menu');
-
+			$data['logged'] = $this->customer->isLogged();
+			if($data['logged']) {
+				$data['firstname'] = $this->customer->getFirstName();
+				$data['lastname'] = $this->customer->getLastName();
+				$data['logout'] = $this->url->link('account/logout', '', false);
+			}
 			// Menu
+			
 			$this->load->model('catalog/category');
 
 			$this->load->model('catalog/product');

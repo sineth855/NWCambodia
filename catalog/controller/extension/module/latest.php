@@ -21,8 +21,8 @@ class ControllerExtensionModuleLatest extends Controller {
 		if ($results) {
 			foreach ($results as $result) {
 				if ($result['image']) {
-					// $image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
-					$image = $result['image'];
+					$image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+					// $image = $result['image'];
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
 				}
