@@ -91,12 +91,19 @@
                 <ul class="menu menu-parent">
                     {% for category in categories %} {% if category.children %}
                     <li class="menu-item menu-item--expanded">
-                        <a href="{{ category.url }}">{{ category.name }}</a> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                        <a href="{{ category.url }}">
+                        {{ category.name }}</a> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
                         <ul class="list-unstyled">
                             {% for child in children %}
-                            <li>
-                                <a href="{{ child.href }}">{{ child.name }}</a>
-                            </li>
+                                {% if category.url != null %}
+                                    <li>
+                                        <a href="{{ child.url }}">{{ child.name }}</a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ child.href }}">{{ child.name }}</a>
+                                    </li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                         {% endfor %}
