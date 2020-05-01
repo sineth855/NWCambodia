@@ -14,7 +14,7 @@ class ControllerCatalogProduct extends Controller {
 		date_default_timezone_set('Asia/Phnom_Penh');
 		ini_set('memory_limit', '-1');
 		$page = 0;//$_POST['page'];
-		$rowPerPage = 2;//$_POST['rowsPerPage'];
+		$rowPerPage = 1000;//$_POST['rowsPerPage'];
 		$url  = "https://nuwh.sas-ebi.com/apis/getProduct/en";
 		$post = "page=".$page."&rowsPerPage=".$rowPerPage;
 		// CURL
@@ -49,8 +49,8 @@ class ControllerCatalogProduct extends Controller {
 				"uom" => $return["item"][$i]["uom"],
 				"price" => $return["item"][$i]["price"],
 				"video_link" => $return["item"][$i]["video_link"],
-				"image" => $return["item"][$i]["photo"],
-				"other_photo" => $return["item"][$i]["other_photo"],
+				"image" => null, //$return["item"][$i]["photo"],
+				"other_photo" => null, //$return["item"][$i]["other_photo"],
 				"attribute" => $return["item"][$i]["spec"],
 				"overview" => $return["item"][$i]["overview"],
 				"name" => $return["item"][$i]["name"],
@@ -1203,6 +1203,28 @@ class ControllerCatalogProduct extends Controller {
 				$data['product_relateds'][] = array(
 					'product_id' => $related_info['product_id'],
 					'name'       => $related_info['name']
+				);
+			}
+		}
+
+		// product addon
+		if (isset($this->request->post['product_addon'])) {
+			$products = $this->request->post['product_addon'];
+		} elseif (isset($this->request->get['product_id'])) {
+			$products = $this->model_catalog_product->getProductAddon($this->request->get['product_id']);
+		} else {
+			$products = array();
+		}
+
+		$data['product_addons'] = array();
+
+		foreach ($products as $product_id) {
+			$addon_info = $this->model_catalog_product->getProduct($product_id);
+
+			if ($addon_info) {
+				$data['product_addons'][] = array(
+					'product_id' => $addon_info['product_id'],
+					'name'       => $addon_info['name']
 				);
 			}
 		}
