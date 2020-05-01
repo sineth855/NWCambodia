@@ -111,6 +111,7 @@
                                     </ul>
                                     {% endif %}
                                 </div>
+                               
                             </div>
                             {% if column_left or column_right %} {% set class = 'col-sm-6' %} {% else %} {% set class = 'col-sm-4' %} {% endif %}
                             <div class="{{ class }}">
@@ -436,12 +437,16 @@
                                             {% endif %}
                                         </div>
                                     </div>
+                                <div class="pd-product-label-image">
+                                    <img src="https://bucket.fitwhey.com/supplement_facts/a9027be603c0cf92650cef0eb8a5c9fe.png">
+                                </div>
                                 </div>
                                 {% if tags %}
                                 <p>{{ text_tags }} {% for i in 0..tags|length %} {% if i
                                     < (tags|length - 1) %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a>, {% else %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a> {% endif %} {% endfor %} </p>
                                 {% endif %} {{ content_bottom }}
                             </div>
+
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-lg-8 wrapper_descripton_product_detail">
@@ -516,6 +521,7 @@
                                     {% endif %}
                                 </div>
                             </div>
+
                         </div>
                     </div>
 

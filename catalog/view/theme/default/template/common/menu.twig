@@ -15,9 +15,7 @@
           >
           <div class="dropdown-menu">
             <div class="dropdown-inner">
-              {% for children in
-              category.children|batch(category.children|length /
-              category.column|round(1, 'ceil')) %}
+              {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
               <ul class="list-unstyled">
                 {% for child in children %}
                 <li>
@@ -27,8 +25,9 @@
             </ul>
             {% endfor %}
         </div>
-        <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a
-            >
+            <a href="{{ category.href }}" class="see-all">
+                {{ text_all }} {{ category.name }}
+            </a>
           </div>
         </li>
         {% else %}
@@ -92,7 +91,7 @@
                 <ul class="menu menu-parent">
                     {% for category in categories %} {% if category.children %}
                     <li class="menu-item menu-item--expanded">
-                        <a href="{{ category.href }}">{{ category.name }}</a> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                        <a href="{{ category.url }}">{{ category.name }}</a> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
                         <ul class="list-unstyled">
                             {% for child in children %}
                             <li>

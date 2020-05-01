@@ -12,8 +12,9 @@ class ControllerCatalogProduct extends Controller {
 	public function crawlProduct(){
 		$this->load->model('catalog/product');
 		date_default_timezone_set('Asia/Phnom_Penh');
+		ini_set('memory_limit', '-1');
 		$page = 0;//$_POST['page'];
-		$rowPerPage = 10000;//$_POST['rowsPerPage'];
+		$rowPerPage = 2;//$_POST['rowsPerPage'];
 		$url  = "https://nuwh.sas-ebi.com/apis/getProduct/en";
 		$post = "page=".$page."&rowsPerPage=".$rowPerPage;
 		// CURL
@@ -67,7 +68,7 @@ class ControllerCatalogProduct extends Controller {
 				"isbn" => "",
 				"mpn" => "",
 				"location" => "Phnom Penh",
-				"quantity" => 10000,
+				"quantity" => $return["item"][$i]["qty"],
 				"minimum" => 1,
 				"subtract" => 0,
 				"stock_status_id" => 7,
