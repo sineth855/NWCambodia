@@ -117,6 +117,7 @@
                                 <div class="row_">
 
                                     <div id="product">
+                                        <h3>{{ text_option }}</h3>
                                         {% if options %}
                                         <!-- <hr> -->
                                         </li>
@@ -128,7 +129,7 @@
                                         <div id="product">
                                             {% if options %}
                                             <!-- <hr> -->
-                                            <h3>{{ text_option }}</h3>
+                                            
                                             {% for option in options %} {% if option.type == 'select' %}
                                             <div class="form-group{% if option.required %} required {% endif %}">
                                                 <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
@@ -420,6 +421,46 @@
                                                 <!-- <input type="text" name="option[228]" value="18"/> -->
                                             </div>
                                         </div>
+
+                                        <!-- #####################Product Addon ############################# -->
+                                        <div class="form-group menu_set_table">
+
+                                            <table class="table">
+                                                <tr>
+                                                    <th>Flavor/Option</th>
+                                                    <th>Price</th>
+                                                    <th>Availability</th>
+                                                    <!-- <th>Action</th> -->
+                                                </tr>
+
+                                                {% if addonProducts %}
+                                                    {% for product in addonProducts %}
+                                                        <tr>
+                                                            <td>
+                                                                <center>
+                                                                    
+                                                                    <img src="{{ product.thumb }}" alt=""
+                                                                        class="img-thumbnail_" />
+                                                                </center>
+                                                                <br/> {{ product.name }}
+                                                            </td>
+
+                                                            <td>
+                                                                {{ product.price }}
+                                                            </td>
+                                                            <td>
+                                                                <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
+                                                            </td>
+                                                            
+                                                            <td>                                                            
+                                                                <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" class="btnShow button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </table>
+
+                                        </div><!-- ##################### #End Product Addon ############################# -->
                                         {% if review_status %}
                                         <div class="rating">
                                             <p>{% for i in 1..5 %} {% if rating
@@ -519,9 +560,7 @@
                         </div>
                     </div>
 
-
-
-                    <br/> {% if products %}
+                    <br/>{% if products %}
                     <h3>{{ text_related }}</h3>
                     <div class="container">
                         {% set i = 0 %} {% for product in products %} {% if column_left and column_right %} {% set class = 'col-xs-8 col-sm-6' %} {% elseif column_left or column_right %} {% set class = 'col-xs-6 col-md-4' %} {% else %} {% set class = 'col-xs-6 col-sm-3' %} {%
