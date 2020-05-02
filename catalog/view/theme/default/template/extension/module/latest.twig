@@ -87,9 +87,11 @@
                                                     <div class="product-teaser-container">
                                                         <div class="post-image product-image">
 
+                                                            {% if product.special %}
                                                             <div class="product-badge">
-                                                                <span class="badge-label badge-sale">Sale</span>
+                                                                <span class="badge-label badge-sale">{{ product.special }}</span>
                                                             </div>
+                                                            {% endif %}
 
                                                             <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
                                                                 <div class="field-item">
