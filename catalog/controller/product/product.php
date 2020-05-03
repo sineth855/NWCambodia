@@ -163,6 +163,7 @@ class ControllerProductProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
+
 		
 		if ($product_info) {
 			$url = '';
@@ -269,6 +270,13 @@ class ControllerProductProduct extends Controller {
 				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height')); //$product_info['image'];
 			} else {
 				$data['thumb'] = '';
+			}
+
+
+			if ($product_info['supplement_image']) {
+				$data['supplement_image'] = $this->model_tool_image->resize($product_info['supplement_image'], 573, 1342); //$product_info['image'];
+			} else {
+				$data['supplement_image'] = '';
 			}
 
 			$data['images'] = array();
@@ -469,6 +477,7 @@ class ControllerProductProduct extends Controller {
 
 				$data['addonProductMores'] = array();
 				$addOnResultMores = $this->model_catalog_product->getProductAddon($result['product_id']);
+				
 				foreach ($addOnResultMores as $addon) {
 					if ($addon['image']) {
 						$imageAddon = $this->model_tool_image->resize($addon['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
