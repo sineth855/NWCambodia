@@ -199,7 +199,7 @@
                                         {% endif %} 
                                     {% endif %}
 
-                                    <!-- {% if price %}
+                                    {% if addonProducts == null %} 
                                         {% if price %}
                                         <ul class="list-unstyled">
                                             {% if not special %}
@@ -234,7 +234,7 @@
                                             {% endif %}
                                         </ul>
                                         {% endif %} 
-                                    {% endif %}  -->
+                                    {% endif %}
                                     <!-- End Block price discount or special -->
                                 </div>
 
@@ -645,6 +645,7 @@
                                                                 {% endif %}
                                                             </div>
                                                         </td>
+                                                        
                                                         <td>
                                                             <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
                                                         </td>
