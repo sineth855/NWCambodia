@@ -244,13 +244,16 @@
                                 <div class="row_">
 
                                     <div id="product">
-                                        <h3>{{ text_option }}</h3>
+                                        {% if addonProducts %} 
+                                            <h3>{{ text_option }}</h3>
+                                        {% endif %} 
                                         {% if options %}
-                                        <!-- <hr> -->
-                                        </li>
-                                        {% for discount in discounts %}
-                                        <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
-                                        {% endfor %} {% endif %}
+                                            <!-- <hr> -->
+                                            </li>
+                                            {% for discount in discounts %}
+                                                <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+                                            {% endfor %} 
+                                        {% endif %}
                                         </ul>
                                         <!-- % endif %} -->
                                         <div id="product">
@@ -291,38 +294,39 @@
                                                         <!-- </select>
                                                         </div> -->
                                                         {% for option_value in option.product_option_value %}
-                                                        <tr>
-                                                            <td>
-                                                                <center>
-                                                                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}"
-                                                                        class="img-thumbnail_" /> {% endif %}
-                                                                </center>
-                                                                <br/> {{ option_value.name }}
-
-                                                            </td>
-
-                                                            <td>
-                                                                {% if option_value.price %} {{ option_value.price }} {% endif %}
-                                                                <!-- <div id="input-option{{ option.product_option_id }}">
-                                                                        <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
-                                                                    </div> -->
-                                                                <!-- <input type="text" name="option[{{ option.product_option_id }}]" id="option-{{ option.product_option_id }}" value="{{ option_value.product_option_value_id }}"/> -->
-                                                            </td>
-                                                            <td>
-                                                                <!-- <small style="background-color:green;color:#fff;padding:5px;"><b>In Stock</b></small><br/> -->
-                                                                <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
-                                                            </td>
-                                                            {% if option_value.expired_date %}
-                                                            <td>
-                                                                <small>{{option_value.expired_date}}</small>
-                                                            </td>
-                                                            {% endif %}
-                                                            <td>
-                                                                <!-- <button type="button" id="btnShow" class="btnShow btn btn-lg btn-primary"><i class="ti-shopping-cart"></i></button> -->
-                                                                <!-- <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block"><i class="ti-shopping-cart"></i></button> -->
-                                                                <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <center>
+                                                                        {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}"
+                                                                            class="img-thumbnail_" /> {% endif %}
+                                                                    </center>
+                                                                    <br/> 
+                                                                    {{ option_value.name }}
+                                                                </td>
+                                                                <td>
+                                                                    {% if option_value.price %} 
+                                                                        {{ option_value.price }} 
+                                                                    {% endif %}
+                                                                    <!-- <div id="input-option{{ option.product_option_id }}">
+                                                                            <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
+                                                                        </div> -->
+                                                                    <!-- <input type="text" name="option[{{ option.product_option_id }}]" id="option-{{ option.product_option_id }}" value="{{ option_value.product_option_value_id }}"/> -->
+                                                                </td>
+                                                                <td>
+                                                                    <!-- <small style="background-color:green;color:#fff;padding:5px;"><b>In Stock</b></small><br/> -->
+                                                                    <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
+                                                                </td>
+                                                                {% if option_value.expired_date %}
+                                                                <td>
+                                                                    <small>{{option_value.expired_date}}</small>
+                                                                </td>
+                                                                {% endif %}
+                                                                <td>
+                                                                    <!-- <button type="button" id="btnShow" class="btnShow btn btn-lg btn-primary"><i class="ti-shopping-cart"></i></button> -->
+                                                                    <!-- <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block"><i class="ti-shopping-cart"></i></button> -->
+                                                                    <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
+                                                                </td>
+                                                            </tr>
                                                         {% endfor %}
                                                         <!-- <tr>
                                                             <td colspan="3">
@@ -579,24 +583,25 @@
                                                         <div style="font-size: 16px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">
                                                             <b>{{ product.name }}</b>
                                                         </div>
-                                                        <div style="font-size: 18px; color: red;">
-                                                            <!-- <b>{{ product.price }}</b> -->
+                                                        <div style="font-size: 18px; color: red;" class="display-none">
                                                             {% if product.price %}
                                                                 <p class="price product-price">
-                                                                    {% if not product.special %} {{ product.price }} {% else %}
+                                                                    {% if not product.special %} 
+                                                                        <b>{{ product.price }}</b>
+                                                                    {% else %}
                                                                     <span class="price-new">
                                                                         {{ product.special }}
                                                                     </span>
                                                                     <span class="price-old">
                                                                         <div class="product-price">
-                                                                            <div
-                                                                                class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-                                                                                <div
-                                                                                    style="text-decoration: line-through;">
-                                                                                    {{ product.price }}</div>
+                                                                            <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                <div style="text-decoration: line-through;">
+                                                                                {{ product.price }}
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </span> {% endif %}
+                                                                    </span> 
+                                                                    {% endif %}
                                                                 </p>
                                                             {% endif %}
                                                         </div>
@@ -605,6 +610,7 @@
                                                 <table class="table" style="background-color: #e0e0e0;">
                                                     <tr>
                                                         <th>Flavor/Option</th>
+                                                        <th>Price</th>
                                                         <th>Availability</th>
                                                         <th></th>
                                                         <!-- <th>Action</th> -->
@@ -613,6 +619,31 @@
                                                     <tr>
                                                         <td style="font-size: 12px;">
                                                             {{ addon.name }}
+                                                        </td>
+
+                                                        <td>
+                                                            <div style="font-size: 14; color: red;">
+                                                                {% if addon.price %}
+                                                                    <p class="price product-price">
+                                                                        {% if not addon.special %} 
+                                                                            <b>{{ addon.price }}</b>
+                                                                        {% else %}
+                                                                        <span class="price-new">
+                                                                            {{ addon.special }}
+                                                                        </span>
+                                                                        <span class="price-old">
+                                                                            <div class="product-price">
+                                                                                <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                    <div style="text-decoration: line-through;">
+                                                                                    {{ addon.price }}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </span> 
+                                                                        {% endif %}
+                                                                    </p>
+                                                                {% endif %}
+                                                            </div>
                                                         </td>
                                                         <td>
                                                             <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
