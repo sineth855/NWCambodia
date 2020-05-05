@@ -3,7 +3,7 @@ class ControllerExtensionModuleCountdownTimer extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('extension/module/slideshow');
+		$this->load->language('extension/module/countdown_timer');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -11,7 +11,7 @@ class ControllerExtensionModuleCountdownTimer extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			if (!isset($this->request->get['module_id'])) {
-				$this->model_setting_module->addModule('slideshow', $this->request->post);
+				$this->model_setting_module->addModule('countdown_timer', $this->request->post);
 			} else {
 				$this->model_setting_module->editModule($this->request->get['module_id'], $this->request->post);
 			}
@@ -60,19 +60,19 @@ class ControllerExtensionModuleCountdownTimer extends Controller {
 		if (!isset($this->request->get['module_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'], true)
+				'href' => $this->url->link('extension/module/countdown_timer', 'user_token=' . $this->session->data['user_token'], true)
 			);
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
+				'href' => $this->url->link('extension/module/countdown_timer', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
 			);
 		}
 
 		if (!isset($this->request->get['module_id'])) {
-			$data['action'] = $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'], true);
+			$data['action'] = $this->url->link('extension/module/countdown_timer', 'user_token=' . $this->session->data['user_token'], true);
 		} else {
-			$data['action'] = $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
+			$data['action'] = $this->url->link('extension/module/countdown_timer', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
 		}
 
 		$data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true);
@@ -89,33 +89,27 @@ class ControllerExtensionModuleCountdownTimer extends Controller {
 			$data['name'] = '';
 		}
 
-		if (isset($this->request->post['banner_id'])) {
-			$data['banner_id'] = $this->request->post['banner_id'];
+		if (isset($this->request->post['start_date'])) {
+			$data['start_date'] = $this->request->post['start_date'];
 		} elseif (!empty($module_info)) {
-			$data['banner_id'] = $module_info['banner_id'];
+			$data['start_date'] = $module_info['start_date'];
 		} else {
-			$data['banner_id'] = '';
+			$data['start_date'] = '';
+		}
+
+		if (isset($this->request->post['end_date'])) {
+			$data['end_date'] = $this->request->post['end_date'];
+		} elseif (!empty($module_info)) {
+			$data['end_date'] = $module_info['end_date'];
+		} else {
+			$data['end_date'] = '';
 		}
 
 		$this->load->model('design/banner');
 
 		$data['banners'] = $this->model_design_banner->getBanners();
 
-		if (isset($this->request->post['width'])) {
-			$data['width'] = $this->request->post['width'];
-		} elseif (!empty($module_info)) {
-			$data['width'] = $module_info['width'];
-		} else {
-			$data['width'] = '';
-		}
-
-		if (isset($this->request->post['height'])) {
-			$data['height'] = $this->request->post['height'];
-		} elseif (!empty($module_info)) {
-			$data['height'] = $module_info['height'];
-		} else {
-			$data['height'] = '';
-		}
+	
 
 		if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
@@ -141,12 +135,12 @@ class ControllerExtensionModuleCountdownTimer extends Controller {
 			$this->error['name'] = $this->language->get('error_name');
 		}
 
-		if (!$this->request->post['width']) {
-			$this->error['width'] = $this->language->get('error_width');
+		if (!$this->request->post['start_date']) {
+			$this->error['start_date'] = $this->language->get('error_start_date');
 		}
 
-		if (!$this->request->post['height']) {
-			$this->error['height'] = $this->language->get('error_height');
+		if (!$this->request->post['end_date']) {
+			$this->error['end_date'] = $this->language->get('error_end_date');
 		}
 
 		return !$this->error;
