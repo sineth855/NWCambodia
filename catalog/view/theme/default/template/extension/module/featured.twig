@@ -19,11 +19,13 @@
                             {% else %}
                             <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %} {% endfor %}
                     </div>
-                    {% endif %} {% if product.price %}
+                    {% endif %} 
+                    {% if product.price %}
                     <p class="price">
                         {% if not product.special %} {{ product.price }} {% else %}
                         <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %} {% if product.tax %}
-                        <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %}
+                        <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> 
+                        {% endif %}
                     </p>
                     {% endif %}
                 </div>
@@ -237,10 +239,12 @@
                                                         <div class="product-teaser-bg"></div>
                                                         <div class="product-teaser-container">
                                                             <div class="post-image product-image">
-
+                                                                {% if product.special %}
                                                                 <div class="product-badge">
-                                                                    <span class="badge-label badge-sale">Sale</span>
+                                                                    <span class="badge-label badge-sale">{{ product.special }}</span>
                                                                 </div>
+                                                                {% endif %}
+                                                               
 
                                                                 <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
                                                                     <div class="field-item">
@@ -341,20 +345,21 @@
                                                                         </div>
                                                                         {% else %}
                                                                         <span class="price-new"> 
-																				<div class="product-price">
-																				<div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-																					{{ product.special }}																					
-																				</div>
-																			</div>
-																			</span>
-                                                                        <span class="price-old">
-																				{{ product.price }}
-																				{# <div class="product-price">
-																					<div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-																						<div style="text-decoration: line-through;"></div>
-																					</div>
-																				</div> #}
-																			</span> {% endif %}
+                                                                            <div class="product-price">
+                                                                            <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                {{ product.special }}																					
+                                                                            </div>
+                                                                        </div>
+                                                                        </span>
+                                                                            <span class="price-old">
+                                                                            {{ product.price }}
+                                                                            {# <div class="product-price">
+                                                                                <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                    <div style="text-decoration: line-through;"></div>
+                                                                                </div>
+                                                                            </div> #}
+                                                                        </span> 
+                                                                        {% endif %}
                                                                     </p>
                                                                     {% endif %}
 

@@ -1089,6 +1089,7 @@ class ControllerCatalogProduct extends Controller {
 				'quantity'          => $product_discount['quantity'],
 				'priority'          => $product_discount['priority'],
 				'price'             => $product_discount['price'],
+				'discount'          => $product_discount['discount'],
 				'date_start'        => ($product_discount['date_start'] != '0000-00-00') ? $product_discount['date_start'] : '',
 				'date_end'          => ($product_discount['date_end'] != '0000-00-00') ? $product_discount['date_end'] : ''
 			);
@@ -1121,7 +1122,7 @@ class ControllerCatalogProduct extends Controller {
 			$data['image'] = $product_info['image'];
 		} else {
 			$data['image'] = '';
-		}
+		}		
 
 		$this->load->model('tool/image');
 
@@ -1133,7 +1134,25 @@ class ControllerCatalogProduct extends Controller {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
+		// Supplement Image
+		if (isset($this->request->post['supplement_image'])) {
+			$data['supplement_image'] = $this->request->post['supplement_image'];
+		} elseif (!empty($product_info)) {
+			$data['supplement_image'] = $product_info['supplement_image'];
+		} else {
+			$data['supplement_image'] = '';
+		}		
+		
+		if (isset($this->request->post['supplement_image']) && is_file(DIR_IMAGE . $this->request->post['supplement_image'])) {
+			$data['thumb_supplement'] = $this->model_tool_image->resize($this->request->post['supplement_image'], 100, 100);
+		} elseif (!empty($product_info) && is_file(DIR_IMAGE . $product_info['supplement_image'])) {
+			$data['thumb_supplement'] = $this->model_tool_image->resize($product_info['supplement_image'], 100, 100);
+		} else {
+			$data['thumb_supplement'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		}
+
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		
 
 		// Images
 		if (isset($this->request->post['product_image'])) {
