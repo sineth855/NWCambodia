@@ -75,10 +75,10 @@ class ControllerExtensionModuleFeatured extends Controller {
 
 		if (!empty($setting['product'])) {
 			$products = array_slice($setting['product'], 0, (int)$setting['limit']);
-
 			foreach ($products as $product_id) {
-				$product_info = $this->model_catalog_product->getProduct($product_id);
-
+				$product_info = $this->model_catalog_product->getProduct($product_id);				
+				// print_r($product_info);
+				// return false;
 				if ($product_info) {
 					if ($product_info['image']) {
 						$image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
@@ -90,15 +90,29 @@ class ControllerExtensionModuleFeatured extends Controller {
 					}
 
 					if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-						$price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+						$price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);						
 					} else {
 						$price = false;
 					}
 
 					if ((float)$product_info['special']) {
-						$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+						$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);						
 					} else {
 						$special = false;
+					}					
+					if ((int)$product_info['discount_percent']) {
+						
+						$old_price = (float)$product_info['price'];
+
+						$currenct_discount = (int)$product_info['discount_percent'];
+
+						$price_dis = $old_price - ($old_price * $currenct_discount / 100);
+
+						$discount_percent = $this->currency->format($this->tax->calculate($price_dis, $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+					} else {
+						$discount_percent = false;
+						$currenct_discount = 0;
 					}
 
 					if ($this->config->get('config_tax')) {
@@ -120,15 +134,16 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
+						'discount'    => $discount_percent,
+						'percent' 	  => $currenct_discount,
 						'tax'         => $tax,
 						'rating'      => $rating,
 						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
 					);
-				}
+				}				
 			}
 		}
 		
-		// print_r($data['products']);
 		if ($data['products']) {
 			return $this->load->view('extension/module/featured', $data);
 		}
