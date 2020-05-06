@@ -193,7 +193,18 @@
                                                                     </span> {% endif %}
                                                                 </p>
                                                                 {% endif %}
-
+                                                                <div class="time-remain"> Time Remain </div>
+                                                                <div class="clearfix"></div>
+                                                                <center>
+                                                                    <div id="t-day" class="t-bg t-day">25</div>
+                                                                    <div style="float: left; font-size: 28px;"> : </div>
+                                                                    <div id="t-hour" class="t-bg t-hour">12</div>
+                                                                    <div style="float: left; font-size: 28px;"> : </div>
+                                                                    <div id="t-min" class="t-bg t-min">02</div>
+                                                                    <div style="float: left; font-size: 28px;"> : </div>
+                                                                    <div id="t-sec" class="t-bg t-sec">15</div>
+                                                                </center>
+                                                                
                                                             </div>
 
                                                             <div class="-product-variation-wrap">
@@ -258,3 +269,18 @@
     </div>
 </section>
 <!-- End Latest product -->
+<script>
+    var myVar = setInterval(myTimer, 1000);
+
+    function myTimer() {
+        var d = new Date();
+        var day = d.getDay();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+        document.getElementById("t-day").innerHTML = day.toLocaleTimeString();
+        document.getElementById("t-hour").innerHTML = h.toLocaleTimeString();
+        document.getElementById("t-min").innerHTML = m.toLocaleTimeString();
+        document.getElementById("t-sec").innerHTML = s.toLocaleTimeString();
+    }
+</script>

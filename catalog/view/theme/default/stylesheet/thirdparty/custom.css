@@ -754,3 +754,19 @@ select.form-field-input.form-field-select.form-field-filled {
     line-height: 35px;
     color: #e2d7d7;
 }
+
+.t-bg{
+    float: left;
+    background: #444;
+    color: #ffffff;
+    margin: 2px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1.5em;
+    border-radius: 4px;
+    padding: 6px;
+}
+.time-remain{
+    font-size: 16px;
+    font-weight: bold;
+}

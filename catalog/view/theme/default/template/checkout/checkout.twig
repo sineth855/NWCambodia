@@ -278,7 +278,7 @@ $(document).ready(function() {
 
 // Checkout
 $(document).delegate('#button-account', 'click', function() {
-    alert($('input[name=\'account\']:checked').val());
+    //alert($('input[name=\'account\']:checked').val());
     $.ajax({
         url: 'index.php?route=checkout/' + $('input[name=\'account\']:checked').val(),
         dataType: 'html',
