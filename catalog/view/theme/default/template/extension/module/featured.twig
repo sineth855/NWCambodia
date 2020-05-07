@@ -239,17 +239,11 @@
                                                         <div class="product-teaser-bg"></div>
                                                         <div class="product-teaser-container">
                                                             <div class="post-image product-image">
-                                                                {% if product.discount %}
-                                                                    <div class="product-badge">
-                                                                        <span class="badge-label badge-sale">{{ product.percent }}%</span>
-                                                                    </div>
-                                                                    {% else %}
-                                                                    {% if product.special %}
-                                                                    <div class="product-badge">
-                                                                        <span class="badge-label badge-sale">{{ product.special }}</span>
-                                                                    </div>    
-                                                                    {% endif %}
-                                                                {% endif %}                                                                
+                                                                {% if product.special %}
+                                                                <div class="product-badge">
+                                                                    <span class="badge-label badge-sale">{{ product.special }}</span>
+                                                                </div>    
+                                                                {% endif %}
 
                                                                 <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
                                                                     <div class="field-item">
@@ -341,8 +335,7 @@
                                                                         </a>
                                                                     </div>
                                                                     {% if product.price %}
-                                                                    <p class="price">
-                                                                        {% if not product.discount %} 
+                                                                        <p class="price">
                                                                             {% if not product.special %}
                                                                                 <div class="product-price">
                                                                                     <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
@@ -368,23 +361,7 @@
                                                                                     </div>
                                                                                 </span
                                                                             {% endif %}
-                                                                        {% else %}
-                                                                            <span class="price-new"> 
-                                                                                <div class="product-price">
-                                                                                    <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-                                                                                        {{ product.discount }}																					
-                                                                                    </div>
-                                                                                </div>
-                                                                            </span>
-                                                                            <span>
-                                                                                <div class="product-price">
-                                                                                    <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-                                                                                        <div style="text-decoration: line-through;">{{ product.price }}</div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </span
-                                                                        {% endif %}
-                                                                    </p>
+                                                                        </p>
                                                                     {% endif %}
 
                                                                 </div>
