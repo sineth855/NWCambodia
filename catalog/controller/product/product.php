@@ -336,7 +336,7 @@ class ControllerProductProduct extends Controller {
 							'product_option_value_id' => $option_value['product_option_value_id'],
 							'option_value_id'         => $option_value['option_value_id'],
 							'name'                    => $option_value['name'],
-							'expired_date'                    => $option_value['expired_date'],
+							'expired_date'            => $option_value['expired_date'],
 							'image'                   => $this->model_tool_image->resize($option_value['image'], 50, 50),
 							'price'                   => $price,
 							'price_prefix'            => $option_value['price_prefix']
@@ -413,6 +413,7 @@ class ControllerProductProduct extends Controller {
 					$special = false;
 				}
 
+
 				if ($this->config->get('config_tax')) {
 					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price'], $this->session->data['currency']);
 				} else {
@@ -438,6 +439,7 @@ class ControllerProductProduct extends Controller {
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
 			}
+
 
 			// Addon Products
 			$data['addonProducts'] = array();
@@ -497,6 +499,7 @@ class ControllerProductProduct extends Controller {
 						$specialAddon = false;
 					}
 
+
 					$data['addonProductMores'][] = array(
 						'product_id'  => $addon['product_id'],
 						'thumb'       => $imageAddon,
@@ -523,8 +526,7 @@ class ControllerProductProduct extends Controller {
 					'addonProductMores'  =>  $data['addonProductMores']
 				);
 			}
-			// print_r($data['addonProducts']);
-			// return false;
+			
 			// Tags
 
 			$data['tags'] = array();
