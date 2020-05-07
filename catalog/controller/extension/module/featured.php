@@ -99,21 +99,7 @@ class ControllerExtensionModuleFeatured extends Controller {
 						$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);						
 					} else {
 						$special = false;
-					}					
-					if ((int)$product_info['discount_percent']) {
-						
-						$old_price = (float)$product_info['price'];
-
-						$currenct_discount = (int)$product_info['discount_percent'];
-
-						$price_dis = $old_price - ($old_price * $currenct_discount / 100);
-
-						$discount_percent = $this->currency->format($this->tax->calculate($price_dis, $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-
-					} else {
-						$discount_percent = false;
-						$currenct_discount = 0;
-					}
+					}				
 
 					if ($this->config->get('config_tax')) {
 						$tax = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price'], $this->session->data['currency']);
@@ -134,8 +120,6 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
-						'discount'    => $discount_percent,
-						'percent' 	  => $currenct_discount,
 						'tax'         => $tax,
 						'rating'      => $rating,
 						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
