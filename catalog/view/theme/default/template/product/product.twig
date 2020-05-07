@@ -198,15 +198,15 @@
                                         </ul>
                                         {% endif %} 
                                     {% endif %}
-
+                                    
                                     {% if addonProducts == null %} 
                                         {% if price %}
                                         <ul class="list-unstyled">
                                             {% if not special %}
-                                            <br />
-                                            <li>
-                                                <h2>{{ price }} {{priceOriginal}}</h2>
-                                            </li>
+                                                <br />
+                                                <li>
+                                                    <h2>{{ price }} {{priceOriginal}}</h2>
+                                                </li>
                                             {% else %}
                                                 <br />
                                                 <li><span style="text-decoration: line-through;">{{ price }}</span></li>
