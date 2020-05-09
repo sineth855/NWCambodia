@@ -161,6 +161,11 @@
                                         <li>{{ text_stock }} {{ stock }}</li>
                                     </ul>
 
+                                    {% if date_end %}
+                                        <br/>
+                                        <div class="time-remain"><b>Time Remain : </b> <span style="font-weight: bold; font-size: 23px;" id="product-t-day{{product_id}}" class="-t-bg product-t-day"></span> </div>
+                                    {% endif %}
+
                                     <!-- Block price discount or special -->
                                     {% if options %} 
                                         {% if price %}
@@ -751,6 +756,92 @@
         </div>
     </div>
     <!-- End layout -->
+
+    <script>
+        // Set the date we're counting down to
+        {# var countDownDate = new Date("{{product.date_end}}").getTime(); #}
+
+        // Set the date we're counting down to
+        var countdowns = [
+            {% if(special) %}
+                {
+                    id: "{{product_id}}",
+                    date: new Date("{{date_end}}").getTime()
+                },
+            {% endif %}
+        ];
+        // Update the count down every 1 second
+        var timer = setInterval(function() {
+            // Get todays date and time
+            var now = Date.now();
+
+            //var index = countdowns.length - 1;
+            //alert(countdowns.length);
+
+            // we have to loop backwards since we will be removing
+            // countdowns when they are finished
+            //while(index >= 0) {
+            //var index = 0;
+            //alert(countdowns.length);
+            //for (var index = 0; index < countdowns.length ; index++) {
+            var index = 0;
+            while (countdowns[index]) {
+                //alert(countdowns[index]['id']);
+                //alert(countdowns[index]['id']);
+                //var countdown = countdowns[index];
+                // Find the distance between now and the count down date
+                var distance = countdowns[index]['date'] - now;
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                //document.getElementById("t-day" + countdowns[index]['id']).innerHTML = days + "d " + hours + "h " + minutes + "m " + "<span style='color: red;'>" + seconds + "s" + "</span>";
+                document.getElementById("product-t-day"     + countdowns[index]['id']).innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + "<span style='color: red;'>" + seconds + "s" + "</span>";
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("product-t-day"+countdowns[index]['id']).innerHTML = "EXPIRED";
+                }
+                //var timerElement = document.getElementById("race" + countdown.id);
+                // If the count down is over, write some text 
+                /*if (distance < 0) {
+                    timerElement.innerHTML = "EXPIRED";
+                    // this timer is done, remove it
+                    countdowns.splice(index, 1);
+                } else {
+                    timerElement.innerHTML =  hours + "h " + minutes + "m " + seconds + "s "; 
+                }*/
+                index++;
+                //index -= 1;
+            }
+            // if all countdowns have finished, stop timer
+            if (countdowns.length < 1) {
+                clearInterval(timer);
+            }
+        }, 1000);
+
+        /*var x = setInterval(function() {
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("t-day{{i}}").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + "<span style='color: red;'>" + seconds + "s" + "</span>";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("t-day{{i}}").innerHTML = "EXPIRED";
+        }
+        }, 1000);*/
+
+    </script>
 
     <script type="text/javascript">
         $(document).ready(function() {

@@ -120,6 +120,8 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
+						'date_start'     => $product_info['date_start'],
+						'date_end'     => date_format(date_create($product_info['date_end']), "M d, Y H:i:s"),
 						'tax'         => $tax,
 						'rating'      => $rating,
 						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])

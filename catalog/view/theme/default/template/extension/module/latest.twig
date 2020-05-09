@@ -79,6 +79,7 @@
                                 <div class="js-view-dom-id-af765b0634d9f64962c1ebe9c64e7232b61cb9a156352f184f5d8b1e2c5f38cf">
                                     <div class="row grid-wrapper">
                                         <!-- grid product -->
+                                        {% set i = 1 %}
                                         {% for product in products %}
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-55 grid-item">
                                             <div class="product-teaser-wrap product-teaser-attribute">
@@ -202,17 +203,21 @@
                                                                     {% endif %}
                                                                 </p>
                                                                 {% endif %}
-                                                                <div class="time-remain"> Time Remain </div>
-                                                                <div class="clearfix"></div>
+
+                                                                {% if product.special %}
+                                                                    <div class="time-remain"> Time Remain </div>
+                                                                    <div id="t-day{{product.product_id}}" class="t-bg t-day"></div>
+                                                                {% endif %}
+                                                                {# <div class="clearfix"></div>
                                                                 <center>
-                                                                    <div id="t-day" class="t-bg t-day">25</div>
+                                                                    <div id="t-day{{i}}" class="t-bg t-day">25</div>
                                                                     <div style="float: left; font-size: 28px;"> : </div>
-                                                                    <div id="t-hour" class="t-bg t-hour">12</div>
+                                                                    <div id="t-hour{{i}}" class="t-bg t-hour">12</div>
                                                                     <div style="float: left; font-size: 28px;"> : </div>
-                                                                    <div id="t-min" class="t-bg t-min">02</div>
+                                                                    <div id="t-min{{i}}" class="t-bg t-min">02</div>
                                                                     <div style="float: left; font-size: 28px;"> : </div>
-                                                                    <div id="t-sec" class="t-bg t-sec">15</div>
-                                                                </center>
+                                                                    <div id="t-sec{{i}}" class="t-bg t-sec">15</div>
+                                                                </center> #}
                                                                 
                                                             </div>
 
@@ -262,6 +267,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                            {% set i = i + 1 %}
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -278,18 +284,91 @@
     </div>
 </section>
 <!-- End Latest product -->
-<script>
-    var myVar = setInterval(myTimer, 1000);
 
-    function myTimer() {
-        var d = new Date();
-        var day = d.getDay();
-        var h = d.getHours();
-        var m = d.getMinutes();
-        var s = d.getSeconds();
-        document.getElementById("t-day").innerHTML = day.toLocaleTimeString();
-        document.getElementById("t-hour").innerHTML = h.toLocaleTimeString();
-        document.getElementById("t-min").innerHTML = m.toLocaleTimeString();
-        document.getElementById("t-sec").innerHTML = s.toLocaleTimeString();
+<script>
+    // Set the date we're counting down to
+    {# var countDownDate = new Date("{{product.date_end}}").getTime(); #}
+
+    // Set the date we're counting down to
+    var countdowns = [
+        {% for product in products %}
+            {% if(product.special) %}
+                {
+                    id: "{{product.product_id}}",
+                    date: new Date("{{product.date_end}}").getTime()
+                },
+            {% endif %}
+        {% endfor %}
+    ];
+    // Update the count down every 1 second
+    var timer = setInterval(function() {
+        // Get todays date and time
+        var now = Date.now();
+
+        //var index = countdowns.length - 1;
+        //alert(countdowns.length);
+
+        // we have to loop backwards since we will be removing
+        // countdowns when they are finished
+        //while(index >= 0) {
+        //var index = 0;
+        //alert(countdowns.length);
+        //for (var index = 0; index < countdowns.length ; index++) {
+        var index = 0;
+        while (countdowns[index]) {
+            //alert(countdowns[index]['id']);
+            //alert(countdowns[index]['id']);
+            //var countdown = countdowns[index];
+            // Find the distance between now and the count down date
+            var distance = countdowns[index]['date'] - now;
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            //document.getElementById("t-day" + countdowns[index]['id']).innerHTML = days + "d " + hours + "h " + minutes + "m " + "<span style='color: red;'>" + seconds + "s" + "</span>";
+            document.getElementById("t-day"     + countdowns[index]['id']).innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + "<span style='color: red;'>" + seconds + "s" + "</span>";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("t-day"+countdowns[index]['id']).innerHTML = "EXPIRED";
+            }
+            //var timerElement = document.getElementById("race" + countdown.id);
+            // If the count down is over, write some text 
+            /*if (distance < 0) {
+                timerElement.innerHTML = "EXPIRED";
+                // this timer is done, remove it
+                countdowns.splice(index, 1);
+            } else {
+                timerElement.innerHTML =  hours + "h " + minutes + "m " + seconds + "s "; 
+            }*/
+            index++;
+            //index -= 1;
+        }
+        // if all countdowns have finished, stop timer
+        if (countdowns.length < 1) {
+            clearInterval(timer);
+        }
+    }, 1000);
+
+    /*var x = setInterval(function() {
+    var now = new Date().getTime();
+
+    var distance = countDownDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("t-day{{i}}").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + "<span style='color: red;'>" + seconds + "s" + "</span>";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("t-day{{i}}").innerHTML = "EXPIRED";
     }
+    }, 1000);*/
+
 </script>
