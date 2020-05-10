@@ -642,7 +642,13 @@ popup modal option select */
 
 .bodytext {
     position: relative;
-    z-index: 99;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.bodytext_ {
+    position: relative;
+    z-index: 999;
     overflow: hidden;
 }
 
@@ -785,4 +791,21 @@ select.form-field-input.form-field-select.form-field-filled {
     color: black;
     font-size: 15px;
     padding-right: 10px;
+}
+
+
+/* .popup-mobile-register {
+    text-align: center;
+} */
+
+.wrapper-popup {
+    max-width: 100%;
+    min-width: 80%;
+}
+
+.btn-wrap-user-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
 }
