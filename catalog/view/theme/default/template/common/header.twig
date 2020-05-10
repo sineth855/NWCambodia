@@ -227,9 +227,10 @@
                             </div>
                             <div class="pull-left line-lang"></div>
                             <div class="pull-left">
-                                <a href="{{contact}}">
+                               <span class="btnShow_" style="color:#fef200;width:25px;"><i class="ti-user"></i></span>
+                                <!--<a href="{{contact}}">
                                     <img width="25px" src="catalog/view/theme/default/image/location-icon.png" />
-                                </a>
+                                </a>-->
                             </div>
                         </div>
                         <div class="pull-left border-line"></div>
@@ -346,3 +347,15 @@
     </div>
 </header>
 <!-- Header End -->
+
+<script>
+    $(document).ready(function() {
+        $(".bodytext_").hide();
+        $("#close_").click(function() {
+            $(".bodytext_").hide();
+        });
+        $(".btnShow_").click(function() {
+            $(".bodytext_").show();
+        });
+    });
+</script>
