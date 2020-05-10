@@ -757,19 +757,27 @@ select.form-field-input.form-field-select.form-field-filled {
 
 .t-bg {
     float: left;
-    background: #444;
+    background: #f3de2b;
+    /*background: #444;*/
     color: #ffffff;
-    margin: 2px;
+    /* margin: 2px; */
     text-align: center;
     line-height: 30px;
-    font-size: 1.5em;
-    border-radius: 4px;
-    padding: 6px;
+    font-size: 1.2em;
+    /* border-radius: 4px; */
+    /* padding: 6px; */
+    width: 100%;
+    font-weight: normal;
 }
 
 .time-remain {
     font-size: 16px;
     font-weight: bold;
+    margin-top: 8px;
+    text-transform: uppercase;
+    color: #897e7e;
+    font-size: 12px;
+    font-weight: normal;
 }
 
 .old-price-line-through {

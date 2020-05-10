@@ -297,6 +297,8 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if ((float)$product_info['special']) {
+				$data['date_start'] = $product_info['date_start'];
+				$data['date_end'] = $product_info['date_end'];
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 			} else {
 				$data['special'] = false;
