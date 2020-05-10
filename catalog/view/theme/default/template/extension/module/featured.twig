@@ -343,6 +343,13 @@
                                                                                     </div>
                                                                                 </div>
                                                                             {% else %}
+                                                                                <span>
+                                                                                    <div class="product-price">
+                                                                                        <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                            <div class="old-price-line-through">{{ product.price }}</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </span>
                                                                                 <span class="price-new"> 
                                                                                     <div class="product-price">
                                                                                         <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
@@ -353,13 +360,7 @@
                                                                                 <!--<span class="price-old">
                                                                                     {{ product.price }}
                                                                                 </span> -->
-                                                                                <span>
-                                                                                    <div class="product-price">
-                                                                                        <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-                                                                                            <div style="text-decoration: line-through;">{{ product.price }}</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </span
+                                                                               
                                                                             {% endif %}
                                                                         </p>
                                                                     {% endif %}
