@@ -1,6 +1,9 @@
 <?php
 class ControllerCheckoutCheckout extends Controller {
 	public function index() {
+		header("Cache-Control: no-cache, must-revalidate");
+		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		header("Content-Type: application/xml; charset=utf-8");
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			$this->response->redirect($this->url->link('checkout/cart'));

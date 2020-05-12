@@ -648,7 +648,6 @@ popup modal option select */
 
 .bodytext_ {
     position: relative;
-    z-index: 999;
     overflow: hidden;
 }
 
