@@ -249,10 +249,18 @@ class ControllerProductProduct extends Controller {
 			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
-			if ($product_info['quantity'] <= 0) {
-				$data['stock'] = $product_info['stock_status'];
-			} elseif ($this->config->get('config_stock_display')) {
-				$data['stock'] = $product_info['quantity'];
+			// if ($product_info['quantity'] <= 0) {
+			// 	$data['stock'] = $product_info['stock_status'];
+			// } elseif ($this->config->get('config_stock_display')) {
+			// 	$data['stock'] = $product_info['quantity'];
+			// } else {
+			// 	$data['stock'] = $this->language->get('text_instock');
+			// }
+
+			if ((int)$product_info['quantity'] <= 0) {
+				$data['stock'] = "Out of Stock";
+			} elseif ((int)$product_info['quantity'] <= 5) {
+				$data['stock'] = "Low stock";
 			} else {
 				$data['stock'] = $this->language->get('text_instock');
 			}
