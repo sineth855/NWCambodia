@@ -63,6 +63,150 @@
                                 </div>
                                 {% endif %}
 
+                                  <!--- Start content -->
+                                <div class="col-md-12 main-content">
+                                 <h3>{{ text_related }}</h3>
+                                    <div class="region region-content">
+                                        <div data-drupal-messages-fallback class="hidden"></div>
+                                        <div class="views-element-container norm-width block-title-1 block-title-center block block-views block-views-blockproduct-catalog-basic-featured-products-grid" id="block-views-block-product-catalog-basic-featured-products-grid">
+                                            <div class="container-wrap clearfix">
+                                                <div class="block-content clearfix">
+                                                    <div class="js-view-dom-id-af765b0634d9f64962c1ebe9c64e7232b61cb9a156352f184f5d8b1e2c5f38cf">
+                                                        <div class="row grid-wrapper">
+                                                            <!-- grid product -->
+                                                            {% for product in products %}
+                                                            <div class="col-12 col-sm-6 col-md-6 col-lg-55 grid-item">
+                                                                <div class="product-teaser-wrap product-teaser-attribute">
+                                                                    <div class="product-teaser">
+                                                                        <div class="product-teaser-bg"></div>
+                                                                        <div class="product-teaser-container">
+                                                                            <div class="post-image product-image">
+                                                                                {% if product.special %}
+                                                                                <div class="product-badge">
+                                                                                    <span class="badge-label badge-sale">{{ product.special }}</span>
+                                                                                </div>    
+                                                                                {% endif %}
+
+                                                                                <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
+                                                                                    <div class="field-item">
+                                                                                        <a href="{{ product.href }}" hreflang="en">
+                                                                                            <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="field-item">
+                                                                                        <a href="{{ product.href }}" hreflang="en">
+                                                                                            <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!--remove which list -->
+                                                                            </div>
+
+                                                                            <div class="product-meta-wrap">
+                                                                                <div class="product-meta">
+                                                                                    <div class="product-ratings">
+                                                                                        <div class="field field-field-ratings field-type-voting-api-field field-label-hidden field-item">
+                                                                                            <div class="votingapi-widgets fivestar">
+                                                                                                {% if product.rating %}
+                                                                                                <div class="rating">
+                                                                                                    {% for i in 1..5 %} 
+                                                                                                        {% if product.rating < i %} 
+                                                                                                        <span class="fa fa-stack">
+                                                                                                            <i class="fa fa-star-o fa-stack-2x color_rating"></i>
+                                                                                                        </span>
+                                                                                                        {% else %}
+                                                                                                        <span class="fa fa-stack">
+                                                                                                            <i class="fa fa-star fa-stack-2x color_rating"></i>
+                                                                                                            <i class="fa fa-star-o fa-stack-2x color_rating"></i>
+                                                                                                        </span> 
+                                                                                                        {% endif %} 
+                                                                                                    {% endfor %}
+                                                                                                </div>
+                                                                                                {% endif %}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                    <div class="product-title">
+                                                                                        <a class="product-title-link" href="{{ product.href }}">
+                                                                                            <div class="field field-title field-type-string field-label-hidden field-item">
+                                                                                                {{ product.name|striptags|length > 30 ? product.name|striptags|slice(0, 35) ~ '...' : product.name|striptags }}
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    {% if product.price %}
+                                                                                        <p class="price" style="padding-top:10px;">
+                                                                                            {% if not product.special %}
+                                                                                                <div class="product-price">
+                                                                                                    <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                                        {{ product.price }}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            {% else %}
+                                                                                                <span>
+                                                                                                    <div class="product-price">
+                                                                                                        <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                                            <div class="old-price-line-through">{{ product.price }}</div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </span>
+                                                                                                <span class="price-new"> 
+                                                                                                    <div class="product-price">
+                                                                                                        <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                                            {{ product.special }}																					
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </span>
+                                                                                            
+                                                                                                <br/>
+                                                                                                <div class="time-remain"> Time Remain </div>
+                                                                                                <div id="feature-t-day{{product.product_id}}" class="t-bg feature-t-day"></div>
+                                                                                            {% endif %}
+                                                                                        </p>
+                                                                                    {% endif %}
+
+                                                                                </div>
+
+                                                                                <div class="-product-variation-wrap">
+                                                                                    <div class="-product-add-cart">
+                                                                                        <div class="has-no-option-variation">
+                                                                                            <div class="field field-variations field-type-entity-reference field-label-hidden field-items">
+                                                                                                <div class="field-item">
+                                                                                                    <div id="commerce-product-add-to-cart-form--18">
+                                                                                                        <form class="commerce-order-item-add-to-cart-form-commerce-product-60 commerce-order-item-add-to-cart-form" data-drupal-selector="commerce-order-item-add-to-cart-form-commerce-product-60-2" action="#" method="post" id="commerce-order-item-add-to-cart-form-commerce-product-60--2"
+                                                                                                            accept-charset="UTF-8">
+                                                                                                          
+                                                                                                            <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--35">
+                                                                                                               <button type="button" id="edit-submit--52" name="op" class="button--add-to-cart button button--primary js-form-submit form-submit button_none_radius" onclick="cart.productDetail('{{ product.product_id }}');">Buy Now</button>
+                                                                                                            </div>
+                                                                                                        </form>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {% endfor %}
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-history-node-id="169" role="article" about="/martis/en/home" typeof="schema:WebPage" class="node node--type-page node--view-mode-full">
+                                            <span property="schema:name" content="Home" class="hidden"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---End content -->
+
                                 <div class="col-sm-12 col-lg-12 wrapper_descripton_product_detail">
                                     <ul class="nav nav-tabs display-none">
                                         <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a>
@@ -138,6 +282,8 @@
                                         {% endif %}
                                     </div>
                                 </div>
+
+                              
 
                             </div>
                             <div class="col-lg-3">
@@ -696,8 +842,8 @@
                     </div>
 
                     <br/>{% if products %}
+                    <div class="container display-none">
                     <h3>{{ text_related }}</h3>
-                    <div class="container">
                         <div class="row">
                             {% set i = 0 %} 
                             {% for product in products %} 
