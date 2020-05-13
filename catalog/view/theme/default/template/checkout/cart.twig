@@ -69,13 +69,12 @@
         <!-- &nbsp;({{ weight }}) -->
         {% endif %} </h3>
       <form action="{{ action }}" method="post" enctype="multipart/form-data">
-        <div class="table-responsive">
+        <div class="table-responsive cart-table">
           <table class="table table-bordered">
             <thead>
               <tr>
                 <td class="text-center">{{ column_image }}</td>
                 <td class="text-left">{{ column_name }}</td>
-                <!-- <td class="text-left">{{ column_model }}</td> -->
                 <td class="text-left">{{ column_quantity }}</td>
                 <td class="text-right">{{ column_price }}</td>
                 <td class="text-right">{{ column_total }}</td>
@@ -85,7 +84,8 @@
             
             {% for product in products %}
             <tr>
-              <td class="text-center">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail_" /></a> {% endif %}</td>
+              <td class="text-center">
+                {% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail_" /></a> {% endif %}</td>
               <td class="text-left">
                 <a href="{{ product.href }}">{{ product.name }}</a><br/>
                 <small class="display-none">
@@ -101,19 +101,22 @@
                 {% if product.recurring %} <br />
                 <span class="label label-info">{{ text_recurring_item }}</span> 
                 <small>{{ product.recurring }}</small> {% endif %}
-              </td>
-              <!-- <td class="text-left">{{ product.model }}</td> -->
+              </td>              
               <td class="text-left">
                 <div class="input-group btn-block">
-                  <input type="text" readonly name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-text" />&nbsp;&nbsp;
+                  <span>
+                    <input type="text" readonly name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-text" />&nbsp;
+                  </span>
                   <span class="input-group-btn">
-                    <!-- <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="ti-control-shuffle"></i></button> -->
-                    <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="ti-trash"></i></button>
+                    <button type="button" data-toggle="tooltip" title="{{ button_remove }}" onclick="cart.remove('{{ product.cart_id }}');"><i class="ti-trash"></i></button>
                   </span>
                 </div>
               </td>
               <td class="text-right">{{ product.price }}</td>
-              <td class="text-right">{{ product.total }}</td>
+              <td class="text-right">
+                {{ product.total }}   
+              </td>
+            
             </tr>
             {% endfor %}
             {% for voucher in vouchers %}

@@ -38,7 +38,7 @@
                             <div class="col-lg-6">
                                 {% if thumb or images %}
                                 <div class="col-md-12 product-image-wrap">
-                                    <div class="piczoomer">
+                                    <div class="piczoomer___">
                                         <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
                                             {% if thumb or images %} {% if thumb %}
                                             <div class="field-item"> <img src="{{ popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" />
@@ -64,6 +64,7 @@
                                 {% endif %}
 
                                   <!--- Start content -->
+                                 {% if products %}
                                 <div class="col-md-12 main-content">
                                  <h3>{{ text_related }}</h3>
                                     <div class="region region-content">
@@ -205,6 +206,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %}
                                 <!---End content -->
 
                                 <div class="col-sm-12 col-lg-12 wrapper_descripton_product_detail">

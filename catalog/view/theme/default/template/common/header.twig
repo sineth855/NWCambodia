@@ -47,6 +47,31 @@
 
 </head>
 
+<!-- <div class="bodytext_" id="bodyheadertext" style="display: none;">
+    <div id="modal_container">
+        <div id="modal_inside" class="wrapper-popup">
+            <div class="model_content" style="padding: 10px;">
+                <div class="header-title_">User Account</div>
+                 <div class="btn-wrap-user-close">
+                    <a href="javascript:void(0);" id="close_" class="js-modal-close continue-btn close-fancy">X</a>
+                </div>
+                 <div class="mobile-register text-center">
+                    {% if logged == null %}
+                    <div>
+                        <span><a href="{{login}}" class="button promotion-button"><i class="ti-user"></i> &nbsp; Login</a></span>
+                        <span><a href="{{register}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Register</a></span>
+                    </div>
+                    {% else %}
+                    <div>
+                        <span><a href="#" class="button promotion-button"><i class="ti-user"></i> &nbsp; {{lastname}} {{firstname}}</a></span>
+                        <span><a href="{{logout}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Logout</a></span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 <nav id="top" style="display: none">
     <div class="container">{{ currency }} {{ language }}
         <div id="top-links" class="nav pull-right">
@@ -350,12 +375,12 @@
 
 <script>
     $(document).ready(function() {
-        $(".bodytext_").hide();
+        $("#bodyheadertext").hide();
         $("#close_").click(function() {
-            $(".bodytext_").hide();
+            $("#bodyheadertext").hide();
         });
         $(".btnShow_").click(function() {
-            $(".bodytext_").show();
+            $("#bodyheadertext").show();
         });
     });
 </script>

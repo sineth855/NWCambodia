@@ -255,7 +255,40 @@ tbody tr td {
     display: none;
 }
 
+.cart-table table thead {
+    text-transform: capitalize !important;
+    background: #cfbd25 !important;
+}
+
+.cart-table .table-bordered td,
+.cart-table .table-bordered th {
+    border: 0px solid #dee2e6;
+}
+
+.cart-table.table td,
+.cart-table.table th {
+    border-left: 0px solid #dee2e6;
+}
+
 @media (max-width:768px) {
+    .cart-table table tr>td {
+        font: bold 10px "PT Sans";
+        color: #333;
+        padding: 10px;
+        margin: 0px;
+    }
+    .cart-table .table-bordered td,
+    .cart-table .table-bordered th {
+        border: 0px solid #dee2e6;
+    }
+    .cart-table.table td,
+    .cart-table.table th {
+        border-left: 0px solid #dee2e6;
+    }
+    img.img-thumbnail_ {
+        max-height: 85px;
+        max-width: 100px;
+    }
     .display_web {
         display: none;
     }
@@ -648,6 +681,7 @@ popup modal option select */
 
 .bodytext_ {
     position: relative;
+    z-index: 9999;
     overflow: hidden;
 }
 
