@@ -161,7 +161,18 @@ Please donate via PayPal to donate@opencart.com
 </script>
 
 <script>
+     $(".userRegisterPopUp").hide();        
+    $("#modal_containerPopUp").removeClass("modal_container_class");
+    $("#close").click(function() {
+        $("#modal_containerPopUp").removeClass("modal_container_class");
+        $(".userRegisterPopUp").hide();
+    });
+    $("#buttonRegisterPopUp").click(function() {
+        $("#modal_containerPopUp").addClass("modal_container_class");
+        $(".userRegisterPopUp").show();
+    });
     jQuery(function($) {
+        
         $('#retroclockbox_lg').flipcountdown({
             size: 'lg'
         });

@@ -5,26 +5,25 @@
 
 </section>
 <!-- End breadcrumb -->
-
+<div class="bodytext" style="display: none;">
+    <div id="modal_container">
+        <div id="modal_inside">
+            <div class="model_content">
+                <div class="header-title">Product has been added to your cart</div>
+                <div class="btn-wrap">
+                    <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
+                    <a href="{{ checkout }}" class="checkout-btn">checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div style="_display: none;" id="product-product">
     <!--<ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul> -->
-    <div class="bodytext" style="display: none;">
-        <div id="modal_container">
-            <div id="modal_inside">
-                <div class="model_content">
-                    <div class="header-title">Product has been added to your cart</div>
-                    <div class="btn-wrap">
-                        <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
-                        <a href="{{ checkout }}" class="checkout-btn">checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="addcart-success"></div>
         <div class="row">
@@ -992,16 +991,17 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $(".bodytext").hide();
-            $("#close").click(function() {
-                $(".bodytext").hide();
-            });
-            $(".btnShow").click(function() {
-                $(".bodytext").show();
-            });
-        });
         <!--
+        $(".bodytext").hide();        
+        $("#modal_container").removeClass("modal_container_class");
+        $("#close").click(function() {
+            $("#modal_container").removeClass("modal_container_class");
+            $(".bodytext").hide();
+        });
+        $(".btnShow").click(function() {
+            $("#modal_container").addClass("modal_container_class");
+            $(".bodytext").show();
+        });
         $('select[name=\'recurring_id\'], input[name="quantity"]').change(function() {
             $.ajax({
                 url: 'index.php?route=product/product/getRecurringDescription',
@@ -1021,7 +1021,7 @@
                 }
             });
         });
-        //-->
+        -->
     </script>
     <script type="text/javascript">
         <!--

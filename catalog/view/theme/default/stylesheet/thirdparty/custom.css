@@ -271,9 +271,9 @@ tbody tr td {
 }
 
 @media (max-width:768px) {
-    #modal_inside {
+    /* #modal_inside {
         min-width: 100%;
-    }
+    } */
     .cart-table table tr>td {
         font: bold 10px "PT Sans";
         color: #333;
@@ -676,20 +676,7 @@ h2.timer {
 /* Click
 popup modal option select */
 
-.bodytext {
-    position: relative;
-    z-index: 999;
-    overflow: hidden;
-}
-
-
-/* .bodytext_ {
-    position: relative;
-    z-index: 99999;
-    overflow: hidden;
-} */
-
-#modal_container {
+.modal_container_class {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -697,11 +684,11 @@ popup modal option select */
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(102, 95, 95, 0.4);
+    z-index: 99999;
 }
 
 #modal_inside {
-    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
