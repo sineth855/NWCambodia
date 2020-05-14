@@ -271,6 +271,9 @@ tbody tr td {
 }
 
 @media (max-width:768px) {
+    #modal_inside {
+        min-width: 100%;
+    }
     .cart-table table tr>td {
         font: bold 10px "PT Sans";
         color: #333;
@@ -679,11 +682,12 @@ popup modal option select */
     overflow: hidden;
 }
 
-.bodytext_ {
+
+/* .bodytext_ {
     position: relative;
-    z-index: 9999;
+    z-index: 99999;
     overflow: hidden;
-}
+} */
 
 #modal_container {
     height: 100%;
@@ -703,7 +707,7 @@ popup modal option select */
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    text-align: left;
+    text-align: center;
 }
 
 #modal_inside .header-title {
@@ -715,14 +719,15 @@ popup modal option select */
     border-bottom: 1px solid #ccc;
 }
 
-#modal_inside .header-title_ {
+
+/* #modal_inside .header-title_ {
     display: block;
     font: normal 18px "Arial";
     color: #333;
     padding: 15px 0;
     margin: 0 15px;
     text-align: center;
-}
+} */
 
 #modal_inside.btn-wrap {
     position: relative;
@@ -730,21 +735,7 @@ popup modal option select */
 }
 
 #modal_inside .btn-wrap .continue-btn {
-    /* width: 180px; */
-    /* height: 40px; */
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    /* font: bold 14px/40px "Arial"; */
-    color: #fff;
-    background: #03c;
-    /* margin: 24px 15px; */
-    margin: 10px;
-}
-
-#modal_inside .btn-wrap .continue-btn {
-    width: 180px;
+    width: 150px;
     height: 40px;
     display: inline-block;
     text-align: center;
@@ -754,10 +745,12 @@ popup modal option select */
     color: #fff;
     background: #03c;
     margin: 24px 15px;
+    text-transform: capitalize;
+    min-width: 40%;
 }
 
 #modal_inside .btn-wrap .checkout-btn {
-    width: 180px;
+    width: 150px;
     height: 40px;
     display: inline-block;
     text-align: center;
@@ -767,6 +760,8 @@ popup modal option select */
     color: #fff;
     background: #090;
     margin: 24px 15px;
+    text-transform: capitalize;
+    min-width: 40%;
 }
 
 

@@ -46,8 +46,8 @@
     <link href="{{ link.href }}" rel="{{ link.rel }}" /> {% endfor %} {% for analytic in analytics %} {{ analytic }} {% endfor %}
 
 </head>
-
-<!-- <div class="bodytext_" id="bodyheadertext" style="display: none;">
+<!-- 
+<div class="bodytext_" id="bodyheadertext_login" style="display: none;">
     <div id="modal_container">
         <div id="modal_inside" class="wrapper-popup">
             <div class="model_content" style="padding: 10px;">
@@ -72,6 +72,8 @@
         </div>
     </div>
 </div> -->
+
+
 <nav id="top" style="display: none">
     <div class="container">{{ currency }} {{ language }}
         <div id="top-links" class="nav pull-right">
@@ -252,10 +254,9 @@
                             </div>
                             <div class="pull-left line-lang"></div>
                             <div class="pull-left">
-                               <span class="btnShow_" style="color:#fef200;width:25px;"><i class="ti-user"></i></span>
-                                <!--<a href="{{contact}}">
-                                    <img width="25px" src="catalog/view/theme/default/image/location-icon.png" />
-                                </a>-->
+                               <div id="buttonRegisterPopUp" style="color:#fef200;width:25px;">                                
+                                <img width="25px" src="catalog/view/theme/default/image/user.png" />
+                               </div>
                             </div>
                         </div>
                         <div class="pull-left border-line"></div>
@@ -283,7 +284,8 @@
                                 <div id="block-call-to-order" class="norm-width block-title-1 block-title-left block block-block-content block-block-contentee24b9ac-7075-4cae-9e55-6e293b996fcc">
                                     <div class="container-wrap clearfix">
                                         <div class="block-content clearfix">
-                                            <div class="field field-body field-type-text-with-summary field-label-hidden field-item">{{text_call_to_order}}
+                                            <div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+                                                {{text_call_to_order}}
                                                 <h4>{{telephone}}</h4>
                                             </div>
                                         </div>
@@ -372,15 +374,3 @@
     </div>
 </header>
 <!-- Header End -->
-
-<script>
-    $(document).ready(function() {
-        $("#bodyheadertext").hide();
-        $("#close_").click(function() {
-            $("#bodyheadertext").hide();
-        });
-        $(".btnShow_").click(function() {
-            $("#bodyheadertext").show();
-        });
-    });
-</script>
