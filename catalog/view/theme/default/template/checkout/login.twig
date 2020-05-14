@@ -19,7 +19,8 @@
         <input type="radio" name="account" value="guest" />
         {% endif %}
         {{ text_guest }}</label>
-        </div>#} {% if checkout_guest %}
+        </div>#} 
+        {% if checkout_guest %}
         <div class="radio" style="display: none">
             <label> {% if account == 'guest' %}
         <input type="radio" name="account" value="guest" checked="checked" />

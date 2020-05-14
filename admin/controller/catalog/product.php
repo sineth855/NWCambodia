@@ -1089,7 +1089,6 @@ class ControllerCatalogProduct extends Controller {
 				'quantity'          => $product_discount['quantity'],
 				'priority'          => $product_discount['priority'],
 				'price'             => $product_discount['price'],
-				'discount'          => $product_discount['discount_percent'],
 				'date_start'        => ($product_discount['date_start'] != '0000-00-00') ? $product_discount['date_start'] : '',
 				'date_end'          => ($product_discount['date_end'] != '0000-00-00') ? $product_discount['date_end'] : ''
 			);
@@ -1110,9 +1109,11 @@ class ControllerCatalogProduct extends Controller {
 				'customer_group_id' => $product_special['customer_group_id'],
 				'priority'          => $product_special['priority'],
 				'price'             => $product_special['price'],
+				'discount'          => $product_special['discount'],
 				'date_start'        => ($product_special['date_start'] != '0000-00-00') ? $product_special['date_start'] : '',
 				'date_end'          => ($product_special['date_end'] != '0000-00-00') ? $product_special['date_end'] :  ''
 			);
+
 		}
 		
 		// Image
