@@ -18671,7 +18671,7 @@ ul.links.inline li {
 
 .post-image img,
 .post-thumb img {
-    width: 100%;
+    /* width: auto; */
     height: auto;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -20634,6 +20634,14 @@ fieldset {
     left: 10px;
 }
 
+.product-badge .badge-label-discount {
+    font-size: 12px;
+    text-align: center;
+    color: #ffffff;
+    line-height: 35px;
+    text-transform: uppercase;
+}
+
 .product-badge .badge-label {
     font-size: 12px;
     text-align: center;
@@ -20650,9 +20658,8 @@ fieldset {
 }
 
 .product-badge .badge-discount {
-    background-image: url(./../../image/dis.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: absolute;
+    left: 30%;
 }
 
 .product-badge .badge-sale {
