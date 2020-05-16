@@ -87,11 +87,17 @@
                                                     <div class="product-teaser-bg"></div>
                                                     <div class="product-teaser-container">
                                                         <div class="post-image product-image">
-          
-                                                            {% if product.special %}
-                                                            <div class="product-badge">
-                                                                <span class="badge-label badge-sale">{{ product.special }}</span>
-                                                            </div>    
+                                                           
+                                                            {% if product.special_discount %}
+                                                                <div class="product-badge">
+                                                                    <span class="badge-label badge-discount">{{ product.special_discount }}%</span>
+                                                                </div>
+                                                            {% else %}
+                                                                {% if product.special %}
+                                                                <div class="product-badge">
+                                                                    <span class="badge-label badge-sale">{{ product.special }}</span>
+                                                                </div>    
+                                                                {% endif %}
                                                             {% endif %}
 
                                                             <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
@@ -200,15 +206,15 @@
                                                                                 </div>
                                                                             </div>
                                                                         </span>
+                                                                        {% if not product.special_discount %}
+                                                                            <div class="time-remain"> Time Remain </div>
+                                                                            <div id="t-day{{product.product_id}}" class="t-bg t-day"></div>
+                                                                        {% endif %}
                                                                     {% endif %}
                                                                 </p>
                                                                 {% endif %}
 
-                                                                {% if product.special %}
-                                                                    <div class="time-remain"> Time Remain </div>
-                                                                    <div id="t-day{{product.product_id}}" class="t-bg t-day"></div>
-                                                                {% endif %}
-                                                                {# <div class="clearfix"></div>
+                                                                <!-- <div class="clearfix"></div>
                                                                 <center>
                                                                     <div id="t-day{{i}}" class="t-bg t-day">25</div>
                                                                     <div style="float: left; font-size: 28px;"> : </div>
@@ -217,7 +223,7 @@
                                                                     <div id="t-min{{i}}" class="t-bg t-min">02</div>
                                                                     <div style="float: left; font-size: 28px;"> : </div>
                                                                     <div id="t-sec{{i}}" class="t-bg t-sec">15</div>
-                                                                </center> #}
+                                                                </center> -->
                                                                 
                                                             </div>
 
