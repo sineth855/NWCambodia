@@ -76,7 +76,7 @@ class ControllerExtensionModuleFeatured extends Controller {
 		if (!empty($setting['product'])) {
 			$products = array_slice($setting['product'], 0, (int)$setting['limit']);
 			foreach ($products as $product_id) {
-				$product_info = $this->model_catalog_product->getProduct($product_id);				
+				$product_info = $this->model_catalog_product->getProduct($product_id );				
 				// print_r($product_info);
 				// return false;
 				if ($product_info) {
@@ -120,6 +120,7 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
+						'special_discount' => $product_info['special_discount'] ? $product_info['special_discount']:false,
 						'date_start'     => $product_info['date_start'],
 						'date_end'     => date_format(date_create($product_info['date_end']), "M d, Y H:i:s"),
 						'tax'         => $tax,

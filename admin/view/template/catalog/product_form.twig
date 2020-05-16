@@ -1627,16 +1627,13 @@
 	  html += '</tr>';
 
 	  $('#special tbody').append(html);
-    $('.product_special_discount' + 0).keyup(function() {
-      //var _key = $(".product_special_discount").attr("data-key");
+    $('.product_special_discount' + 0).keyup(function() {      
       var _special_dis = 0;
       var _special = 0;
-      var _value = $(".product_special_discount" + 0).val();
-      // alert(".product_special_discount" + 0)
+      var _value = $(".product_special_discount" + 0).val();      
       _special_dis = {{ price }} * _value / 100;
       _special = {{ price }} - _special_dis;
       $(".product_special_price" + 0).val(_special);
-      // alert('Hellowrol');
     });
 
 	  $('.date').datetimepicker({
@@ -1645,11 +1642,6 @@
 	  });
 	  special_row++;
   }
-
-  // $('.product_special_discount').keyup(function() {
-  //   //var _key = $(".product_special_discount").attr("data-key");
-  //   alert('Hellowrol');
-  // });
 
   //--></script>
   

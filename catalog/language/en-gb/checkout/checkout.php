@@ -61,6 +61,7 @@ $_['entry_address']                  = 'Choose Address';
 $_['entry_company']                  = 'Company';
 $_['entry_customer_group']           = 'Customer Group';
 $_['entry_address_1']                = 'Address';
+$_['entry_note']                     = 'Note';
 $_['entry_address_2']                = 'Address 2';
 $_['entry_postcode']                 = 'Post Code';
 $_['entry_city']                     = 'City';
