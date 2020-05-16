@@ -20635,7 +20635,7 @@ fieldset {
 }
 
 .product-badge .badge-label {
-    font-size: 8px;
+    font-size: 12px;
     text-align: center;
     display: block;
     color: #ffffff;
@@ -20647,6 +20647,12 @@ fieldset {
 
 .product-badge .badge-new {
     background-color: #53d542;
+}
+
+.product-badge .badge-discount {
+    background-image: url(./../../image/dis.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .product-badge .badge-sale {
