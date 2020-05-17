@@ -49,7 +49,7 @@ class ControllerCatalogProduct extends Controller {
 				"uom" => $return["item"][$i]["uom"],
 				"price" => $return["item"][$i]["price"],
 				"video_link" => $return["item"][$i]["video_link"],
-				"image" => null, //$return["item"][$i]["photo"],
+				//"image" => null, //$return["item"][$i]["photo"],
 				"other_photo" => null, //$return["item"][$i]["other_photo"],
 				"attribute" => $return["item"][$i]["spec"],
 				"overview" => $return["item"][$i]["overview"],
