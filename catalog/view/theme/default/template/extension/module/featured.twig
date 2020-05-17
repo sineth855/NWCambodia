@@ -239,10 +239,17 @@
                                                         <div class="product-teaser-bg"></div>
                                                         <div class="product-teaser-container">
                                                             <div class="post-image product-image">
-                                                                {% if product.special %}
+                                                                {% if product.special_discount %}
                                                                 <div class="product-badge">
-                                                                    <span class="badge-label badge-sale">{{ product.special }}</span>
-                                                                </div>    
+                                                                    <img src="./catalog/view/theme/default/image/dis.png" width="50" height="50"/>
+                                                                        <span class="badge-label-discount badge-discount">{{ product.special_discount }}%</span>
+                                                                    </div>
+                                                                {% else %}
+                                                                    {% if product.special %}
+                                                                    <div class="product-badge">
+                                                                        <span class="badge-label badge-sale">{{ product.special }}</span>
+                                                                    </div>    
+                                                                    {% endif %}
                                                                 {% endif %}
 
                                                                 <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
@@ -357,10 +364,11 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </span>
-                                                                            
-                                                                                <br/>
-                                                                                <div class="time-remain"> Time Remain </div>
-                                                                                <div id="feature-t-day{{product.product_id}}" class="t-bg feature-t-day"></div>
+                                                                                {% if not product.special_discount %}
+                                                                                    <br/>
+                                                                                    <div class="time-remain"> Time Remain </div>
+                                                                                    <div id="feature-t-day{{product.product_id}}" class="t-bg feature-t-day"></div>
+                                                                                {% endif %}
                                                                             {% endif %}
                                                                         </p>
                                                                     {% endif %}

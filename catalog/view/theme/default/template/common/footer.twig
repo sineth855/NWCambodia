@@ -49,7 +49,7 @@
         <div class="container">
             <br/>
             <center>
-                <h3 style="clear: both">CONTACT WITH US</h3>
+                <h3 style="clear: both">{{text_contact_with_us}}</h3>
                 <div class="clearfix"></div>
                 <center>
                     <img style="text-align: center;" width="250px" src="catalog/view/theme/default/image/social-footer.PNG" />
@@ -90,6 +90,7 @@
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
 Please donate via PayPal to donate@opencart.com
 //-->
+
 </body>
 
 </html>
@@ -97,7 +98,15 @@ Please donate via PayPal to donate@opencart.com
 <script type="text/javascript" src="catalog/view/javascript/thirdparty/jquery.flipcountdown.js"></script>
 
 <script>
+
     jQuery(function($) {
+        $("#bodyheadertext_login").hide();
+        $("#close_").click(function() {
+            $("#bodyheadertext_login").hide();
+        });
+        $("#buttonRegisterPopUp").click(function() {
+            $("#bodyheadertext_login").show();
+        });
         var i = 1000;
         $('#retroclockbox1').flipcountdown();
         var i = 1;
@@ -152,7 +161,18 @@ Please donate via PayPal to donate@opencart.com
 </script>
 
 <script>
+     $(".userRegisterPopUp").hide();        
+    $("#modal_containerPopUp").removeClass("modal_container_class");
+    $("#close").click(function() {
+        $("#modal_containerPopUp").removeClass("modal_container_class");
+        $(".userRegisterPopUp").hide();
+    });
+    $("#buttonRegisterPopUp").click(function() {
+        $("#modal_containerPopUp").addClass("modal_container_class");
+        $(".userRegisterPopUp").show();
+    });
     jQuery(function($) {
+        
         $('#retroclockbox_lg').flipcountdown({
             size: 'lg'
         });

@@ -69,31 +69,6 @@
     </div>
 </div>
 
-<div class="bodytext_" id="bodyheadertext" style="display: none;">
-    <div id="modal_container">
-        <div id="modal_inside" class="wrapper-popup">
-            <div class="model_content" style="padding: 10px;">
-                <div class="header-title_">User Account</div>
-                 <div class="btn-wrap-user-close">
-                    <a href="javascript:void(0);" id="close_" class="js-modal-close continue-btn close-fancy">X</a>
-                </div>
-                 <div class="mobile-register text-center">
-                    {% if logged == null %}
-                    <div>
-                        <span><a href="{{login}}" class="button promotion-button"><i class="ti-user"></i> &nbsp; Login</a></span>
-                        <span><a href="{{register}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Register</a></span>
-                    </div>
-                    {% else %}
-                    <div>
-                        <span><a href="#" class="button promotion-button"><i class="ti-user"></i> &nbsp; {{lastname}} {{firstname}}</a></span>
-                        <span><a href="{{logout}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Logout</a></span>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-</div> 
 <div id="main-menu" class="col-md-11 collapse navbar-collapse primary-menu nav-left">
     <div class="region region-main-menu">
         <nav aria-labelledby="block-martis-main-menu" id="block-martis-main-menu" class="norm-width block-title-1 block-title-left block block-system main-menu">

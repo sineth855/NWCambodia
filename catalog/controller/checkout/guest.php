@@ -59,6 +59,12 @@ class ControllerCheckoutGuest extends Controller {
 			$data['company'] = '';
 		}
 
+		if (isset($this->session->data['payment_address']['note'])) {
+			$data['note'] = $this->session->data['payment_address']['note'];
+		} else {
+			$data['note'] = '';
+		}
+
 		if (isset($this->session->data['payment_address']['address_1'])) {
 			$data['address_1'] = $this->session->data['payment_address']['address_1'];
 		} else {
@@ -244,7 +250,7 @@ class ControllerCheckoutGuest extends Controller {
 			$this->session->data['guest']['customer_group_id'] = $customer_group_id;
 			$this->session->data['guest']['firstname'] = $this->request->post['firstname'];
 			$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
-			$this->session->data['guest']['email'] = $this->request->post['email'];
+			$this->session->data['guest']['email'] = $this->request->post['email']?$this->request->post['email']:'test@gmail.com';
 			$this->session->data['guest']['telephone'] = $this->request->post['telephone'];
 			$this->session->data['guest']['social_contact'] = $this->request->post['social_contact'];
 
@@ -257,6 +263,7 @@ class ControllerCheckoutGuest extends Controller {
 			$this->session->data['payment_address']['firstname'] = $this->request->post['firstname'];
 			$this->session->data['payment_address']['lastname'] = $this->request->post['lastname'];
 			$this->session->data['payment_address']['company'] = $this->request->post['company'];
+			$this->session->data['payment_address']['note'] = $this->request->post['note'];
 			$this->session->data['payment_address']['address_1'] = $this->request->post['address_1'];
 			$this->session->data['payment_address']['address_2'] = $this->request->post['address_2'];
 			$this->session->data['payment_address']['postcode'] = $this->request->post['postcode'];
@@ -308,6 +315,7 @@ class ControllerCheckoutGuest extends Controller {
 				$this->session->data['shipping_address']['firstname'] = $this->request->post['firstname'];
 				$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];
 				$this->session->data['shipping_address']['company'] = $this->request->post['company'];
+				$this->session->data['shipping_address']['note'] = $this->request->post['note'];
 				$this->session->data['shipping_address']['address_1'] = $this->request->post['address_1'];
 				$this->session->data['shipping_address']['address_2'] = $this->request->post['address_2'];
 				$this->session->data['shipping_address']['postcode'] = $this->request->post['postcode'];

@@ -5,26 +5,25 @@
 
 </section>
 <!-- End breadcrumb -->
-
+<div class="bodytext" style="display: none;">
+    <div id="modal_container">
+        <div id="modal_inside">
+            <div class="model_content">
+                <div class="header-title">Product has been added to your cart</div>
+                <div class="btn-wrap">
+                    <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
+                    <a href="{{ checkout }}" class="checkout-btn">checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div style="_display: none;" id="product-product">
     <!--<ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul> -->
-    <div class="bodytext" style="display: none;">
-        <div id="modal_container">
-            <div id="modal_inside">
-                <div class="model_content">
-                    <div class="header-title">Product has been added to your cart</div>
-                    <div class="btn-wrap">
-                        <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
-                        <a href="{{ checkout }}" class="checkout-btn">checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="addcart-success"></div>
         <div class="row">
@@ -38,7 +37,7 @@
                             <div class="col-lg-6">
                                 {% if thumb or images %}
                                 <div class="col-md-12 product-image-wrap">
-                                    <div class="piczoomer">
+                                    <div class="piczoomer___">
                                         <div class="product--variation-field--variation_field_image__60 field field-field-image field-type-image field-label-hidden field-items">
                                             {% if thumb or images %} {% if thumb %}
                                             <div class="field-item"> <img src="{{ popup }}" width="1500" height="1500" title="{{ heading_title }}" alt="{{ heading_title }}" typeof="foaf:Image" />
@@ -64,6 +63,7 @@
                                 {% endif %}
 
                                   <!--- Start content -->
+                                 {% if products %}
                                 <div class="col-md-12 main-content">
                                  <h3>{{ text_related }}</h3>
                                     <div class="region region-content">
@@ -205,6 +205,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %}
                                 <!---End content -->
 
                                 <div class="col-sm-12 col-lg-12 wrapper_descripton_product_detail">
@@ -990,16 +991,17 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $(".bodytext").hide();
-            $("#close").click(function() {
-                $(".bodytext").hide();
-            });
-            $(".btnShow").click(function() {
-                $(".bodytext").show();
-            });
-        });
         <!--
+        $(".bodytext").hide();        
+        $("#modal_container").removeClass("modal_container_class");
+        $("#close").click(function() {
+            $("#modal_container").removeClass("modal_container_class");
+            $(".bodytext").hide();
+        });
+        $(".btnShow").click(function() {
+            $("#modal_container").addClass("modal_container_class");
+            $(".bodytext").show();
+        });
         $('select[name=\'recurring_id\'], input[name="quantity"]').change(function() {
             $.ajax({
                 url: 'index.php?route=product/product/getRecurringDescription',
@@ -1019,7 +1021,7 @@
                 }
             });
         });
-        //-->
+        -->
     </script>
     <script type="text/javascript">
         <!--

@@ -10,7 +10,7 @@ $_['decimal_point']         = '.';
 $_['thousand_point']        = ',';
 
 // Text
-$_['text_call_to_order']             = '<strong class="text-sm">CALL TO ORDER</strong>';
+$_['text_call_to_order']             = '<strong class="text-sm">ខលទិញ</strong>';
 $_['text_home']             = '<i class="cat-icon ti-home"></i>';
 $_['text_yes']              = 'Yes';
 $_['text_no']               = 'No';
@@ -20,15 +20,15 @@ $_['text_all_zones']        = 'All Zones';
 $_['text_pagination']       = 'Showing %d to %d of %d (%d Pages)';
 $_['text_loading']          = 'Loading...';
 $_['text_no_results']       = 'No results!';
-$_['text_free_shipping']       = 'Free Shipping';
-$_['text_30_day_return']       = '30 Days Return';
+$_['text_free_shipping']       = 'ដឹកជញ្ជូនឥតគិតថ្លៃ';
+$_['text_30_day_return']       = '7ថ្ងៃមិនពេញចិត្ត';
 $_['text_24_support']       = '24/7 Support';
-$_['text_lowest_price']       = 'Lowest Price';
+$_['text_lowest_price']       = 'តម្លៃទាបបំផុត';
 
-$_['text_sub_title_free_shipping']       = 'For Order Above $50';
-$_['text_sub_title_30_day_return']       = 'Get Money Back';
+$_['text_sub_title_free_shipping']       = 'រាល់ការទិញលើស$50';
+$_['text_sub_title_30_day_return']       = 'ប្ដូរយកប្រាក់វិញ';
 $_['text_sub_title_24_support']       = 'Online 24 Hours';
-$_['text_sub_title_lowest_price']       = 'Best Deals';
+$_['text_sub_title_lowest_price']       = 'ទំនាក់ទំនងល្អ';
 
 $_['text_count_down_timer']       = 'Count Down Timer';
 $_['text_regular_time']       = 'We ship as late as 14:00 (Mon-Sat) regular time.';

@@ -255,7 +255,43 @@ tbody tr td {
     display: none;
 }
 
+.cart-table table thead {
+    text-transform: capitalize !important;
+    background: #cfbd25 !important;
+}
+
+.cart-table .table-bordered td,
+.cart-table .table-bordered th {
+    border: 0px solid #dee2e6;
+}
+
+.cart-table.table td,
+.cart-table.table th {
+    border-left: 0px solid #dee2e6;
+}
+
 @media (max-width:768px) {
+    /* #modal_inside {
+        min-width: 100%;
+    } */
+    .cart-table table tr>td {
+        font: bold 10px "PT Sans";
+        color: #333;
+        padding: 10px;
+        margin: 0px;
+    }
+    .cart-table .table-bordered td,
+    .cart-table .table-bordered th {
+        border: 0px solid #dee2e6;
+    }
+    .cart-table.table td,
+    .cart-table.table th {
+        border-left: 0px solid #dee2e6;
+    }
+    img.img-thumbnail_ {
+        max-height: 85px;
+        max-width: 100px;
+    }
     .display_web {
         display: none;
     }
@@ -640,18 +676,7 @@ h2.timer {
 /* Click
 popup modal option select */
 
-.bodytext {
-    position: relative;
-    z-index: 999;
-    overflow: hidden;
-}
-
-.bodytext_ {
-    position: relative;
-    overflow: hidden;
-}
-
-#modal_container {
+.modal_container_class {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -659,17 +684,17 @@ popup modal option select */
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(102, 95, 95, 0.4);
+    z-index: 99999;
 }
 
 #modal_inside {
-    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    text-align: left;
+    text-align: center;
 }
 
 #modal_inside .header-title {
@@ -681,14 +706,15 @@ popup modal option select */
     border-bottom: 1px solid #ccc;
 }
 
-#modal_inside .header-title_ {
+
+/* #modal_inside .header-title_ {
     display: block;
     font: normal 18px "Arial";
     color: #333;
     padding: 15px 0;
     margin: 0 15px;
     text-align: center;
-}
+} */
 
 #modal_inside.btn-wrap {
     position: relative;
@@ -696,21 +722,7 @@ popup modal option select */
 }
 
 #modal_inside .btn-wrap .continue-btn {
-    /* width: 180px; */
-    /* height: 40px; */
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    /* font: bold 14px/40px "Arial"; */
-    color: #fff;
-    background: #03c;
-    /* margin: 24px 15px; */
-    margin: 10px;
-}
-
-#modal_inside .btn-wrap .continue-btn {
-    width: 180px;
+    width: 150px;
     height: 40px;
     display: inline-block;
     text-align: center;
@@ -720,10 +732,12 @@ popup modal option select */
     color: #fff;
     background: #03c;
     margin: 24px 15px;
+    text-transform: capitalize;
+    min-width: 40%;
 }
 
 #modal_inside .btn-wrap .checkout-btn {
-    width: 180px;
+    width: 150px;
     height: 40px;
     display: inline-block;
     text-align: center;
@@ -733,6 +747,8 @@ popup modal option select */
     color: #fff;
     background: #090;
     margin: 24px 15px;
+    text-transform: capitalize;
+    min-width: 40%;
 }
 
 

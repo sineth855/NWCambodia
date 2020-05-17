@@ -47,6 +47,33 @@
 
 </head>
 
+<div class="userRegisterPopUp" id="bodyheadertext_login" style="display: none;">
+    <div id="modal_containerPopUp">
+        <div id="modal_inside" class="wrapper-popup">
+            <div class="model_content" style="padding: 10px;">
+                <div class="header-title_">User Account</div>
+                 <div class="btn-wrap-user-close">
+                    <a href="javascript:void(0);" id="close_" class="js-modal-close continue-btn close-fancy">X</a>
+                </div>
+                 <div class="mobile-register text-center">
+                    {% if logged == null %}
+                    <div>
+                        <span><a href="{{login}}" class="button promotion-button"><i class="ti-user"></i> &nbsp; Login</a></span>
+                        <span><a href="{{register}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Register</a></span>
+                    </div>
+                    {% else %}
+                    <div>
+                        <span><a href="#" class="button promotion-button"><i class="ti-user"></i> &nbsp; {{lastname}} {{firstname}}</a></span>
+                        <span><a href="{{logout}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Logout</a></span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <nav id="top" style="display: none">
     <div class="container">{{ currency }} {{ language }}
         <div id="top-links" class="nav pull-right">
@@ -227,10 +254,9 @@
                             </div>
                             <div class="pull-left line-lang"></div>
                             <div class="pull-left">
-                               <span class="btnShow_" style="color:#fef200;width:25px;"><i class="ti-user"></i></span>
-                                <!--<a href="{{contact}}">
-                                    <img width="25px" src="catalog/view/theme/default/image/location-icon.png" />
-                                </a>-->
+                               <div id="buttonRegisterPopUp" style="color:#fef200;width:25px;">                                
+                                <img width="25px" src="catalog/view/theme/default/image/user.png" />
+                               </div>
                             </div>
                         </div>
                         <div class="pull-left border-line"></div>
@@ -258,7 +284,8 @@
                                 <div id="block-call-to-order" class="norm-width block-title-1 block-title-left block block-block-content block-block-contentee24b9ac-7075-4cae-9e55-6e293b996fcc">
                                     <div class="container-wrap clearfix">
                                         <div class="block-content clearfix">
-                                            <div class="field field-body field-type-text-with-summary field-label-hidden field-item">{{text_call_to_order}}
+                                            <div class="field field-body field-type-text-with-summary field-label-hidden field-item">
+                                                {{text_call_to_order}}
                                                 <h4>{{telephone}}</h4>
                                             </div>
                                         </div>
@@ -348,14 +375,3 @@
 </header>
 <!-- Header End -->
 
-<script>
-    $(document).ready(function() {
-        $(".bodytext_").hide();
-        $("#close_").click(function() {
-            $(".bodytext_").hide();
-        });
-        $(".btnShow_").click(function() {
-            $(".bodytext_").show();
-        });
-    });
-</script>

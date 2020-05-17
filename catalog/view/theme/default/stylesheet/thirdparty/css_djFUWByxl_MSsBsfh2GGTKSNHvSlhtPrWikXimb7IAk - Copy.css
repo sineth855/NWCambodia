@@ -339,11 +339,11 @@ progress {
 
 [type=search] {
     outline-offset: -2px;
-    /* -webkit-appearance: none */
+    -webkit-appearance: none
 }
 
 [type=search]::-webkit-search-decoration {
-    /* -webkit-appearance: none */
+    -webkit-appearance: none
 }
 
 ::-webkit-file-upload-button {
@@ -1609,9 +1609,8 @@ pre code {
 .table td,
 .table th {
     padding: .75rem;
-    vertical-align: middle;
-    border-top: 1px solid #dee2e6;
-    border-left: 1px solid #dee2e6;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6
 }
 
 .table thead th {
@@ -3976,9 +3975,9 @@ input[type=submit].btn-block {
     background-color: #fff;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    /* -webkit-appearance: none; */
-    /* -moz-appearance: none; */
-    /* appearance: none */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
 }
 
 .custom-select:focus {
@@ -4096,9 +4095,9 @@ input[type=submit].btn-block {
     height: calc(1rem + .4rem);
     padding: 0;
     background-color: transparent;
-    /* -webkit-appearance: none; */
-    /* -moz-appearance: none; */
-    /* appearance: none */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
 }
 
 .custom-range:focus {
@@ -4129,8 +4128,8 @@ input[type=submit].btn-block {
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    /* -webkit-appearance: none; */
-    /* appearance: none */
+    -webkit-appearance: none;
+    appearance: none
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -4160,8 +4159,8 @@ input[type=submit].btn-block {
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    /* -moz-appearance: none; */
-    /* appearance: none */
+    -moz-appearance: none;
+    appearance: none
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -4194,7 +4193,7 @@ input[type=submit].btn-block {
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    /* appearance: none */
+    appearance: none
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -5616,8 +5615,8 @@ a.badge-dark:focus {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #f3de2b;
-    border-color: #f3de2b;
+    background-color: #007bff;
+    border-color: #007bff
 }
 
 .list-group-horizontal {
@@ -5910,9 +5909,9 @@ button.close {
     padding: 0;
     background-color: transparent;
     border: 0;
-    /* -webkit-appearance: none; */
-    /* -moz-appearance: none; */
-    /* appearance: none */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
 }
 
 a.close.disabled {
@@ -15624,15 +15623,11 @@ a:visited {
     outline: none;
 }
 
-.display-none {
-    display: none;
-}
-
 ol,
 ul {
     padding: 0;
     margin-bottom: 0;
-    /* list-style-position: inside; */
+    list-style-position: inside;
 }
 
 .clearfix {
@@ -15877,7 +15872,7 @@ ul {
 #page-title {
     padding: 15px 0;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     position: relative;
     border-bottom: 1px solid rgba(0, 0, 0, 0.02);
 }
@@ -15887,7 +15882,7 @@ ul {
 }
 
 #page-title h1 {
-    font-size: 16px;
+    font-size: 20px;
     display: block;
     margin-bottom: 0;
 }
@@ -15940,7 +15935,7 @@ ul {
 }
 
 .breadcrumb a {
-    color: #5d5b5b;
+    color: #aaaaaa;
 }
 
 .breadcrumb ul li:after {
@@ -16460,7 +16455,7 @@ input[type="submit"] {
 
 .button+.button,
 .btn+.btn {
-    /* margin-left: 10px; */
+    margin-left: 10px;
 }
 
 .btn:hover,
@@ -18671,7 +18666,7 @@ ul.links.inline li {
 
 .post-image img,
 .post-thumb img {
-    /* width: auto; */
+    width: 100%;
     height: auto;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -19297,7 +19292,7 @@ td.subtotal-title {
 }
 
 .cart--cart-block img {
-    width: 32px;
+    width: 60px;
 }
 
 .cart--cart-block table,
@@ -19526,7 +19521,7 @@ table .views-field-remove-button .button {
 
 .commerce-order-item-add-to-cart-form input[type=number]::-webkit-inner-spin-button,
 .commerce-order-item-add-to-cart-form input[type=number]::-webkit-outer-spin-button {
-    /* -webkit-appearance: none; */
+    -webkit-appearance: none;
     margin: 0;
 }
 
@@ -19943,7 +19938,7 @@ fieldset {
 }
 
 .product-teaser .product-ratings {
-    height: 20px;
+    margin-bottom: 3px;
 }
 
 .product-teaser {
@@ -20634,16 +20629,8 @@ fieldset {
     left: 10px;
 }
 
-.product-badge .badge-label-discount {
-    font-size: 12px;
-    text-align: center;
-    color: #ffffff;
-    line-height: 35px;
-    text-transform: uppercase;
-}
-
 .product-badge .badge-label {
-    font-size: 12px;
+    font-size: 8px;
     text-align: center;
     display: block;
     color: #ffffff;
@@ -20655,11 +20642,6 @@ fieldset {
 
 .product-badge .badge-new {
     background-color: #53d542;
-}
-
-.product-badge .badge-discount {
-    position: absolute;
-    left: 30%;
 }
 
 .product-badge .badge-sale {
@@ -23363,8 +23345,7 @@ input[type="submit"],
     .mega-menu>ul>li>a {
         padding: 0 25px 0 0;
         line-height: 50px;
-        font-weight: normal;
-        text-transform: uppercase;
+        font-weight: 600;
     }
     .mega-menu>ul>li:last-child a {
         padding-right: 0;
@@ -23823,7 +23804,7 @@ input[type="submit"],
         padding: 10px;
         width: 100%;
         display: block;
-        color: #cec6c6 !important;
+        color: #333333 !important;
     }
     .mega-menu>ul>li>ul {
         position: relative;
@@ -23858,11 +23839,11 @@ input[type="submit"],
     }
     .primary-menu,
     .primary-menu .main-menu {
-        position: relative;
+        position: static;
     }
     .primary-menu {
-        background-color: #202020 !important;
-        /* margin-top: 20px; */
+        background-color: #ffffff !important;
+        margin-top: 20px;
     }
     .primary-menu .main-menu {
         padding: 15px 0;
@@ -23912,7 +23893,7 @@ input[type="submit"],
     }
     .views-exposed-form .form-item,
     .views-exposed-form .form-actions {
-        display: inline-block;
+        display: block;
         margin-bottom: 10px;
     }
     .blog_list .post-content-wrap {
@@ -23967,7 +23948,7 @@ input[type="submit"],
         padding-left: 0;
     }
     .brand.logo {
-        max-width: 120px;
+        max-width: 90px;
         line-height: 55px;
     }
     .icon-element .header-icon {
@@ -24366,7 +24347,6 @@ input[type="submit"],
 [type="radio"]:checked+label:after,
 [type="checkbox"]:checked+label:after {
     background-color: #f3de2b;
-    color: black;
 }
 
 .btn-primary,

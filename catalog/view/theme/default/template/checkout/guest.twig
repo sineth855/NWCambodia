@@ -45,17 +45,21 @@
           <input type="radio" name="social_contact" value="Telegram"/>
         <label>
       </div>
-      <div class="form-group required">
+      <div class="form-group">
         <label class="control-label" for="input-payment-email">{{ entry_email }}</label>
         <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-payment-email" class="form-text" size="60" />
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="control-label" for="input-payment-company">{{ entry_company }}</label>
         <input type="text" name="company" value="{{ company }}" placeholder="{{ entry_company }}" id="input-payment-company" class="form-text" size="60" />
-      </div>
+      </div> -->
       <div class="form-group required">
         <label class="control-label" for="input-payment-address-1">{{ entry_address_1 }}</label>
         <input type="text" name="address_1" value="{{ address_1 }}" placeholder="{{ entry_address_1 }}" id="input-payment-address-1" class="form-text" size="60" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="input-payment-note">{{ entry_note }}</label>
+        <input type="text" name="note" value="{{ note }}" placeholder="{{ entry_note }}" id="input-payment-note" class="form-text" size="60" />
       </div>
       {% for custom_field in custom_fields %}
       {% if custom_field.location == 'account' %}

@@ -15624,15 +15624,11 @@ a:visited {
     outline: none;
 }
 
-.display-none {
-    display: none;
-}
-
 ol,
 ul {
     padding: 0;
     margin-bottom: 0;
-    /* list-style-position: inside; */
+    list-style-position: inside;
 }
 
 .clearfix {
@@ -18671,7 +18667,7 @@ ul.links.inline li {
 
 .post-image img,
 .post-thumb img {
-    /* width: auto; */
+    width: 100%;
     height: auto;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -19297,7 +19293,7 @@ td.subtotal-title {
 }
 
 .cart--cart-block img {
-    width: 32px;
+    width: 60px;
 }
 
 .cart--cart-block table,
@@ -19943,7 +19939,7 @@ fieldset {
 }
 
 .product-teaser .product-ratings {
-    height: 20px;
+    margin-bottom: 3px;
 }
 
 .product-teaser {
@@ -20634,16 +20630,8 @@ fieldset {
     left: 10px;
 }
 
-.product-badge .badge-label-discount {
-    font-size: 12px;
-    text-align: center;
-    color: #ffffff;
-    line-height: 35px;
-    text-transform: uppercase;
-}
-
 .product-badge .badge-label {
-    font-size: 12px;
+    font-size: 8px;
     text-align: center;
     display: block;
     color: #ffffff;
@@ -20655,11 +20643,6 @@ fieldset {
 
 .product-badge .badge-new {
     background-color: #53d542;
-}
-
-.product-badge .badge-discount {
-    position: absolute;
-    left: 30%;
 }
 
 .product-badge .badge-sale {
@@ -23858,7 +23841,7 @@ input[type="submit"],
     }
     .primary-menu,
     .primary-menu .main-menu {
-        position: relative;
+        position: static;
     }
     .primary-menu {
         background-color: #202020 !important;
@@ -23912,7 +23895,7 @@ input[type="submit"],
     }
     .views-exposed-form .form-item,
     .views-exposed-form .form-actions {
-        display: inline-block;
+        display: block;
         margin-bottom: 10px;
     }
     .blog_list .post-content-wrap {
@@ -23967,7 +23950,7 @@ input[type="submit"],
         padding-left: 0;
     }
     .brand.logo {
-        max-width: 120px;
+        max-width: 90px;
         line-height: 55px;
     }
     .icon-element .header-icon {
@@ -24366,7 +24349,6 @@ input[type="submit"],
 [type="radio"]:checked+label:after,
 [type="checkbox"]:checked+label:after {
     background-color: #f3de2b;
-    color: black;
 }
 
 .btn-primary,
