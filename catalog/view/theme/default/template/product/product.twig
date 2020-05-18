@@ -305,7 +305,8 @@
                                         {% if reward %}
                                         <li>{{ text_reward }} {{ reward }}</li>
                                         {% endif %}
-                                        <li>{{ text_stock }} {{ stock }}</li>
+                                        <!-- <li>{{ text_stock }} {{ stock }}</li> -->
+                                        <li>{{ text_stock }} <img src="{{stock}}" width="100px"/></li>
                                     </ul>
 
                                     {% if date_end %}
@@ -320,13 +321,13 @@
                                             {% if not special %}
                                             <br />
                                             <li>
-                                                <h2>{{ price }} {{priceOriginal}}</h2>
+                                                <h2 class="price_red">{{ price }} {{priceOriginal}}</h2>
                                             </li>
                                             {% else %}
                                                 <br />
                                                 <li><span style="text-decoration: line-through;">{{ price }}</span></li>
                                                 <li>
-                                                    <h2>{{ special }}</h2>
+                                                    <h2 class="price_red">{{ special }}</h2>
                                                 </li>
                                                 <br /> 
                                             {% endif %}
@@ -363,7 +364,7 @@
                                                 <br />
                                                 <li><span style="text-decoration: line-through;">{{ price }}</span></li>
                                                 <li>
-                                                    <h2>{{ special }}</h2>
+                                                    <h2 class="price_red">{{ special }}</h2>
                                                 </li>
                                                 <br /> 
                                             {% endif %}
