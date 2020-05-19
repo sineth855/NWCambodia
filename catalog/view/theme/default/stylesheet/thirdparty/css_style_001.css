@@ -19964,7 +19964,7 @@ fieldset {
     right: 0;
     top: 0;
     bottom: 0;
-    margin-bottom: -53px;
+    /* s */
     visibility: hidden;
     opacity: 0;
     background-color: #ffffff;
