@@ -1234,7 +1234,18 @@ class ControllerCatalogProduct extends Controller {
 				);
 			}
 		}
-
+		// get product size
+		if(isset($this->request->post['product_size'])){
+			$productSize = $this->request->post["product_size"];
+			$productSizeArray = array();
+			for($j = 0; $j < sizeof($productSize); $j++){
+				$productSizeArray[] = array(
+					"test" => $productSize[$j]
+				);
+			}
+			print_r($productSizeArray);
+		}
+		// return false;
 		// product addon
 		if (isset($this->request->post['product_addon'])) {
 			$products = $this->request->post['product_addon'];

@@ -25,9 +25,9 @@
       <div class="panel-body">
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+            <li><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
             <li><a href="#tab-data" data-toggle="tab">{{ tab_data }}</a></li>
-            <li><a href="#tab-links" data-toggle="tab">{{ tab_links }}</a></li>
+            <li class="active"><a href="#tab-links" data-toggle="tab">{{ tab_links }}</a></li>
             <li><a href="#tab-attribute" data-toggle="tab">{{ tab_attribute }}</a></li>
             <li><a href="#tab-option" data-toggle="tab">{{ tab_option }}</a></li>
             <li><a href="#tab-recurring" data-toggle="tab">{{ tab_recurring }}</a></li>
@@ -39,7 +39,7 @@
             <li><a href="#tab-design" data-toggle="tab">{{ tab_design }}</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="tab-general">
+            <div class="tab-pane" id="tab-general">
               <ul class="nav nav-tabs" id="language">
                 {% for language in languages %}
                   <li><a href="#language{{ language.language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}"/> {{ language.name }}</a></li>
@@ -242,7 +242,7 @@
                 <label class="col-sm-2 control-label">{{ entry_shipping }}</label>
                 <div class="col-sm-10">
                   <label class="radio-inline"> {% if shipping %}
-                      <input type="radio" name="shipping" value="1"/>
+                      <input type="radio" name="shipping" value="1" checked="checked"/>
                       {{ text_yes }}
                     {% else %}
                       <input type="radio" name="shipping" value="1"/>
@@ -251,7 +251,7 @@
                       <input type="radio" name="shipping" value="0" checked="checked"/>
                       {{ text_no }}
                     {% else %}
-                      <input type="radio" name="shipping" value="0" checked="checked"/>
+                      <input type="radio" name="shipping" value="0"/>
                       {{ text_no }}
                     {% endif %} </label>
                 </div>
@@ -384,7 +384,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab-links">
+            <div class="tab-pane active" id="tab-links">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="{{ help_manufacturer }}">{{ entry_manufacturer }}</span></label>
                 <div class="col-sm-10">
@@ -451,18 +451,61 @@
                     {% endfor %}</div>
                 </div>
               </div>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>
-                <div class="col-sm-10">
-                  <input type="text" name="addon" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>
-                  <div id="product-addon" class="well well-sm" style="height: 150px; overflow: auto;"> 
-                    {% for product_addon in product_addons %}
-                      <div id="product-addon{{ product_addon.product_id }}"><i class="fa fa-minus-circle"></i> {{ product_addon.name }}
-                        <input type="hidden" name="product_addon[]" value="{{ product_addon.product_id }}"/>
+              
+              <div class="well well-sm">
+                <div class="product-size-row">
+                  <div class="form-group">
+                    <p>
+                      <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>
+                      <div class="col-sm-4">
+                        <input type="text" name="product_size[]" value="" placeholder="" id="input-addon" class="form-control"/>
                       </div>
-                    {% endfor %}</div>
+                      <div class="col-sm-2">
+                        <input type="text" name="product_size_price[]" class="form-control"/>
+                      </div>
+                      <br/>
+                      <div class="clearfix"></div>
+                    </p>
+
+                    <label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>
+                    <div class="col-sm-10">
+                      <input type="text" name="addon[]" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>
+                      <div id="product-addon" class="well well-sm" style="height: 150px; overflow: auto;"> 
+                        {% for product_addon in product_addons %}
+                          <div id="product-addon{{ product_addon.product_id }}"><i class="fa fa-minus-circle"></i> {{ product_addon.name }}
+                            <input type="hidden" name="product_addon[]" value="{{ product_addon.product_id }}"/>
+                          </div>
+                        {% endfor %}</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <p>
+                      <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>
+                      <div class="col-sm-4">
+                        <input type="text" name="product_size[]" value="" placeholder="" id="input-addon" class="form-control"/>
+                      </div>
+                      <div class="col-sm-2">
+                        <input type="text" name="product_size_price[]" class="form-control"/>
+                      </div>
+                      <br/>
+                      <div class="clearfix"></div>
+                    </p>
+                    
+                    <label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>
+                    <div class="col-sm-10">
+                      <input type="text" name="addon" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>
+                      <div id="product-addon" class="well well-sm" style="height: 150px; overflow: auto;"> 
+                        {% for product_addon in product_addons %}
+                          <div id="product-addon{{ product_addon.product_id }}"><i class="fa fa-minus-circle"></i> {{ product_addon.name }}
+                            <input type="hidden" name="product_addon[]" value="{{ product_addon.product_id }}"/>
+                          </div>
+                        {% endfor %}</div>
+                    </div>
+                  </div>
                 </div>
+                <button type="button" onclick="addProductSize();" data-toggle="tooltip" title="Add Product Size" class="pull-right btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                <div class="clearfix"></div>
               </div>
 
             </div>
@@ -1358,6 +1401,7 @@
   $('#product-addon').delegate('.fa-minus-circle', 'click', function() {
 	  $(this).parent().remove();
   });
+
   //--></script>
   <script type="text/javascript"><!--
   var attribute_row = {{ attribute_row }};
@@ -1379,6 +1423,10 @@
 
 	  attribute_row++;
   }
+
+  $('#attribute tbody tr').each(function(index, element) {
+	  attributeautocomplete(index);
+  });
 
   function attributeautocomplete(attribute_row) {
 	  $('input[name=\'product_attribute[' + attribute_row + '][name]\']').autocomplete({
@@ -1404,9 +1452,64 @@
 	  });
   }
 
-  $('#attribute tbody tr').each(function(index, element) {
-	  attributeautocomplete(index);
-  });
+  function addProductSize() {
+    var html = '';
+    html += '<div class="form-group">';
+      html += '<p>';
+        html += '<label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>';
+        html += '<div class="col-sm-4">';
+          html += '<input type="text" name="product_size[]" value="" placeholder="" id="input-addon" class="form-control"/>';
+        html += '</div>';
+        html += '<div class="col-sm-2">';
+          html += '<input type="text" name="product_size_price[]" class="form-control"/>';
+        html += '</div>';
+        html += '<br/>'
+        html += '<div class="clearfix"></div>';
+      html += '</p>';
+      html += '<label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>';
+      html += '<div class="col-sm-10">';
+        html += '<input type="text" name="addon" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>';
+        html += '<div id="product-addon'+attribute_row+'" class="well well-sm" style="height: 150px; overflow: auto;"></div>';
+      html += '</div>';
+    html += '</div>';
+
+	  $('.product-size-row').append(html);
+
+	  productSizeAutocomplete(attribute_row);
+
+	  attribute_row++;
+  }
+
+  function productSizeAutocomplete(attribute_row) {
+	  $('input[name=\'addon\']').autocomplete({
+      'source': function(request, response) {
+        $.ajax({
+          url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+          dataType: 'json',
+          success: function(json) {
+            response($.map(json, function(item) {
+              return {
+                label: item['name'],
+                value: item['product_id']
+              }
+            }));
+          }
+        });
+      },
+      'select': function(item) {
+        $('input[name=\'addon\']').val('');
+
+        $('#product-addon'+attribute_row+'' + item['value']).remove();
+
+        $('#product-addon'+attribute_row+'').append('<div id="product-addon'+attribute_row+'' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_addon['+attribute_row+']" value="' + item['value'] + '" /></div>');
+      }
+    });
+
+    $('#product-addon'+attribute_row+'').delegate('.fa-minus-circle', 'click', function() {
+      $(this).parent().remove();
+    });
+  }
+
   //--></script>
   <script type="text/javascript"><!--
   var option_row = {{ option_row }};

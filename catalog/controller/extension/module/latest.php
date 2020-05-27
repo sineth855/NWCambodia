@@ -67,6 +67,7 @@ class ControllerExtensionModuleLatest extends Controller {
 					'special'     => $special,
 					'special_discount' => $result['special_discount'] ? $result['special_discount']:false,
 					'date_start'     => $result['date_start'],
+					'date_expired'	=> $result['date_expired'],
 					'date_end'     => date_format(date_create($result['date_end']), "M d, Y H:i:s"),
 					'tax'         => $tax,
 					'rating'      => $rating,

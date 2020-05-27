@@ -197,6 +197,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 				"sort_order" => 1
 			);
 			$comment = "";
+			
 			if (!$json) {
 				$this->session->data['payment_method'] = $paymentMethod;
 
