@@ -270,7 +270,14 @@ tbody tr td {
     border-left: 0px solid #dee2e6;
 }
 
+h2.price_red {
+    color: red;
+}
+
 @media (max-width:768px) {
+    #modal_inside {
+        width: 99%;
+    }
     /* #modal_inside {
         min-width: 100%;
     } */
@@ -730,7 +737,7 @@ popup modal option select */
     text-decoration: none;
     font: normal 14px/40px "PT Sans";
     color: #fff;
-    background: #03c;
+    background: #2d2d2b;
     margin: 24px 15px;
     text-transform: capitalize;
     min-width: 40%;
@@ -745,7 +752,7 @@ popup modal option select */
     text-decoration: none;
     font: normal 14px/40px "PT Sans";
     color: #fff;
-    background: #090;
+    background: #2d2d2b;
     margin: 24px 15px;
     text-transform: capitalize;
     min-width: 40%;

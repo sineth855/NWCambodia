@@ -194,6 +194,20 @@
     }
 }
 
+@media (max-width:768px) {
+    #right {
+        background-image: url('https://nwcambodia.com/demo/catalog/view/theme/default/image/SmallOrangeBg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        padding-top: 0px;
+        padding-bottom: 5%;
+        background-color: #f2dd2a;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     #fsp_container {
         background-image: none;
@@ -211,17 +225,6 @@
         font-size: 1em;
         padding-left: 0px;
         width: 100%;
-    }
-    #right {
-        background-image: url('../../image/SmallOrangeBg.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        padding-top: 0px;
-        padding-bottom: 5%;
-        background-color: red;
     }
     #left {
         margin-left: 0px;

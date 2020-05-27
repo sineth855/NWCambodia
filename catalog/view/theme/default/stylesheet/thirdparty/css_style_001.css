@@ -16835,7 +16835,7 @@ ul.links.inline li {
 .mega-menu>ul>li>ul {
     display: none;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: #19212e;
     padding: 20px;
     position: absolute;
     z-index: 99;
@@ -16905,6 +16905,7 @@ ul.links.inline li {
 .mega-menu>ul>li>ul.normal-sub>li a {
     border: 0;
     padding: 10px 15px 10px 20px;
+    color: #fdf200 !important;
 }
 
 .mega-menu>ul>li>ul>li>ul>li>ul {
@@ -19963,7 +19964,7 @@ fieldset {
     right: 0;
     top: 0;
     bottom: 0;
-    margin-bottom: -53px;
+    /* s */
     visibility: hidden;
     opacity: 0;
     background-color: #ffffff;

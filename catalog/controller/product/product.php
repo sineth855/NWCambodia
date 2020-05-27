@@ -258,11 +258,11 @@ class ControllerProductProduct extends Controller {
 			// }
 
 			if ((int)$product_info['quantity'] <= 0) {
-				$data['stock'] = "Out of Stock";
+				$data['stock'] = "./catalog/view/theme/default/image/out_stock.png";
 			} elseif ((int)$product_info['quantity'] <= 5) {
-				$data['stock'] = "Low stock";
+				$data['stock'] = "./catalog/view/theme/default/image/low_stock.png";
 			} else {
-				$data['stock'] = $this->language->get('text_instock');
+				$data['stock'] = "./catalog/view/theme/default/image/in_stock.png";
 			}
 
 			$this->load->model('tool/image');
