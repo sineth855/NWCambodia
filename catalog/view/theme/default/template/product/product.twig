@@ -356,7 +356,7 @@
                                         {% endif %} 
                                     {% endif %}
                                     
-                                    {% if addonProducts == null %} 
+                                    {% if productSizes == null %} 
                                         {% if price %}
                                         <ul class="list-unstyled">
                                             {% if not special %}
@@ -401,7 +401,7 @@
                                 <div class="row_">
 
                                     <div id="product">
-                                        {% if addonProducts %} 
+                                        {% if productSizes %} 
                                             <h3>{{ text_option }}</h3>
                                         {% endif %} 
                                         {% if options %}
@@ -604,7 +604,7 @@
                                                 <div class="help-block" id="recurring-description"></div>
                                             </div>
                                             {% endif %} 
-                                            {% if options|length > 0 or addonProducts|length > 0 %} 
+                                            {% if options|length > 0 or productSizes|length > 0 %} 
                                             {% else %}
                                             <div class="form-group">
                                                 <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
@@ -730,8 +730,8 @@
 
                                         <!-- #####################Product Addon ############################# -->
                                         <div class="form-group menu_set_table">
-                                            {% if addonProducts %} 
-                                                {% for product in addonProducts %}
+                                            {% if productSizes %} 
+                                                {% for product in productSizes %}
                                                 <div class="row" style="padding: 20px 0;">
                                                     <div class="col-sm-5">
                                                         <img src="{{ product.thumb }}" alt="{{product.name}}" width="80px" />
@@ -740,7 +740,7 @@
                                                         <div style="font-size: 16px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">
                                                             <b>{{ product.name }}</b>
                                                         </div>
-                                                        <div style="font-size: 18px; color: red;" class="display-none">
+                                                        <div style="font-size: 18px; color: red;">
                                                             {% if product.price %}
                                                                 <p class="price product-price">
                                                                     {% if not product.special %} 
@@ -764,24 +764,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <table class="table" style="background-color: #e0e0e0;">
+                                                <table class="table addon-product" style="background-color: #e0e0e0;">
                                                     <tr>
                                                         <th>Flavor/Option</th>
-                                                        <th>Price</th>
                                                         <th>Availability</th>
+                                                        <th>Expiry</th>
                                                         <th></th>
                                                         <!-- <th>Action</th> -->
                                                     </tr>
-                                                    {% for addon in product['addonProductMores'] %}
+                                                    {% for addon in product['addonProducts'] %}
                                                     <tr>
                                                         <td style="font-size: 12px;">
                                                             {{ addon.name }}
-                                                        </td>
-
-                                                        <td>
-                                                            <div style="font-size: 14; color: red;">
+                                                            <small style="font-size: 14; color: red;">
                                                                 {% if addon.price %}
-                                                                    <p class="price product-price">
+                                                                    <span class="price product-price" style="display: none;">
                                                                         {% if not addon.special %} 
                                                                             <b>{{ addon.price }}</b>
                                                                         {% else %}
@@ -798,14 +795,16 @@
                                                                             </div>
                                                                         </span> 
                                                                         {% endif %}
-                                                                    </p>
+                                                                    </span>
                                                                 {% endif %}
-                                                            </div>
+                                                            </small>
                                                         </td>
                                                         
                                                         <td>
                                                             <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
                                                         </td>
+
+                                                        <td>{{addon.date_expired}}</td>
 
                                                         <td>
                                                             <button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.add('{{ addon.product_id }}', '{{ addon.minimum }}');" class="btnShow -button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>

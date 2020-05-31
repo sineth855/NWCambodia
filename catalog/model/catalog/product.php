@@ -414,13 +414,32 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 
-	public function getProductAddon($product_id) {
+	public function getProductSize($product_id) {
 		$product_data = array();
 
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_addon pr LEFT JOIN " . DB_PREFIX . "product p ON (pr.addon_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pr.product_id = '" . (int)$product_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
-
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_size WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order");
 		foreach ($query->rows as $result) {
-			$product_data[$result['addon_id']] = $this->getProduct($result['addon_id']);
+			// $product_data[$result['addon_id']] = $this->getProduct($result['addon_id']);
+			$product_data[] = array(
+				'id' => $result["id"],
+				'size_name' => $result["size_name"],
+				'price' => $result["price"],
+				'image' => $result["image"],
+				'sort_order' => $result["sort_order"]
+			);
+		}
+
+		return $product_data;
+	}
+
+	public function getProductAddon($product_size_id) {
+		$product_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_addon WHERE size_id = '" . (int)$product_size_id . "'");
+		foreach ($query->rows as $result) {
+			$product_data[] = array(
+				'addon_product_id' => $result["addon_product_id"]
+			);
 		}
 
 		return $product_data;

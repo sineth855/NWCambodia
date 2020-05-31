@@ -25,9 +25,9 @@
       <div class="panel-body">
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
           <ul class="nav nav-tabs">
-            <li><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+            <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
             <li><a href="#tab-data" data-toggle="tab">{{ tab_data }}</a></li>
-            <li class="active"><a href="#tab-links" data-toggle="tab">{{ tab_links }}</a></li>
+            <li><a href="#tab-links" data-toggle="tab">{{ tab_links }}</a></li>
             <li><a href="#tab-attribute" data-toggle="tab">{{ tab_attribute }}</a></li>
             <li><a href="#tab-option" data-toggle="tab">{{ tab_option }}</a></li>
             <li><a href="#tab-recurring" data-toggle="tab">{{ tab_recurring }}</a></li>
@@ -39,7 +39,7 @@
             <li><a href="#tab-design" data-toggle="tab">{{ tab_design }}</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane" id="tab-general">
+            <div class="tab-pane active" id="tab-general">
               <ul class="nav nav-tabs" id="language">
                 {% for language in languages %}
                   <li><a href="#language{{ language.language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}"/> {{ language.name }}</a></li>
@@ -384,7 +384,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane active" id="tab-links">
+            <div class="tab-pane" id="tab-links">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="{{ help_manufacturer }}">{{ entry_manufacturer }}</span></label>
                 <div class="col-sm-10">
@@ -452,57 +452,78 @@
                 </div>
               </div>
               
+              <label class="col-sm-2 control-label">Product Add On</label><br/><br/>
+              <div class="clearfix"></div>
               <div class="well well-sm">
                 <div class="product-size-row">
-                  <div class="form-group">
-                    <p>
-                      <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>
-                      <div class="col-sm-4">
-                        <input type="text" name="product_size[]" value="" placeholder="" id="input-addon" class="form-control"/>
-                      </div>
-                      <div class="col-sm-2">
-                        <input type="text" name="product_size_price[]" class="form-control"/>
-                      </div>
-                      <br/>
-                      <div class="clearfix"></div>
-                    </p>
+                  {% set attribute_addon_row = 0 %}
+                  {% for product_addon in product_addon_groups %}
+                    <div class="form-group" id="remove-addon{{attribute_addon_row}}">
+                      <p>
+                        <div class="col-sm-1">
+                          <a href="" id="thumb-image{{attribute_addon_row}}" data-toggle="image" class="-img-thumbnail"><img src="{{ product_addon.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a> 
+                          <input type="hidden" name="product_size[{{attribute_addon_row}}][image]" value="{{ product_addon.image }}" id="input-image{{attribute_addon_row}}"/>
+                        </div>
+                        <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>
+                        <div class="col-sm-4">
+                          <input type="text" name="product_size[{{attribute_addon_row}}][size]" value="{{ product_addon.size_name }}" placeholder="Group Size Name" id="input-addon" class="form-control"/>
+                        </div>
+                        <div class="col-sm-2">
+                          <input type="number" name="product_size[{{attribute_addon_row}}][price]" value="{{ product_addon.price }}" placeholder="Price" class="form-control"/>
+                        </div>
+                        <div class="col-sm-2">
+                          <input type="number" name="product_size[{{attribute_addon_row}}][sort_order]" value="{{ product_addon.sort_order }}" placeholder="Sort Order" class="form-control"/>
+                        </div>
+                        <br/>
+                        <div class="clearfix"></div>
+                      </p>
 
-                    <label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>
-                    <div class="col-sm-10">
-                      <input type="text" name="addon[]" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>
-                      <div id="product-addon" class="well well-sm" style="height: 150px; overflow: auto;"> 
-                        {% for product_addon in product_addons %}
-                          <div id="product-addon{{ product_addon.product_id }}"><i class="fa fa-minus-circle"></i> {{ product_addon.name }}
-                            <input type="hidden" name="product_addon[]" value="{{ product_addon.product_id }}"/>
-                          </div>
-                        {% endfor %}</div>
+                      <label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="addon{{attribute_addon_row}}" data-attributeid="{{attribute_addon_row}}" value="" placeholder="{{ entry_addon }}" id="input-addon" class="addon form-control"/>
+                        <div id="product-addon-list{{attribute_addon_row}}" class="well well-sm" style="height: 150px; overflow: auto;"> 
+                          {% for product_addon in product_addon['product_addons'] %}
+                            <div id="product-addon-{{attribute_addon_row}}-{{product_addon.product_id}}">
+                              <i class="fa fa-minus-circle"></i> {{product_addon.name}} 
+                              <input type="hidden" name="product_addon_size[{{attribute_addon_row}}][]" value="{{product_addon.product_id}}" /></div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <button type="button" onClick="initRemoveAddOn({{attribute_addon_row}});" class="pull-right btn btn-sm btn-danger"><i class="fa fa-wa fa-minus"></i></button>
+                      </div>
                     </div>
-                  </div>
+                    <script>
+                        // function productSizeAutocomplete() {
+                        $('input[name=\'addon{{attribute_addon_row}}\']').autocomplete({
+                          'source': function(request, response) {
+                            $.ajax({
+                              url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+                              dataType: 'json',
+                              success: function(json) {
+                                response($.map(json, function(item) {
+                                  return {
+                                    label: item['name'],
+                                    value: item['product_id']
+                                  }
+                                }));
+                              }
+                            });
+                          },
+                          'select': function(item) {
+                            //$('input[name=\'addon\''+attribute_addon_row+']').val('');
+                            // $('#product-addon-' + attribute_addon_row + '-' + item['value']).remove();
+                            $('#product-addon-list{{attribute_addon_row}}').append('<div id="product-addon-{{attribute_addon_row}}-' + item["value"] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_addon_size[{{attribute_addon_row}}][]" value="' + item['value'] + '" /></div>');
+                          }
+                        });
 
-                  <div class="form-group">
-                    <p>
-                      <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>
-                      <div class="col-sm-4">
-                        <input type="text" name="product_size[]" value="" placeholder="" id="input-addon" class="form-control"/>
-                      </div>
-                      <div class="col-sm-2">
-                        <input type="text" name="product_size_price[]" class="form-control"/>
-                      </div>
-                      <br/>
-                      <div class="clearfix"></div>
-                    </p>
-                    
-                    <label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>
-                    <div class="col-sm-10">
-                      <input type="text" name="addon" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>
-                      <div id="product-addon" class="well well-sm" style="height: 150px; overflow: auto;"> 
-                        {% for product_addon in product_addons %}
-                          <div id="product-addon{{ product_addon.product_id }}"><i class="fa fa-minus-circle"></i> {{ product_addon.name }}
-                            <input type="hidden" name="product_addon[]" value="{{ product_addon.product_id }}"/>
-                          </div>
-                        {% endfor %}</div>
-                    </div>
-                  </div>
+                        $('#product-addon-list{{attribute_addon_row}}').delegate('.fa-minus-circle', 'click', function() {
+                          $(this).parent().remove();
+                        }); 
+                          // }
+                    </script>
+                    {% set attribute_addon_row = attribute_addon_row + 1 %}
+                  {% endfor %}
                 </div>
                 <button type="button" onclick="addProductSize();" data-toggle="tooltip" title="Add Product Size" class="pull-right btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                 <div class="clearfix"></div>
@@ -1404,6 +1425,7 @@
 
   //--></script>
   <script type="text/javascript"><!--
+  
   var attribute_row = {{ attribute_row }};
 
   function addAttribute() {
@@ -1452,36 +1474,51 @@
 	  });
   }
 
+  var attribute_addon_row = {{ attribute_addon_row }};
   function addProductSize() {
     var html = '';
-    html += '<div class="form-group">';
+    html += '<div class="form-group" id="remove-addon'+attribute_addon_row+'">';
       html += '<p>';
+        html += '<div class="col-sm-1">';
+          html += '<a href="" id="thumb-image'+attribute_addon_row+'" data-toggle="image" class="-img-thumbnail"><img src="{{ thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a>';
+          html += '<input type="hidden" name="product_size['+attribute_addon_row+'][image]" value="" id="input-image"/>';
+          html += '</div>';
         html += '<label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>';
         html += '<div class="col-sm-4">';
-          html += '<input type="text" name="product_size[]" value="" placeholder="" id="input-addon" class="form-control"/>';
+          html += '<input type="text" name="product_size['+attribute_addon_row+'][size]" value="" placeholder="Group Size Name" id="input-addon" class="form-control"/>';
         html += '</div>';
         html += '<div class="col-sm-2">';
-          html += '<input type="text" name="product_size_price[]" class="form-control"/>';
+          html += '<input type="number" name="product_size['+attribute_addon_row+'][price]" placeholder="Price" class="form-control"/>';
         html += '</div>';
+        html += '<div class="col-sm-2">';
+          html += '<input type="number" name="product_size['+attribute_addon_row+'][sort_order]" placeholder="Sort Order" value="{{ product_addon.sort_order }}" class="form-control"/>';
+          html += '</div>';
         html += '<br/>'
         html += '<div class="clearfix"></div>';
       html += '</p>';
       html += '<label class="col-sm-2 control-label" for="input-addon"><span data-toggle="tooltip" title="{{ help_addon }}">{{ entry_addon }}</span></label>';
       html += '<div class="col-sm-10">';
-        html += '<input type="text" name="addon" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>';
-        html += '<div id="product-addon'+attribute_row+'" class="well well-sm" style="height: 150px; overflow: auto;"></div>';
+        html += '<input type="text" name="addon'+attribute_addon_row+'" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>';
+        html += '<div id="product-addon-list'+attribute_addon_row+'" class="well well-sm" style="height: 150px; overflow: auto;"></div>';
+      html += '</div>';
+      html += '<div class="col-sm-12">';
+        html += '<button type="button" onClick="initRemoveAddOn('+attribute_addon_row+');" class="pull-right btn btn-sm btn-danger"><i class="fa fa-wa fa-minus"></i></button>'
       html += '</div>';
     html += '</div>';
 
 	  $('.product-size-row').append(html);
 
-	  productSizeAutocomplete(attribute_row);
+	  productSizeAutocomplete(attribute_addon_row);
 
-	  attribute_row++;
+	  attribute_addon_row++;
   }
 
-  function productSizeAutocomplete(attribute_row) {
-	  $('input[name=\'addon\']').autocomplete({
+  function initRemoveAddOn(attribute_addon_row){
+    $("#remove-addon" + attribute_addon_row).remove();
+  }
+  
+  function productSizeAutocomplete(attribute_addon_row) {
+	  $('input[name=\'addon'+attribute_addon_row+'\']').autocomplete({
       'source': function(request, response) {
         $.ajax({
           url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
@@ -1497,18 +1534,45 @@
         });
       },
       'select': function(item) {
-        $('input[name=\'addon\']').val('');
-
-        $('#product-addon'+attribute_row+'' + item['value']).remove();
-
-        $('#product-addon'+attribute_row+'').append('<div id="product-addon'+attribute_row+'' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_addon['+attribute_row+']" value="' + item['value'] + '" /></div>');
+        //$('input[name=\'addon\''+attribute_addon_row+']').val('');
+        // $('#product-addon-' + attribute_addon_row + '-' + item['value']).remove();
+        $('#product-addon-list' + attribute_addon_row).append('<div id="product-addon-'+ attribute_addon_row + '-' + item["value"] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_addon_size['+attribute_addon_row+'][]" value="' + item['value'] + '" /></div>');
       }
     });
 
-    $('#product-addon'+attribute_row+'').delegate('.fa-minus-circle', 'click', function() {
+    $('#product-addon-list'+attribute_addon_row+'').delegate('.fa-minus-circle', 'click', function() {
       $(this).parent().remove();
-    });
+    }); 
   }
+  // $('.addon').click(function(){
+  //   var attribute_addon_row = $(this).data("attributeid");
+  //   productSizeAutocomplete(attribute_addon_row);
+  //   // $('input[name=\'addon'+attribute_addon_row+'\']').autocomplete({
+  //   //   'source': function(request, response) {
+  //   //     $.ajax({
+  //   //       url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+  //   //       dataType: 'json',
+  //   //       success: function(json) {
+  //   //         response($.map(json, function(item) {
+  //   //           return {
+  //   //             label: item['name'],
+  //   //             value: item['product_id']
+  //   //           }
+  //   //         }));
+  //   //       }
+  //   //     });
+  //   //   },
+  //   //   'select': function(item) {
+  //   //     //$('input[name=\'addon\''+attribute_addon_row+']').val('');
+  //   //     // $('#product-addon-' + attribute_addon_row + '-' + item['value']).remove();
+  //   //     $('#product-addon-list' + attribute_addon_row).append('<div id="product-addon-'+ attribute_addon_row + '-' + item["value"] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_addon_size['+attribute_addon_row+'][]" value="' + item['value'] + '" /></div>');
+  //   //   }
+  //   // });
+
+  //   // $('#product-addon-list'+attribute_addon_row+'').delegate('.fa-minus-circle', 'click', function() {
+  //   //   $(this).parent().remove();
+  //   // });
+  // });
 
   //--></script>
   <script type="text/javascript"><!--

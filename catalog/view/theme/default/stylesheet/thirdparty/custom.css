@@ -840,3 +840,7 @@ select.form-field-input.form-field-select.form-field-filled {
     top: 0;
     padding: 10px;
 }
+
+table.table.addon-product tr th, table.table.addon-product tr td{
+    font-size: 13px;
+}

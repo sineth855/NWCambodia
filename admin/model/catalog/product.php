@@ -107,6 +107,34 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
+		if(isset($data["product_size"])){
+			$productAddonArr = array();
+			foreach($data["product_size"] as $key=>$productSize) {
+				$productAddons = array();
+				if(isset($data['product_addon_size'])){
+					$productAddons = $data['product_addon_size'][$key];
+				}
+				$productAddonArr[] = array(
+					'key' => $key,
+					'sizeName' => $productSize["size"],
+					'price' => $productSize["price"],
+					'image' => $productSize["image"],
+					'sort_order' => $productSize["sort_order"],
+					'productAddonArrays' => $productAddons
+				);
+			}
+
+			foreach ($productAddonArr as $addonGroup) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', price = '" . $addonGroup["price"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
+				$product_size_id = $this->db->getLastId();
+				if(isset($addonGroup['productAddonArrays'])){
+					foreach ($addonGroup['productAddonArrays'] as $addon_product_id) {
+						$this->db->query("INSERT INTO " . DB_PREFIX . "product_addon SET size_id = '" . (int)$product_size_id . "', product_id = '" . (int)$product_id . "', addon_product_id = '" . (int)$addon_product_id . "'");
+					}
+				}
+			}
+		}
+
 		if (isset($data['product_addon'])) {
 			foreach ($data['product_addon'] as $addon_id) {
 				$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$product_id . "' AND addon_id = '" . (int)$addon_id . "'");
@@ -148,9 +176,12 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function addProductJson($data) {
-		$queryHasProduct = $this->db->query("SELECT * FROM " . DB_PREFIX . "product WHERE product_id=".(int)$data['id']."");
+		$queryHasProduct = $this->db->query("SELECT * FROM " . DB_PREFIX . "product WHERE product_id=".(int)$data['id']." LIMIT 1");
+		// $queryHasProduct = $this->db->query("SELECT * FROM " . DB_PREFIX . "product WHERE product_id=2 LIMIT 1");
 		$product_id = (int)$data['id'];
-		if(!$queryHasProduct){
+		// print_r($queryHasProduct->rows);
+		// print_r(sizeof($queryHasProduct->rows));
+		if(sizeof($queryHasProduct->rows) == 0){
 			$this->db->query("DELETE from " . DB_PREFIX . "product WHERE product_id=".(int)$data['id']."");
 			$this->db->query("DELETE from " . DB_PREFIX . "product_to_store WHERE product_id=".(int)$data['id']."");
 			$this->db->query("DELETE from " . DB_PREFIX . "product_to_category WHERE product_id=".(int)$data['id']."");
@@ -486,17 +517,54 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
-		$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$product_id . "'");
-		$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE addon_id = '" . (int)$product_id . "'");
+		// $this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$product_id . "'");
+		// $this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE addon_id = '" . (int)$product_id . "'");
 
-		if (isset($data['product_addon'])) {
-			foreach ($data['product_addon'] as $addon_id) {
-				$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$product_id . "' AND addon_id = '" . (int)$addon_id . "'");
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_addon SET product_id = '" . (int)$product_id . "', addon_id = '" . (int)$addon_id . "'");
-				$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$addon_id . "' AND addon_id = '" . (int)$product_id . "'");
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_addon SET product_id = '" . (int)$addon_id . "', addon_id = '" . (int)$product_id . "'");
+		// if (isset($data['product_addon'])) {
+		// 	foreach ($data['product_addon'] as $addon_id) {
+		// 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$product_id . "' AND addon_id = '" . (int)$addon_id . "'");
+		// 		$this->db->query("INSERT INTO " . DB_PREFIX . "product_addon SET product_id = '" . (int)$product_id . "', addon_id = '" . (int)$addon_id . "'");
+		// 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$addon_id . "' AND addon_id = '" . (int)$product_id . "'");
+		// 		$this->db->query("INSERT INTO " . DB_PREFIX . "product_addon SET product_id = '" . (int)$addon_id . "', addon_id = '" . (int)$product_id . "'");
+		// 	}
+		// }
+
+		// ####################### Product Addon Group
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_size WHERE product_id = '" . (int)$product_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_addon WHERE product_id = '" . (int)$product_id . "'");
+		if(isset($data["product_size"])){
+
+			// $data["product_size"] = array();
+			// if(isset($this->request->post['product_size'])){
+				// $productSizes = $this->request->post['product_size'];
+			$productAddonArr = array();
+			foreach($data["product_size"] as $key=>$productSize) {
+				$productAddons = array();
+				if(isset($data['product_addon_size'])){
+					$productAddons = $data['product_addon_size'][$key];
+				}
+				$productAddonArr[] = array(
+					'key' => $key,
+					'sizeName' => $productSize["size"],
+					'price' => $productSize["price"],
+					'image' => $productSize["image"],
+					'sort_order' => $productSize["sort_order"],
+					'productAddonArrays' => $productAddons
+				);
+			}
+
+			// print_r($productAddonArr);
+			foreach ($productAddonArr as $addonGroup) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', price = '" . $addonGroup["price"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
+				$product_size_id = $this->db->getLastId();
+				if(isset($addonGroup['productAddonArrays'])){
+					foreach ($addonGroup['productAddonArrays'] as $addon_product_id) {
+						$this->db->query("INSERT INTO " . DB_PREFIX . "product_addon SET size_id = '" . (int)$product_size_id . "', product_id = '" . (int)$product_id . "', addon_product_id = '" . (int)$addon_product_id . "'");
+					}
+				}
 			}
 		}
+		// #######################
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_reward WHERE product_id = '" . (int)$product_id . "'");
 
@@ -863,6 +931,33 @@ class ModelCatalogProduct extends Model {
 		}
 
 		return $product_related_data;
+	}
+
+	public function getProductAddons($product_id) {
+		$product_addons = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_size WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order");
+
+		foreach ($query->rows as $productSize) {
+			$query_product_addons = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_addon WHERE size_id = '" . (int)$productSize["id"] . "'");
+			$addons = array();
+			if(isset($query_product_addons)){
+				foreach($query_product_addons->rows as $product_addon){
+					$addons[] = array(
+						'addon_id' => $product_addon["addon_product_id"]
+					);
+				}
+			}
+			$product_addons[] = array(
+				'size_name' => $productSize["size_name"],
+				'price' => $productSize["price"],
+				'image' => $productSize["image"],
+				'sort_order' => $productSize["sort_order"],
+				'product_addons' => $addons
+			);
+		}
+
+		return $product_addons;
 	}
 
 	public function getProductAddon($product_id) {

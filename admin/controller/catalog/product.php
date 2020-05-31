@@ -14,7 +14,7 @@ class ControllerCatalogProduct extends Controller {
 		date_default_timezone_set('Asia/Phnom_Penh');
 		ini_set('memory_limit', '-1');
 		$page = 0;//$_POST['page'];
-		$rowPerPage = 1000;//$_POST['rowsPerPage'];
+		$rowPerPage = 10000;//$_POST['rowsPerPage'];
 		$url  = "https://nuwh.sas-ebi.com/apis/getProduct/en";
 		$post = "page=".$page."&rowsPerPage=".$rowPerPage;
 		// CURL
@@ -568,6 +568,12 @@ class ControllerCatalogProduct extends Controller {
 
 	protected function getForm() {
 		$data['text_form'] = !isset($this->request->get['product_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+
+		// if(isset($this->request->get['product_size'])){
+		// 	print_r($this->request->get['product_size']);
+		// }
+
+		// return false;
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -1234,40 +1240,75 @@ class ControllerCatalogProduct extends Controller {
 				);
 			}
 		}
+
 		// get product size
-		if(isset($this->request->post['product_size'])){
-			$productSize = $this->request->post["product_size"];
-			$productSizeArray = array();
-			for($j = 0; $j < sizeof($productSize); $j++){
-				$productSizeArray[] = array(
-					"test" => $productSize[$j]
-				);
-			}
-			print_r($productSizeArray);
-		}
+		// if(isset($this->request->post['product_size'])){
+		// 	$productSize = $this->request->post["product_size"];
+		// 	$productSizeArray = array();
+		// 	for($j = 0; $j < sizeof($productSize); $j++){
+		// 		$productSizeArray[] = array(
+		// 			"test" => $productSize[$j]
+		// 		);
+		// 	}
+		// 	print_r($productSizeArray);
+		// }
 		// return false;
 		// product addon
-		if (isset($this->request->post['product_addon'])) {
-			$products = $this->request->post['product_addon'];
+		// if (isset($this->request->post['product_addon'])) {
+		// 	$products = $this->request->post['product_addon'];
+		// } elseif (isset($this->request->get['product_id'])) {
+		// 	$products = $this->model_catalog_product->getProductAddon($this->request->get['product_id']);
+		// } else {
+		// 	$products = array();
+		// }
+
+		// $data['product_addons'] = array();
+
+		// foreach ($products as $product_id) {
+		// 	$addon_info = $this->model_catalog_product->getProduct($product_id);
+
+		// 	if ($addon_info) {
+		// 		$data['product_addons'][] = array(
+		// 			'product_id' => $addon_info['product_id'],
+		// 			'name'       => $addon_info['name']
+		// 		);
+		// 	}
+		// }
+
+		// #################### Product Addon #######################
+		$data["product_addon_groups"] = array();
+		if (isset($this->request->post['product_size'])) {
+			$product_addon_groups = $this->request->post['product_size'];
 		} elseif (isset($this->request->get['product_id'])) {
-			$products = $this->model_catalog_product->getProductAddon($this->request->get['product_id']);
+			$product_addon_groups = $this->model_catalog_product->getProductAddons($this->request->get['product_id']);
 		} else {
-			$products = array();
+			$product_addon_groups = array();
 		}
-
-		$data['product_addons'] = array();
-
-		foreach ($products as $product_id) {
-			$addon_info = $this->model_catalog_product->getProduct($product_id);
-
-			if ($addon_info) {
-				$data['product_addons'][] = array(
-					'product_id' => $addon_info['product_id'],
-					'name'       => $addon_info['name']
-				);
+		// print_r($product_addon_groups);
+		$data["product_addon_groups"] = array();
+		foreach($product_addon_groups as $productSize) {
+			$product_addons = array();
+			if(isset($productSize["product_addons"])){
+				foreach($productSize["product_addons"] as $product_addon){
+					$addon_info = $this->model_catalog_product->getProduct($product_addon['addon_id']);
+					if ($addon_info) {
+						$product_addons[] = array(
+							'product_id' => $addon_info['product_id'],
+							'name'       => $addon_info['name']
+						);
+					}
+				}
 			}
+			$data["product_addon_groups"][] = array(
+				'size_name' => $productSize["size_name"],
+				'price' => $productSize["price"],
+				'image' => $productSize["image"],
+				'thumb' => $productSize["image"] ? $this->model_tool_image->resize($productSize["image"], 100, 100) : $this->model_tool_image->resize('no_image.png', 100, 100),
+				'sort_order' => $productSize["sort_order"],
+				'product_addons' => $product_addons
+			);
 		}
-
+		// ####################################
 		if (isset($this->request->post['points'])) {
 			$data['points'] = $this->request->post['points'];
 		} elseif (!empty($product_info)) {
