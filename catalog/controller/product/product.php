@@ -470,7 +470,7 @@ class ControllerProductProduct extends Controller {
 
 					$addon_product_info = $this->model_catalog_product->getProduct($addon["addon_product_id"]);
 					if ($addon_product_info['image']) {
-						$imageAddon = $this->model_tool_image->resize($addon_product_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
+						$imageAddon = $this->model_tool_image->resize($addon['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 					} else {
 						$imageAddon = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 					}
@@ -502,6 +502,7 @@ class ControllerProductProduct extends Controller {
 				}
 				$data['productSizes'][] = array(
 					'thumb'        => $image,
+					'image'		   => $result["image"],
 					'name'         => $result['size_name'],
 					'price'        => $this->currency->format($this->tax->calculate($result['price'], 0, $this->config->get('config_tax')), $this->session->data['currency']),
 					//'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
@@ -515,7 +516,6 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 			
-			// print_r($data['productSizes']);
 			// Tags
 
 			$data['tags'] = array();
