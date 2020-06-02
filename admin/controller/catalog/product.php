@@ -72,7 +72,7 @@ class ControllerCatalogProduct extends Controller {
 				"minimum" => 1,
 				"subtract" => 0,
 				"stock_status_id" => 7,
-				"shipping" => 0,
+				"shipping" => 1,
 				"points" => "",
 				"weight" => "",
 				"weight_class_id" => 1,
