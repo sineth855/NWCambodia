@@ -2,9 +2,11 @@
 <div id="content">
   <div class="page-header">
     <div class="container-fluid">
-      <div class="pull-right"><a href="{{ add }}" data-toggle="tooltip" title="{{ button_add }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+      <div class="pull-right">
+        <a href="{{ add }}" data-toggle="tooltip" title="{{ button_add }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
         <button type="button" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-coupon').submit() : false;"><i class="fa fa-trash-o"></i></button>
       </div>
+
       <h1>{{ heading_title }}</h1>
       <ul class="breadcrumb">
         {% for breadcrumb in breadcrumbs %}
@@ -13,7 +15,30 @@
       </ul>
     </div>
   </div>
+
+         
   <div class="container-fluid">
+  <div class="pull-left_">
+    <div class="row">
+        <div class="alert alert-info">
+          <strong>Note: </strong> Import your coupon in extension CSV file.
+        </div>
+        <form action="{{ exportExcel }}" method="post" enctype="multipart/form-data">
+          <div class="col-lg-2">
+            <input type="file" id="input-import" name="file" class="form-control"/>
+          </div>
+          <div>
+          </div class="col-lg-4">
+            <button type="submit" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger">Submit</button>  
+          </div>
+        </form>
+        {% if info %}
+          <div class="alert alert-success">
+            {{info}}
+          </div>
+        {% endif %}
+    </div>
+  </div>
     {% if error_warning %}
     <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
       <button type="button" class="close" data-dismiss="alert">&times;</button>
