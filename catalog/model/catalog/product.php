@@ -92,7 +92,12 @@ class ModelCatalogProduct extends Model {
 		}
 
 		$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND p.product_id NOT IN (SELECT addon_product_id FROM " . DB_PREFIX . "product_addon GROUP BY addon_product_id)";
-
+		
+		// adding flash sale condition
+		if (isset($data['isFlashSale'])) {	
+			$sql .= " AND p.is_flash_sale = '" . (int)$data['isFlashSale'] . "'";
+			$sql .= " AND p.date_expired > NOW()";
+		} 
 		if (!empty($data['filter_category_id'])) {
 			if (!empty($data['filter_sub_category'])) {
 				$sql .= " AND cp.path_id = '" . (int)$data['filter_category_id'] . "'";
@@ -192,6 +197,7 @@ class ModelCatalogProduct extends Model {
 		} else {
 			$sql .= " ORDER BY p.sort_order";
 		}
+		
 
 		if (isset($data['order']) && ($data['order'] == 'DESC')) {
 			$sql .= " DESC, LCASE(pd.name) DESC";

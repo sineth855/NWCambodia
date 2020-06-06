@@ -13,7 +13,8 @@ class ControllerExtensionModuleLatest extends Controller {
 			'sort'  => 'p.date_added',
 			'order' => 'DESC',
 			'start' => 0,
-			'limit' => $setting['limit']
+			'limit' => $setting['limit'],
+			'isFlashSale' => 1,
 		);
 
 		$results = $this->model_catalog_product->getProducts($filter_data);

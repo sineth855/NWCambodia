@@ -16908,6 +16908,11 @@ ul.links.inline li {
     color: #fdf200 !important;
 }
 
+.mega-menu>ul>li>ul.normal-sub>li a:hover,
+.mega-menu>ul>li>ul.normal-sub>li a:active {
+    color: #fff;
+}
+
 .mega-menu>ul>li>ul>li>ul>li>ul {
     padding-left: 10px;
 }
