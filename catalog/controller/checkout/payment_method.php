@@ -125,6 +125,8 @@ class ControllerCheckoutPaymentMethod extends Controller {
 	}
 
 	public function save() {
+		
+		$paymentMethod = $this->request->post['payment_method'];
 		$this->load->language('checkout/checkout');
 
 		$json = array();
@@ -161,9 +163,9 @@ class ControllerCheckoutPaymentMethod extends Controller {
 		$this->load->model('account/customer');
 
 		if ($this->customer->isLogged()) {
-			if (!isset($this->request->post['payment_method'])) {
+			if (!isset($paymentMethod)) {
 				$json['error']['warning'] = $this->language->get('error_payment');
-			} elseif (!isset($this->session->data['payment_methods'][$this->request->post['payment_method']])) {
+			} elseif (!isset($this->session->data['payment_methods'][$paymentMethod])) {
 				$json['error']['warning'] = $this->language->get('error_payment');
 			}
 
@@ -178,34 +180,33 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			}
 
 			if (!$json) {
-				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$this->request->post['payment_method']];
+				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$paymentMethod];
 
 				$this->session->data['comment'] = strip_tags($this->request->post['comment']);
 			}
 
 			if (!$json) {
-				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$this->request->post['payment_method']];
+				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$paymentMethod];
 
 				$this->session->data['comment'] = strip_tags($this->request->post['comment']);
 			}
 		}else{
-			// print_r($this->session->data['payment_methods'][$this->request->post['payment_method']]);
-			$paymentMethod = array(
-				"code" => "cod",
-				"title" => "Cash On Delivery",
-				"term" => "",
-				"sort_order" => 1
-			);
+			// $paymentMethod = $this->session->data['payment_methods'][$paymentName];
+			// $paymentMethod = array(
+			// 	"code" => "cod",
+			// 	"title" => "Cash On Delivery",
+			// 	"term" => "",
+			// 	"sort_order" => 1
+			// );
 			$comment = "";
 			
 			if (!$json) {
-				$this->session->data['payment_method'] = $paymentMethod;
+				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$paymentMethod];
 
 				$this->session->data['comment'] = strip_tags($comment);
 			}
 		}
 
-		// print_r($json);
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
