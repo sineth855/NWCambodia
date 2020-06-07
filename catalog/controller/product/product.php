@@ -265,6 +265,12 @@ class ControllerProductProduct extends Controller {
 				$data['stock'] = "./catalog/view/theme/default/image/in_stock.png";
 			}
 
+			if($product_info['date_expired'] > date("Y-m-d")) {
+				$data['is_flash_sale'] = (int)$product_info['is_flash_sale'];
+				$data['is_flash_sale_date'] = $product_info['date_expired'];
+				$data['flash_sale_condition'] = $product_info['date_expired'] > date("Y-m-d");
+			}	
+
 			$this->load->model('tool/image');
 
 			if ($product_info['image']) {

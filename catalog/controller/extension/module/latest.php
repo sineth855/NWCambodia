@@ -21,6 +21,7 @@ class ControllerExtensionModuleLatest extends Controller {
 
 		if ($results) {
 			foreach ($results as $result) {
+				
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
 					// $image = $result['image'];
@@ -60,19 +61,20 @@ class ControllerExtensionModuleLatest extends Controller {
 				}
 
 				$data['products'][] = array(
-					'product_id'  => $result['product_id'],
-					'thumb'       => $image,
-					'name'        => $result['name'],
-					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
-					'price'       => $price,
-					'special'     => $special,
-					'special_discount' => $result['special_discount'] ? $result['special_discount']:false,
-					'date_start'     => $result['date_start'],
-					'date_expired'	=> $result['date_expired'],
-					'date_end'     => date_format(date_create($result['date_end']), "M d, Y H:i:s"),
-					'tax'         => $tax,
-					'rating'      => $rating,
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+					'product_id'  		=> $result['product_id'],
+					'thumb'       		=> $image,
+					'name'        		=> $result['name'],
+					'description' 		=> utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
+					'price'       		=> $price,
+					'special'     		=> $special,
+					'special_discount' 	=> $result['special_discount'] ? $result['special_discount']:false,
+					'date_start'     	=> $result['date_start'],
+					'date_expired'		=> $result['date_expired'],
+					'is_flash_sale' 	=> $result['is_flash_sale'] ,
+					'date_end'     		=> date_format(date_create($result['date_end']), "M d, Y H:i:s"),
+					'tax'         		=> $tax,
+					'rating'      		=> $rating,
+					'href'        		=> $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
 			}
 

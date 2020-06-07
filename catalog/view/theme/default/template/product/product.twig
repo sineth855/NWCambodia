@@ -313,7 +313,7 @@
                                         <li>{{ text_stock }} <img src="{{stock}}" width="100px"/></li>
                                     </ul>
 
-                                    {% if date_end %}
+                                    {% if flash_sale_condition %}
                                         <br/>
                                         <div class="time-remain"><b>Time Remain : </b> <span style="font-weight: bold; font-size: 23px;" id="product-t-day{{product_id}}" class="-t-bg product-t-day"></span> </div>
                                     {% endif %}
@@ -910,14 +910,14 @@
 
     <script>
         // Set the date we're counting down to
-        {# var countDownDate = new Date("{{product.date_end}}").getTime(); #}
+        {# var countDownDate = new Date("{{product.is_flash_sale_date}}").getTime(); #}
 
         // Set the date we're counting down to
         var countdowns = [
-            {% if(special) %}
+            {% if(is_flash_sale) %}
                 {
                     id: "{{product_id}}",
-                    date: new Date("{{date_end}}").getTime()
+                    date: new Date("{{is_flash_sale_date}}").getTime()
                 },
             {% endif %}
         ];
