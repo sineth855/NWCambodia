@@ -12,6 +12,31 @@ class ControllerMarketingCoupon extends Controller {
 		$this->getList();
 	}
 
+	public function exportExcel() {
+		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+			$row = 1;
+			$fileName = $_FILES["file"]["tmp_name"];
+			if (($handle = fopen($fileName, "r")) !== FALSE) {
+				// fgets($handle); 
+				while (($col = fgetcsv($handle, 100000, ",")) !== FALSE) {
+					 $num = $col[0];	
+
+					 $query= $this->db->query("SELECT code FROM " . DB_PREFIX . "coupon WHERE code = '" . $this->db->escape($num) . "'");
+					 $couponCode  = $query->row;
+					
+					if (sizeof($couponCode) <= 0) {
+						// print_r("insert");
+						$this->db->query("INSERT INTO " . DB_PREFIX . "coupon SET name = 'NWCambodia-coupon', code = '" . $this->db->escape($num) . "',discount = '" . (int)10 . "'");
+					}
+					$row++;
+				}
+				// fclose($handle);
+			}
+			// $this->session->data['success_import'] = $this->language->get('text_success');
+			$this->response->redirect($this->url->link('marketing/coupon', 'user_token=' . $this->session->data['user_token'], true));
+		}
+	}
+
 	public function add() {
 		$this->load->language('marketing/coupon');
 
@@ -155,7 +180,10 @@ class ControllerMarketingCoupon extends Controller {
 			'href' => $this->url->link('marketing/coupon', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 
+		$data['exportExcel'] = $this->url->link('marketing/coupon/exportExcel', 'user_token=' . $this->session->data['user_token'] . $url, true);
+
 		$data['add'] = $this->url->link('marketing/coupon/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
+
 		$data['delete'] = $this->url->link('marketing/coupon/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
 		$data['coupons'] = array();

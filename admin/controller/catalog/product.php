@@ -875,6 +875,15 @@ class ControllerCatalogProduct extends Controller {
 			$data['status'] = true;
 		}
 
+
+		if (isset($this->request->post['is_flash_sale'])) {
+			$data['is_flash_sale'] = $this->request->post['is_flash_sale'];
+		} elseif (!empty($product_info)) {
+			$data['is_flash_sale'] = $product_info['is_flash_sale'];
+		} else {
+			$data['is_flash_sale'] = true;
+		}
+
 		if (isset($this->request->post['weight'])) {
 			$data['weight'] = $this->request->post['weight'];
 		} elseif (!empty($product_info)) {

@@ -313,7 +313,7 @@
                                         <li>{{ text_stock }} <img src="{{stock}}" width="100px"/></li>
                                     </ul>
 
-                                    {% if date_end %}
+                                    {% if flash_sale_condition %}
                                         <br/>
                                         <div class="time-remain"><b>Time Remain : </b> <span style="font-weight: bold; font-size: 23px;" id="product-t-day{{product_id}}" class="-t-bg product-t-day"></span> </div>
                                     {% endif %}
@@ -768,7 +768,7 @@
                                                     <tr>
                                                         <th>Flavor/Option</th>
                                                         <th>Availability</th>
-                                                        <th>Expiry</th>
+                                                        <!-- <th>Expiry</th>-->
                                                         <th></th>
                                                         <!-- <th>Action</th> -->
                                                     </tr>
@@ -801,10 +801,10 @@
                                                         </td>
                                                         
                                                         <td>
-                                                            <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
+                                                            <img src="{{addon.stock}}" class="stock_image_staus" />
                                                         </td>
 
-                                                        <td>{{addon.date_expired}}</td>
+                                                        <!-- <td>{{addon.date_expired}}</td>-->
 
                                                         <td>
                                                             <button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.add('{{ addon.product_id }}', '{{ addon.minimum }}');" class="btnShow -button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
@@ -910,14 +910,14 @@
 
     <script>
         // Set the date we're counting down to
-        {# var countDownDate = new Date("{{product.date_end}}").getTime(); #}
+        {# var countDownDate = new Date("{{product.is_flash_sale_date}}").getTime(); #}
 
         // Set the date we're counting down to
         var countdowns = [
-            {% if(special) %}
+            {% if(is_flash_sale) %}
                 {
                     id: "{{product_id}}",
-                    date: new Date("{{date_end}}").getTime()
+                    date: new Date("{{is_flash_sale_date}}").getTime()
                 },
             {% endif %}
         ];

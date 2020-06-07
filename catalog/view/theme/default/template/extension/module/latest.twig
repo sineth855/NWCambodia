@@ -192,6 +192,8 @@
                                                                                 {{ product.price }}
                                                                             </div>
                                                                         </div>
+                                                                        <div class="time-remain"> {{ time_remain }} </div>
+                                                                        <div id="t-day{{product.product_id}}" class="t-bg t-day"></div>
                                                                     {% else %}
                                                                         <span>
                                                                             <div class="product-price">
@@ -207,10 +209,10 @@
                                                                                 </div>
                                                                             </div>
                                                                         </span>
-                                                                        {% if not product.special_discount %}
+                                                                        <!--{% if not product.special_discount %}
                                                                             <div class="time-remain"> Time Remain </div>
                                                                             <div id="t-day{{product.product_id}}" class="t-bg t-day"></div>
-                                                                        {% endif %}
+                                                                        {% endif %}-->
                                                                     {% endif %}
                                                                 </p>
                                                                 {% endif %}
@@ -294,15 +296,15 @@
 
 <script>
     // Set the date we're counting down to
-    {# var countDownDate = new Date("{{product.date_end}}").getTime(); #}
+    {# var countDownDate = new Date("{{product.date_expired}}").getTime(); #}
 
     // Set the date we're counting down to
     var countdowns = [
         {% for product in products %}
-            {% if(product.special) %}
+            {% if(product.date_expired) %}
                 {
                     id: "{{product.product_id}}",
-                    date: new Date("{{product.date_end}}").getTime()
+                    date: new Date("{{product.date_expired}}").getTime()
                 },
             {% endif %}
         {% endfor %}

@@ -54,6 +54,10 @@ p.price.product-price {
     padding-top: 10px;
 }
 
+p.price.product-price b {
+    color: red;
+}
+
 .display_none {
     display: none;
 }
@@ -841,6 +845,7 @@ select.form-field-input.form-field-select.form-field-filled {
     padding: 10px;
 }
 
-table.table.addon-product tr th, table.table.addon-product tr td{
+table.table.addon-product tr th,
+table.table.addon-product tr td {
     font-size: 13px;
 }

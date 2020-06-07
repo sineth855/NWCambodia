@@ -265,6 +265,12 @@ class ControllerProductProduct extends Controller {
 				$data['stock'] = "./catalog/view/theme/default/image/in_stock.png";
 			}
 
+			if($product_info['date_expired'] > date("Y-m-d")) {
+				$data['is_flash_sale'] = (int)$product_info['is_flash_sale'];
+				$data['is_flash_sale_date'] = $product_info['date_expired'];
+				$data['flash_sale_condition'] = $product_info['date_expired'] > date("Y-m-d");
+			}	
+
 			$this->load->model('tool/image');
 
 			if ($product_info['image']) {
@@ -486,7 +492,13 @@ class ControllerProductProduct extends Controller {
 					} else {
 						$specialAddon = false;
 					}
-
+					if ((int)$addon_product_info['quantity'] <= 0) {
+						$stock = "./catalog/view/theme/default/image/out_stock.png";
+					} elseif ((int)$addon_product_info['quantity'] <= 5) {
+						$stock = "./catalog/view/theme/default/image/low_stock.png";
+					} else {
+						$stock = "./catalog/view/theme/default/image/in_stock.png";
+					}
 					$data['addonProducts'][] = array(
 						'product_id'  => $addon_product_info['product_id'],
 						'thumb'       => $imageAddon,
@@ -494,6 +506,7 @@ class ControllerProductProduct extends Controller {
 						'description' => utf8_substr(trim(strip_tags(html_entity_decode($addon_product_info['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'date_expired' => $addon_product_info['date_expired'] ? date($this->language->get('date_format_short'), strtotime($addon_product_info['date_expired'])) : '',
 						'price'       => $priceAddon,
+						'stock'       => $stock,
 						'special'     => $specialAddon,
 						'minimum'     => $addon_product_info['minimum'] > 0 ? $addon_product_info['minimum'] : 1,
 						'href'        => $this->url->link('product/product', 'product_id=' . $addon_product_info['product_id'])
