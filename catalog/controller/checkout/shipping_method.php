@@ -67,6 +67,10 @@ class ControllerCheckoutShippingMethod extends Controller {
 	}
 
 	public function save() {
+		header("Cache-Control: no-cache, must-revalidate");
+		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		header("Content-Type: application/xml; charset=utf-8");
+
 		$this->load->language('checkout/checkout');
 
 		$json = array();
@@ -105,18 +109,27 @@ class ControllerCheckoutShippingMethod extends Controller {
 			}
 		}
 
-		if (!isset($this->request->post['shipping_method'])) {
-			$json['error']['warning'] = $this->language->get('error_shipping');
-		} else {
-			$shipping = explode('.', $this->request->post['shipping_method']);
+		// if (!isset($this->request->post['shipping_method'])) {
+		// 	$json['error']['warning'] = $this->language->get('error_shipping');
+		// } else {
+		// 	$shipping = explode('.', $this->request->post['shipping_method']);
 
-			if (!isset($shipping[0]) || !isset($shipping[1]) || !isset($this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]])) {
-				$json['error']['warning'] = $this->language->get('error_shipping');
-			}
-		}
+		// 	if (!isset($shipping[0]) || !isset($shipping[1]) || !isset($this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]])) {
+		// 		$json['error']['warning'] = $this->language->get('error_shipping');
+		// 	}
+		// }
 
 		if (!$json) {
-			$this->session->data['shipping_method'] = $this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
+			// print_r($this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]]);
+			// return false;
+			$shipping_method_data = array(
+				"code" => "free.free",
+				"title" => "Free Shipping",
+				"cost" => 0,
+				"tax_class_id" => 0,
+				"text" => "$0.00"
+			);
+			$this->session->data['shipping_method'] = $shipping_method_data;//$this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
 
 			$this->session->data['comment'] = strip_tags($this->request->post['comment']);
 		}

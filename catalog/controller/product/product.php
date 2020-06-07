@@ -469,8 +469,8 @@ class ControllerProductProduct extends Controller {
 				foreach ($addOnResultMores as $addon) {
 
 					$addon_product_info = $this->model_catalog_product->getProduct($addon["addon_product_id"]);
-					if ($addon_product_info['image']) {
-						$imageAddon = $this->model_tool_image->resize($addon['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
+					if ($addon_product_info['image'] !=null) {
+						$imageAddon = $this->model_tool_image->resize($addon_product_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 					} else {
 						$imageAddon = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 					}
