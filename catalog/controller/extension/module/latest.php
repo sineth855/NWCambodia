@@ -58,8 +58,7 @@ class ControllerExtensionModuleLatest extends Controller {
 					$rating = $result['rating'];
 				} else {
 					$rating = false;
-				}
-
+				}				
 				$data['products'][] = array(
 					'product_id'  		=> $result['product_id'],
 					'thumb'       		=> $image,
