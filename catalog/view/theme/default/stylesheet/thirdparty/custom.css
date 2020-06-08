@@ -62,6 +62,11 @@ p.price.product-price b {
     display: none;
 }
 
+.form-group .radio {
+    display: inline;
+    padding: 10px;
+}
+
 .button_none_radius {
     font-family: 'HelveticaNeueLTStd';
     -webkit-border-radius: 0px !important;
