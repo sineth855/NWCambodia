@@ -26,6 +26,30 @@ class ModelAccountCustomer extends Model {
 		return $data;
 	}
 
+	public function editOtpCustomer($customer_id, $otpCode){
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET code = '" . $this->db->escape($otpCode) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+	}
+
+	public function checkOTPCustomer($customer_id, $otpCode){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE code = '" . $this->db->escape($otpCode) . "' AND customer_id = '" . (int)$customer_id . "'");
+		$boolean = false;
+		if($query->row){
+			$boolean = true;
+			$this->db->query("UPDATE " . DB_PREFIX . "customer SET status = '1' WHERE customer_id = '" . (int)$customer_id . "'");
+			$data = array(
+				"boolean" => $boolean,
+				"salt" => $query->row["salt"]
+			);
+		}else{
+			$boolean = false;
+			$data = array(
+				"boolean" => $boolean,
+			);
+		}
+
+		return $data;
+	}
+
 	public function activeCustomer($data){
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET status = '1' WHERE salt = '" . $data['salt'] . "'");
 	}

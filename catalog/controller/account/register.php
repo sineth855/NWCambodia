@@ -1,4 +1,7 @@
 <?php
+require_once './public/vendor/autoload.php';
+use Twilio\Rest\Client;
+
 class ControllerAccountRegister extends Controller {
 	private $error = array();
 
@@ -50,7 +53,10 @@ class ControllerAccountRegister extends Controller {
 		$this->load->model('account/customer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+			$otpCode = mt_rand(100000,999999);
+			
 			$customerData = $this->model_account_customer->addCustomer($this->request->post);
+			$this->model_account_customer->editOtpCustomer($customerData["customer_id"], $otpCode);
 
 			// Clear any previous login attempts for unregistered accounts.
 			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
@@ -69,24 +75,43 @@ class ControllerAccountRegister extends Controller {
 			$data['salt'] = $customerData["salt"];
 			$data['generate_url'] = $this->url->link('account/success&salt='.$customerData["salt"].'', '', false);
 			$data['message'] = "Please click the link below to activate your account.";
-			$mail = new Mail($this->config->get('config_mail_engine'));
-			$mail->parameter = $this->config->get('config_mail_parameter');
-			$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
-			$mail->smtp_username = $this->config->get('config_mail_smtp_username');
-			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
-			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
-			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+			// $mail = new Mail($this->config->get('config_mail_engine'));
+			// $mail->parameter = $this->config->get('config_mail_parameter');
+			// $mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+			// $mail->smtp_username = $this->config->get('config_mail_smtp_username');
+			// $mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+			// $mail->smtp_port = $this->config->get('config_mail_smtp_port');
+			// $mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
-			$mail->setTo($this->request->post['email']);
-			$mail->setFrom($this->config->get('config_name'));
-			$mail->setSender(html_entity_decode($this->request->post['firstname'].' '.$this->request->post['lastname'], ENT_QUOTES, 'UTF-8'));
-			$mail->setSubject(sprintf("Confirm Your Email to activate your account.", html_entity_decode($this->request->post['firstname'].' '.$this->request->post['lastname'], ENT_QUOTES, 'UTF-8')));
-			$mail->setHtml($this->load->view('mail/confirm_register', $data));
-			$mail->send();
+			// $mail->setTo($this->request->post['email']);
+			// $mail->setFrom($this->config->get('config_name'));
+			// $mail->setSender(html_entity_decode($this->request->post['firstname'].' '.$this->request->post['lastname'], ENT_QUOTES, 'UTF-8'));
+			// $mail->setSubject(sprintf("Confirm Your Email to activate your account.", html_entity_decode($this->request->post['firstname'].' '.$this->request->post['lastname'], ENT_QUOTES, 'UTF-8')));
+			// $mail->setHtml($this->load->view('mail/confirm_register', $data));
+			// $mail->send();
+			
+			// Your Account SID and Auth Token from twilio.com/console
+			$sid = 'ACc75a1b052882fbbbe81e3a5b06d489aa';
+			$token = '804e478d147019b0ad1b29d53fedaa5c';
+			$client = new Client($sid, $token);
+			$telephone = preg_replace('/[^0-9]/', '', $this->request->post["telephone"]);
+            $convertTel = (int)$telephone;
+			// Use the client to do fun stuff like send text messages!
+			$client->messages->create(
+				// the number you'd like to send the message to
+				'+855'.$convertTel,
+				array(
+					// A Twilio phone number you purchased at twilio.com/console
+					'from' => '+18473053455',
+					// the body of the text message you'd like to send
+					'body' => 'NWCambodia confirm code: '.$otpCode.''
+				)
+			);
+
 
 			unset($this->session->data['guest']);
 
-			$this->response->redirect($this->url->link('account/confirm'));
+			$this->response->redirect($this->url->link('account/confirm&customer_id='.$customerData["customer_id"].'&telephone='.$convertTel));
 		}
 
 		$data['breadcrumbs'] = array();
