@@ -1,9 +1,9 @@
 <?php
 // Heading
-$_['heading_title']                  = 'Checkout';
+$_['heading_title']                  = 'គិតលុយ';
 
 // Text
-$_['text_cart']                      = 'Shopping Cart';
+$_['text_cart']                      = 'ការទិញអីវ៉ាន់';
 $_['text_checkout_option']           = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Checkout Options';
 $_['text_checkout_account']          = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Account &amp; Billing Details';
 $_['text_checkout_payment_address']  = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Billing Details';
@@ -14,12 +14,12 @@ $_['text_checkout_shipping_method']  = 'Step <span class="checkout-progress--ste
 $_['text_checkout_payment_method']   = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Payment Method';
 $_['text_checkout_confirm']          = 'Step <span class="checkout-progress--step checkout-progress--step__current"></span> Confirm Order';
 $_['text_modify']                    = 'Modify &raquo;';
-$_['text_new_customer']              = 'New Customer';
+$_['text_new_customer']              = 'អតិថជនថ្មី';
 $_['text_returning_customer']        = 'Returning Customer';
 $_['text_checkout']                  = 'Checkout Options:';
 $_['text_i_am_returning_customer']   = 'I am returning customer';
-$_['text_register']                  = 'Register Account';
-$_['text_guest']                     = 'Express Checkout';
+$_['text_register']                  = 'ចុះឈ្មោះគណនី';
+$_['text_guest']                     = 'គិតលុយរហ័ស';
 $_['text_register_account']          = 'By creating an account you will be able to shop faster, be up to date on an order\'s status, and keep track of the orders you have previously made.';
 $_['text_forgotten']                 = 'Forgotten Password';
 $_['text_your_details']              = 'Your Personal Details';
@@ -51,21 +51,21 @@ $_['column_total']                   = 'Total';
 
 // Entry
 $_['entry_email_address']            = 'E-Mail Address';
-$_['entry_email']                    = 'E-Mail';
-$_['entry_password']                 = 'Password';
-$_['entry_confirm']                  = 'Password Confirm';
-$_['entry_firstname']                = 'Full Name';
-$_['entry_lastname']                 = 'Last Name';
-$_['entry_telephone']                = 'Telephone';
-$_['entry_address']                  = 'Choose Address';
-$_['entry_company']                  = 'Company';
+$_['entry_email']                    = 'អុីម៉ែល';
+$_['entry_password']                 = 'លេខសំងាត់';
+$_['entry_confirm']                  = 'បញ្ញាក់លេខសំងាត់';
+$_['entry_firstname']                = 'ឈ្មោះពេញ';
+$_['entry_lastname']                 = 'ឈ្មោះ';
+$_['entry_telephone']                = 'ទូរស័ព្ទ';
+$_['entry_address']                  = 'ជ្រើសរើសអាស្រ័យដ្ធាន';
+$_['entry_company']                  = 'ក្រុមហ៊ុន';
 $_['entry_customer_group']           = 'Customer Group';
-$_['entry_address_1']                = 'Address';
-$_['entry_note']                     = 'Note';
-$_['entry_address_2']                = 'Address 2';
+$_['entry_address_1']                = 'អាស្រ័យដ្ធាន';
+$_['entry_note']                     = 'កំណត់សំគាល់';
+$_['entry_address_2']                = 'អាស្រ័យដ្ធាន';
 $_['entry_postcode']                 = 'Post Code';
-$_['entry_city']                     = 'City';
-$_['entry_country']                  = 'Country';
+$_['entry_city']                     = 'ក្រុង';
+$_['entry_country']                  = 'ប្រទេស';
 $_['entry_zone']                     = 'Region / State';
 $_['entry_newsletter']               = 'I wish to subscribe to the %s newsletter.';
 $_['entry_shipping']                 = 'My delivery and billing addresses are the same.';

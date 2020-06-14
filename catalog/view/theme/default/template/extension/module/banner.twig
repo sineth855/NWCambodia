@@ -42,12 +42,14 @@
                                 <div class="promotion-image">
                                     <div class="field field-field-image field-type-image field-label-hidden field-item">
                                         {#
-                                        <mg src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_1.jpg " width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image" /> #} {% if banner.link %}
-                                        <a href="{{ banner.link }}">
-                                            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-                                        </a>
+                                        <mg src="./catalog/view/theme/default/martis/sites/martis/files/banner/h1_banner1_1.jpg " width="1080" height="680" alt="Home 01 Banner 1" typeof="foaf:Image" /> #} 
+                                        {% if banner.link %}
+                                            <a href="{{ banner.link }}">
+                                                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                                            </a>
                                         {% else %}
-                                        <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> {% endif %}
+                                            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /> 
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <div class="promotion-meta-wrap">

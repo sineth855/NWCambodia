@@ -1,17 +1,17 @@
 <?php
 // Text
-$_['text_information']  = 'Information';
-$_['text_service']      = 'Customer Service';
-$_['text_extra']        = 'Extras';
-$_['text_contact']      = 'Contact Us';
-$_['text_return']       = 'Returns';
+$_['text_information']  = 'ព័ត៏មាន';
+$_['text_service']      = 'សេវាអតិថជន';
+$_['text_extra']        = 'បន្ថែម';
+$_['text_contact']      = 'ទំនាក់ទំនងពួកយើង';
+$_['text_return']       = 'ជូនវិញ';
 $_['text_sitemap']      = 'Site Map';
-$_['text_manufacturer'] = 'Brands';
+$_['text_manufacturer'] = 'ម៉ាក់';
 $_['text_voucher']      = 'Gift Certificates';
 $_['text_affiliate']    = 'Affiliate';
 $_['text_special']      = 'Specials';
-$_['text_account']      = 'My Account';
-$_['text_order']        = 'Order History';
+$_['text_account']      = 'គណនីរបស់ខ្ញុំ';
+$_['text_order']        = 'ប្រវត្តិនៃការកម្មង់';
 $_['text_wishlist']     = 'Wish List';
 $_['text_newsletter']   = 'Newsletter';
 $_['text_contact_with_us']   = 'ទំនាក់ទំនងមកកាន់ពួកយើង';

@@ -79,6 +79,7 @@
 											<td class="text-left">{{entry_description}}</td>
 											<td class="text-left">{{ entry_link }}</td>
 											<td class="text-center">{{ entry_image }}</td>
+											<td class="text-center">Mobile Image</td>
 											<td class="text-right">{{ entry_sort_order }}</td>
 											<td></td>
 										</tr>
@@ -101,7 +102,12 @@
 													</td>
 													<td class="text-center">
 														<a href="" id="thumb-image{{ image_row }}" data-toggle="image" class="img-thumbnail"><img src="{{ banner_image.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a>
-														<input type="hidden" name="banner_image[{{ language.language_id }}][{{ image_row }}][image]" value="{{ banner_image.image }}" id="input-image{{ image_row }}"/></td>
+														<input type="hidden" name="banner_image[{{ language.language_id }}][{{ image_row }}][image]" value="{{ banner_image.image }}" id="input-image{{ image_row }}"/>
+													</td>
+													<td class="text-center">
+														<a href="" id="thumb-image-mobile{{ image_row }}" data-toggle="image" class="img-thumbnail"><img src="{{ banner_image.thumb_mobile }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a>
+														<input type="hidden" name="banner_image[{{ language.language_id }}][{{ image_row }}][image_mobile]" value="{{ banner_image.image_mobile }}" id="input-image-mobile{{ image_row }}"/>
+													</td>
 													<td class="text-right" style="width: 10%;"><input type="text" name="banner_image[{{ language.language_id }}][{{ image_row }}][sort_order]" value="{{ banner_image.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control"/></td>
 													<td class="text-left">
 														<button type="button" onclick="$('#image-row{{ image_row }}, .tooltip').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger">
@@ -115,7 +121,7 @@
 									</tbody>
 									<tfoot>
 										<tr>
-											<td colspan="5"></td>
+											<td colspan="6"></td>
 											<td class="text-left">
 												<button type="button" onclick="addImage('{{ language.language_id }}');" data-toggle="tooltip" title="{{ button_banner_add }}" class="btn btn-primary">
 													<i class="fa fa-plus-circle"></i>
@@ -142,6 +148,7 @@ html += '  <td class="text-left"><input type="text" name="banner_image[' + langu
 html += '  <td class="text-left"><input type="text" name="banner_image[' + language_id + '][' + image_row + '][description]" value="" placeholder="  {{ entry_description }}" class="form-control" /></td>';
 html += '  <td class="text-left" style="width: 30%;"><input type="text" name="banner_image[' + language_id + '][' + image_row + '][link]" value="" placeholder="  {{ entry_link }}" class="form-control" /></td>';
 html += '  <td class="text-center"><a href="" id="thumb-image' + image_row + '" data-toggle="image" class="img-thumbnail"><img src="  {{ placeholder }}" alt="" title="" data-placeholder="  {{ placeholder }}" /></a><input type="hidden" name="banner_image[' + language_id + '][' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
+html += '  <td class="text-center"><a href="" id="thumb-image-mobile' + image_row + '" data-toggle="image" class="img-thumbnail"><img src="  {{ placeholder }}" alt="" title="" data-placeholder="  {{ placeholder }}" /></a><input type="hidden" name="banner_image[' + language_id + '][' + image_row + '][image_mobile]" value="" id="input-image-mobile' + image_row + '" /></td>';
 html += '  <td class="text-right" style="width: 10%;"><input type="text" name="banner_image[' + language_id + '][' + image_row + '][sort_order]" value="" placeholder="  {{ entry_sort_order }}" class="form-control" /></td>';
 html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row + ', .tooltip\').remove();" data-toggle="tooltip" title="  {{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 html += '</tr>';

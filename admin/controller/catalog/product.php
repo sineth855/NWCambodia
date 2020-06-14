@@ -820,7 +820,8 @@ class ControllerCatalogProduct extends Controller {
 		} elseif (!empty($product_info)) {
 			$data['date_expired'] = ($product_info['date_expired'] != '0000-00-00') ? $product_info['date_expired'] : '';
 		} else {
-			$data['date_expired'] = date('Y-m-d');
+			// $data['date_expired'] = date('Y-m-d');
+			$data['date_expired'] = "";
 		}
 
 		if (isset($this->request->post['quantity'])) {
@@ -881,7 +882,7 @@ class ControllerCatalogProduct extends Controller {
 		} elseif (!empty($product_info)) {
 			$data['is_flash_sale'] = $product_info['is_flash_sale'];
 		} else {
-			$data['is_flash_sale'] = true;
+			$data['is_flash_sale'] = false;
 		}
 
 		if (isset($this->request->post['weight'])) {

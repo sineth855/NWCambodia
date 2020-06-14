@@ -15,12 +15,13 @@ class ControllerExtensionModuleBanner extends Controller {
 		$results = $this->model_design_banner->getBanner($setting['banner_id']);
 
 		foreach ($results as $result) {
-			if (is_file(DIR_IMAGE . $result['image'])) {
+			if (is_file(DIR_IMAGE . $result['image']) || is_file(DIR_IMAGE . $result['image_mobile'])) {
 				$data['banners'][] = array(
 					'title' => $result['title'],
 					'description' => $result['description'],
 					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
+					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']),
+					'image_mobile' => $this->model_tool_image->resize($result['image_mobile'], $setting['width'], $setting['height'])
 					// 'image' => $this->model_tool_image->resize($result['image'], 300, 150)
 				);
 			}			

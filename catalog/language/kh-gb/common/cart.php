@@ -1,7 +1,7 @@
 <?php
 // Text
-$_['text_items']     = '%s item(s) - %s';
-$_['text_empty']     = 'Your shopping cart is empty!';
-$_['text_cart']      = 'View Cart';
-$_['text_checkout']  = 'Checkout';
+$_['text_items']     = '%s ទំនិញ(s) - %s';
+$_['text_empty']     = 'កន្ត្រក់ទំនិញគឺទទេរ!';
+$_['text_cart']      = 'បង្ហាញកន្រ្តក';
+$_['text_checkout']  = 'គិតលុយ';
 $_['text_recurring'] = 'Payment Profile';

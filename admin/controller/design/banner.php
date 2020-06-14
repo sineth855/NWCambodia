@@ -348,15 +348,23 @@ class ControllerDesignBanner extends Controller {
 					$thumb = 'no_image.png';
 				}
 
-				
+				if (is_file(DIR_IMAGE . $banner_image['image_mobile'])) {
+					$image_mobile = $banner_image['image_mobile'];
+					$thumb_mobile = $banner_image['image_mobile'];
+				} else {
+					$image_mobile = '';
+					$thumb_mobile = 'no_image.png';
+				}
 				
 				$data['banner_images'][$key][] = array(
-					'title'      => $banner_image['title'],
-					'description' => $banner_image['description'],
-					'link'       => $banner_image['link'],
-					'image'      => $image,
-					'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
-					'sort_order' => $banner_image['sort_order']
+					'title'      		=> $banner_image['title'],
+					'description' 		=> $banner_image['description'],
+					'link'       		=> $banner_image['link'],
+					'image'      		=> $image,
+					'image_mobile'  	=> $image_mobile,
+					'thumb'      		=> $this->model_tool_image->resize($thumb, 100, 100),
+					'thumb_mobile'      => $this->model_tool_image->resize($thumb_mobile, 100, 100),
+					'sort_order' 		=> $banner_image['sort_order']
 				);
 			}
 		}
