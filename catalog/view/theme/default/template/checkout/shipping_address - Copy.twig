@@ -1,4 +1,4 @@
-Payment Address<form class="form-horizontal">
+<form class="form-horizontal">
   {% if addresses %}
   <div class="radio">
     <label>
@@ -27,62 +27,46 @@ Payment Address<form class="form-horizontal">
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-firstname">{{ entry_firstname }}</label>
       <div class="col-sm-10">
-        <input type="text" name="firstname" value="" placeholder="{{ entry_firstname }}" id="input-shipping-firstname" size="60" class="form-text" />
+        <input type="text" name="firstname" value="" placeholder="{{ entry_firstname }}" id="input-shipping-firstname" class="form-text" />
       </div>
     </div>
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-lastname">{{ entry_lastname }}</label>
       <div class="col-sm-10">
-        <input type="text" name="lastname" value="" placeholder="{{ entry_lastname }}" id="input-shipping-lastname" size="60" class="form-text" />
+        <input type="text" name="lastname" value="" placeholder="{{ entry_lastname }}" id="input-shipping-lastname" class="form-text" />
       </div>
     </div>
-
-    <div class="form-group col-sm-12 required">
-      <label>
-        <img width="50px" src="./catalog/view/theme/default/image/line.png"/>
-        <input type="radio" name="social_contact" checked value="Line"/>
-      <label>
-      <label>          
-        <img width="50px" src="./catalog/view/theme/default/image/whatapp.png"/>
-        <input type="radio" name="social_contact" value="Whatsapp"/>
-      <label>
-      <label>
-        <img width="50px" src="./catalog/view/theme/default/image/telgram.png"/>
-        <input type="radio" name="social_contact" value="Telegram"/>
-      <label>
-    </div>
-    
     <div class="form-group">
       <label class="col-sm-2 control-label" for="input-shipping-company">{{ entry_company }}</label>
       <div class="col-sm-10">
-        <input type="text" name="company" value="" placeholder="{{ entry_company }}" id="input-shipping-company" size="60" class="form-text" />
+        <input type="text" name="company" value="" placeholder="{{ entry_company }}" id="input-shipping-company" class="form-text" />
       </div>
     </div>
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-address-1">{{ entry_address_1 }}</label>
       <div class="col-sm-10">
-        <input type="text" name="address_1" value="" placeholder="{{ entry_address_1 }}" id="input-shipping-address-1" size="60" class="form-text" />
+        <input type="text" name="address_1" value="" placeholder="{{ entry_address_1 }}" id="input-shipping-address-1" class="form-text" />
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label" for="input-shipping-address-2">{{ entry_address_2 }}</label>
       <div class="col-sm-10">
-        <input type="text" name="address_2" value="" placeholder="{{ entry_address_2 }}" id="input-shipping-address-2" size="60" class="form-text" />
+        <input type="text" name="address_2" value="" placeholder="{{ entry_address_2 }}" id="input-shipping-address-2" class="form-text" />
       </div>
     </div>
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-city">{{ entry_city }}</label>
       <div class="col-sm-10">
-        <input type="text" name="city" value="" placeholder="{{ entry_city }}" id="input-shipping-city" size="60" class="form-text" />
+        <input type="text" name="city" value="" placeholder="{{ entry_city }}" id="input-shipping-city" class="form-text" />
       </div>
     </div>
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-postcode">{{ entry_postcode }}</label>
       <div class="col-sm-10">
-        <input type="text" name="postcode" value="{{ postcode }}" placeholder="{{ entry_postcode }}" id="input-shipping-postcode" size="60" class="form-text" />
+        <input type="text" name="postcode" value="{{ postcode }}" placeholder="{{ entry_postcode }}" id="input-shipping-postcode" class="form-text" />
       </div>
     </div>
-    <div class="form-group required" style="display: none;">
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-country">{{ entry_country }}</label>
       <div class="col-sm-10">
         <select name="country_id" id="input-shipping-country" class="form-control">
@@ -97,7 +81,7 @@ Payment Address<form class="form-horizontal">
         </select>
       </div>
     </div>
-    <div class="form-group required" style="display: none;">
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-zone">{{ entry_zone }}</label>
       <div class="col-sm-10">
         <select name="zone_id" id="input-shipping-zone" class="form-control">

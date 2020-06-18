@@ -25,76 +25,48 @@
   <br />
   <div id="payment-new" style="display: {% if addresses %}none{% else %}block{% endif %};">
     <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-shipping-firstname">{{ entry_firstname }}</label>
+      <label class="col-sm-2 control-label" for="input-payment-firstname">{{ entry_firstname }}</label>
       <div class="col-sm-10">
-        <input type="text" name="firstname" value="" placeholder="{{ entry_firstname }}" id="input-payment-firstname" size="60" class="form-text" />
+        <input type="text" name="firstname" value="" placeholder="{{ entry_firstname }}" id="input-payment-firstname" class="form-text" />
       </div>
     </div>
-    <div class="form-group col-sm-12 required">
-      <label class="control-label" for="input-payment-telephone">{{ entry_telephone }}</label>
-      <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-payment-telephone" class="form-text" size="60" />
-    </div>
-
-    <div class="form-group col-sm-12 required">
-      <label>
-        <img width="50px" src="./catalog/view/theme/default/image/line.png"/>
-        <input type="radio" name="social_contact" checked value="Line"/>
-      <label>
-      <label>          
-        <img width="50px" src="./catalog/view/theme/default/image/whatapp.png"/>
-        <input type="radio" name="social_contact" value="Whatsapp"/>
-      <label>
-      <label>
-        <img width="50px" src="./catalog/view/theme/default/image/telgram.png"/>
-        <input type="radio" name="social_contact" value="Telegram"/>
-      <label>
-    </div>
-
-    <div class="form-group">
-      <label class="col-sm-2 control-label" for="input-payment-address-1">{{ entry_address_1 }}</label>
-      <div class="col-sm-10">
-        <input type="text" name="address_1" value="" placeholder="{{ entry_address_1 }}" id="input-payment-address-1" size="60" class="form-text" />
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label" for="input-payment-note">{{ entry_note }}</label>
-      <div class="col-sm-10">
-        <input type="text" name="note" value="{{ note }}" placeholder="{{ entry_note }}" id="input-payment-note" class="form-text" size="60" />
-      </div>
-    </div>
-
-     <div class="form-group required" style="display: none;">
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-lastname">{{ entry_lastname }}</label>
       <div class="col-sm-10">
-        <input type="text" name="lastname" value="None" placeholder="{{ entry_lastname }}" id="input-payment-lastname" size="60" class="form-text" />
+        <input type="text" name="lastname" value="" placeholder="{{ entry_lastname }}" id="input-payment-lastname" class="form-text" />
       </div>
     </div>
-
-    <div class="form-group" style="display: none;">
+    <div class="form-group">
       <label class="col-sm-2 control-label" for="input-payment-company">{{ entry_company }}</label>
       <div class="col-sm-10">
-        <input type="text" name="company" value="None" placeholder="{{ entry_company }}" id="input-payment-company" size="60" class="form-text" />
+        <input type="text" name="company" value="" placeholder="{{ entry_company }}" id="input-payment-company" class="form-text" />
       </div>
     </div>
-    <div class="form-group" style="display: none;">
+    <div class="form-group required">
+      <label class="col-sm-2 control-label" for="input-payment-address-1">{{ entry_address_1 }}</label>
+      <div class="col-sm-10">
+        <input type="text" name="address_1" value="" placeholder="{{ entry_address_1 }}" id="input-payment-address-1" class="form-text" />
+      </div>
+    </div>
+    <div class="form-group">
       <label class="col-sm-2 control-label" for="input-payment-address-2">{{ entry_address_2 }}</label>
       <div class="col-sm-10">
-        <input type="text" name="address_2" value="" placeholder="{{ entry_address_2 }}" id="input-payment-address-2" size="60" class="form-text" />
+        <input type="text" name="address_2" value="" placeholder="{{ entry_address_2 }}" id="input-payment-address-2" class="form-text" />
       </div>
     </div>
-    <div class="form-group required" style="display: none;">
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-city">{{ entry_city }}</label>
       <div class="col-sm-10">
-        <input type="text" name="city" value="None" placeholder="{{ entry_city }}" id="input-payment-city" size="60" class="form-text" />
+        <input type="text" name="city" value="" placeholder="{{ entry_city }}" id="input-payment-city" class="form-text" />
       </div>
     </div>
-    <div class="form-group required" style="display: none;">
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-postcode">{{ entry_postcode }}</label>
       <div class="col-sm-10">
-        <input type="text" name="postcode" value="None" placeholder="{{ entry_postcode }}" id="input-payment-postcode" size="60" class="form-text" />
+        <input type="text" name="postcode" value="" placeholder="{{ entry_postcode }}" id="input-payment-postcode" class="form-text" />
       </div>
     </div>
-    <div class="form-group required" style="display: none;">
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-country">{{ entry_country }}</label>
       <div class="col-sm-10">
         <select name="country_id" id="input-payment-country" class="form-control">
@@ -109,7 +81,7 @@
         </select>
       </div>
     </div>
-    <div class="form-group required" style="display: none;">
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-zone">{{ entry_zone }}</label>
       <div class="col-sm-10">
         <select name="zone_id" id="input-payment-zone" class="form-control">
