@@ -74,8 +74,8 @@ class ControllerAccountConfirm extends Controller {
 		$this->load->model('account/customer');
 		$customerData = $this->model_account_customer->editOtpCustomer($customer_id, $otpCode);
 		// Your Account SID and Auth Token from twilio.com/console
-		$sid = 'ACc75a1b052882fbbbe81e3a5b06d489aa';
-		$token = '804e478d147019b0ad1b29d53fedaa5c';
+		$sid = 'AC2022ca7499af9302e331593b993408f7';
+		$token = '85863d9f7a0600628554b34ccb9ba6e0';
 		$client = new Client($sid, $token);
 		$telephone = preg_replace('/[^0-9]/', '', $telephoneUser);
 		$convertTel = (int)$telephone;
@@ -85,7 +85,7 @@ class ControllerAccountConfirm extends Controller {
 			'+855'.$convertTel,
 			array(
 				// A Twilio phone number you purchased at twilio.com/console
-				'from' => '+18473053455',
+				'from' => '+12025179293',
 				// the body of the text message you'd like to send
 				'body' => 'NWCambodia confirm code: '.$otpCode.''
 			)

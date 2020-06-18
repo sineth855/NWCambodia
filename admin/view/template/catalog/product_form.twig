@@ -498,7 +498,7 @@
                           <input type="text" name="product_size[{{attribute_addon_row}}][size]" value="{{ product_addon.size_name }}" placeholder="Group Size Name" id="input-addon" class="form-control"/>
                         </div>
                         <div class="col-sm-2">
-                          <input type="number" name="product_size[{{attribute_addon_row}}][price]" value="{{ product_addon.price }}" placeholder="Price" class="form-control"/>
+                          <input type="number" name="product_size[{{attribute_addon_row}}][price]" id="product_size[{{attribute_addon_row}}][price]" value="{{ product_addon.price }}" placeholder="Price" class="form-control"/>
                         </div>
                         <div class="col-sm-2">
                           <input type="number" name="product_size[{{attribute_addon_row}}][sort_order]" value="{{ product_addon.sort_order }}" placeholder="Sort Order" class="form-control"/>
@@ -513,7 +513,7 @@
                         <div id="product-addon-list{{attribute_addon_row}}" class="well well-sm" style="height: 150px; overflow: auto;"> 
                           {% for product_addon in product_addon['product_addons'] %}
                             <div id="product-addon-{{attribute_addon_row}}-{{product_addon.product_id}}">
-                              <i class="fa fa-minus-circle"></i> {{product_addon.name}} 
+                              <i class="fa fa-minus-circle"></i> {{product_addon.name}} {{product_addon.price}} 
                               <input type="hidden" name="product_addon_size[{{attribute_addon_row}}][]" value="{{product_addon.product_id}}" /></div>
                           {% endfor %}
                         </div>
@@ -533,7 +533,8 @@
                                 response($.map(json, function(item) {
                                   return {
                                     label: item['name'],
-                                    value: item['product_id']
+                                    value: item['product_id'],
+                                    p: item['price']
                                   }
                                 }));
                               }
@@ -542,6 +543,8 @@
                           'select': function(item) {
                             //$('input[name=\'addon\''+attribute_addon_row+']').val('');
                             // $('#product-addon-' + attribute_addon_row + '-' + item['value']).remove();
+                            alert(item);
+                            $('#product_size[0][price]').append(item['p']);
                             $('#product-addon-list{{attribute_addon_row}}').append('<div id="product-addon-{{attribute_addon_row}}-' + item["value"] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_addon_size[{{attribute_addon_row}}][]" value="' + item['value'] + '" /></div>');
                           }
                         });
@@ -1517,7 +1520,7 @@
           html += '<input type="text" name="product_size['+attribute_addon_row+'][size]" value="" placeholder="Group Size Name" id="input-addon" class="form-control"/>';
         html += '</div>';
         html += '<div class="col-sm-2">';
-          html += '<input type="number" name="product_size['+attribute_addon_row+'][price]" placeholder="Price" class="form-control"/>';
+          html += '<input type="number" name="product_size['+attribute_addon_row+'][price]" id="product_size['+attribute_addon_row+'][price]" placeholder="Price" class="form-control"/>';
         html += '</div>';
         html += '<div class="col-sm-2">';
           html += '<input type="number" name="product_size['+attribute_addon_row+'][sort_order]" placeholder="Sort Order" value="{{ product_addon.sort_order }}" class="form-control"/>';
