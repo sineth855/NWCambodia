@@ -8,20 +8,20 @@ class ControllerExtensionModuleLatest extends Controller {
 		$this->load->model('tool/image');
 
 		$data['products'] = array();
-
+		// printf(date("Y-m-d"));
 		$filter_data = array(
-			'sort'  => 'p.date_added',
+			// 'sort'  => 'p.date_added',
 			'order' => 'DESC',
 			'start' => 0,
 			'limit' => $setting['limit'],
 			'isFlashSale' => 1,
+			'dateNow' => date("Y-m-d")
 		);
 
 		$results = $this->model_catalog_product->getProducts($filter_data);
-
 		if ($results) {
 			foreach ($results as $result) {
-				
+
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
 					// $image = $result['image'];
@@ -75,8 +75,8 @@ class ControllerExtensionModuleLatest extends Controller {
 					'rating'      		=> $rating,
 					'href'        		=> $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
+				//print_r($data['products']);/
 			}
-
 			return $this->load->view('extension/module/latest', $data);
 		}
 	}
