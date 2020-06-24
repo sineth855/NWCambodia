@@ -5,9 +5,19 @@ class ControllerProductManufacturer extends Controller {
 
 		$this->load->model('catalog/manufacturer');
 
+		$this->load->model('design/banner');
+
 		$this->load->model('tool/image');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+		
+		$banner_brand = $this->model_design_banner->getBannerBrand();
+		
+		if($banner_brand) {
+			$data['banner_brand'] = $this->model_tool_image->resize($banner_brand[0]['image'], 330, 570);
+		}
+
+		// print_r($banner_brand[0]['image']);
 
 		$data['breadcrumbs'] = array();
 
