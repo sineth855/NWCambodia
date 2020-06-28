@@ -1,14 +1,14 @@
 <?php
 // Heading
-$_['heading_title']      = 'Your Transactions';
+$_['heading_title']      = 'ប្រតិបត្តិការរបស់អ្នក';
 
 // Column
-$_['column_date_added']  = 'Date Added';
-$_['column_description'] = 'Description';
-$_['column_amount']      = 'Amount (%s)';
+$_['column_date_added']  = 'កាលបរិច្ឆេទ​ដែល​បាន​បន្ថែម';
+$_['column_description'] = 'ការពិពណ៌នា';
+$_['column_amount']      = 'ចំនួនទឹកប្រាក់ (%s)';
 
 // Text
-$_['text_account']       = 'Account';
-$_['text_transaction']   = 'Your Transactions';
-$_['text_total']         = 'Your current balance is:';
-$_['text_empty']         = 'You do not have any transactions!';
+$_['text_account']       = 'គណនី';
+$_['text_transaction']   = 'ប្រតិបត្តិការរបស់អ្នក';
+$_['text_total']         = 'សមតុល្យបច្ចុប្បន្នរបស់អ្នកគឺ:';
+$_['text_empty']         = 'អ្នកមិនមានប្រតិបត្តិការអ្វីទេ!';

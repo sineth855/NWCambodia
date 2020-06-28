@@ -1,37 +1,37 @@
 <?php
 // Heading
-$_['heading_title']      = 'Address Book';
+$_['heading_title']      = 'សៀវភៅ​អាស័យ​ដ្ឋាន';
 
 // Text
-$_['text_account']       = 'Account';
-$_['text_address_book']  = 'Address Book Entries';
-$_['text_address_add']   = 'Add Address';
-$_['text_address_edit']  = 'Edit Address';
-$_['text_add']           = 'Your address has been successfully added';
-$_['text_edit']          = 'Your address has been successfully updated';
-$_['text_delete']        = 'Your address has been successfully deleted';
-$_['text_empty']         = 'You have no addresses in your account.';
+$_['text_account']       = 'គណនី';
+$_['text_address_book']  = 'ធាតុសៀវភៅអាសយដ្ឋាន';
+$_['text_address_add']   = 'បន្ថែមអាសយដ្ឋាន';
+$_['text_address_edit']  = 'កែសម្រួលអាសយដ្ឋាន';
+$_['text_add']           = 'អាសយដ្ឋានរបស់អ្នកត្រូវបានបន្ថែមដោយជោគជ័យ';
+$_['text_edit']          = 'អាសយដ្ឋានរបស់អ្នកត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ';
+$_['text_delete']        = 'អាសយដ្ឋានរបស់អ្នកត្រូវបានលុបចោលដោយជោគជ័យ';
+$_['text_empty']         = 'អ្នកមិនមានអាសយដ្ឋាននៅក្នុងគណនីរបស់អ្នកទេ។';
 
 // Entry
-$_['entry_firstname']    = 'First Name';
-$_['entry_lastname']     = 'Last Name';
-$_['entry_company']      = 'Company';
-$_['entry_address_1']    = 'Address 1';
-$_['entry_address_2']    = 'Address 2';
+$_['entry_firstname']    = 'នាមខ្លួន';
+$_['entry_lastname']     = 'នាមត្រកូល';
+$_['entry_company']      = 'ក្រុមហ៊ុន';
+$_['entry_address_1']    = 'អាស័យដ្ឋានទី ១';
+$_['entry_address_2']    = 'អាស័យដ្ឋានទី ២';
 $_['entry_postcode']     = 'Post Code';
-$_['entry_city']         = 'City';
-$_['entry_country']      = 'Country';
-$_['entry_zone']         = 'Region / State';
-$_['entry_default']      = 'Default Address';
+$_['entry_city']         = 'ទីក្រុង';
+$_['entry_country']      = 'ប្រទេស';
+$_['entry_zone']         = 'តំបន់ / រដ្ឋ';
+$_['entry_default']      = 'អាសយដ្ឋានលំនាំដើម';
 
 // Error
-$_['error_delete']       = 'Warning: You must have at least one address!';
-$_['error_default']      = 'Warning: You can not delete your default address!';
-$_['error_firstname']    = 'First Name must be between 1 and 32 characters!';
-$_['error_lastname']     = 'Last Name must be between 1 and 32 characters!';
-$_['error_address_1']    = 'Address must be between 3 and 128 characters!';
-$_['error_postcode']     = 'Postcode must be between 2 and 10 characters!';
-$_['error_city']         = 'City must be between 2 and 128 characters!';
-$_['error_country']      = 'Please select a country!';
-$_['error_zone']         = 'Please select a region / state!';
-$_['error_custom_field'] = '%s required!';
+$_['error_delete']       = 'ការព្រមាន៖ អ្នកត្រូវមានអាសយដ្ឋានយ៉ាងហោចណាស់មួយ!';
+$_['error_default']      = 'ការព្រមាន: អ្នកមិនអាចលុបអាសយដ្ឋានលំនាំដើមរបស់អ្នកបានទេ!';
+$_['error_firstname']    = 'នាមខ្លួនត្រូវតែមានចន្លោះពី ១ ដល់ ៣២ តួអក្សរ!';
+$_['error_lastname']     = 'នាមត្រកូលត្រូវតែមានពី ១ ដល់ ៣២ តួអក្សរ!';
+$_['error_address_1']    = 'អាសយដ្ឋានត្រូវតែមានពី ៣ ទៅ ១២៨ តួអក្សរ!';
+$_['error_postcode']     = 'លេខកូដប្រៃសណីយ៍ត្រូវមានចន្លោះពី ២ ទៅ ១០ តួអក្សរ!';
+$_['error_city']         = 'ទីក្រុងត្រូវតែមានពី ២ ទៅ ១២៨ តួអក្សរ!';
+$_['error_country']      = 'សូមជ្រើសរើសប្រទេសមួយ!';
+$_['error_zone']         = 'សូមជ្រើសរើសតំបន់ / រដ្ឋ!';
+$_['error_custom_field'] = '%s ទាមទារ!';

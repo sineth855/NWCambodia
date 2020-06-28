@@ -1,17 +1,17 @@
 <?php
 // Heading
-$_['heading_title']  = 'Reset your password';
+$_['heading_title']  = 'កំណត់ពាក្យសម្ងាត់របស់អ្នកឡើងវិញ';
 
 // Text
-$_['text_account']   = 'Account';
-$_['text_password']  = 'Enter the new password you wish to use.';
-$_['text_success']   = 'Success: Your password has been successfully updated.';
+$_['text_account']   = 'គណនី';
+$_['text_password']  = 'បញ្ចូលពាក្យសម្ងាត់ថ្មីដែលអ្នកចង់ប្រើ។';
+$_['text_success']   = 'ជោគជ័យ៖ ពាក្យសម្ងាត់របស់អ្នកត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ។';
 
 // Entry
-$_['entry_password'] = 'Password';
-$_['entry_confirm']  = 'Confirm';
+$_['entry_password'] = 'ពាក្យសម្ងាត់';
+$_['entry_confirm']  = 'បញ្ជាក់';
 
 // Error
-$_['error_password'] = 'Password must be between 4 and 20 characters!';
-$_['error_confirm']  = 'Password and password confirmation do not match!';
-$_['error_code']     = 'Password reset code is invalid or was used previously!';
+$_['error_password'] = 'លេខសម្ងាត់ត្រូវតែមានពី ៤ ទៅ ២០ តួអក្សរ!';
+$_['error_confirm']  = 'ការបញ្ជាក់លេខសំងាត់និងលេខសំងាត់មិនត្រូវគ្នាទេ!';
+$_['error_code']     = 'លេខកូដកំណត់លេខសំងាត់មិនត្រឹមត្រូវឬត្រូវបានប្រើពីមុនទេ!';

@@ -1,26 +1,26 @@
 <?php
 // Heading
-$_['heading_title']       = 'My Account';
+$_['heading_title']       = 'គណនី​របស់ខ្ញុំ';
 
 // Text
-$_['text_account']        = 'Account';
-$_['text_my_account']     = 'My Account';
-$_['text_my_orders']      = 'My Orders';
-$_['text_my_affiliate']   = 'My Affiliate Account';
-$_['text_my_newsletter']  = 'Newsletter';
-$_['text_edit']           = 'Edit your account information';
-$_['text_password']       = 'Change your password';
-$_['text_address']        = 'Modify your address book entries';
-$_['text_credit_card']    = 'Manage Stored Credit Cards';
-$_['text_wishlist']       = 'Modify your wish list';
-$_['text_order']          = 'View your order history';
-$_['text_download']       = 'Downloads';
-$_['text_reward']         = 'Your Reward Points';
-$_['text_return']         = 'View your return requests';
-$_['text_transaction']    = 'Your Transactions';
-$_['text_newsletter']     = 'Subscribe / unsubscribe to newsletter';
-$_['text_recurring']      = 'Recurring payments';
-$_['text_transactions']   = 'Transactions';
-$_['text_affiliate_add']  = 'Register for an affiliate account';
-$_['text_affiliate_edit'] = 'Edit your affiliate information';
-$_['text_tracking']       = 'Custom Affiliate Tracking Code';
+$_['text_account']        = 'គណនី';
+$_['text_my_account']     = 'គណនី​របស់ខ្ញុំ';
+$_['text_my_orders']      = 'ការបញ្ជាទិញរបស់ខ្ញុំ';
+$_['text_my_affiliate']   = 'គណនីតតរបស់ខ្ញុំ';
+$_['text_my_newsletter']  = 'ព្រឹត្តិប័ត្រព័ត៌មាន';
+$_['text_edit']           = 'កែព័ត៌មានគណនីរបស់អ្នក';
+$_['text_password']       = 'ផ្លាស់ប្តូរពាក្យសម្ងាត់របស់អ្នក';
+$_['text_address']        = 'កែប្រែធាតុសៀវភៅអាសយដ្ឋានរបស់អ្នក';
+$_['text_credit_card']    = 'គ្រប់គ្រងកាតឥណទានដែលរក្សាទុក';
+$_['text_wishlist']       = 'កែប្រែបញ្ជីបំណងរបស់អ្នក';
+$_['text_order']          = 'មើលប្រវត្តិបញ្ជាទិញរបស់អ្នក';
+$_['text_download']       = 'ការទាញយក';
+$_['text_reward']         = 'ពិន្ទុរង្វាន់របស់អ្នក';
+$_['text_return']         = 'មើលសំណើត្រឡប់របស់អ្នក';
+$_['text_transaction']    = 'ប្រតិបត្តិការរបស់អ្នក';
+$_['text_newsletter']     = 'ជាវ / ឈប់ជាវព្រឹត្តិប័ត្រព័ត៌មាន';
+$_['text_recurring']      = 'ការទូទាត់កើតឡើង';
+$_['text_transactions']   = 'ប្រតិបត្តិការ';
+$_['text_affiliate_add']  = 'ចុះឈ្មោះសម្រាប់គណនីសម្ព័ន្ធ';
+$_['text_affiliate_edit'] = 'កែសម្រួលព័ត៌មានសម្ព័ន្ធរបស់អ្នក';
+$_['text_tracking']       = 'លេខកូដតាមដានតតផ្ទាល់ខ្លួន';

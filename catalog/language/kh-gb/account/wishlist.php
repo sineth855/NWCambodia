@@ -1,20 +1,20 @@
 <?php
 // Heading
-$_['heading_title'] = 'My Wish List';
+$_['heading_title'] = 'បញ្ជី​ប្រាថ្នា​របស់​ខ្ញុំ';
 
 // Text
-$_['text_account']  = 'Account';
-$_['text_instock']  = 'In Stock';
-$_['text_wishlist'] = 'Wish List (%s)';
+$_['text_account']  = 'គណនី';
+$_['text_instock']  = 'នៅ​ក្នុង​ស្តុក';
+$_['text_wishlist'] = 'បញ្ជីបំណង (%s)';
 $_['text_login']    = 'You must <a href="%s">login</a> or <a href="%s">create an account</a> to save <a href="%s">%s</a> to your <a href="%s">wish list</a>!';
 $_['text_success']  = 'Success: You have added <a href="%s">%s</a> to your <a href="%s">wish list</a>!';
-$_['text_remove']   = 'Success: You have modified your wish list!';
-$_['text_empty']    = 'Your wish list is empty.';
+$_['text_remove']   = 'ជោគជ័យ៖ អ្នកបានកែប្រែបញ្ជីបំណងរបស់អ្នកហើយ!';
+$_['text_empty']    = 'បញ្ជីបំណងរបស់អ្នកគឺទទេ។';
 
 // Column
-$_['column_image']  = 'Image';
-$_['column_name']   = 'Product Name';
-$_['column_model']  = 'Model';
-$_['column_stock']  = 'Stock';
-$_['column_price']  = 'Unit Price';
+$_['column_image']  = 'រូបភាព';
+$_['column_name']   = 'មោះ​ផលិតផល';
+$_['column_model']  = 'គំរូ';
+$_['column_stock']  = 'ស្តុក';
+$_['column_price']  = 'តម្លៃ​ឯកតា';
 $_['column_action'] = 'Action';
