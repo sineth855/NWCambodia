@@ -38,11 +38,11 @@ $_['text_supplement_plan_dec']     = "It's simple, just tell us a little about y
 $_['text_male']       = 'Male';
 $_['text_female']       = 'Female';
 $_['text_gender']       = 'Gender';
-$_['text_goal']       = 'Goal';
-$_['text_product_finder']       = 'Product Finder';
-$_['text_shop_by_category']       = 'Shop By Category';
-$_['text_shop_by_brand']       = 'Shop By Brand';
-$_['text_shop_by_goal']       = 'Shop By Goal';
+$_['text_goal']                      = 'Goal';
+$_['text_product_finder']            = 'Product Finder';
+$_['text_shop_by_category']          = 'Shop By Category';
+$_['text_shop_by_brand']             = 'Shop By Brand';
+$_['text_shop_by_goal']              = 'Shop By Goal';
 $_['text_shop_by_best_seller']       = 'Shop By Best Seller';
 
 // Buttons
@@ -55,6 +55,10 @@ $_['button_compare']        = 'ប្រៀបធៀបផលិតផល';
 $_['button_wishlist']       = 'Add to Wish List';
 $_['button_checkout']       = 'គិតលុយ';
 $_['button_confirm']        = 'បញ្ជាក់ការកម្ម៉ង់';
+$_['button_confirm_number'] = 'ចុចបញ្ជាក់';
+$_['button_security_code']  = 'បញ្ជាក់លេខកូដសុវត្ថិភាព';
+$_['text_dont_receive']     = "មិនបានទទួល";
+$_['text_resend_code']      = "ផ្ញើកូដម្តងទៀត";
 $_['button_coupon']         = 'បញ្ចូលកូប៉ុង';
 $_['button_delete']         = 'លុប';
 $_['button_download']       = 'ដោនលត';
