@@ -543,8 +543,10 @@
                           'select': function(item) {
                             //$('input[name=\'addon\''+attribute_addon_row+']').val('');
                             // $('#product-addon-' + attribute_addon_row + '-' + item['value']).remove();
-                            alert(item);
-                            $('#product_size[0][price]').append(item['p']);
+                            // alert(item["value"]);
+                            console.log("data", item);
+                            $("input[name='product_size["+ attribute_addon_row +"][price]']").val("Test");
+                            $('#product_size['+ attribute_addon_row +'][price]').append(item['p']);
                             $('#product-addon-list{{attribute_addon_row}}').append('<div id="product-addon-{{attribute_addon_row}}-' + item["value"] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_addon_size[{{attribute_addon_row}}][]" value="' + item['value'] + '" /></div>');
                           }
                         });
