@@ -51,22 +51,42 @@
     <div id="modal_containerPopUp">
         <div id="modal_inside" class="wrapper-popup">
             <div class="model_content" style="padding: 10px;">
-                <div class="header-title_">User Account</div>
+                <div class="header-title_">{{text_user_account}}</div>
                  <div class="btn-wrap-user-close">
                     <a href="javascript:void(0);" id="close_" class="js-modal-close continue-btn close-fancy">X</a>
                 </div>
                  <div class="mobile-register text-center">
                     {% if logged == null %}
                     <div>
-                        <span><a href="{{login}}" class="button promotion-button"><i class="ti-user"></i> &nbsp; Login</a></span>
-                        <span><a href="{{register}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Register</a></span>
+                        <span><a href="{{login}}" class="button promotion-button"><i class="ti-user"></i> &nbsp; {{text_login}}</a></span>
+                        <span><a href="{{register}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; {{text_register}}</a></span>
                     </div>
                     {% else %}
                     <div>
                         <span><a href="#" class="button promotion-button"><i class="ti-user"></i> &nbsp; {{lastname}} {{firstname}}</a></span>
-                        <span><a href="{{logout}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; Logout</a></span>
+                        <span><a href="{{logout}}" class="button promotion-button"><i class="ti-lock"></i> &nbsp; {{text_logout}}</a></span>
                     </div>
                     {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="phoneCallPopUp" id="bodyheadertextPhoneCall_login" style="display: block;">
+    <div id="modal_containerPhoneCallPopUp">
+        <div id="modal_inside" class="wrapper-popup">
+            <div class="model_content" style="padding: 10px;">
+                <div class="header-title_">{{text_choose_phone_call}}</div>
+                 <div class="btn-wrap-user-close">
+                    <a href="javascript:void(0);" id="phoneCallclose" class="js-modal-close continue-btn close-fancy">X</a>
+                </div>
+                 <div class="mobile-register text-center">
+                    <div>
+                        <span><a href="tel:010885277" class="button promotion-button"><img width="25px" src="catalog/view/theme/default/image/phone-icon.png">&nbsp; 010 885 277</a></span>
+                        <span><a href="tel:011885277" class="button promotion-button"><img width="25px" src="catalog/view/theme/default/image/phone-icon.png">&nbsp; 011 885 277</a></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,6 +120,7 @@
         </div>
     </div>
 </nav>
+
 <header style="display: none">
     <div class="container">
         <div class="row">
@@ -248,9 +269,12 @@
                         <div class="pull-left border-line"></div>
                         <div class="pull-left lang-top">
                             <div class="pull-left">
-                                <a href="tel:{{telephone}}">
+                                <!-- <a href="tel:{{telephone}}">
                                     <img width="25px" src="catalog/view/theme/default/image/phone-icon.png" />
-                                </a>
+                                </a> -->
+                                <div id="buttonPhoneCallPopUp">
+                                    <img width="25px" src="catalog/view/theme/default/image/phone-icon.png" />
+                                </div>
                             </div>
                             <div class="pull-left line-lang"></div>
                             <div class="pull-left">
@@ -315,34 +339,6 @@
                                                             </div>
                                                         </a>
                                                     </div>
-                                                    <!-- <div class="cart-block--contents">
-										 <div class="cart-block--contents__inner">
-											<div class="cart-block--contents__items">
-												  <div class="cart cart-block">
-													 <div class="views-element-container">
-														<div class="js-view-dom-id-2877648bd34c6683fd60694b6d39912773e84bbec2e7937b2ff0b4be3ce844d9">
-														   <table class="cols-0">
-															  <tbody>
-																 <tr>
-																	<td class="views-field views-field-field-image">
-																	<img src="./catalog/view/theme/default/image/bamm.png" width="100" height="100" alt="Bamm" typeof="foaf:Image" />
-																	</td>
-																	<td class="views-field views-field-title">Bamm - 7 US          </td>
-																	<td class="views-field views-field-quantity">1&nbsp;×          </td>
-																	<td class="views-field views-field-total-price__number">$59.95          </td>
-																 </tr>
-															  </tbody>
-														   </table>
-  
-														</div>
-													 </div>
-												  </div>
-											</div>
-											<div class="cart-block--contents__links cart-block-link">
-											   <a href="/martis/en/cart">Cart</a>
-											</div>
-										 </div>
-									  </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -351,13 +347,7 @@
                             </div>
 
                         </div>
-                        <!-- <div style="position: relative; left: -100pt;">
-				 <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-					<i class="ti-menu"></i>
-				 </button>
-				 <img height="10px" src="catalog/view/theme/default/image/kh.png"/> &nbsp;
-				 <img height="10px" src="catalog/view/theme/default/image/gb.png"/>
-			  </div> -->
+                      
                     </div>
                 </div>
             </div>

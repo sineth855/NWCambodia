@@ -100,6 +100,7 @@ Please donate via PayPal to donate@opencart.com
 <script>
 
     jQuery(function($) {
+        // Contact Us
         $("#bodyheadertext_login").hide();
         $("#close_").click(function() {
             $("#bodyheadertext_login").hide();
@@ -107,6 +108,18 @@ Please donate via PayPal to donate@opencart.com
         $("#buttonRegisterPopUp").click(function() {
             $("#bodyheadertext_login").show();
         });
+
+        // Call phone 
+
+        $("#bodyheadertextPhoneCall_login").hide();
+        $("#phoneCallclose").click(function() {
+            $("#bodyheadertextPhoneCall_login").hide();
+        });
+        $("#buttonPhoneCallPopUp").click(function() {
+            $("#bodyheadertextPhoneCall_login").show();
+        });
+
+
         var i = 1000;
         $('#retroclockbox1').flipcountdown();
         var i = 1;
@@ -139,7 +152,8 @@ Please donate via PayPal to donate@opencart.com
 </script>
 
 <script>
-     $(".userRegisterPopUp").hide();        
+    // Contact Us
+    $(".userRegisterPopUp").hide();        
     $("#modal_containerPopUp").removeClass("modal_container_class");
     $("#close").click(function() {
         $("#modal_containerPopUp").removeClass("modal_container_class");
@@ -149,6 +163,19 @@ Please donate via PayPal to donate@opencart.com
         $("#modal_containerPopUp").addClass("modal_container_class");
         $(".userRegisterPopUp").show();
     });
+
+    // Phone Call
+    $(".phoneCallPopUp").hide();        
+    $("#modal_containerPhoneCallPopUp").removeClass("modal_container_class");
+    $("#close").click(function() {
+        $("#modal_containerPhoneCallPopUp").removeClass("modal_container_class");
+        $(".phoneCallPopUp").hide();
+    });
+    $("#buttonPhoneCallPopUp").click(function() {
+        $("#modal_containerPhoneCallPopUp").addClass("modal_container_class");
+        $(".phoneCallPopUp").show();
+    });
+
     jQuery(function($) {
         
         $('#retroclockbox_lg').flipcountdown({
