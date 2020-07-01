@@ -14,3 +14,5 @@ $_['text_logout']        = 'ចេញក្រៅ';
 $_['text_checkout']      = 'គិតលុយ';
 $_['text_search']        = 'ស្វែងរក';
 $_['text_all']           = 'បង្ហាញទាំងអស់';
+$_['text_choose_phone_call']           = 'ជ្រើសរើសលេខទូរសព្ទ័ខល';
+$_['text_user_account']           = 'គណនីអ្នកប្រើប្រាស់';
