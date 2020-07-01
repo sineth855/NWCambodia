@@ -51,14 +51,14 @@
       <h5 style="color: green;">{{ text_confirm_message }}</h5>
 
       <div class="row">
-        <div class="col-sm-6"><input type="text" name="otpCode" placeholder="Confirm Security Code" class="form-control"/></div>
+        <div class="col-sm-6"><input type="text" name="otpCode" placeholder="{{button_security_code}}" class="form-control"/></div>
         <div style="padding-top:5px;" class="col-sm-4"> <div id="countdown"></div></div>
       </div>
       <div class="row" style="padding-top: 10px;">
         <div class="col-sm-12">
           <input type="hidden" name="customer_id" value="{{customer_id}}"/>
           <input type="hidden" name="telephone" value="{{telephone}}"/>
-          Didn't receive? <a href="javascript:void(0)" id="requestCode"><strong>Resend code</strong> <span class="resent-message"></span></a>
+          {{text_dont_receive}}? <a href="javascript:void(0)" id="requestCode"><strong>{{text_resend_code}}</strong> <span class="resent-message"></span></a>
         </div>
       </div>
       <div class="buttons">

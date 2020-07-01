@@ -2,7 +2,7 @@
 // Text
 $_['text_home']          = 'Home';
 $_['text_wishlist']      = 'បញ្ជីបំណង​​ (%s)';
-$_['text_shopping_cart'] = 'Shopping Cart';
+$_['text_shopping_cart'] = 'ទិញ​ឥវ៉ាន់';
 $_['text_category']      = 'កាតាឡុក';
 $_['text_account']       = 'គណនីរបស់ខ្ញុំ';
 $_['text_register']      = 'ចុះឈ្មោះ';

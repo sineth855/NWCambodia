@@ -6,7 +6,7 @@ $_['heading_title']        = 'ចុះឈ្មោះបង្កើតគណ�
 $_['text_account']         = 'បង្កើតគណនី';
 $_['text_register']        = 'ចុះឈ្មោះ';
 $_['text_account_already'] = 'ប្រសិនបើអ្នកមានគណនីជាមួយយើងរួចហើយសូមចូលទៅកាន់ <a href="%s">login page</a>.';
-$_['text_your_details']    = 'Your Personal Details';
+$_['text_your_details']    = 'ព័ត៏មានលំអិតផ្ទាល់ខ្លួនរបស់អ្នក';
 $_['text_newsletter']      = 'Newsletter';
 $_['text_your_password']   = 'លេខសម្ងាត់របស់អ្នក';
 $_['text_agree']           = 'I have read and agree to the <a href="%s" class="agree"><b>%s</b></a>';
@@ -42,4 +42,4 @@ $_['error_agree']          = 'ការព្រមានៈអ្នកត្�
 $_['text_subject']          = 'ចុះឈ្មោះគណនីថ្មី.';
 $_['text_message']          = 'Please click the link below to activate your account.';
 $_['text_from']          = 'NWCambodia';
-$_['text_footer']          = '<p>If you have any question, please contact to our team.</p>';
+$_['text_footer']          = '<p>ប្រសិនបើលោកអ្នកមានសំនួរអ្វី​ អាចធ្វើការទាក់ទងមកពួកយើងបាន.</p>';

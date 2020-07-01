@@ -1,21 +1,21 @@
 <?php
 // Heading
-$_['heading_title']   = 'Forgot Your Password?';
+$_['heading_title']   = 'ភ្លេចលេខសំងាត់?';
 
 // Text
-$_['text_account']    = 'Account';
-$_['text_forgotten']  = 'Forgotten Password';
-$_['text_your_email'] = 'Your E-Mail Address';
-$_['text_email']      = 'Enter the e-mail address associated with your account. Click submit to have a password reset link e-mailed to you.';
-$_['text_success']    = 'An email with a confirmation link has been sent your email address.';
+$_['text_account']    = 'គណនី';
+$_['text_forgotten']  = 'បានភ្លេចលេខសំងាត់';
+$_['text_your_email'] = 'អាសយដ្ឋានអ៊ីមែលរបស់អ្នក';
+$_['text_email']      = 'បញ្ចូលអាសយដ្ឋានអ៊ីមែលដែលទាក់ទងនឹងគណនីរបស់អ្នក។ ចុចបញ្ជូនដើម្បីឱ្យមានតំណកំណត់ពាក្យសម្ងាត់ឡើងវិញផ្ញើអ៊ីមែលទៅអ្នក។';
+$_['text_success']    = 'អ៊ីមែលដែលមានតំណបញ្ជាក់ត្រូវបានផ្ញើអាស័យដ្ឋានអ៊ីមែលរបស់អ្នក។';
 
 // Entry
-$_['entry_email']     = 'E-Mail Address';
-$_['entry_password']  = 'New Password';
-$_['entry_confirm']   = 'Confirm';
+$_['entry_email']     = 'អាស័យ​ដ្ឋាន​អ៊ី​ម៉េ​ល';
+$_['entry_password']  = 'ពាក្យសម្ងាត់​ថ្មី';
+$_['entry_confirm']   = 'បញ្ជាក់';
 
 // Error
-$_['error_email']     = 'Warning: The E-Mail Address was not found in our records, please try again!';
-$_['error_approved']  = 'Warning: Your account requires approval before you can login.';
-$_['error_password']  = 'Password must be between 4 and 20 characters!';
-$_['error_confirm']   = 'Password and password confirmation do not match!';
+$_['error_email']     = 'ការព្រមានៈអាសយដ្ឋានអ៊ីមែលមិនត្រូវបានរកឃើញនៅក្នុងកំណត់ត្រារបស់យើងទេសូមព្យាយាមម្តងទៀត!';
+$_['error_approved']  = 'ការព្រមាន៖ គណនីរបស់អ្នកត្រូវការការយល់ព្រមមុនពេលអ្នកចូល។';
+$_['error_password']  = 'លេខសម្ងាត់ត្រូវតែមានពី ៤ ទៅ ២០ តួអក្សរ!';
+$_['error_confirm']   = 'ការបញ្ជាក់លេខសំងាត់និងលេខសំងាត់មិនត្រូវគ្នាទេ!';

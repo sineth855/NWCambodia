@@ -1,21 +1,21 @@
 <?php
 // Heading
-$_['heading_title']    = 'Account';
+$_['heading_title']    = 'គណនី';
 
 // Text
-$_['text_register']    = 'Register';
-$_['text_login']       = 'Login';
-$_['text_logout']      = 'Logout';
-$_['text_forgotten']   = 'Forgotten Password';
-$_['text_account']     = 'My Account';
-$_['text_edit']        = 'Edit Account';
-$_['text_password']    = 'Password';
-$_['text_address']     = 'Address Book';
-$_['text_wishlist']    = 'Wish List';
-$_['text_order']       = 'Order History';
-$_['text_download']    = 'Downloads';
-$_['text_reward']      = 'Reward Points';
-$_['text_return']      = 'Returns';
-$_['text_transaction'] = 'Transactions';
-$_['text_newsletter']  = 'Newsletter';
-$_['text_recurring']   = 'Recurring payments';
+$_['text_register']    = 'ចុះឈ្មោះ';
+$_['text_login']       = 'ចូល';
+$_['text_logout']      = 'ចាកចេញ';
+$_['text_forgotten']   = 'ភ្លេចលេខសម្ងាត់';
+$_['text_account']     = 'គណនី​របស់ខ្ញុំ';
+$_['text_edit']        = 'កែគណនី';
+$_['text_password']    = 'ពាក្យសម្ងាត់';
+$_['text_address']     = 'សៀវភៅ​អាស័យ​ដ្ឋាន';
+$_['text_wishlist']    = 'ឥវ៉ាន់ត្រៀមទិញ';
+$_['text_order']       = 'កំណត់ត្រាបញ្ជាទិញមុនៗ';
+$_['text_download']    = 'ការទាញយក';
+$_['text_reward']      = 'ពិន្ទុរង្វាន់';
+$_['text_return']      = 'ត្រឡប់';
+$_['text_transaction'] = 'ប្រតិបត្តិការ';
+$_['text_newsletter']  = 'ព្រឹត្តិប័ត្រព័ត៌មាន';
+$_['text_recurring']   = 'ការទូទាត់ផ្ទួនៗ';
