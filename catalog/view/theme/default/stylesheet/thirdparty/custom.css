@@ -67,6 +67,12 @@ p.price.product-price b {
     padding: 10px;
 }
 
+.header-title_ {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
 .button_none_radius {
     font-family: 'HelveticaNeueLTStd';
     -webkit-border-radius: 0px !important;
