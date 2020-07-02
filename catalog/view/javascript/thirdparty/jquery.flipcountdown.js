@@ -172,7 +172,7 @@ jQuery.fn.flipCountDown = jQuery.fn.flipcountdown = function( _options ){
 				.append($clearex)
 				.on('xdinit.xdsoft',function(){
 					clearInterval(timer);
-					if( options.autoUpdate )
+					if(options.autoUpdate)
 						timer = setInterval( _calcMoment,options.period );
 					_calcMoment();
 				});
@@ -200,7 +200,8 @@ jQuery.fn.flipCountDown = jQuery.fn.flipcountdown = function( _options ){
 							hours	= parseInt((range%secday)/sechour),
 							min		= parseInt(((range%secday)%sechour)/60),
 							sec		= ((range%secday)%sechour)%60;
-						return [nol(days),nol(hours),nol(min),nol(sec)];
+						// return [nol(days),nol(hours),nol(min),nol(sec)];
+						return [nol(hours),nol(min),nol(sec)];
 					}
 				}
 				

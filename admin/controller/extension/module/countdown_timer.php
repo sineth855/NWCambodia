@@ -89,20 +89,20 @@ class ControllerExtensionModuleCountdownTimer extends Controller {
 			$data['name'] = '';
 		}
 
-		if (isset($this->request->post['start_date'])) {
-			$data['start_date'] = $this->request->post['start_date'];
+		if (isset($this->request->post['start_time'])) {
+			$data['start_time'] = $this->request->post['start_time'];
 		} elseif (!empty($module_info)) {
-			$data['start_date'] = $module_info['start_date'];
+			$data['start_time'] = $module_info['start_time'];
 		} else {
-			$data['start_date'] = '';
+			$data['start_time'] = '';
 		}
 
-		if (isset($this->request->post['end_date'])) {
-			$data['end_date'] = $this->request->post['end_date'];
+		if (isset($this->request->post['end_time'])) {
+			$data['end_time'] = $this->request->post['end_time'];
 		} elseif (!empty($module_info)) {
-			$data['end_date'] = $module_info['end_date'];
+			$data['end_time'] = $module_info['end_time'];
 		} else {
-			$data['end_date'] = '';
+			$data['end_time'] = '';
 		}
 
 		$this->load->model('design/banner');
@@ -135,12 +135,12 @@ class ControllerExtensionModuleCountdownTimer extends Controller {
 			$this->error['name'] = $this->language->get('error_name');
 		}
 
-		if (!$this->request->post['start_date']) {
-			$this->error['start_date'] = $this->language->get('error_start_date');
+		if (!$this->request->post['start_time']) {
+			$this->error['start_time'] = $this->language->get('error_start_time');
 		}
 
-		if (!$this->request->post['end_date']) {
-			$this->error['end_date'] = $this->language->get('error_end_date');
+		if (!$this->request->post['end_time']) {
+			$this->error['end_time'] = $this->language->get('error_end_time');
 		}
 
 		return !$this->error;

@@ -10,6 +10,8 @@ $_['text_edit']        = 'Edit Countdown Timer Module';
 // Entry
 $_['entry_name']       = 'Module Name';
 $_['entry_banner']     = 'Banner';
+$_['entry_end_timer']     = 'End Time';
+$_['entry_start_timer']     = 'Start Time';
 $_['entry_startdate']     = 'Start Date';
 $_['entry_enddate']      = 'End Date';
 $_['entry_status']     = 'Status';
