@@ -1,48 +1,3 @@
-<footer style="display: none">
-    <div class="container">
-        <div class="row">
-            {% if informations %}
-            <div class="col-sm-3">
-                <h5>{{ text_information }}</h5>
-                <ul class="list-unstyled">
-                    {% for information in informations %}
-                    <li><a href="{{ information.href }}">{{ information.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-            <div class="col-sm-3">
-                <h5>{{ text_service }}</h5>
-                <ul class="list-unstyled">
-                    <li><a href="{{ contact }}">{{ text_contact }}</a></li>
-                    <li><a href="{{ return }}">{{ text_return }}</a></li>
-                    <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h5>{{ text_extra }}</h5>
-                <ul class="list-unstyled">
-                    <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
-                    <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
-                    <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
-                    <li><a href="{{ special }}">{{ text_special }}</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h5>{{ text_account }}</h5>
-                <ul class="list-unstyled">
-                    <li><a href="{{ account }}">{{ text_account }}</a></li>
-                    <li><a href="{{ order }}">{{ text_order }}</a></li>
-                    <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
-                    <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <p>{{ powered }}</p>
-    </div>
-</footer>
-
 <footer id="footer" class="footer light-footer text-light">
     <!-- start Footer -->
     <div class="footer-widget">
@@ -100,6 +55,7 @@ Please donate via PayPal to donate@opencart.com
 <script>
 
     jQuery(function($) {
+        // Contact Us
         $("#bodyheadertext_login").hide();
         $("#close_").click(function() {
             $("#bodyheadertext_login").hide();
@@ -107,6 +63,18 @@ Please donate via PayPal to donate@opencart.com
         $("#buttonRegisterPopUp").click(function() {
             $("#bodyheadertext_login").show();
         });
+
+        // Call phone 
+
+        $("#bodyheadertextPhoneCall_login").hide();
+        $("#phoneCallclose").click(function() {
+            $("#bodyheadertextPhoneCall_login").hide();
+        });
+        $("#buttonPhoneCallPopUp").click(function() {
+            $("#bodyheadertextPhoneCall_login").show();
+        });
+
+
         var i = 1000;
         $('#retroclockbox1').flipcountdown();
         var i = 1;
@@ -139,7 +107,8 @@ Please donate via PayPal to donate@opencart.com
 </script>
 
 <script>
-     $(".userRegisterPopUp").hide();        
+    // Contact Us
+    $(".userRegisterPopUp").hide();        
     $("#modal_containerPopUp").removeClass("modal_container_class");
     $("#close").click(function() {
         $("#modal_containerPopUp").removeClass("modal_container_class");
@@ -149,6 +118,19 @@ Please donate via PayPal to donate@opencart.com
         $("#modal_containerPopUp").addClass("modal_container_class");
         $(".userRegisterPopUp").show();
     });
+
+    // Phone Call
+    $(".phoneCallPopUp").hide();        
+    $("#modal_containerPhoneCallPopUp").removeClass("modal_container_class");
+    $("#close").click(function() {
+        $("#modal_containerPhoneCallPopUp").removeClass("modal_container_class");
+        $(".phoneCallPopUp").hide();
+    });
+    $("#buttonPhoneCallPopUp").click(function() {
+        $("#modal_containerPhoneCallPopUp").addClass("modal_container_class");
+        $(".phoneCallPopUp").show();
+    });
+
     jQuery(function($) {
         
         $('#retroclockbox_lg').flipcountdown({

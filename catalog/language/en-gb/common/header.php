@@ -14,3 +14,5 @@ $_['text_logout']        = 'Logout';
 $_['text_checkout']      = 'Checkout';
 $_['text_search']        = 'Search';
 $_['text_all']           = 'Show All';
+$_['text_choose_phone_call']           = 'Choose a Phone Call';
+$_['text_user_account']           = 'User Account';
