@@ -129,11 +129,11 @@ class ControllerCheckoutShippingMethod extends Controller {
 				"tax_class_id" => 0,
 				"text" => "$0.00"
 			);
-			$this->session->data['shipping_method'] = $shipping_method_data;//$this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
-
-			$this->session->data['comment'] = strip_tags($this->request->post['comment']);
+			$this->session->data['shipping_method'] = $shipping_method_data; //$this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
+			
+			$this->session->data['comment'] = "";// strip_tags($this->request->post['comment'] ? $this->request->post['comment'] : "");
 		}
-
+		
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
