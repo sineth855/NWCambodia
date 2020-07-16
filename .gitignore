@@ -24,3 +24,5 @@ catalog/language.zip
 storage/logs/error.log
 config.php
 vendor/twilio/*
+admin/config.php
+config.php
