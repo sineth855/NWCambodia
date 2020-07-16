@@ -251,8 +251,7 @@ tbody tr td {
 }
 
 .stock_image_staus {
-    min-width: 100px;
-    max-width: 100px;
+    width: 300px;
 }
 
 
@@ -325,11 +324,11 @@ h2.price_red {
     }
     .menu_set_table table td,
     .table th {
-        padding: 0px;
+        /* padding: 0px; */
         vertical-align: middle;
         border-top: 0px solid #dee2e6;
         border-left: 0px solid #dee2e6;
-        text-align: center;
+        text-align: middle;
         padding-top: 10px;
     }
     h1,
