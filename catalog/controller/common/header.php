@@ -1,9 +1,12 @@
 <?php
 class ControllerCommonHeader extends Controller {
 	public function index() {
-		header("Cache-Control: no-cache, must-revalidate");
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		header("Content-Type: application/xml; charset=utf-8");
+		// header("Cache-Control: no-cache, must-revalidate");
+		// header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		// header("Content-Type: application/xml; charset=utf-8");
+		header("Expires: Thu, 19 Nov 1981 08:52:00 GMT"); //Date in the past
+		header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0"); //HTTP/1.1
+		header("Pragma: no-cache");
 		// Analytics
 		$this->load->model('setting/extension');
 
