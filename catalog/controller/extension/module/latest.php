@@ -8,17 +8,19 @@ class ControllerExtensionModuleLatest extends Controller {
 		$this->load->model('tool/image');
 
 		$data['products'] = array();
-		// printf(date("Y-m-d"));
+		
 		$filter_data = array(
-			// 'sort'  => 'p.date_added',
 			'order' => 'DESC',
 			'start' => 0,
 			'limit' => $setting['limit'],
-			'isFlashSale' => 1,
-			'dateNow' => date("Y-m-d")
+			'is_flash_sale' => 1,
+			// 'date_now' => date("Y-m-d")
+			'date_now' => '20200718'
 		);
 
-		$results = $this->model_catalog_product->getProducts($filter_data);
+
+		$results = $this->model_catalog_product->getFlashsaleProducts($filter_data);
+
 		if ($results) {
 			foreach ($results as $result) {
 
