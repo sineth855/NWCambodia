@@ -288,7 +288,7 @@ class ControllerProductProduct extends Controller {
 
 
 			if ($product_info['supplement_image']) {
-				$data['supplement_image'] = $this->model_tool_image->resize($product_info['supplement_image'], 573, 1342); //$product_info['image'];
+				$data['supplement_image'] = './image/'.$product_info['supplement_image'];//$this->model_tool_image->resize($product_info['supplement_image'], 573, 1342); //$product_info['image'];
 			} else {
 				$data['supplement_image'] = '';
 			}

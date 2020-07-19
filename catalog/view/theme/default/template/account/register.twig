@@ -91,7 +91,7 @@
               <div class="text-danger">{{ error_lastname }}</div>
               {% endif %} </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group required" style="display: none;">
             <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
             <div class="col-sm-10">
               <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" size="60" maxlength="60" class="form-text" />
@@ -100,7 +100,7 @@
               {% endif %} </div>
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }}</label>
+            <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }} (eg: 081  xxxxxx)</label>
             <div class="col-sm-10">
               <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" size="60" maxlength="60" class="form-text" />
               {% if error_telephone %}
@@ -344,8 +344,8 @@
           </div>
         </div>
         {% else %}
-        <div class="buttons">
-          <div class="pull-right">
+        <div class="buttons" style="padding-left: 20px;">
+          <div class="pull-left">
             <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
           </div>
         </div>

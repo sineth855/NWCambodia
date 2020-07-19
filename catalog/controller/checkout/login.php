@@ -32,26 +32,26 @@ class ControllerCheckoutLogin extends Controller {
 			$this->load->model('account/customer');
 
 			// Check how many login attempts have been made.
-			$login_info = $this->model_account_customer->getLoginAttempts($this->request->post['email']);
+			$login_info = $this->model_account_customer->getLoginAttempts($this->request->post['telephone']);
 
 			if ($login_info && ($login_info['total'] >= $this->config->get('config_login_attempts')) && strtotime('-1 hour') < strtotime($login_info['date_modified'])) {
 				$json['error']['warning'] = $this->language->get('error_attempts');
 			}
 
 			// Check if customer has been approved.
-			$customer_info = $this->model_account_customer->getCustomerByEmail($this->request->post['email']);
+			$customer_info = $this->model_account_customer->getCustomerByTelephone($this->request->post['telephone']);
 
 			if ($customer_info && !$customer_info['status']) {
 				$json['error']['warning'] = $this->language->get('error_approved');
 			}
 
 			if (!isset($json['error'])) {
-				if (!$this->customer->login($this->request->post['email'], $this->request->post['password'])) {
+				if (!$this->customer->login($this->request->post['telephone'], $this->request->post['password'])) {
 					$json['error']['warning'] = $this->language->get('error_login');
 
-					$this->model_account_customer->addLoginAttempt($this->request->post['email']);
+					$this->model_account_customer->addLoginAttempt($this->request->post['telephone']);
 				} else {
-					$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
+					$this->model_account_customer->deleteLoginAttempts($this->request->post['telephone']);
 				}
 			}
 		}

@@ -67,10 +67,14 @@
                         <h2>{{ text_returning_customer }}</h2>
                         <p><strong>{{ text_i_am_returning_customer }}</strong></p>
                         <form action="{{ action }}" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
+                            {# <div class="form-group">
                                 <label class="control-label" for="input-email">{{ entry_email }}</label>
                                 <!-- <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" /> -->
                                 <input type="text" name="email" id="edit-login-returning-customer-name input-email" value="{{ email }}" placeholder="{{ entry_email }}" size="60" maxlength="60" class="form-text" />
+                            </div> #}
+                            <div class="form-group">
+                                <label class="control-label" for="input-phone-number">{{ entry_phone_number }}</label>
+                                <input type="text" name="telephone" id="edit-login-returning-customer-name input-email" value="{{ telephone }}" placeholder="{{ entry_phone_number }}" size="60" maxlength="60" class="form-text" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="input-password">{{ entry_password }}</label>

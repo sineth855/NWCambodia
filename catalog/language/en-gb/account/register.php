@@ -25,7 +25,7 @@ $_['entry_gender']         = 'Gender';
 $_['entry_female']         = 'Female';
 $_['entry_male']         = 'Male';
 // Error
-$_['error_exists']         = 'Warning: E-Mail Address is already registered!';
+$_['error_exists']         = 'Warning: This Phone Number is already registered!';
 $_['error_firstname']      = 'First Name must be between 1 and 32 characters!';
 $_['error_lastname']       = 'Last Name must be between 1 and 32 characters!';
 $_['error_email']          = 'E-Mail Address does not appear to be valid!';

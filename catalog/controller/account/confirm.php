@@ -5,21 +5,6 @@ use Twilio\Rest\Client;
 class ControllerAccountConfirm extends Controller {
 
 	public function index() {
-		// // Your Account SID and Auth Token from twilio.com/console
-		// $sid = 'ACc75a1b052882fbbbe81e3a5b06d489aa';
-		// $token = '804e478d147019b0ad1b29d53fedaa5c';
-		// $client = new Client($sid, $token);
-		// // Use the client to do fun stuff like send text messages!
-		// $client->messages->create(
-		// 	// the number you'd like to send the message to
-		// 	'+85581397071',
-		// 	array(
-		// 		// A Twilio phone number you purchased at twilio.com/console
-		// 		'from' => '+18473053455',
-		// 		// the body of the text message you'd like to send
-		// 		'body' => 'Hey Jenny! Good luck on the bar exam!'
-		// 	)
-		// );
 
 		$this->load->language('account/success');
 
@@ -56,6 +41,11 @@ class ControllerAccountConfirm extends Controller {
 
 		$data['customer_id'] = $_REQUEST['customer_id'];
 		$data['telephone'] = $_REQUEST['telephone'];
+		if(isset($_REQUEST['forgot_password'])){
+			$data['forgot_password'] = $_REQUEST['forgot_password'];
+		}else{
+			$data['forgot_password'] = '';
+		}
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
@@ -74,8 +64,8 @@ class ControllerAccountConfirm extends Controller {
 		$this->load->model('account/customer');
 		$customerData = $this->model_account_customer->editOtpCustomer($customer_id, $otpCode);
 		// Your Account SID and Auth Token from twilio.com/console
-		$sid = 'AC2022ca7499af9302e331593b993408f7';
-		$token = 'f26c22c97873692a42af0727457d287a';
+		$sid = $this->config->get('config_twilio_sid');
+		$token = $this->config->get('config_twilio_token');
 		$client = new Client($sid, $token);
 		$telephone = preg_replace('/[^0-9]/', '', $telephoneUser);
 		$convertTel = (int)$telephone;
@@ -85,7 +75,7 @@ class ControllerAccountConfirm extends Controller {
 			'+855'.$convertTel,
 			array(
 				// A Twilio phone number you purchased at twilio.com/console
-				'from' => '+12026404204',
+				'from' => $this->config->get('config_twilio_number'),
 				// the body of the text message you'd like to send
 				'body' => 'NWCambodia confirm code: '.$otpCode.''
 			)
@@ -101,19 +91,32 @@ class ControllerAccountConfirm extends Controller {
 	public function checkConfirmOTP(){
 		$otpCode = $this->request->get["otpCode"];
 		$customer_id = $this->request->get["customer_id"];
+		$telephone = $this->request->get["telephone"];
 		$this->load->model('account/customer');
-		$checkOTPCustomer = $this->model_account_customer->checkOTPCustomer($customer_id, $otpCode);
+		if(isset($this->request->get["forgot_password"])){
+			$checkOTPCustomer = $this->model_account_customer->checkOTPForgotPassword($customer_id, $otpCode);
+		}else{
+			$checkOTPCustomer = $this->model_account_customer->checkOTPCustomer($customer_id, $otpCode);
+		}
 		$boolean = false;
 		$message = '';
 		if($checkOTPCustomer["boolean"] == true){
 			$boolean = true;
 			$message = "Verify success.";
 			// $this->response->redirect($this->url->link('account/success&salt='.$checkOTPCustomer["salt"]));
-			$json = array(
-				"success" => $boolean,
-				"message" => $message,
-				"redirect" => $this->url->link('account/success&salt='.$checkOTPCustomer["salt"])
-			);
+			if(isset($this->request->get["forgot_password"])){
+				$json = array(
+					"success" => $boolean,
+					"message" => $message,
+					"redirect" => $this->url->link('account/reset&customer_id='.$customer_id.'&code='.$otpCode.'&telephone='.$telephone.'&salt='.$checkOTPCustomer["salt"])
+				);
+			}else{
+				$json = array(
+					"success" => $boolean,
+					"message" => $message,
+					"redirect" => $this->url->link('account/success&salt='.$checkOTPCustomer["salt"])
+				);
+			}
 		}else{
 			$boolean = false;
 			$message = "Confirm code you input is incorrect, please try again!";

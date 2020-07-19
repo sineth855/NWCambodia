@@ -17,8 +17,6 @@ class ControllerProductManufacturer extends Controller {
 			$data['banner_brand'] = $this->model_tool_image->resize($banner_brand[0]['image'], 330, 570);
 		}
 
-		// print_r($banner_brand[0]['image']);
-
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
