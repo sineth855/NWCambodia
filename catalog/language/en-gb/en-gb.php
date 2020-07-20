@@ -31,7 +31,7 @@ $_['text_sub_title_24_support']       = 'Online 24 Hours';
 $_['text_sub_title_lowest_price']       = 'Best Deals';
 
 $_['text_count_down_timer']       = 'Count Down Timer';
-$_['text_regular_time']       = 'We ship as late as 06:00 to 04:00 (Mon-Sat) regular time.';
+$_['text_regular_time']       = 'We ship as late as 06:00 to 16:00 (Mon-Sat) regular time.';
 $_['text_free_supplement_plan']     = 'FREE SUPPLEMENT PLAN';
 $_['text_find_free_supplement_plan']     = 'FIND YOUR<br><b>FREE SUPPLEMENT PLAN</b>';
 $_['text_supplement_plan_dec']     = "It's simple, just tell us a little about yourself and your goals, and we'll create a supplement plan tailored just for you!";

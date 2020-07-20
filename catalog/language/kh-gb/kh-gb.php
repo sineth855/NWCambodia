@@ -25,25 +25,25 @@ $_['text_30_day_return']       = '7ថ្ងៃមិនពេញចិត្ត
 $_['text_24_support']       = '24/7 Support';
 $_['text_lowest_price']       = 'តម្លៃទាបបំផុត';
 
-$_['text_sub_title_free_shipping']       = 'រាល់ការទិញលើស$50';
-$_['text_sub_title_30_day_return']       = 'ប្ដូរយកប្រាក់វិញ';
-$_['text_sub_title_24_support']       = 'Online 24 Hours';
-$_['text_sub_title_lowest_price']       = 'ទំនាក់ទំនងល្អ';
+$_['text_sub_title_free_shipping']          = 'រាល់ការទិញលើស$50';
+$_['text_sub_title_30_day_return']          = 'ប្ដូរយកប្រាក់វិញ';
+$_['text_sub_title_24_support']             = 'Online ២៤ ម៉ោង';
+$_['text_sub_title_lowest_price']           = 'ទំនាក់ទំនងល្អ';
 
-$_['text_count_down_timer']       = 'Count Down Timer';
-$_['text_regular_time']       = 'We ship as late as 14:00 (Mon-Sat) regular time.';
-$_['text_free_supplement_plan']     = 'FREE SUPPLEMENT PLAN';
-$_['text_find_free_supplement_plan']     = 'FIND YOUR<br><b>FREE SUPPLEMENT PLAN</b>';
-$_['text_supplement_plan_dec']     = "It's simple, just tell us a little about yourself and your goals, and we'll create a supplement plan tailored just for you!";
-$_['text_male']       = 'Male';
-$_['text_female']       = 'Female';
-$_['text_gender']       = 'Gender';
-$_['text_goal']                      = 'Goal';
-$_['text_product_finder']            = 'Product Finder';
-$_['text_shop_by_category']          = 'Shop By Category';
-$_['text_shop_by_brand']             = 'Shop By Brand';
-$_['text_shop_by_goal']              = 'Shop By Goal';
-$_['text_shop_by_best_seller']       = 'Shop By Best Seller';
+$_['text_count_down_timer']                 = 'Count Down Timer';
+$_['text_regular_time']                     = 'យើងដឹកជញ្ជូនយឺតនៅម៉ោង ៦:០០ ដល់ ១៤:០០ (ច័ន្ទ - សៅរ៍) ម៉ោងធម្មតា។';
+$_['text_free_supplement_plan']             = 'គំរោងឧបត្ថម្ភឥតគិតថ្លៃ';
+$_['text_find_free_supplement_plan']        = 'ស្វែងរករបស់អ្នក<br><b>គំរោងឧបត្ថម្ភឥតគិតថ្លៃ</b>';
+$_['text_supplement_plan_dec']              = "វាសាមញ្ញគ្រាន់តែប្រាប់យើងបន្តិចអំពីខ្លួនអ្នកនិងគោលដៅរបស់អ្នកហើយយើងនឹងបង្កើតផែនការបំប៉នបន្ថែមសម្រាប់អ្នក!";
+$_['text_male']                             = 'ប្រុស';
+$_['text_female']                           = 'ស្រី';
+$_['text_gender']                           = 'ភេទ';
+$_['text_goal']                             = 'Goal';
+$_['text_product_finder']                   = 'Product Finder';
+$_['text_shop_by_category']                 = 'Shop By Category';
+$_['text_shop_by_brand']                    = 'Shop By Brand';
+$_['text_shop_by_goal']                     = 'Shop By Goal';
+$_['text_shop_by_best_seller']              = 'Shop By Best Seller';
 
 // Buttons
 $_['button_address_add']    = 'បញ្ជូលអាស្រ័យដ្ធាន';
