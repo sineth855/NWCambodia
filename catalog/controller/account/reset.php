@@ -9,21 +9,26 @@ class ControllerAccountReset extends Controller {
 
 		if (isset($this->request->get['code'])) {
 			$code = $this->request->get['code'];
+			$telephone = $this->request->get['telephone'];
+			$customer_id = $this->request->get['customer_id'];
+			$salt = $this->request->get['salt'];
 		} else {
 			$code = '';
+			$telephone = '';
+			$customer_id = '';
+			$salt = '';
 		}
 
 		$this->load->model('account/customer');
 
-		$customer_info = $this->model_account_customer->getCustomerByCode($code);
-
+		$customer_info = $this->model_account_customer->getCustomerByCode($customer_id, $code, $telephone);
 		if ($customer_info) {
 			$this->load->language('account/reset');
 
 			$this->document->setTitle($this->language->get('heading_title'));
 
 			if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-				$this->model_account_customer->editPassword($customer_info['email'], $this->request->post['password']);
+				$this->model_account_customer->editPassword($customer_info['telephone'], $this->request->post['password']);
 
 				$this->session->data['success'] = $this->language->get('text_success');
 
@@ -58,8 +63,8 @@ class ControllerAccountReset extends Controller {
 			} else {
 				$data['error_confirm'] = '';
 			}
-
-			$data['action'] = $this->url->link('account/reset', 'code=' . $code, true);
+			$uriParam = "customer_id=". $customer_id ."&code=". $code ."&telephone=". $telephone. "&salt=". $salt ."";
+			$data['action'] = $this->url->link('account/reset', $uriParam, true);
 
 			$data['back'] = $this->url->link('account/login', '', true);
 

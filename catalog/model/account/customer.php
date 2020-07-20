@@ -15,9 +15,9 @@ class ModelAccountCustomer extends Model {
 
 		$customer_id = $this->db->getLastId();
 
-		if ($customer_group_info['approval']) {
-			$this->db->query("INSERT INTO `" . DB_PREFIX . "customer_approval` SET customer_id = '" . (int)$customer_id . "', type = 'customer', date_added = NOW()");
-		}
+		// if ($customer_group_info['approval']) {
+		// 	$this->db->query("INSERT INTO `" . DB_PREFIX . "customer_approval` SET customer_id = '" . (int)$customer_id . "', type = 'customer', date_added = NOW()");
+		// }
 		
 		$data = array(
 			'salt' => $salt,
@@ -28,6 +28,28 @@ class ModelAccountCustomer extends Model {
 
 	public function editOtpCustomer($customer_id, $otpCode){
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET code = '" . $this->db->escape($otpCode) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+	}
+
+	public function addCustomerOTP($customer_id, $telephone, $otp_code, $salt){
+		$this->db->query("INSERT INTO `" . DB_PREFIX . "customer_otp` SET customer_id = '" . (int)$customer_id . "', otp_code = '" . $otp_code . "', telephone = '".$telephone."' , salt = '".$salt."' , date_added = NOW()");
+	}
+	public function checkOTPForgotPassword($customer_id, $otpCode){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_otp WHERE otp_code = '" . $this->db->escape($otpCode) . "' AND customer_id = '" . (int)$customer_id . "' ORDER BY id DESC LIMIT 1");
+		$boolean = false;
+		if($query->row){
+			$boolean = true;
+			$this->db->query("UPDATE " . DB_PREFIX . "customer SET code = '" . $this->db->escape($otpCode) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+			$data = array(
+				"boolean" => $boolean,
+				"salt" => $query->row["salt"]
+			);
+		}else{
+			$boolean = false;
+			$data = array(
+				"boolean" => $boolean,
+			);
+		}
+		return $data;
 	}
 
 	public function checkOTPCustomer($customer_id, $otpCode){
@@ -58,8 +80,8 @@ class ModelAccountCustomer extends Model {
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']['account']) ? json_encode($data['custom_field']['account']) : '') . "' WHERE customer_id = '" . (int)$customer_id . "'");
 	}
 
-	public function editPassword($email, $password) {
-		$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($password)))) . "', code = '' WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
+	public function editPassword($telephone, $password) {
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($password)))) . "', code = '' WHERE LOWER(telephone) = '" . $this->db->escape(utf8_strtolower($telephone)) . "'");
 	}
 
 	public function editAddressId($customer_id, $address_id) {
@@ -75,7 +97,7 @@ class ModelAccountCustomer extends Model {
 	}
 
 	public function getCustomer($customer_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$customer_id . "'");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '". (int)$customer_id ."'");
 
 		return $query->row;
 	}
@@ -86,8 +108,15 @@ class ModelAccountCustomer extends Model {
 		return $query->row;
 	}
 
-	public function getCustomerByCode($code) {
-		$query = $this->db->query("SELECT customer_id, firstname, lastname, email FROM `" . DB_PREFIX . "customer` WHERE code = '" . $this->db->escape($code) . "' AND code != ''");
+	public function getCustomerByTelephone($telephone) {
+		$phone = $telephone;
+		$phone_with_zero = '0'.$telephone;
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE LOWER(telephone) = '" . $this->db->escape(utf8_strtolower($telephone)) . "' OR LOWER(telephone) = '" . $this->db->escape(utf8_strtolower($phone)) . "' OR LOWER(telephone) = '" . $this->db->escape(utf8_strtolower($phone_with_zero)) . "'");
+		return $query->row;
+	}
+
+	public function getCustomerByCode($customer_id, $code, $telephone) {
+		$query = $this->db->query("SELECT customer_id, firstname, lastname, email, telephone FROM `" . DB_PREFIX . "customer` WHERE code = '" . $this->db->escape($code) . "' AND customer_id='". $this->db->escape($customer_id) ."' AND code != ''");
 
 		return $query->row;
 	}
@@ -102,6 +131,12 @@ class ModelAccountCustomer extends Model {
 	
 	public function getTotalCustomersByEmail($email) {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "customer WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
+
+		return $query->row['total'];
+	}
+
+	public function getTotalCustomersByTelephone($telephone) {
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "customer WHERE LOWER(telephone) = '" . $this->db->escape(utf8_strtolower($telephone)) . "'");
 
 		return $query->row['total'];
 	}
@@ -138,24 +173,24 @@ class ModelAccountCustomer extends Model {
 		return $query->rows;
 	}
 
-	public function addLoginAttempt($email) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_login WHERE email = '" . $this->db->escape(utf8_strtolower((string)$email)) . "' AND ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "'");
+	public function addLoginAttempt($telephone) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_login WHERE telephone = '" . $this->db->escape(utf8_strtolower((string)$telephone)) . "' AND ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "'");
 
 		if (!$query->num_rows) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "customer_login SET email = '" . $this->db->escape(utf8_strtolower((string)$email)) . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "', total = 1, date_added = '" . $this->db->escape(date('Y-m-d H:i:s')) . "', date_modified = '" . $this->db->escape(date('Y-m-d H:i:s')) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "customer_login SET telephone = '" . $this->db->escape(utf8_strtolower((string)$telephone)) . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "', total = 1, date_added = '" . $this->db->escape(date('Y-m-d H:i:s')) . "', date_modified = '" . $this->db->escape(date('Y-m-d H:i:s')) . "'");
 		} else {
 			$this->db->query("UPDATE " . DB_PREFIX . "customer_login SET total = (total + 1), date_modified = '" . $this->db->escape(date('Y-m-d H:i:s')) . "' WHERE customer_login_id = '" . (int)$query->row['customer_login_id'] . "'");
 		}
 	}
 
-	public function getLoginAttempts($email) {
-		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer_login` WHERE email = '" . $this->db->escape(utf8_strtolower($email)) . "'");
+	public function getLoginAttempts($telephone) {
+		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer_login` WHERE telephone = '" . $this->db->escape(utf8_strtolower($telephone)) . "'");
 
 		return $query->row;
 	}
 
-	public function deleteLoginAttempts($email) {
-		$this->db->query("DELETE FROM `" . DB_PREFIX . "customer_login` WHERE email = '" . $this->db->escape(utf8_strtolower($email)) . "'");
+	public function deleteLoginAttempts($telephone) {
+		$this->db->query("DELETE FROM `" . DB_PREFIX . "customer_login` WHERE telephone = '" . $this->db->escape(utf8_strtolower($telephone)) . "'");
 	}
 	
 	public function addAffiliate($customer_id, $data) {

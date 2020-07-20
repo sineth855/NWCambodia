@@ -51,13 +51,14 @@
       <h5 style="color: green;">{{ text_confirm_message }}</h5>
 
       <div class="row">
-        <div class="col-sm-6"><input type="text" name="otpCode" placeholder="{{button_security_code}}" class="form-control"/></div>
+        <div class="col-sm-6"><input type="text" required name="otpCode" placeholder="{{button_security_code}}" class="form-control"/></div>
         <div style="padding-top:5px;" class="col-sm-4"> <div id="countdown"></div></div>
       </div>
       <div class="row" style="padding-top: 10px;">
         <div class="col-sm-12">
           <input type="hidden" name="customer_id" value="{{customer_id}}"/>
           <input type="hidden" name="telephone" value="{{telephone}}"/>
+          <input type="hidden" name="forgot_password" value="{{forgot_password}}"/>
           {{text_dont_receive}}? <a href="javascript:void(0)" id="requestCode"><strong>{{text_resend_code}}</strong> <span class="resent-message"></span></a>
         </div>
       </div>
@@ -73,13 +74,18 @@
   $(document).delegate('#checkConfirmOTP', 'click', function() {
     var customer_id = $("input[name='customer_id']").val();
     var otpCode = $("input[name='otpCode']").val();
+    var telephone = $("input[name='telephone']").val();
+    var forgot_password = $("input[name='forgot_password']").val();
+    if(otpCode == null || otpCode == ''){
+      alert("OTP code is required!");
+      return false;
+    }
       $.ajax({
         url: 'index.php?route=account/confirm/checkConfirmOTP',
         dataType: 'json',
-        data: "customer_id="+customer_id+"&otpCode="+otpCode,
+        data: "customer_id=" + customer_id + "&otpCode=" + otpCode + '&telephone=' + telephone+ '&forgot_password=' + forgot_password,
         success: function(json) {
           if(json["success"] == true){
-            alert(json["message"]);
             window.location.href = json["redirect"];
           }else{
             alert(json["message"]);
@@ -96,10 +102,11 @@
   $(document).delegate('#requestCode', 'click', function() {
     var customer_id = $("input[name='customer_id']").val();
     var telephone = $("input[name='telephone']").val();
+    var forgot_password = $("input[name='forgot_password']").val();
     $.ajax({
       url: 'index.php?route=account/confirm/resentCode',
       dataType: 'json',
-      data: "customer_id="+customer_id+"&telephone="+telephone,
+      data: "customer_id="+customer_id+"&telephone="+telephone + '&forgot_password=' + forgot_password,
       success: function(json) {
 
         $("span.resent-message").html("<span style='color: green;'><br/>(Message is resent!)</span>");

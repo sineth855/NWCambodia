@@ -250,7 +250,11 @@ class ControllerCheckoutGuest extends Controller {
 			$this->session->data['guest']['customer_group_id'] = $customer_group_id;
 			$this->session->data['guest']['firstname'] = $this->request->post['firstname'];
 			$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
-			$this->session->data['guest']['email'] = $this->request->post['email']?$this->request->post['email']:'test@gmail.com';
+			if(isset($this->request->post['email'])){
+				$this->session->data['guest']['email'] = $this->request->post['email'];
+			}else{
+				$this->session->data['guest']['email'] = 'test@gmail.com';
+			}
 			$this->session->data['guest']['telephone'] = $this->request->post['telephone'];
 			$this->session->data['guest']['social_contact'] = $this->request->post['social_contact'];
 

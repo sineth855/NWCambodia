@@ -72,11 +72,11 @@ $_['entry_shipping']                 = 'My delivery and billing addresses are th
 
 // Error
 $_['error_warning']                  = 'There was a problem while trying to process your order! If the problem persists please try selecting a different payment method or you can contact the store owner by <a href="%s">clicking here</a>.';
-$_['error_login']                    = 'Warning: No match for E-Mail Address and/or Password.';
+$_['error_login']                    = 'Warning: No match for Phone Number and/or Password.';
 $_['error_attempts']                 = 'Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.';
 $_['error_approved']                 = 'Warning: Your account requires approval before you can login.';
 $_['error_exists']                   = 'Warning: E-Mail Address is already registered!';
-$_['error_firstname']                = 'First Name must be between 1 and 32 characters!';
+$_['error_firstname']                = 'Full Name must be between 1 and 32 characters!';
 $_['error_lastname']                 = 'Last Name must be between 1 and 32 characters!';
 $_['error_email']                    = 'E-Mail address does not appear to be valid!';
 $_['error_telephone']                = 'Telephone must be between 3 and 32 characters!';

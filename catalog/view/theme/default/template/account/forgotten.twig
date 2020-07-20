@@ -54,7 +54,7 @@
       <p>{{ text_email }}</p>
       <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
-          <legend>{{ text_your_email }}</legend>
+          {# <legend>{{ text_your_email }}</legend> #}
           <!-- <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
             <div class="col-sm-12">
@@ -62,9 +62,9 @@
             </div>
           </div> -->
           <div class="form-group required">
-            <label class="control-label" for="input-email">{{ entry_email }}</label>
-            <!-- <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" /> -->
-            <input type="text" name="email" id="edit-login-returning-customer-name input-email" value="{{ email }}" placeholder="{{ entry_email }}" size="60" maxlength="60" class="form-text" />
+            <label class="control-label" for="input-email">{{ entry_phone_number }}</label>
+            <!-- <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_phone_number }}" id="input-email" class="form-control" /> -->
+            <input type="text" name="telephone" id="edit-login-returning-customer-name input-telephone" value="{{ telephone }}" placeholder="{{ entry_phone_number }}" size="60" maxlength="60" class="form-text" />
           </div>
         </fieldset>
         <div class="buttons clearfix">

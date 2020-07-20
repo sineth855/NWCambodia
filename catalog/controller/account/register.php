@@ -6,7 +6,6 @@ class ControllerAccountRegister extends Controller {
 	private $error = array();
 
 	public function __index(){
-		print_r($this->config->get('config_mail_smtp_port'));
 		$this->load->language('account/register');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -59,7 +58,7 @@ class ControllerAccountRegister extends Controller {
 			$this->model_account_customer->editOtpCustomer($customerData["customer_id"], $otpCode);
 
 			// Clear any previous login attempts for unregistered accounts.
-			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
+			$this->model_account_customer->deleteLoginAttempts($this->request->post['telephone']);
 
 			// $this->customer->login($this->request->post['email'], $this->request->post['password']);
 			// ################## Send Email to Confirm #######################
@@ -91,8 +90,8 @@ class ControllerAccountRegister extends Controller {
 			// $mail->send();
 			
 			// Your Account SID and Auth Token from twilio.com/console
-			$sid = 'AC2022ca7499af9302e331593b993408f7';
-			$token = 'f26c22c97873692a42af0727457d287a';
+			$sid = $this->config->get('config_twilio_sid');
+			$token = $this->config->get('config_twilio_token');
 			$client = new Client($sid, $token);
 			$telephone = preg_replace('/[^0-9]/', '', $this->request->post["telephone"]);
             $convertTel = (int)$telephone;
@@ -102,7 +101,7 @@ class ControllerAccountRegister extends Controller {
 				'+855'.$convertTel,
 				array(
 					// A Twilio phone number you purchased at twilio.com/console
-					'from' => '+12026404204',
+					'from' => $this->config->get('config_twilio_number'),
 					// the body of the text message you'd like to send
 					'body' => 'NWCambodia confirm code: '.$otpCode.''
 				)
@@ -217,7 +216,7 @@ class ControllerAccountRegister extends Controller {
 		if (isset($this->request->post['email'])) {
 			$data['email'] = $this->request->post['email'];
 		} else {
-			$data['email'] = '';
+			$data['email'] = 'test@test.com';
 		}
 
 		if (isset($this->request->post['telephone'])) {
@@ -371,6 +370,13 @@ class ControllerAccountRegister extends Controller {
 			}
 		}
 		
+		// Check if customer has been approved.
+		$customer_info = $this->model_account_customer->getCustomerByTelephone($this->request->post['telephone']);
+
+		if ($customer_info && $customer_info['status'] > 0) {
+			$this->error['warning'] = $this->language->get('error_exists');
+		}
+
 		return !$this->error;
 	}
 
