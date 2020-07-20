@@ -288,7 +288,7 @@ class ControllerProductProduct extends Controller {
 
 
 			if ($product_info['supplement_image']) {
-				print_r($product_info['supplement_image']);
+				// print_r($product_info['supplement_image']);
 				$data['supplement_image'] = $this->model_tool_image->resize($product_info['supplement_image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height')); //$product_info['image'];
 			} else {
 				$data['supplement_image'] = '';

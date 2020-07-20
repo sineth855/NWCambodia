@@ -8,7 +8,11 @@ class ControllerCatalogProduct extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->getList();
 	}
-
+	/** 
+	 * 2020-07-18
+	 * SIM LONGDY
+	 * Crawl Product from API production
+	 * */
 	public function crawlProduct(){
 		$this->load->model('catalog/product');
 		date_default_timezone_set('Asia/Phnom_Penh');
@@ -88,7 +92,11 @@ class ControllerCatalogProduct extends Controller {
 		$this->session->data['success'] = "Product has been crawled.";
 		$this->response->redirect($this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'], true));
 	}
-
+	/** 
+	 * 2020-07-18
+	 * SIM LONGDY
+	 * Add Product
+	 * */
 	public function add() {
 		$this->load->language('catalog/product');
 
@@ -140,7 +148,11 @@ class ControllerCatalogProduct extends Controller {
 
 		$this->getForm();
 	}
-
+	/** 
+	 * 2020-07-18
+	 * SIM LONGDY
+	 * Update Product
+	 * */
 	public function edit() {
 		$this->load->language('catalog/product');
 
@@ -150,7 +162,7 @@ class ControllerCatalogProduct extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
-
+			
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$url = '';
@@ -193,6 +205,11 @@ class ControllerCatalogProduct extends Controller {
 		$this->getForm();
 	}
 
+	/** 
+	 * 2020-07-18
+	 * SIM LONGDY
+	 * Delete from product
+	 * */	
 	public function delete() {
 		$this->load->language('catalog/product');
 
@@ -566,7 +583,13 @@ class ControllerCatalogProduct extends Controller {
 		$this->response->setOutput($this->load->view('catalog/product_list', $data));
 	}
 
+	/** 
+	 * 2020-07-18
+	 * SIM LONGDY
+	 * Delete from product
+	 * */	
 	protected function getForm() {
+
 		$data['text_form'] = !isset($this->request->get['product_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 
 		// if(isset($this->request->get['product_size'])){
