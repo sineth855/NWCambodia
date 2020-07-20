@@ -1,18 +1,18 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/NWCambodia/admin/');
-define('HTTP_CATALOG', 'http://localhost/NWCambodia/');
+define('HTTP_SERVER', 'http://localhost/NWCambodia_New/admin/');
+define('HTTP_CATALOG', 'http://localhost/NWCambodia_New/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/NWCambodia/admin/');
-define('HTTPS_CATALOG', 'http://localhost/NWCambodia/');
+define('HTTPS_SERVER', 'http://localhost/NWCambodia_New/admin/');
+define('HTTPS_CATALOG', 'http://localhost/NWCambodia_New/');
 
 // DIR
-define('DIR_APPLICATION', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia/admin/');
-define('DIR_SYSTEM', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia/system/');
-define('DIR_IMAGE', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia/image/');
-define('DIR_STORAGE', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia/storage/');
-define('DIR_CATALOG', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia/catalog/');
+define('DIR_APPLICATION', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/admin/');
+define('DIR_SYSTEM', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/system/');
+define('DIR_IMAGE', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/image/');
+define('DIR_STORAGE', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/storage/');
+define('DIR_CATALOG', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/catalog/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/template/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
