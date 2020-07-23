@@ -1,25 +1,25 @@
 <?php
 // Heading
-$_['heading_title']  = 'Contact Us';
+$_['heading_title']  = 'ទាក់ទងមកពួកយើង';
 
 // Text
-$_['text_location']  = 'Our Location';
-$_['text_store']     = 'Our Stores';
-$_['text_contact']   = 'Contact Form';
-$_['text_address']   = 'Address';
-$_['text_telephone'] = 'Telephone';
+$_['text_location']  = 'ទីតាំងរបស់ពួកយើង';
+$_['text_store']     = 'ហាងរបស់ពួកយើង';
+$_['text_contact']   = 'ទំរង់បែបបទការទាក់ទង';
+$_['text_address']   = 'អាស្រ័យដ្ធាន';
+$_['text_telephone'] = 'ទូរសព្ទ័';
 $_['text_fax']       = 'Fax';
-$_['text_open']      = 'Opening Times';
+$_['text_open']      = 'ពេលវេលាបើក';
 $_['text_comment']   = 'Comments';
-$_['text_success']   = '<p>Your enquiry has been successfully sent to the store owner!</p>';
+$_['text_success']   = '<p>សំណួររបស់អ្នកត្រូវបានផ្ញើទៅម្ចាស់ហាងដោយជោគជ័យ!</p>';
 
 // Entry
-$_['entry_name']     = 'Your Name';
-$_['entry_email']    = 'E-Mail Address';
-$_['entry_enquiry']  = 'Enquiry';
+$_['entry_name']     = 'ឈ្មោះរបស់អ្នក';
+$_['entry_email']    = 'អាស្រ័យដ្ធាន អុីម៉ែល';
+$_['entry_enquiry']  = 'សាកសួរ';
 
 // Email
-$_['email_subject']  = 'Enquiry %s';
+$_['email_subject']  = 'សាកសួរ %s';
 
 // Errors
 $_['error_name']     = 'Name must be between 3 and 32 characters!';

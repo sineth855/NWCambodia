@@ -6,5 +6,5 @@ $_['heading_title']        = 'ការបញ្ជាទិញរបស់អ�
 $_['text_basket']          = 'ទិញ​ឥវ៉ាន់';
 $_['text_checkout']        = 'Checkout';
 $_['text_success']         = 'Success';
-$_['text_customer']        = '<p>Your order has been successfully processed!</p><p>You can view your order history by going to the <a href="%s">my account</a> page and by clicking on <a href="%s">history</a>.</p><p>If your purchase has an associated download, you can go to the account <a href="%s">downloads</a> page to view them.</p><p>Please direct any questions you have to the <a href="%s">store owner</a>.</p><p>Thanks for shopping with us online!</p>';
-$_['text_guest']           = '<p>Your order has been successfully processed!</p><p>Please direct any questions you have to the <a href="%s">store owner</a>.</p><p>Thanks for shopping with us online!</p>';
+$_['text_customer']        = '<p>ការបញ្ជាទិញរបស់អ្នកត្រូវបានដំណើរការដោយជោគជ័យ!</p><p>អ្នកអាចមើលប្រវត្តិបញ្ជាទិញរបស់អ្នកដោយចូលទៅកាន់ <a href="%s">ទំព័រគណនីរបស់ខ្ញុំ</a> ហើយដោយចុចលើ<a href="%s">ប្រវត្តិ</a>.</p><p>ប្រសិនបើការទិញរបស់អ្នកមានការទាញយកដែលទាក់ទងអ្នកអាចចូលទៅកាន់ទំព័រ<a href="%s">ទាញយក</a> គណនីដើម្បីមើលពួកវា។.</p><p>សូមណែនាំសំណួរដែលអ្នកមានទៅកាន់<a href="%s">ម្ចាស់ហាង</a>។</p><p>សូមអរគុណសម្រាប់ការទិញទំនិញជាមួយយើងតាមអ៊ិនធើណែត</p>';
+$_['text_guest']           = '<p>ការបញ្ជាទិញរបស់អ្នកត្រូវបានដំណើរការដោយជោគជ័យ!</p><p>សូមណែនាំសំណួរដែលអ្នកមានទៅកាន់ <a href="%s">ម្ចាស់ហាង</a>។</p><p>សូមអរគុណសម្រាប់ការទិញទំនិញជាមួយយើងតាមអ៊ិនធើណែត!</p>';
