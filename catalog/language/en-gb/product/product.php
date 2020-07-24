@@ -31,6 +31,12 @@ $_['text_semi_month']          = 'half-month';
 $_['text_month']               = 'month';
 $_['text_year']                = 'year';
 $_['text_has_been_add_to_card']   = 'Product has been added to your cart';
+$_['text_continue_shopping']   = 'Continue Shopping';
+$_['text_check_out']           = 'Checkout';
+$_['text_buy_now']             = 'Buy Now';
+$_['text_flavor_option']       = 'Flavor/Option';
+$_['text_price']               = 'Price';
+$_['text_availability']        = 'Availability';
 
 // Entry
 $_['entry_qty']                = 'Qty';

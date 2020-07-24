@@ -103,7 +103,12 @@ label,
 legend,
 ul li a,
 a,
-.header-title {
+h3,
+.header-title,
+.alert-success,
+table.table.addon-product tr th,
+table.table.addon-product tr td,
+.product_title_container {
     font-family: 'dauntep';
 }
 
@@ -225,18 +230,19 @@ a.cart-block--link__expand img {
 /* product detail block */
 
 #product h3 {
-    /* font-size: 24px; */
-    font: bold 30px/42px "PT Sans";
+    font-weight: bold;
+    font-size: 30px;
     margin: 15px 0 0;
 }
 
 .product_title_container h1 {
-    font: normal 30px "PT Sans";
     display: block;
     width: 100%;
-    font: bold 25px "PT Sans";
     margin: 15px 0 0;
     display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 .add-to-cart-new-btn {
@@ -783,12 +789,14 @@ popup modal option select */
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    font: normal 14px/40px "PT Sans";
-    color: #fff;
+    font: normal 15px/40px "dauntep";
+    font-family: "dauntep";
+    color: #f6ff0e;
     background: #2d2d2b;
     margin: 24px 15px;
-    text-transform: capitalize;
     min-width: 40%;
+    font-weight: bolder;
+    font-style: italic;
 }
 
 #modal_inside .btn-wrap .checkout-btn {
@@ -798,12 +806,14 @@ popup modal option select */
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    font: normal 14px/40px "PT Sans";
-    color: #fff;
+    font: normal 15px/40px "dauntep";
+    font-family: "dauntep";
+    color: #f6ff0e;
     background: #2d2d2b;
     margin: 24px 15px;
-    text-transform: capitalize;
     min-width: 40%;
+    font-weight: bolder;
+    font-style: italic;
 }
 
 

@@ -13,9 +13,13 @@
                 <div class="btn-wrap">
                     <!-- <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy">continue shopping</a>
                     <a href="{{ checkout }}" class="checkout-btn">checkout</a> -->
-                    <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy"> <img src="./catalog/view/theme/default/image/checkout/conshopping.jpg" /></a>
+                    <a href="javascript:void(0);" id="close" class="js-modal-close continue-btn close-fancy"> 
+                        <!-- <img src="./catalog/view/theme/default/image/checkout/conshopping.jpg" /> -->
+                        {{text_continue_shopping}}
+                    </a>
                     <a href="{{ checkout }}" class="checkout-btn">
-                        <img src="./catalog/view/theme/default/image/checkout/checkout.jpg" />
+                        {{text_check_out}}
+                        <!-- <img src="./catalog/view/theme/default/image/checkout/checkout.jpg" /> -->
                     </a>
                 </div>
             </div>
@@ -186,7 +190,7 @@
                                                                                                                 accept-charset="UTF-8">
                                                                                                             
                                                                                                                 <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--35">
-                                                                                                                <button type="button" id="edit-submit--52" name="op" class="button--add-to-cart button button--primary js-form-submit form-submit button_none_radius" onclick="cart.productDetail('{{ product.product_id }}');">Buy Now</button>
+                                                                                                                <button type="button" id="edit-submit--52" name="op" class="button--add-to-cart button button--primary js-form-submit form-submit button_none_radius" onclick="cart.productDetail('{{ product.product_id }}');">{{text_buy_now}}</button>
                                                                                                                 </div>
                                                                                                             </form>
                                                                                                         </div>
@@ -439,7 +443,7 @@
                                                     <div class="form-group menu_set_table">
                                                         <table class="table">
                                                             <tr>
-                                                                <th>Flavor/Option</th>
+                                                                <th>{{text_flavor_option}}</th>
                                                                 <th>Price</th>
                                                                 <th>Availability</th>
                                                                 {% if option_value.expired_date %}
@@ -666,8 +670,8 @@
                                                     </div>
                                                     <table class="table addon-product" style="background-color: #e0e0e0;">
                                                         <tr>
-                                                            <th>Flavor/Option</th>
-                                                            <th>Availability</th>
+                                                            <th width="200px">{{text_flavor_option}}</th>
+                                                            <th width="150px">{{text_availability}}</th>
                                                             <!-- <th>Expiry</th>-->
                                                             <th></th>
                                                             <!-- <th>Action</th> -->
@@ -778,7 +782,7 @@
                                             {% endif %}
                                         </div>
                                         <div class="button-group">
-                                            <button type="button" id="edit-submit--52" name="op" class="button--add-to-cart button button--primary js-form-submit form-submit button_none_radius" onclick="cart.productDetail('{{ product.product_id }}');">Buy Now</button>
+                                            <button type="button" id="edit-submit--52" name="op" class="button--add-to-cart button button--primary js-form-submit form-submit button_none_radius" onclick="cart.productDetail('{{ product.product_id }}');">{{text_buy_now}}</button>
                                             <!-- <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><span
                                             class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span> <i
                                             class="ti-shopping-cart"></i></button>
@@ -1004,7 +1008,7 @@
                                                             <tr>
                                                                 <th>Flavor/Option</th>
                                                                 <th>Price</th>
-                                                                <th>Availability</th>
+                                                                <th>{{text_availability}}</th>
                                                                 {% if option_value.expired_date %}
                                                                 <th>Expiry</th>
                                                                 {% endif %}
@@ -1229,8 +1233,8 @@
                                                     </div>
                                                     <table class="table addon-product" style="background-color: #e0e0e0;">
                                                         <tr>
-                                                            <th>Flavor/Option</th>
-                                                            <th>Availability</th>
+                                                            <th>{{text_flavor_option}}</th>
+                                                            <th>{{text_availability}}</th>
                                                             <!-- <th>Expiry</th>-->
                                                             <th></th>
                                                             <!-- <th>Action</th> -->
