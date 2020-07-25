@@ -112,6 +112,10 @@ table.table.addon-product tr td,
     font-family: 'dauntep';
 }
 
+.footer-widget a {
+    display: inline;
+}
+
 .button_none_radius {
     /* font-family: 'HelveticaNeueLTStd'; */
     -webkit-border-radius: 0px !important;
