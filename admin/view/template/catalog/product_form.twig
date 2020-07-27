@@ -518,6 +518,16 @@
                           {% endfor %}
                         </div>
                       </div>
+
+                      <label class="col-sm-2 control-label" for="input-addon">Is Group Order?</label>
+                      <div class="col-sm-10 control-label">
+                        {% if(product_addon['is_group_order'] == 1) %}
+                          <input type="checkbox" checked="checked" name="product_size[{{attribute_addon_row}}][is_group_order]" value="1" id="is-group-order" class="form-control"/>
+                        {% else %}
+                          <input type="checkbox" name="product_size[{{attribute_addon_row}}][is_group_order]" value="1" id="is-group-order" class="form-control"/>
+                        {% endif %}
+                      </div>
+
                       <div class="col-sm-12">
                         <button type="button" onClick="initRemoveAddOn({{attribute_addon_row}});" class="pull-right btn btn-sm btn-danger"><i class="fa fa-wa fa-minus"></i></button>
                       </div>
@@ -1535,6 +1545,12 @@
         html += '<input type="text" name="addon'+attribute_addon_row+'" value="" placeholder="{{ entry_addon }}" id="input-addon" class="form-control"/>';
         html += '<div id="product-addon-list'+attribute_addon_row+'" class="well well-sm" style="height: 150px; overflow: auto;"></div>';
       html += '</div>';
+
+      html += '<label class="col-sm-2 control-label" for="input-addon">Is Group Order?</label>';
+      html += '<div class="col-sm-10 control-label">';
+        html += '<input type="checkbox" name="product_size['+attribute_addon_row+'][is_group_order]" value="1" id="is-group-order" class="form-control"/>';
+      html += '</div>';
+
       html += '<div class="col-sm-12">';
         html += '<button type="button" onClick="initRemoveAddOn('+attribute_addon_row+');" class="pull-right btn btn-sm btn-danger"><i class="fa fa-wa fa-minus"></i></button>'
       html += '</div>';

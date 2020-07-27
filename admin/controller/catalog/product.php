@@ -1338,6 +1338,7 @@ class ControllerCatalogProduct extends Controller {
 				'image' => $productSize["image"],
 				'thumb' => $productSize["image"] ? $this->model_tool_image->resize($productSize["image"], 100, 100) : $this->model_tool_image->resize('no_image.png', 100, 100),
 				'sort_order' => $productSize["sort_order"],
+				'is_group_order' => $productSize["is_group_order"],
 				'product_addons' => $product_addons
 			);
 		}

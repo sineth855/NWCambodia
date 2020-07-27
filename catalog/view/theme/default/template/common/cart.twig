@@ -14,7 +14,7 @@
                     <td class="text-left"><a style="font-size: 14px;" href="{{ product.href }}">{{ product.name }}</a> {% if product.option %} {% for option in product.option %} <br /> - <small>{{ option.name }} {{ option.value }}</small> {% endfor %} {% endif %} {% if product.recurring
                         %} <br /> - <small>{{ text_recurring }} {{ product.recurring }}</small> {% endif %}</td>
                     <td style="font-size: 14px;" class="text-right">x {{ product.quantity }}</td>
-                    <td style="font-size: 14px;" class="text-right">{{ product.total }}</td>
+                    <td style="font-size: 14px;" class="text-right">{{ product.total }} ==> {{product.is_group_order}}</td>
                     <td class="text-center">
                         <a href="javascript:void(0);" onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}">
                             <i style="font-size: 1em;color: red;" class="ti-trash"></i>

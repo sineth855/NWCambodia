@@ -199,9 +199,169 @@ var cart = {
                     }, 100);
 
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
-
                     $('#cart > ul').load('index.php?route=common/cart/info ul li');
                 }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    },
+    'addProductSet': function(product_size_id, product_id){
+        $("#modal-product-list #modal_container").removeClass("modal-product-cart");
+        $.ajax({
+            url: 'index.php?route=checkout/cart/addProductGroup',
+            type: 'post',
+            data: 'product_size_id=' + product_size_id + '&product_id=' + product_id,
+            dataType: 'json',
+            beforeSend: function() {
+                $('#cart > button').button('loading');
+            },
+            complete: function() {
+                $('#cart > button').button('reset');
+            },
+            success: function(json) {
+                // var splitTotal = json['total'].split(/(?<=^\S+)\s/);
+                // var convertSplit = splitTotal[0];
+                var str = json['total'];
+                var splitTotal = str.substr(0, str.indexOf(' '));
+                $('.alert-dismissible, .text-danger').remove();
+
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+
+                if (json['success']) {
+                    $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                    // Need to set timeout otherwise it wont update the total
+                    setTimeout(function() {
+                        $('#cart > button').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
+                        $('#cart > a > div.cart-block--summary__count').html(splitTotal);
+                        $('#cart-block--summary__count').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
+                    }, 100);
+
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $('#cart > ul').load('index.php?route=common/cart/info ul li');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    },
+    'popupProductGroup': function(product_size_id, product_id){
+        // alert(product_size_id);
+        $("#modal-product-list #modal_container").addClass("modal-product-cart");
+        // $.this.removeClass("modal-product-cart");
+        $.ajax({
+            url: 'index.php?route=product/product_size',
+            type: 'post',
+            data: 'product_size_id=' + product_size_id + '&product_id=' + product_id,
+            dataType: 'json',
+            beforeSend: function() {
+                // $('#cart > button').button('loading');
+            },
+            complete: function() {
+                // $('#cart > button').button('reset');
+            },
+            success: function(json) {
+                console.log("here is json data", json);
+                var productSizeInfo = json['productSizes'][0];
+                var addonProducts = json['productSizes'][0]['addonProducts'];
+                var html = "";
+                html += '<div class="row" style="padding: 20px 0;">';
+                    html +=  '<div class="col-sm-5">';
+                        html += '<img src="'+ productSizeInfo.thumb +'" alt="Product Name" width="80px" />';
+                    html += '</div>';
+                    html += '<div class="col-sm-7">';
+                        html += '<div style="font-size: 16px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">';
+                            html += '<b>'+ productSizeInfo.name +'</b>';
+                        html += '</div>';
+                        html += '<div style="font-size: 18px; color: red;">';
+                            html += '<p class="price product-price">';
+                                if(!productSizeInfo.special){
+                                    html += '<b>'+ productSizeInfo.price +'</b>';
+                                }else{
+                                    html +='<span class="price-new">';
+                                        html += productSizeInfo.special;
+                                    html +='</span>';
+                                    html +='<span class="price-old">';
+                                        html += '<div class="product-price">';
+                                            html +='<div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">';
+                                                html += '<div style="text-decoration: line-through;">';
+                                                    html += productSizeInfo.price;
+                                                html += '</div>';
+                                            html +='</div>';
+                                        html +='</div>';
+                                    html += '</span>';
+                                }
+                                html += '<button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.addProductSet('+ product_size_id +', '+ product_id +');" class="-button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>';
+                            html += '</p>';
+                        html += '</div>';
+                    html += '</div>';
+                html += '</div>';
+
+
+                html += '<table class="table addon-product" style="background-color: #e0e0e0;">';
+                    html += '<tr>';
+                        html += '<th width="200px">Flavor/Option</th>';
+                        html += '<th width="150px">Availability</th>';
+                        html += '<th>Qty</th>';
+                    html += '</tr>';
+                    for(var k = 0; k < addonProducts.length; k++){
+                        html += '<tr>';
+                            html += '<td style="font-size: 12px;">';
+                                html += '<center>'+ addonProducts[k]['name'] +'</center>';
+                                html += '<small style="font-size: 14; color: red;">';
+                                    html += '<span class="price product-price" style="display: none;">';
+                                        if(!addonProducts[k]["special"]){
+                                            html += '<b>'+ addonProducts[k]["price"] +'</b>';
+                                        }else{
+                                            html += '<span class="price-new">';
+                                                html += addonProducts[k]["special"];
+                                            html += '</span>';
+                                            html += '<span class="price-old">';
+                                                html += '<div class="product-price">';
+                                                    html += '<div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">';
+                                                        html += '<div style="text-decoration: line-through;">';
+                                                            html += addonProducts[k]["price"];
+                                                        html += '</div>';
+                                                    html += '</div>';
+                                                html += '</div>';
+                                            html += '</span>';
+                                        }
+                                    html += '</span>';
+                                html += '</small>';
+                            html += '</td>';
+                            
+                            html += '<td>';
+                                html += '<center>';
+                                    html += '<img style="width:70px !important" src="./catalog/view/theme/default/image/in_stock.png" class="stock_image_staus" />';
+                                html += '</center>';
+                            html += '</td>';
+
+                            html += '<td>';
+                                html += addonProducts[k]["minimum"];
+                                // html += '<button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.add("1", "1");" class="-button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>';
+                            html += '</td>';
+                        html += '</tr>';
+                        html += '<div class="clearfix"></div>';
+                    }
+                html += '</table>';
+
+                $("#product-addon-group").html(html);
+
+                
+                // Need to set timeout otherwise it wont update the total
+                // setTimeout(function() {
+                //     // $('#cart > button').html('<span id="cart-total"><i class="ti-shopping-cart"></i> ' + json['total'] + '</span>');
+                // }, 100);
+
+                // if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
+                //     location = 'index.php?route=checkout/cart';
+                // } else {
+                //     $('#cart > ul').load('index.php?route=common/cart/info ul li');
+                // }
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);

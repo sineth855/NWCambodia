@@ -125,7 +125,7 @@ class ModelCatalogProduct extends Model {
 			}
 
 			foreach ($productAddonArr as $addonGroup) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', price = '" . $addonGroup["price"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', is_group_order = '" . $addonGroup["is_group_order"] . "', price = '" . $addonGroup["price"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
 				$product_size_id = $this->db->getLastId();
 				if(isset($addonGroup['productAddonArrays'])){
 					foreach ($addonGroup['productAddonArrays'] as $addon_product_id) {
@@ -550,13 +550,14 @@ class ModelCatalogProduct extends Model {
 					'price' => $productSize["price"],
 					'image' => $productSize["image"],
 					'sort_order' => $productSize["sort_order"],
+					'is_group_order' => $productSize["is_group_order"],
 					'productAddonArrays' => $productAddons
 				);
 			}
 
 			// print_r($productAddonArr);
 			foreach ($productAddonArr as $addonGroup) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', price = '" . $addonGroup["price"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', price = '" . $addonGroup["price"] . "', is_group_order = '" . $addonGroup["is_group_order"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
 				$product_size_id = $this->db->getLastId();
 				if(isset($addonGroup['productAddonArrays'])){
 					foreach ($addonGroup['productAddonArrays'] as $addon_product_id) {
@@ -954,6 +955,7 @@ class ModelCatalogProduct extends Model {
 				'price' => $productSize["price"],
 				'image' => $productSize["image"],
 				'sort_order' => $productSize["sort_order"],
+				'is_group_order' => $productSize["is_group_order"],
 				'product_addons' => $addons
 			);
 		}
