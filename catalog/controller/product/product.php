@@ -514,9 +514,12 @@ class ControllerProductProduct extends Controller {
 					);
 				}
 				$data['productSizes'][] = array(
+					'product_size_id'   => $result['id'],
+					'product_id'   => $this->request->get['product_id'],
 					'thumb'        => $image,
 					'image'		   => $result["image"],
 					'name'         => $result['size_name'],
+					'is_group_order'         => $result['is_group_order'],
 					'price'        => $this->currency->format($this->tax->calculate($result['price'], 0, $this->config->get('config_tax')), $this->session->data['currency']),
 					//'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					// 'price'       => $price,
@@ -528,7 +531,7 @@ class ControllerProductProduct extends Controller {
 					'addonProducts'  =>  $data['addonProducts']
 				);
 			}
-			
+			// print_r($data['productSizes']);
 			// Tags
 
 			$data['tags'] = array();

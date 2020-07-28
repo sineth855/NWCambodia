@@ -1,0 +1,7 @@
+/*############## Add field 26-July-2020 #############*/
+ALTER TABLE `nw_cart` ADD `is_group_order` TINYINT(1) DEFAULT 0 AFTER `quantity`
+ALTER TABLE `nw_cart` ADD `product_size_id` INT(11) DEFAULT 0 AFTER `is_group_order`
+ALTER TABLE `nw_cart` ADD `ref_product_id` INT(11) DEFAULT 0 AFTER `product_size_id`
+ALTER TABLE `nw_product_size` ADD `is_group_order` TINYINT(1) DEFAULT 0 AFTER `sort_order`
+
+==> System->Library->cart->cart.php (Add function addProductGroup)

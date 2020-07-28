@@ -1,0 +1,6 @@
+TRUNCATE TABLE nw_cart
+TRUNCATE TABLE nw_order
+TRUNCATE TABLE nw_order_history
+TRUNCATE TABLE nw_order_option
+TRUNCATE TABLE nw_order_total
+TRUNCATE TABLE nw_order_product

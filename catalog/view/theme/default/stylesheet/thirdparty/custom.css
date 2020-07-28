@@ -901,3 +901,14 @@ table.table.addon-product tr th,
 table.table.addon-product tr td {
     font-size: 13px;
 }
+
+#modal-product-list #modal_container{
+    display: none;
+}
+#modal-product-list #modal_container.modal-product-cart{
+    display: block !important;
+}
+
+.close-modal{
+    cursor: pointer;
+}

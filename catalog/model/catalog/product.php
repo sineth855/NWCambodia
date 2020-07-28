@@ -590,6 +590,26 @@ class ModelCatalogProduct extends Model {
 				'size_name' => $result["size_name"],
 				'price' => $result["price"],
 				'image' => $result["image"],
+				'is_group_order' => $result["is_group_order"],
+				'sort_order' => $result["sort_order"]
+			);
+		}
+
+		return $product_data;
+	}
+
+	public function getProductBySize($product_size_id, $product_id) {
+		$product_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_size WHERE id = '".(int)$product_size_id."' AND product_id = '" . (int)$product_id . "' ORDER BY sort_order");
+		foreach ($query->rows as $result) {
+			// $product_data[$result['addon_id']] = $this->getProduct($result['addon_id']);
+			$product_data[] = array(
+				'id' => $result["id"],
+				'size_name' => $result["size_name"],
+				'price' => $result["price"],
+				'image' => $result["image"],
+				'is_group_order' => $result["is_group_order"],
 				'sort_order' => $result["sort_order"]
 			);
 		}

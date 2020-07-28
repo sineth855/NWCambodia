@@ -32,7 +32,6 @@ class ControllerCommonCart extends Controller {
 			foreach ($results as $result) {
 				if ($this->config->get('total_' . $result['code'] . '_status')) {
 					$this->load->model('extension/total/' . $result['code']);
-
 					// We have to put the totals in an array so that they pass by reference.
 					$this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
 				}
@@ -97,6 +96,8 @@ class ControllerCommonCart extends Controller {
 
 			$data['products'][] = array(
 				'cart_id'   => $product['cart_id'],
+				'product_id'   => $product['product_id'],
+				'is_group_order'   => $product['is_group_order'],
 				'thumb'     => $image,
 				'name'      => $product['name'],
 				'model'     => $product['model'],
