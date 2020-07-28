@@ -16902,15 +16902,20 @@ ul.links.inline li {
     width: 100%;
 }
 
+.mega-menu>ul>li>a:hover,
+.mega-menu>ul>li>a:hover {
+    color: yellow !important;
+}
+
 .mega-menu>ul>li>ul.normal-sub>li a {
     border: 0;
     padding: 10px 15px 10px 20px;
-    color: #fdf200 !important;
+    color: #fff
 }
 
 .mega-menu>ul>li>ul.normal-sub>li a:hover,
 .mega-menu>ul>li>ul.normal-sub>li a:active {
-    color: #fff;
+    color: yellow;
 }
 
 .mega-menu>ul>li>ul>li>ul>li>ul {
