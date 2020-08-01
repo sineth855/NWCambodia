@@ -8,7 +8,7 @@
         <li>
             <table class="table table-striped">
                 {% for product in products %}
-                <tr>
+                {# <tr>
                     <td class="text-center">{% if product.thumb %}
                         <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a> {% endif %}</td>
                     <td class="text-left"><a style="font-size: 14px;" href="{{ product.href }}">{{ product.name }}</a> {% if product.option %} {% for option in product.option %} <br /> - <small>{{ option.name }} {{ option.value }}</small> {% endfor %} {% endif %} {% if product.recurring
@@ -21,6 +21,38 @@
                         </a>
                         <!-- <button type="button" onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button> -->
                     </td>
+                </tr> #}
+                <tr>
+                    <td class="text-center">
+                        {% if product.thumb %}
+                        <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a> {% endif %}
+                        </td>
+                    <td class="text-left"><a style="font-size: 14px;" href="{{ product.href }}">
+                        {{ product.name }}</a> 
+                        {% if product.option %} 
+                            {% for option in product.option %} <br /> - <small>{{ option.name }} {{ option.value }}</small> {% endfor %} {% endif %} {% if product.recurring
+                        %} <br /> - <small>{{ text_recurring }} {{ product.recurring }}</small> {% endif %}
+                        
+                        x {{ product.quantity }}<br/>
+                        {{ product.total }}
+                         {# ==> {{product.is_group_order}} #}
+                         {% if product.productGroupSets %}
+                            <div style="color: red;text-align: center;"><small>Add On</small></div>
+                            {% for productSet in product.productGroupSets %}
+                                <div style="padding-left: 20px">
+                                    <small>
+                                        - {{productSet.name }}<b> x {{ productSet.quantity }} </b> 
+                                    </small>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="javascript:void(0);" onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}">
+                            <i style="font-size: 1em;color: red;" class="ti-trash"></i>
+                        </a>
+                    </td>
+                    
                 </tr>
                 {% endfor %} {% for voucher in vouchers %}
                 <tr>

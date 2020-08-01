@@ -6,7 +6,7 @@ class ControllerCommonLanguage extends Controller {
 		$data['action'] = $this->url->link('common/language/language', '', $this->request->server['HTTPS']);
 
 		$data['code'] = $this->session->data['language'];
-
+		// print_r($data['code']);
 		$this->load->model('localisation/language');
 
 		$data['languages'] = array();

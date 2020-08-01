@@ -108,7 +108,7 @@
                         {% endif %}  #}
                         {% if logged and account != 'guest' %}
                             {% if shipping_required %}
-                                <div class="panel panel-default" style="display: none;">
+                                <div class="panel panel-default" style="-display: none;">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
                                     </div>
@@ -116,7 +116,7 @@
                                         <div class="panel-body"></div>
                                     </div>
                                 </div>
-                                <div class="panel panel-default" style="display: none;">
+                                <div class="panel panel-default" style="-display: none;">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
                                     </div>
@@ -127,7 +127,7 @@
                             {% endif %} 
                         {% else %}
                             {% if shipping_required %}
-                                <div class="panel panel-default" style="display: none;">
+                                <div class="panel panel-default" style="-display: none;">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
                                     </div>
@@ -135,7 +135,7 @@
                                         <div class="panel-body"></div>
                                     </div>
                                 </div>
-                                <div class="panel panel-default" style="display: none;">
+                                <div class="panel panel-default" style="-display: none;">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
                                     </div>
@@ -702,7 +702,7 @@
                                 });
 
                                 // Add trigger payment for customer when login ################
-                                $("#button-shipping-method").trigger("click");
+                                //$("#button-shipping-method").trigger("click");
                             },
                             error: function(xhr, ajaxOptions, thrownError) {
                                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -798,7 +798,7 @@
                                     $('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
 
                                     // add trigger payment method for customer not yet login
-                                    $('#button-shipping-method').trigger('click');
+                                    //$('#button-shipping-method').trigger('click');
                                     // #end
                                 },
                                 error: function(xhr, ajaxOptions, thrownError) {
@@ -916,7 +916,7 @@
                                 $('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
 
                                 // add trigger payment method for customer not yet login
-                                $('#button-shipping-method').trigger('click');
+                                //$('#button-shipping-method').trigger('click');
                                 // #end
 
                             },
@@ -968,8 +968,8 @@
         
                                 $('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
 
-                                // add trigger payment method for customer not yet login
-                                $('#button-payment-method').trigger('click');
+                                // add trigger payment method for customer not yet login ####
+                                //$('#button-payment-method').trigger('click');
                                 // #end
                             },
                             error: function(xhr, ajaxOptions, thrownError) {

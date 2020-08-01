@@ -52,7 +52,7 @@ class ControllerCheckoutConfirm extends Controller {
 				break;
 			}
 		}
-
+		// print_r($this->session->data['shipping_method']);
 		if (!$redirect) {
 			$order_data = array();
 
@@ -223,10 +223,10 @@ class ControllerCheckoutConfirm extends Controller {
 						'type'                    => $option['type']
 					);
 				}
-
+				
 				$order_data['products'][] = array(
 					'product_id' => $product['product_id'],
-					'name'       => $product['name'],
+					'name'       => '333',//$product['name'],
 					'model'      => $product['model'],
 					'option'     => $option_data,
 					'download'   => $product['download'],
@@ -238,7 +238,7 @@ class ControllerCheckoutConfirm extends Controller {
 					'reward'     => $product['reward']
 				);
 			}
-
+			
 			// Gift Voucher
 			$order_data['vouchers'] = array();
 
@@ -372,6 +372,24 @@ class ControllerCheckoutConfirm extends Controller {
 					}
 				}
 
+				// ############## product gorup set ######################
+				// print_r($this->cart->getProductSets($product['product_id']));
+				$productGroupSets = array();
+				if($this->cart->getProductSets($product['product_id'])){
+					foreach ($this->cart->getProductSets($product['product_id']) as $productSet) {
+						
+						$productGroupSets[] = array(
+							'cart_id'   => $productSet['cart_id'],
+							'product_id'   => $productSet['product_id'],
+							'is_group_order'   => $productSet['is_group_order'],
+							'name'      => $productSet['name'],
+							'model'     => $productSet['model'],
+							'recurring' => ($productSet['recurring'] ? $productSet['recurring']['name'] : ''),
+							'quantity'  => $productSet['quantity']
+						);
+					}
+				}
+
 				$data['products'][] = array(
 					'cart_id'    => $product['cart_id'],
 					'product_id' => $product['product_id'],
@@ -383,7 +401,8 @@ class ControllerCheckoutConfirm extends Controller {
 					'subtract'   => $product['subtract'],
 					'price'      => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
 					'total'      => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'], $this->session->data['currency']),
-					'href'       => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'href'       => $this->url->link('product/product', 'product_id=' . $product['product_id']),
+					'productGroupSets' => $productGroupSets
 				);
 			}
 

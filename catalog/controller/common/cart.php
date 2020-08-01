@@ -94,6 +94,44 @@ class ControllerCommonCart extends Controller {
 				$total = false;
 			}
 
+			// ############## product gorup set ######################
+			// print_r($this->cart->getProductSets($product['product_id']));
+			$productGroupSets = array();
+			if($this->cart->getProductSets($product['product_id'])){
+				foreach ($this->cart->getProductSets($product['product_id']) as $productSet) {
+					if ($productSet['image']) {
+						$imageSet = $this->model_tool_image->resize($productSet['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
+					} else {
+						$imageSet = '';
+					}
+
+					// Display prices
+					if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+						$unit_price_set = $this->tax->calculate($productSet['price'], $productSet['tax_class_id'], $this->config->get('config_tax'));
+						
+						$priceSet = $this->currency->format($unit_price_set, $this->session->data['currency']);
+						$totalSet = $this->currency->format($unit_price_set * $productSet['quantity'], $this->session->data['currency']);
+					} else {
+						$priceSet = false;
+						$totalSet = false;
+					}
+
+					$productGroupSets[] = array(
+						'cart_id'   => $productSet['cart_id'],
+						'product_id'   => $productSet['product_id'],
+						'is_group_order'   => $productSet['is_group_order'],
+						'thumb'     => $imageSet,
+						'name'      => $productSet['name'],
+						'model'     => $productSet['model'],
+						'recurring' => ($productSet['recurring'] ? $productSet['recurring']['name'] : ''),
+						'quantity'  => $productSet['quantity'],
+						'price'     => $priceSet,
+						'total'     => $totalSet,
+						// 'href'      => $this->url->link('product/product', 'product_id=' . $productSet['product_id']),
+					);
+				}
+			}
+
 			$data['products'][] = array(
 				'cart_id'   => $product['cart_id'],
 				'product_id'   => $product['product_id'],
@@ -106,10 +144,12 @@ class ControllerCommonCart extends Controller {
 				'quantity'  => $product['quantity'],
 				'price'     => $price,
 				'total'     => $total,
-				'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+				'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id']),
+				// If product we add to cart was set as is_group_order will add more group of product
+				'productGroupSets' => $productGroupSets
 			);
 		}
-
+		// print_r($data['products']);
 		// Gift Voucher
 		$data['vouchers'] = array();
 
