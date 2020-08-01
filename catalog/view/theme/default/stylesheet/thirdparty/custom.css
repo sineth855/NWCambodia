@@ -1,12 +1,4 @@
-@font-face {
-    font-family: 'dauntep';
-    src: url("./../font/DAUNTEP.ttf") format("opentype");
-}
 
-@font-face {
-    font-family: 'HelveticaNeueLTStd';
-    src: url("./../font/HelveticaNeueLTStd-HvCnO.otf") format("opentype");
-}
 
 @font-face {
     font-family: 'PT Sans';
@@ -76,40 +68,6 @@ p.price.product-price b {
     font-size: 18px;
     font-weight: bold;
     padding-bottom: 5px;
-}
-
-.fsp_header,
-.fsp_title,
-.fsp_title b,
-.fsp_text,
-.gender,
-.footer-widget h3,
-.count-down-timer h2,
-.count-down-timer p,
-.button_none_radius,
-.cat-label,
-.box-desc h5,
-.box-desc p,
-.container-wrap button,
-.menu-parent li a,
-.nice-select span,
-input,
-button,
-strong,
-p,
-span,
-h1,
-label,
-legend,
-ul li a,
-a,
-h3,
-.header-title,
-.alert-success,
-table.table.addon-product tr th,
-table.table.addon-product tr td,
-.product_title_container {
-    font-family: 'dauntep';
 }
 
 .footer-widget a {

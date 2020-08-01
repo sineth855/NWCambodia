@@ -40,6 +40,7 @@
     <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_004.css" />
     <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/css_style_005.css" />
 
+    
     <!-- <link type="text/css" rel="stylesheet" href="https://fitwhey.com/cache/00000000005cacd6d03184f727eac761ee868c2be5.css?v=1587562030" media="all" /> -->
     <!-- <link rel="stylesheet" media="all"href="catalog/view/theme/default/stylesheet/thirdparty/css_oh7VoMxXbRU2mJvO77i6Y0UZNTRHJG6hq7HPYv8OCg0.css"/> -->
 
@@ -53,6 +54,15 @@
     <link href="{{ link.href }}" rel="{{ link.rel }}" /> {% endfor %} {% for analytic in analytics %} {{ analytic }} {% endfor %}
 
 </head>
+ 
+    {% if code_language == "kh-gb" %}
+        Hello world true
+	    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/kh.css" />
+    {% else %}
+        Helloworld false
+        <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/en.css" />
+    {% endif %}
+
 
 <div class="userRegisterPopUp" id="bodyheadertext_login" style="display: none;">
     <div id="modal_containerPopUp">

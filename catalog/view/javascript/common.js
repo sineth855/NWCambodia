@@ -211,6 +211,7 @@ var cart = {
         $("#modal-product-list #modal_container").removeClass("modal-product-cart");
         $.ajax({
             url: 'index.php?route=checkout/cart/addProductGroup',
+            // url: 'index.php?route=checkout/cart/addMoreProductGroup',
             type: 'post',
             data: 'product_size_id=' + product_size_id + '&product_id=' + product_id,
             dataType: 'json',

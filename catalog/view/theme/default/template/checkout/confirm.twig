@@ -19,7 +19,22 @@
       <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a> {% for option in product.option %} <br />
         &nbsp;<small> - {{ option.name }}: {{ option.value }}</small> {% endfor %}
         {% if product.recurring %} <br />
-        <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small> {% endif %}</td>
+        <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small> {% endif %}
+
+        {# If has addon product #}
+
+        {# ==> {{product.is_group_order}} #}
+        {% if product.productGroupSets %}
+          <div style="padding-left: 20px; color: red;"><small>Add On</small></div>
+          {% for productSet in product.productGroupSets %}
+              <div style="padding-left: 20px">
+                  <small>
+                      - {{productSet.name }}<b> x {{ productSet.quantity }} </b> 
+                  </small>
+              </div>
+          {% endfor %}
+        {% endif %}
+      </td>
       <td class="text-left">{{ product.model }}</td>
       <td class="text-right">{{ product.quantity }}</td>
       <td class="text-right">{{ product.price }}</td>
