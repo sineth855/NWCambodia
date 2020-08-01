@@ -7,6 +7,14 @@ class ControllerCommonLanguage extends Controller {
 
 		$data['code'] = $this->session->data['language'];
 
+		if ($data['code'] == "kh-gb") {
+			print_r($data['code']);
+			$this->document->addStyle('catalog/view/theme/default/stylesheet/thirdparty/kh.css');
+		} else {
+			print_r($data['code']);
+			$this->document->addStyle('catalog/view/theme/default/stylesheet/thirdparty/en.css');
+		}
+
 		$this->load->model('localisation/language');
 
 		$data['languages'] = array();
@@ -19,8 +27,11 @@ class ControllerCommonLanguage extends Controller {
 					'name' => $result['name'],
 					'code' => $result['code']
 				);
+
+				
 			}
 		}
+		
 
 		if (!isset($this->request->get['route'])) {
 			$data['redirect'] = $this->url->link('common/home');
