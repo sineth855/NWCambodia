@@ -38,13 +38,16 @@ $_['text_supplement_plan_dec']     = "It's simple, just tell us a little about y
 $_['text_male']       = 'Male';
 $_['text_female']       = 'Female';
 $_['text_gender']       = 'Gender';
+$_['text_age']       = 'Age';
 $_['text_goal']       = 'Goal';
 $_['text_product_finder']       = 'Product Finder';
 $_['text_shop_by_category']       = 'Shop By Category';
 $_['text_shop_by_brand']       = 'Shop By Brand';
 $_['text_shop_by_goal']       = 'Shop By Goal';
 $_['text_shop_by_best_seller']       = 'Shop By Best Seller';
-
+$_['text_must_have_products_with_the_best_deal_never_to_miss']              = 'Must have products with the best deal never to miss.';
+$_['text_product_set']              = 'PRODUCTS SET';
+$_['text_welcome']              = 'Welcome to NWCambodia!';
 // Buttons
 $_['button_address_add']    = 'Add Address';
 $_['button_back']           = 'Back';
