@@ -89,6 +89,8 @@ class ControllerCommonHeader extends Controller {
 		$data['cart'] = $this->load->controller('common/cart');
 		$data['menu'] = $this->load->controller('common/menu');
 
+		$data['code_language'] = $this->session->data['language'];
+
 		################################################
 		$this->load->language('common/cart');
 
