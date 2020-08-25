@@ -3,7 +3,6 @@
     src: url("./../font/DAUNTEP.ttf") format("opentype");
 }
 
-
 .fsp_header,
 .fsp_title,
 .fsp_title b,
@@ -34,6 +33,11 @@ h3,
 .alert-success,
 table.table.addon-product tr th,
 table.table.addon-product tr td,
-.product_title_container {
+.product_title_container,
+footer,
+.block-subtitle,
+.time-remain,
+.block-title,
+.field-item {
     font-family: 'dauntep';
 }

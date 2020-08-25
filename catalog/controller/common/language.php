@@ -19,8 +19,11 @@ class ControllerCommonLanguage extends Controller {
 					'name' => $result['name'],
 					'code' => $result['code']
 				);
+
+				
 			}
 		}
+		
 
 		if (!isset($this->request->get['route'])) {
 			$data['redirect'] = $this->url->link('common/home');
