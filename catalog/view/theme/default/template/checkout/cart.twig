@@ -101,6 +101,18 @@
                 {% if product.recurring %} <br />
                 <span class="label label-info">{{ text_recurring_item }}</span> 
                 <small>{{ product.recurring }}</small> {% endif %}
+
+                {# Product Set #}
+                {% if product.productGroupSets %}
+                  <div style="color: red;text-align: left;"><small>Add On</small></div>
+                  {% for productSet in product.productGroupSets %}
+                      <div style="padding-left: 20px">
+                          <small>
+                              - {{productSet.name }}<b> x {{ productSet.quantity }} </b> 
+                          </small>
+                      </div>
+                  {% endfor %}
+              {% endif %}
               </td>              
               <td class="text-left">
                 <div class="input-group btn-block">

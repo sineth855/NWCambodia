@@ -25,9 +25,9 @@
       <div class="panel-body">
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+            <li><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
             <li><a href="#tab-data" data-toggle="tab">{{ tab_data }}</a></li>
-            <li><a href="#tab-links" data-toggle="tab">{{ tab_links }}</a></li>
+            <li class="active"><a href="#tab-links" data-toggle="tab">{{ tab_links }}</a></li>
             <li><a href="#tab-attribute" data-toggle="tab">{{ tab_attribute }}</a></li>
             <li><a href="#tab-option" data-toggle="tab">{{ tab_option }}</a></li>
             <li><a href="#tab-recurring" data-toggle="tab">{{ tab_recurring }}</a></li>
@@ -39,7 +39,7 @@
             <li><a href="#tab-design" data-toggle="tab">{{ tab_design }}</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="tab-general">
+            <div class="tab-pane" id="tab-general">
               <ul class="nav nav-tabs" id="language">
                 {% for language in languages %}
                   <li><a href="#language{{ language.language_id }}" data-toggle="tab"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}"/> {{ language.name }}</a></li>
@@ -241,7 +241,8 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label">{{ entry_shipping }}</label>
                 <div class="col-sm-10">
-                  <label class="radio-inline"> {% if shipping %}
+                  <label class="radio-inline"> 
+                    {% if shipping %}
                       <input type="radio" name="shipping" value="1" checked="checked"/>
                       {{ text_yes }}
                     {% else %}
@@ -253,7 +254,8 @@
                     {% else %}
                       <input type="radio" name="shipping" value="0"/>
                       {{ text_no }}
-                    {% endif %} </label>
+                    {% endif %}
+                  </label>
                 </div>
               </div>
 
@@ -413,7 +415,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab-links">
+            <div class="tab-pane active" id="tab-links">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="{{ help_manufacturer }}">{{ entry_manufacturer }}</span></label>
                 <div class="col-sm-10">
@@ -480,7 +482,39 @@
                     {% endfor %}</div>
                 </div>
               </div>
-              
+              {# Group Or Addone #}
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Is Group Addon?</label>
+                <div class="col-sm-10">
+                  {# <label class="radio-inline">
+                    <input type="radio" name="is_group_addon" value="1">
+                    Yes
+                  </label> 
+                  <label class="radio-inline">
+                    <input type="radio" name="is_group_addon" value="0" checked="checked">
+                    No
+                  </label> #}
+                  <label class="radio-inline">
+                    {% if is_group_addon %}
+                      <input type="radio" name="is_group_addon" value="1" checked="checked"/>
+                      {{ text_yes }}
+                    {% else %}
+                      <input type="radio" name="is_group_addon" value="1"/>
+                      {{ text_yes }}
+                    {% endif %} 
+                  </label>
+
+                  <label class="radio-inline"> 
+                    {% if not is_group_addon %}
+                      <input type="radio" name="is_group_addon" value="0" checked="checked"/>
+                      {{ text_no }}
+                    {% else %}
+                      <input type="radio" name="is_group_addon" value="0"/>
+                      {{ text_no }}
+                    {% endif %}
+                  </label> 
+                </div>
+              </div>
               <label class="col-sm-2 control-label">Product Add On</label><br/><br/>
               <div class="clearfix"></div>
               <div class="well well-sm">
@@ -490,17 +524,28 @@
                     <div class="form-group" id="remove-addon{{attribute_addon_row}}">
                       <p>
                         <div class="col-sm-1">
-                          <a href="" id="thumb-image{{attribute_addon_row}}" data-toggle="image" class="-img-thumbnail"><img src="{{ product_addon.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a> 
+                          <a href="" id="thumb-image{{attribute_addon_row}}" data-toggle="image" class="-img-thumbnail">
+                            {% if product_addon.thumb != '' %}
+                              <img src="{{ product_addon.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/>
+                            {% else %}
+                              <img src="{{ thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/>
+                            {% endif %}
+                          </a> 
                           <input type="hidden" name="product_size[{{attribute_addon_row}}][image]" value="{{ product_addon.image }}" id="input-image{{attribute_addon_row}}"/>
                         </div>
-                        <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>
+                        <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Addon Title">Addon Title</span></label>
                         <div class="col-sm-4">
-                          <input type="text" name="product_size[{{attribute_addon_row}}][size]" value="{{ product_addon.size_name }}" placeholder="Group Size Name" id="input-addon" class="form-control"/>
+                          <input type="text" name="product_size[{{attribute_addon_row}}][size]" value="{{ product_addon.size_name }}" placeholder="Add On Group Name" id="input-addon" class="form-control"/>
                         </div>
                         <div class="col-sm-2">
                           <input type="number" name="product_size[{{attribute_addon_row}}][price]" id="product_size[{{attribute_addon_row}}][price]" value="{{ product_addon.price }}" placeholder="Price" class="form-control"/>
+                          <br/>
+                          <input type="number" name="product_size[{{attribute_addon_row}}][special_price]" id="product_size[{{attribute_addon_row}}][special_price]" value="{{ product_addon.special_price }}" placeholder="Special Price" class="form-control"/>
                         </div>
+
                         <div class="col-sm-2">
+                          <input type="number" name="product_size[{{attribute_addon_row}}][discount]" id="product_size[{{attribute_addon_row}}][discount]" value="{{ product_addon.discount }}" placeholder="Discount" class="form-control"/>
+                          <br/>
                           <input type="number" name="product_size[{{attribute_addon_row}}][sort_order]" value="{{ product_addon.sort_order }}" placeholder="Sort Order" class="form-control"/>
                         </div>
                         <br/>
@@ -519,14 +564,14 @@
                         </div>
                       </div>
 
-                      <label class="col-sm-2 control-label" for="input-addon">Is Group Order?</label>
+                      {# <label class="col-sm-2 control-label" for="input-addon">Is Group Order?</label>
                       <div class="col-sm-10 control-label">
                         {% if(product_addon['is_group_order'] == 1) %}
                           <input type="checkbox" checked="checked" name="product_size[{{attribute_addon_row}}][is_group_order]" value="1" id="is-group-order" class="form-control"/>
                         {% else %}
                           <input type="checkbox" name="product_size[{{attribute_addon_row}}][is_group_order]" value="1" id="is-group-order" class="form-control"/>
                         {% endif %}
-                      </div>
+                      </div> #}
 
                       <div class="col-sm-12">
                         <button type="button" onClick="initRemoveAddOn({{attribute_addon_row}});" class="pull-right btn btn-sm btn-danger"><i class="fa fa-wa fa-minus"></i></button>
@@ -569,7 +614,7 @@
                     {% set attribute_addon_row = attribute_addon_row + 1 %}
                   {% endfor %}
                 </div>
-                <button type="button" onclick="addProductSize();" data-toggle="tooltip" title="Add Product Size" class="pull-right btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                <button type="button" onclick="addProductSize();" data-toggle="tooltip" title="Add Addon" class="pull-right btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                 <div class="clearfix"></div>
               </div>
 
@@ -1527,9 +1572,9 @@
           html += '<a href="" id="thumb-image'+attribute_addon_row+'" data-toggle="image" class="-img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a>';
           html += '<input type="hidden" name="product_size['+attribute_addon_row+'][image]" value="" id="input-image"/>';
           html += '</div>';
-        html += '<label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Product Size">Product Size</span></label>';
+        html += '<label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Addon Title">Addon Title</span></label>';
         html += '<div class="col-sm-4">';
-          html += '<input type="text" name="product_size['+attribute_addon_row+'][size]" value="" placeholder="Group Size Name" id="input-addon" class="form-control"/>';
+          html += '<input type="text" name="product_size['+attribute_addon_row+'][size]" value="" placeholder="Add On Group Name" id="input-addon" class="form-control"/>';
         html += '</div>';
         html += '<div class="col-sm-2">';
           html += '<input type="number" name="product_size['+attribute_addon_row+'][price]" id="product_size['+attribute_addon_row+'][price]" placeholder="Price" class="form-control"/>';
@@ -1546,10 +1591,10 @@
         html += '<div id="product-addon-list'+attribute_addon_row+'" class="well well-sm" style="height: 150px; overflow: auto;"></div>';
       html += '</div>';
 
-      html += '<label class="col-sm-2 control-label" for="input-addon">Is Group Order?</label>';
-      html += '<div class="col-sm-10 control-label">';
-        html += '<input type="checkbox" name="product_size['+attribute_addon_row+'][is_group_order]" value="1" id="is-group-order" class="form-control"/>';
-      html += '</div>';
+      // html += '<label class="col-sm-2 control-label" for="input-addon">Is Group Order?</label>';
+      // html += '<div class="col-sm-10 control-label">';
+        // html += '<input type="checkbox" name="product_size['+attribute_addon_row+'][is_group_order]" value="1" id="is-group-order" class="form-control"/>';
+      // html += '</div>';
 
       html += '<div class="col-sm-12">';
         html += '<button type="button" onClick="initRemoveAddOn('+attribute_addon_row+');" class="pull-right btn btn-sm btn-danger"><i class="fa fa-wa fa-minus"></i></button>'

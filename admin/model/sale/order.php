@@ -228,7 +228,13 @@ class ModelSaleOrder extends Model {
 	}
 
 	public function getOrderProducts($order_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "' AND ref_product_id IS NULL");
+
+		return $query->rows;
+	}
+
+	public function getOrderProductSets($order_id, $product_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "' AND ref_product_id = '". (int)$product_id ."'");
 
 		return $query->rows;
 	}

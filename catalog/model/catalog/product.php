@@ -60,6 +60,7 @@ class ModelCatalogProduct extends Model {
 				'sort_order'       => $query->row['sort_order'],
 				'status'           => $query->row['status'],
 				'is_flash_sale'	   => $query->row['is_flash_sale'],
+				'is_group_addon'   => $query->row['is_group_addon'],
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
 				'viewed'           => $query->row['viewed']
@@ -598,10 +599,30 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 
-	public function getProductBySize($product_size_id, $product_id) {
+	public function _getProductBySize($product_size_id, $product_id) {
 		$product_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_size WHERE id = '".(int)$product_size_id."' AND product_id = '" . (int)$product_id . "' ORDER BY sort_order");
+		// $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_size WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order");
+		foreach ($query->rows as $result) {
+			// $product_data[$result['addon_id']] = $this->getProduct($result['addon_id']);
+			$product_data[] = array(
+				'id' => $result["id"],
+				'size_name' => $result["size_name"],
+				'price' => $result["price"],
+				'image' => $result["image"],
+				'is_group_order' => $result["is_group_order"],
+				'sort_order' => $result["sort_order"]
+			);
+		}
+
+		return $product_data;
+	}
+
+	public function getProductBySize($product_id) {
+		$product_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_size WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order");
 		// $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_size WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order");
 		foreach ($query->rows as $result) {
 			// $product_data[$result['addon_id']] = $this->getProduct($result['addon_id']);

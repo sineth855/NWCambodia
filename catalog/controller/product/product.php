@@ -271,6 +271,9 @@ class ControllerProductProduct extends Controller {
 				$data['flash_sale_condition'] = $product_info['date_expired'] > date("Y-m-d");
 			}	
 
+			$data['product_id'] = (int)$product_info['product_id'];
+			$data['is_group_addon'] = (int)$product_info['is_group_addon'];
+
 			$this->load->model('tool/image');
 
 			if ($product_info['image']) {

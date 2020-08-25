@@ -68,6 +68,21 @@
                   
                 
                 {% endif %}
+
+                {% if type == 'image' %}
+                
+                
+                  <option value="image" selected="selected">{{ text_image }}</option>
+                  
+                
+                {% else %}
+                
+                
+                  <option value="image">{{ text_image }}</option>
+                  
+                
+                {% endif %}
+
                 {% if type == 'radio' %}
                 
                 

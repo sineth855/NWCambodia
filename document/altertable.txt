@@ -5,3 +5,17 @@ ALTER TABLE `nw_cart` ADD `ref_product_id` INT(11) DEFAULT 0 AFTER `product_size
 ALTER TABLE `nw_product_size` ADD `is_group_order` TINYINT(1) DEFAULT 0 AFTER `sort_order`
 
 ==> System->Library->cart->cart.php (Add function addProductGroup)
+
+/*
+    Alter Table nw_order_product comment below
+
+    ALTER TABLE nw_order_product ADD `ref_product_id` INT(11) NULL AFTER order_id
+**/
+
+
+
+ALTER TABLE nw_product_size ADD `special_price` FLOAT(10,4) DEFAULT 0 AFTER price
+ALTER TABLE nw_product_size ADD `discount` INT(10) DEFAULT 0 AFTER price
+
+ALTER TABLE nw_product ADD `is_group_addon` INT(1) AFTER `stock_status_id`
+ALTER TABLE nw_product_addon ADD `quantity` INT(11) DEFAULT 1 AFTER `addon_product_id`

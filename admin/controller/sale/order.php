@@ -935,6 +935,23 @@ class ControllerSaleOrder extends Controller {
 					}
 				}
 
+				// ############## product gorup set ######################
+				$productSets = $this->model_sale_order->getOrderProductSets($this->request->get['order_id'], $product['product_id']);
+				$productGroupSets = array();
+				if($productSets){
+					foreach ($productSets as $productSet) {
+						$productGroupSets[] = array(
+							'order_product_id' => $product['order_product_id'],
+							'product_id'       => $productSet['product_id'],
+							'name'    	 	   => $productSet['name'],
+							'model'    		   => $productSet['model'],
+							'quantity'		   => $productSet['quantity'],
+							'price'    		   => $this->currency->format($productSet['price'] + ($this->config->get('config_tax') ? $productSet['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
+							'total'    		   => $this->currency->format($productSet['total'] + ($this->config->get('config_tax') ? ($productSet['tax'] * $productSet['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
+						);
+					}
+				}
+
 				$data['products'][] = array(
 					'order_product_id' => $product['order_product_id'],
 					'product_id'       => $product['product_id'],
@@ -944,7 +961,8 @@ class ControllerSaleOrder extends Controller {
 					'quantity'		   => $product['quantity'],
 					'price'    		   => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'total'    		   => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
-					'href'     		   => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'], true)
+					'href'     		   => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'], true),
+					'productGroupSets' => $productGroupSets
 				);
 			}
 

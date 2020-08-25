@@ -159,8 +159,9 @@ class ControllerCatalogProduct extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('catalog/product');
-
+		
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			// print_r($this->request->post);
 			$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
 			
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -798,6 +799,14 @@ class ControllerCatalogProduct extends Controller {
 			$data['shipping'] = 1;
 		}
 
+		if (isset($this->request->post['is_group_addon'])) {
+			$data['is_group_addon'] = $this->request->post['is_group_addon'];
+		} elseif (!empty($product_info)) {
+			$data['is_group_addon'] = $product_info['is_group_addon'];
+		} else {
+			$data['is_group_addon'] = 1;
+		}
+
 		if (isset($this->request->post['price'])) {
 			$data['price'] = $this->request->post['price'];
 		} elseif (!empty($product_info)) {
@@ -1335,6 +1344,8 @@ class ControllerCatalogProduct extends Controller {
 			$data["product_addon_groups"][] = array(
 				'size_name' => $productSize["size_name"],
 				'price' => $productSize["price"],
+				'special_price' => $productSize["special_price"],
+				'discount' => $productSize["discount"],
 				'image' => $productSize["image"],
 				'thumb' => $productSize["image"] ? $this->model_tool_image->resize($productSize["image"], 100, 100) : $this->model_tool_image->resize('no_image.png', 100, 100),
 				'sort_order' => $productSize["sort_order"],

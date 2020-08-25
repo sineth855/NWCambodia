@@ -250,14 +250,14 @@ var cart = {
             }
         });
     },
-    'popupProductGroup': function(product_id){
+    'popupProductGroup': function(product_size_id, product_id){
         // alert(product_size_id);
         $("#modal-product-list #modal_container").addClass("modal-product-cart");
         // $.this.removeClass("modal-product-cart");
         $.ajax({
             url: 'index.php?route=product/product_size',
             type: 'post',
-            data: 'product_id=' + product_id,
+            data: 'product_size_id=' + product_size_id + '&product_id=' + product_id,
             dataType: 'json',
             beforeSend: function() {
                 // $('#cart > button').button('loading');
@@ -267,8 +267,8 @@ var cart = {
             },
             success: function(json) {
                 console.log("here is json data", json);
-                var productSizeInfo = json['productSizes'];
-                var addonProducts = json['productSizes']['addonProducts'];
+                var productSizeInfo = json['productSizes'][0];
+                var addonProducts = json['productSizes'][0]['addonProducts'];
                 var html = "";
                 html += '<div class="row" style="padding: 20px 0;">';
                     html +=  '<div class="col-sm-5">';
@@ -296,7 +296,7 @@ var cart = {
                                         html +='</div>';
                                     html += '</span>';
                                 }
-                                html += '<button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.addProductSet('+ product_id +');" class="-button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>';
+                                html += '<button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.addProductSet('+ product_size_id +', '+ product_id +');" class="-button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>';
                             html += '</p>';
                         html += '</div>';
                     html += '</div>';

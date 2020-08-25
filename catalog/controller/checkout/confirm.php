@@ -224,9 +224,30 @@ class ControllerCheckoutConfirm extends Controller {
 					);
 				}
 				
+				// ############## product gorup set ######################
+				// print_r($this->cart->getProductSets($product['product_id']));
+				$productGroupSets = array();
+				if($this->cart->getProductSets($product['product_id'])){
+					foreach ($this->cart->getProductSets($product['product_id']) as $productSet) {
+						
+						$productGroupSets[] = array(
+							'cart_id'   => $productSet['cart_id'],
+							'ref_product_id' => $product['product_id'],
+							'product_id'   => $productSet['product_id'],
+							'is_group_order'   => $productSet['is_group_order'],
+							'name'      => $productSet['name'],
+							'model'     => $productSet['model'],
+							'price'      => $productSet['price'],
+							'total'      => $productSet['total'],
+							'recurring' => ($productSet['recurring'] ? $productSet['recurring']['name'] : ''),
+							'quantity'  => $productSet['quantity']
+						);
+					}
+				}
+
 				$order_data['products'][] = array(
 					'product_id' => $product['product_id'],
-					'name'       => '333',//$product['name'],
+					'name'       => $product['name'],
 					'model'      => $product['model'],
 					'option'     => $option_data,
 					'download'   => $product['download'],
@@ -235,7 +256,8 @@ class ControllerCheckoutConfirm extends Controller {
 					'price'      => $product['price'],
 					'total'      => $product['total'],
 					'tax'        => $this->tax->getTax($product['price'], $product['tax_class_id']),
-					'reward'     => $product['reward']
+					'reward'     => $product['reward'],
+					'productGroupSets' => $productGroupSets
 				);
 			}
 			

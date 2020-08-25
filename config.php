@@ -1,15 +1,15 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/NWCambodia_New/');
+define('HTTP_SERVER', 'http://nwcambodia.local:8080/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/NWCambodia_New/');
+define('HTTPS_SERVER', 'http://nwcambodia.local:8080/');
 
 // DIR
-define('DIR_APPLICATION', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/catalog/');
-define('DIR_SYSTEM', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/system/');
-define('DIR_IMAGE', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/image/');
-define('DIR_STORAGE', 'F:/SIMLONGDYWORK/wamp64/www/NWCambodia_New/storage/');
+define('DIR_APPLICATION', 'D:/Project/Personal/NWCambodia/catalog/');
+define('DIR_SYSTEM', 'D:/Project/Personal/NWCambodia/system/');
+define('DIR_IMAGE', 'D:/Project/Personal/NWCambodia/image/');
+define('DIR_STORAGE', 'D:/Project/Personal/NWCambodia/storage/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -25,6 +25,6 @@ define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'lyhout_db');
+define('DB_DATABASE', 'nwcambodia');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'nw_');
