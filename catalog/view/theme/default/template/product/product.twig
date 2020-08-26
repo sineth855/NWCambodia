@@ -64,7 +64,7 @@
                     </div>
 
                     <table class="table addon-product" style="background-color: #e0e0e0;">
-                        <tr>
+                      <tr>
                             <th width="200px">{{text_flavor_option}}</th>
                             <th width="150px">{{text_availability}}</th>
                             <th>Qty</th>
@@ -1123,25 +1123,24 @@
                                     <div class="row_">
 
                                         <div id="product">
-                                            {% if productSizes %} 
-                                                <h3>{{ text_option }}</h3>
-                                            {% endif %} 
-                                            {% if options %}
-                                                <!-- <hr> -->
-                                                </li>
-                                                {% for discount in discounts %}
-                                                    <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
-                                                {% endfor %} 
-                                            {% endif %}
+                                            {% if productSizes %}
+                                            <br/>
+                                            <h4>
+                                                <center>{{ text_option }}</center>
+                                            </h4>
+                                            {% endif %} {% if options %}
+                                            <!-- <hr> -->
+                                            </li>
+                                            {% for discount in discounts %}
+                                            <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+                                            {% endfor %} {% endif %}
                                             </ul>
                                             <!-- % endif %} -->
                                             <div id="product">
-                                                {% if options %}
-                                                {% for option in options %} 
-                                                    {% if option.type == 'select' %}
-                                                        <div class="form-group{% if option.required %} required {% endif %}">
-                                                            <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-                                                            <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
+                                                {% if options %} {% for option in options %} {% if option.type == 'select' %}
+                                                <div class="form-group{% if option.required %} required {% endif %}">
+                                                    <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+                                                    <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
                                                                 <option value="">{{ text_select }}</option>
                                                                 {% for option_value in option.product_option_value %}
                                                                 <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
@@ -1150,79 +1149,76 @@
                                                                 {% endif %} </option>
                                                                 {% endfor %}
                                                             </select>
-                                                        </div>
-                                                    {% endif %} 
+                                                </div>
+                                                {% endif %}
 
-                                                    <!-- Block Add Product Option favor -->
-                                                    {% if option.type == 'table' %}
-                                                    <div class="form-group menu_set_table">
-                                                        <table class="table">
-                                                            <tr>
-                                                                <th>Flavor/Option</th>
-                                                                <th>Price</th>
-                                                                <th>{{text_availability}}</th>
-                                                                {% if option_value.expired_date %}
-                                                                <th>Expiry</th>
-                                                                {% endif %}
-                                                                <!-- <th>Action</th> -->
-                                                            </tr>
-                                                            <!-- <div class="form-group{% if option.required %} required {% endif %}">
+                                                <!-- Block Add Product Option favor -->
+                                                {% if option.type == 'table' %}
+                                                <div class="form-group menu_set_table">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <th>{{text_flavor_option}}</th>
+                                                            <th>Price</th>
+                                                            <th>Availability</th>
+                                                            {% if option_value.expired_date %}
+                                                            <th>Expiry</th>
+                                                            {% endif %}
+                                                            <!-- <th>Action</th> -->
+                                                        </tr>
+                                                        <!-- <div class="form-group{% if option.required %} required {% endif %}">
                                                                 <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
                                                                 <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
                                                                     <option value="">{{ text_select }}</option> -->
-                                                            <!-- </select>
+                                                        <!-- </select>
                                                             </div> -->
-                                                            {% for option_value in option.product_option_value %}
-                                                                <tr>
-                                                                    <td>
-                                                                        <center>
-                                                                            {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}"
-                                                                                class="img-thumbnail_" /> {% endif %}
-                                                                        </center>
-                                                                        <br/> 
-                                                                        {{ option_value.name }}
-                                                                    </td>
-                                                                    <td>
-                                                                        {% if option_value.price %} 
-                                                                            {{ option_value.price }} 
-                                                                        {% endif %}
-                                                                        <!-- <div id="input-option{{ option.product_option_id }}">
+                                                        {% for option_value in option.product_option_value %}
+                                                        <tr>
+                                                            <td>
+                                                                <center>
+                                                                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}"
+                                                                        class="img-thumbnail_" /> {% endif %}
+                                                                </center>
+                                                                <br/> {{ option_value.name }}
+                                                            </td>
+                                                            <td>
+                                                                {% if option_value.price %} {{ option_value.price }} {% endif %}
+                                                                <!-- <div id="input-option{{ option.product_option_id }}">
                                                                                 <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
                                                                             </div> -->
-                                                                        <!-- <input type="text" name="option[{{ option.product_option_id }}]" id="option-{{ option.product_option_id }}" value="{{ option_value.product_option_value_id }}"/> -->
-                                                                    </td>
-                                                                    <td>
-                                                                        <!-- <small style="background-color:green;color:#fff;padding:5px;"><b>In Stock</b></small><br/> -->
-                                                                        <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
-                                                                    </td>
-                                                                    {% if option_value.expired_date %}
-                                                                    <td>
-                                                                        <small>{{option_value.expired_date}}</small>
-                                                                    </td>
-                                                                    {% endif %}
-                                                                    <td>
-                                                                        <!-- <button type="button" id="btnShow" class="btnShow btn btn-lg btn-primary"><i class="ti-shopping-cart"></i></button> -->
-                                                                        <!-- <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block"><i class="ti-shopping-cart"></i></button> -->
-                                                                        <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
-                                                                    </td>
-                                                                </tr>
-                                                            {% endfor %}
-                                                            <!-- <tr>
+                                                                <!-- <input type="text" name="option[{{ option.product_option_id }}]" id="option-{{ option.product_option_id }}" value="{{ option_value.product_option_value_id }}"/> -->
+                                                            </td>
+                                                            <td>
+                                                                <!-- <small style="background-color:green;color:#fff;padding:5px;"><b>In Stock</b></small><br/> -->
+                                                                <img src="./catalog/view/theme/default/image/staus_stock.png" class="stock_image_staus" />
+                                                            </td>
+                                                            {% if option_value.expired_date %}
+                                                            <td>
+                                                                <small>{{option_value.expired_date}}</small>
+                                                            </td>
+                                                            {% endif %}
+                                                            <td>
+                                                                <!-- <button type="button" id="btnShow" class="btnShow btn btn-lg btn-primary"><i class="ti-shopping-cart"></i></button> -->
+                                                                <!-- <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block"><i class="ti-shopping-cart"></i></button> -->
+                                                                <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" data-value="{{ option_value.product_option_value_id }}" data-id="{{ option.product_option_id }}" class="btnShow button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        <!-- <tr>
                                                                 <td colspan="3">
                                                                     <small>Discount 639 Baht when put promotion code "BAAMRED10"</small>
                                                                 </td>
                                                             </tr> -->
-                                                        </table>
-                                                    </div>
-                                                    {% endif %} 
-                                                    <!-- End Block Add Product Option favor -->
+                                                    </table>
+                                                </div>
+                                                {% endif %}
+                                                <!-- End Block Add Product Option favor -->
 
-                                                    {% if option.type == 'radio' %}
-                                                    <div class="form-group{% if option.required %} required {% endif %}">
-                                                        <label class="control-label">{{ option.name }}</label>
-                                                        <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
-                                                            <div class="radio">
-                                                                <label>
+                                                {% if option.type == 'radio' %}
+                                                <div class="form-group{% if option.required %} required {% endif %}">
+                                                    <label class="control-label">{{ option.name }}</label>
+                                                    <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
+                                                        <div class="radio">
+                                                            <label>
                                                                     <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
                                                                     {% if option_value.image %}
                                                                         <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}
@@ -1231,11 +1227,11 @@
                                                                     ({{ option_value.price_prefix }}{{ option_value.price }})
                                                                     {% endif %}
                                                                 </label>
-                                                            </div>
-                                                            {% endfor %}
                                                         </div>
+                                                        {% endfor %}
                                                     </div>
-                                                    {% endif %} 
+                                                </div>
+                                                {% endif %}
                                                 <!-- Block check option -->
                                                 {% if option.type == 'checkbox' %}
                                                 <div class="form-group{% if option.required %} required {% endif %}">
@@ -1256,7 +1252,7 @@
                                                         {% endfor %}
                                                     </div>
                                                 </div>
-                                                {% endif %} 
+                                                {% endif %}
                                                 <!-- End Block check option -->
 
                                                 {% if option.type == 'text' %}
@@ -1264,16 +1260,12 @@
                                                     <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
                                                     <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control" />
                                                 </div>
-                                                {% endif %} 
-
-                                                {% if option.type == 'textarea' %}
+                                                {% endif %} {% if option.type == 'textarea' %}
                                                 <div class="form-group{% if option.required %} required {% endif %}">
                                                     <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
                                                     <textarea name="option[{{ option.product_option_id }}]" rows="5" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control">{{ option.value }}</textarea>
                                                 </div>
-                                                {% endif %} 
-
-                                                {% if option.type == 'file' %}
+                                                {% endif %} {% if option.type == 'file' %}
                                                 <div class="form-group{% if option.required %} required {% endif %}">
                                                     <label class="control-label">{{ option.name }}</label>
                                                     <button type="button" id="button-upload{{ option.product_option_id }}" data-loading-text="{{ text_loading }}" class="btn btn-default btn-block"><i class="fa fa-upload"></i> {{ button_upload }}</button>
@@ -1299,21 +1291,17 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                {% endif %} 
-                                                {% if option.type == 'time' %}
-                                                    <div class="form-group{% if option.required %} required {% endif %}">
-                                                        <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-                                                        <div class="input-group time">
-                                                            <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="HH:mm" id="input-option{{ option.product_option_id }}" class="form-control" />
-                                                            <span class="input-group-btn">
+                                                {% endif %} {% if option.type == 'time' %}
+                                                <div class="form-group{% if option.required %} required {% endif %}">
+                                                    <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+                                                    <div class="input-group time">
+                                                        <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="HH:mm" id="input-option{{ option.product_option_id }}" class="form-control" />
+                                                        <span class="input-group-btn">
                                                             <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                                                             </span>
-                                                        </div>
                                                     </div>
-                                                {% endif %} 
-                                                {% endfor %} 
-                                                {% endif %} 
-                                                {% if recurrings %}
+                                                </div>
+                                                {% endif %} {% endfor %} {% endif %} {% if recurrings %}
                                                 <hr>
                                                 <h3>{{ text_payment_recurring }}</h3>
                                                 <div class="form-group required">
@@ -1325,12 +1313,10 @@
                                                     </select>
                                                     <div class="help-block" id="recurring-description"></div>
                                                 </div>
-                                                {% endif %} 
-                                                {% if options|length > 0 or productSizes|length > 0 %} 
-                                                {% else %}
+                                                {% endif %} {% if options|length > 0 or productSizes|length > 0 %} {% else %}
                                                 <div class="form-group">
                                                     <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
-                                                
+
                                                     <input type="number" name="quantity" value="{{ minimum }}" style="width:100%" size="50" min="1" id="input-quantity" class="form-text" />
                                                     <br />
                                                     <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btnShow button-cart btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
@@ -1349,90 +1335,146 @@
 
                                             <!-- #####################Product Addon ############################# -->
                                             <div class="form-group menu_set_table">
-                                                {% if productSizes %} 
-                                                    {% for product in productSizes %}
-                                                    <div class="row" style="padding: 20px 0;">
-                                                        <div class="col-sm-5">
-                                                            <img src="{{ product.thumb }}" alt="{{product.name}}" width="80px" />
-                                                        </div>
-                                                        <div class="col-sm-7">
-                                                            <div style="font-size: 16px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">
-                                                                <b>{{ product.name }}</b>
-                                                            </div>
-                                                            <div style="font-size: 18px; color: red;">
-                                                                {% if product.price %}
-                                                                    <p class="price product-price">
-                                                                        {% if not product.special %} 
-                                                                            <b>{{ product.price }}</b>
-                                                                        {% else %}
-                                                                        <span class="price-new">
-                                                                            {{ product.special }}
-                                                                        </span>
-                                                                        <span class="price-old">
-                                                                            <div class="product-price">
-                                                                                <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
-                                                                                    <div style="text-decoration: line-through;">
-                                                                                    {{ product.price }}
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </span> 
-                                                                        {% endif %}
-                                                                    </p>
-                                                                {% endif %}
-                                                            </div>
-                                                        </div>
+                                                {% if is_group_addon %} {% if productSizes %}
+                                                <div class="row" style="padding: 20px 0;">
+                                                    <div class="col-sm-4">
+                                                        {% if thumb or images %} {% if thumb %}
+                                                        <img src="{{ popup }}" alt="{{heading_title}}" class="img-responsive" /> {% endif %} {% endif %}
                                                     </div>
-                                                    <table class="table addon-product" style="background-color: #e0e0e0;">
-                                                        <tr>
-                                                            <th>{{text_flavor_option}}</th>
-                                                            <th>{{text_availability}}</th>
-                                                            <!-- <th>Expiry</th>-->
-                                                            <th></th>
-                                                            <!-- <th>Action</th> -->
-                                                        </tr>
-                                                        {% for addon in product['addonProducts'] %}
-                                                        <tr>
-                                                            <td style="font-size: 12px;">
-                                                                {{ addon.name }}
-                                                                <small style="font-size: 14; color: red;">
-                                                                    {% if addon.price %}
-                                                                        <span class="price product-price" style="display: none;">
-                                                                            {% if not addon.special %} 
-                                                                                <b>{{ addon.price }}</b>
-                                                                            {% else %}
-                                                                            <span class="price-new">
-                                                                                {{ addon.special }}
+                                                    <div class="col-sm-8">
+                                                        <div style="font-size: 16px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">
+                                                            <b>{{ heading_title }}</b>
+                                                        </div>
+                                                        <div style="font-size: 16px; color: red;">
+                                                            {% if price %}
+                                                            <p class="price product-price">
+                                                                {% if not special %}
+                                                                <b>{{ price }}</b> {% else %}
+                                                                <span class="price-new">
+                                                                                {{ special }}
                                                                             </span>
-                                                                            <span class="price-old">
+                                                                <span class="price-old">
                                                                                 <div class="product-price">
                                                                                     <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
                                                                                         <div style="text-decoration: line-through;">
-                                                                                        {{ addon.price }}
+                                                                                        {{ price }}
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </span> 
-                                                                            {% endif %}
-                                                                        </span>
-                                                                    {% endif %}
-                                                                </small>
-                                                            </td>
-                                                            
-                                                            <td>
-                                                                <img src="{{addon.stock}}" class="stock_image_staus" />
-                                                            </td>
+                                                                            </span> {% endif %}
+                                                            </p>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {# Select Product Feature #}
+                                                <center>
+                                                    <div>Select Product Feature</div>
+                                                </center>
+                                                {% for product in productSizes %}
+                                                <div class="row" style="padding: 20px 0; background: #f4f4f4; border-bottom: 1px solid #e4e4e4;">
+                                                    <div class="col-sm-4">
+                                                        <img src="{{ product.thumb }}" alt="{{product.name}}" class="img-responsive" />
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div style="font-size: 14px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">
+                                                            {{ product.name }} </b> x 1 </b>
+                                                        </div>
+                                                        <select name="addonProduct" class="form-control">
+                                                                        {% for addon in product['addonProducts'] %}
+                                                                            <option value="{{ addon.product_id }}">{{ addon.name }}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                                <center>
+                                                    <span>
+                                                                <br/>
+                                                                <button type="button" data-loading-text="{{ text_loading }}" class="button-feature-cart btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
+                                                                {# <button type="button" id="button-cart" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" data-loading-text="{{ text_loading }}" class="button-cart btn btn-primary btn-lg btn-block">{{ button_cart }}</button> #}
+                                                            </span>
+                                                </center>
+                                                {% endif %} {% else %} {% if productSizes %} {% for product in productSizes %}
+                                                <div class="row" style="padding: 20px 0;">
+                                                    <div class="col-sm-5">
+                                                        <img src="{{ product.thumb }}" alt="{{product.name}}" width="80px" />
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <div style="font-size: 16px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">
+                                                            <b>{{ product.name }}</b>
+                                                        </div>
+                                                        <div style="font-size: 18px; color: red;">
+                                                            {% if product.price %}
+                                                            <p class="price product-price">
+                                                                {% if not product.special %}
+                                                                <b>{{ product.price }}</b> {% else %}
+                                                                <span class="price-new">
+                                                                                {{ product.special }}
+                                                                            </span>
+                                                                <span class="price-old">
+                                                                                <div class="product-price">
+                                                                                    <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                        <div style="text-decoration: line-through;">
+                                                                                        {{ product.price }}
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </span> {% endif %}
+                                                            </p>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table addon-product" style="background-color: #e0e0e0;">
+                                                    <tr>
+                                                        <th width="200px">{{text_flavor_option}}</th>
+                                                        <th width="150px">{{text_availability}}</th>
+                                                        <!-- <th>Expiry</th>-->
+                                                        <th></th>
+                                                        <!-- <th>Action</th> -->
+                                                    </tr>
+                                                    {% for addon in product['addonProducts'] %}
+                                                    <tr>
+                                                        <td style="font-size: 12px;">
+                                                            {{ addon.name }}
+                                                            <small style="font-size: 14; color: red;">
+                                                                        {% if addon.price %}
+                                                                            <span class="price product-price" style="display: none;">
+                                                                                {% if not addon.special %} 
+                                                                                    <b>{{ addon.price }}</b>
+                                                                                {% else %}
+                                                                                <span class="price-new">
+                                                                                    {{ addon.special }}
+                                                                                </span>
+                                                                                <span class="price-old">
+                                                                                    <div class="product-price">
+                                                                                        <div class="product--variation-field--variation_price__60 field field-price field-type-commerce-price field-label-hidden field-item">
+                                                                                            <div style="text-decoration: line-through;">
+                                                                                            {{ addon.price }}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </span> 
+                                                                                {% endif %}
+                                                                            </span>
+                                                                        {% endif %}
+                                                                    </small>
+                                                        </td>
 
-                                                            <!-- <td>{{addon.date_expired}}</td>-->
+                                                        <td>
+                                                            <img src="{{addon.stock}}" class="stock_image_staus" />
+                                                        </td>
 
-                                                            <td>
-                                                                <button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.add('{{ addon.product_id }}', '{{ addon.minimum }}');" class="btnShow -button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </table>
-                                                    {% endfor %} 
-                                                {% endif %}
+                                                        <!-- <td>{{addon.date_expired}}</td>-->
+
+                                                        <td>
+                                                            <button type="button" id="-button-cart" data-loading-text="{{ text_loading }}" onclick="cart.add('{{ addon.product_id }}', '{{ addon.minimum }}');" class="btnShow -button-cart btn btn-lg btn-primary btn-block add-to-cart-new-btn click-to-buy"></button>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
+                                                {% endfor %} {% endif %} {% endif %}
                                             </div>
                                             <!-- ##################### #End Product Addon ############################# -->
                                             {% if review_status %}
@@ -1451,7 +1493,9 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-
+                                        <div class="pd-product-label-image">
+                                            <img src="{{supplement_image}}" min-width="100%" max-width="100%">
+                                        </div>
                                     </div>
                                     {% if tags %}
                                     <p>{{ text_tags }} {% for i in 0..tags|length %} {% if i
