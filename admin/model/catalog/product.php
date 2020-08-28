@@ -127,7 +127,7 @@ class ModelCatalogProduct extends Model {
 			}
 
 			foreach ($productAddonArr as $addonGroup) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', is_group_order = '" . $addonGroup["is_group_order"] . "', price = '" . $addonGroup["price"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_size SET product_id = '" . (int)$product_id . "', size_name = '" . $addonGroup["sizeName"] . "', is_group_order = 0, price = '" . $addonGroup["price"] . "', sort_order = '" . $addonGroup["sort_order"] . "', image = '" . $addonGroup["image"] . "'");
 				$product_size_id = $this->db->getLastId();
 				if(isset($addonGroup['productAddonArrays'])){
 					foreach ($addonGroup['productAddonArrays'] as $addon_product_id) {

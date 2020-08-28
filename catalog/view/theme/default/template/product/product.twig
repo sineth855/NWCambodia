@@ -768,7 +768,7 @@
                                                                     <div style="font-size: 14px; padding: 10px 0;margin-bottom: 10px;border-bottom: 1px solid #e4e4e4;">
                                                                         {{ product.name }} </b> x 1 </b>
                                                                     </div>
-                                                                    <select name="addonProduct" class="form-control">
+                                                                    <select name="addonProduct[]" class="form-control">
                                                                         {% for addon in product['addonProducts'] %}
                                                                             <option value="{{ addon.product_id }}">{{ addon.name }}</option>
                                                                         {% endfor %}
@@ -779,7 +779,7 @@
                                                         <center>
                                                             <span>
                                                                 <br/>
-                                                                <button type="button" data-loading-text="{{ text_loading }}" class="button-feature-cart btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
+                                                                <button type="button" data-loading-text="{{ text_loading }}" class="button-feature-cart btnShow btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
                                                                 {# <button type="button" id="button-cart" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" data-loading-text="{{ text_loading }}" class="button-cart btn btn-primary btn-lg btn-block">{{ button_cart }}</button> #}
                                                             </span>
                                                         </center>
