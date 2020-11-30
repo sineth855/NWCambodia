@@ -291,6 +291,10 @@ h2.price_red {
 }
 
 @media (max-width:768px) {
+    select option {        
+        font-size: 10px!important;
+        font-weight: normal!important;
+    }
     #modal_inside {
         width: 99%;
     }
