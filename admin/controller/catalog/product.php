@@ -66,7 +66,7 @@ class ControllerCatalogProduct extends Controller {
 				"status" => 1,
 				"sort_order" => ($i + 1),
 				"model" => "Nutrition",
-				"upc" => "",
+				"upc" => $return["item"][$i]["code"],
 				"ean" => "",
 				"jan" => "",
 				"isbn" => "",
@@ -1327,7 +1327,7 @@ class ControllerCatalogProduct extends Controller {
 			$product_addon_groups = array();
 		}
 		// print_r($product_addon_groups);
-		$data["product_addon_groups"] = array();
+		// $data["product_addon_groups"] = array();
 		foreach($product_addon_groups as $productSize) {
 			$product_addons = array();
 			if(isset($productSize["product_addons"])){

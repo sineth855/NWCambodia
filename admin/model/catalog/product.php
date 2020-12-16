@@ -178,18 +178,17 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function addProductJson($data) {
-		$queryHasProduct = $this->db->query("SELECT * FROM " . DB_PREFIX . "product WHERE product_id=".(int)$data['id']." LIMIT 1");
+		$queryHasProduct = $this->db->query("SELECT * FROM " . DB_PREFIX . "product WHERE sku='".$data['sku']."' LIMIT 1");
 		// $queryHasProduct = $this->db->query("SELECT * FROM " . DB_PREFIX . "product WHERE product_id=2 LIMIT 1");
 		$product_id = (int)$data['id'];
 		// print_r($queryHasProduct->rows);
 		// print_r(sizeof($queryHasProduct->rows));
 		if(sizeof($queryHasProduct->rows) == 0){
-			$this->db->query("DELETE from " . DB_PREFIX . "product WHERE product_id=".(int)$data['id']."");
-			$this->db->query("DELETE from " . DB_PREFIX . "product_to_store WHERE product_id=".(int)$data['id']."");
-			$this->db->query("DELETE from " . DB_PREFIX . "product_to_category WHERE product_id=".(int)$data['id']."");
-			$this->db->query("DELETE from " . DB_PREFIX . "product_description WHERE product_id=".(int)$data['id']."");
-			$this->db->query("INSERT INTO " . DB_PREFIX . "product SET 
-				product_id = " . (int)($data['id']) . ",
+			// $this->db->query("DELETE from " . DB_PREFIX . "product WHERE product_id=".(int)$data['id']."");
+			// $this->db->query("DELETE from " . DB_PREFIX . "product_to_store WHERE product_id=".(int)$data['id']."");
+			// $this->db->query("DELETE from " . DB_PREFIX . "product_to_category WHERE product_id=".(int)$data['id']."");
+			// $this->db->query("DELETE from " . DB_PREFIX . "product_description WHERE product_id=".(int)$data['id']."");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product SET
 				model = '" . $this->db->escape($data['model']) . "',
 				sku = '" . $this->db->escape($data['sku']) . "',
 				upc = '" . $this->db->escape($data['upc']) . "',
@@ -219,23 +218,23 @@ class ModelCatalogProduct extends Model {
 				date_added = NOW(), 
 				date_modified = NOW()");
 
-			$product_id = $this->db->getLastId();
+			$getProduct_id = $this->db->getLastId();
 
 			if (isset($data['image'])) {
-				$this->db->query("UPDATE " . DB_PREFIX . "product SET image = '" . $this->db->escape($data['image']) . "' WHERE product_id = '" . (int)$data['id'] . "'");
+				$this->db->query("UPDATE " . DB_PREFIX . "product SET image = '" . $this->db->escape($data['image']) . "' WHERE product_id = '" . (int)$getProduct_id . "'");
 			}
 
 			// foreach ($data['product_description'] as $language_id => $value) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$data['id'] . "', language_id = '" . (int)$data['language_id'] . "', name = '" . $this->db->escape($data['name']) . "', description = '" . $this->db->escape($data['description']) . "', tag = '" . $this->db->escape($data['tag']) . "', meta_title = '" . $this->db->escape($data['meta_title']) . "', meta_description = '" . $this->db->escape($data['meta_description']) . "', meta_keyword = '" . $this->db->escape($data['meta_keyword']) . "'");
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$data['id'] . "', language_id = 2, name = '" . $this->db->escape($data['name']) . "', description = '" . $this->db->escape($data['description']) . "', tag = '" . $this->db->escape($data['tag']) . "', meta_title = '" . $this->db->escape($data['meta_title']) . "', meta_description = '" . $this->db->escape($data['meta_description']) . "', meta_keyword = '" . $this->db->escape($data['meta_keyword']) . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$getProduct_id . "', language_id = '" . (int)$data['language_id'] . "', name = '" . $this->db->escape($data['name']) . "', description = '" . $this->db->escape($data['description']) . "', tag = '" . $this->db->escape($data['tag']) . "', meta_title = '" . $this->db->escape($data['meta_title']) . "', meta_description = '" . $this->db->escape($data['meta_description']) . "', meta_keyword = '" . $this->db->escape($data['meta_keyword']) . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$getProduct_id . "', language_id = 2, name = '" . $this->db->escape($data['name']) . "', description = '" . $this->db->escape($data['description']) . "', tag = '" . $this->db->escape($data['tag']) . "', meta_title = '" . $this->db->escape($data['meta_title']) . "', meta_description = '" . $this->db->escape($data['meta_description']) . "', meta_keyword = '" . $this->db->escape($data['meta_keyword']) . "'");
 			// }
 
 			// if (isset($data['product_store'])) {
 			// 	foreach ($data['product_store'] as $store_id) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_store SET product_id = '" . (int)$data['id'] . "', store_id = '" . (int)$data['store_id']. "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_store SET product_id = '" . (int)$getProduct_id . "', store_id = '" . (int)$data['store_id']. "'");
 			// 	}
 			// }
-			$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_category SET product_id = '" . (int)$data['id'] . "', category_id = '" . (int)$data['category_id'] . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_category SET product_id = '" . (int)$getProduct_id . "', category_id = '" . (int)$data['category_id'] . "'");
 		}else{
 			// $queryHasProductKH = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_description WHERE product_id=".(int)$data['id']." AND language_id = 2");
 			// if(!$queryHasProductKH){
@@ -244,7 +243,6 @@ class ModelCatalogProduct extends Model {
 			$product_id = $this->db->getLastId();
 
 			$this->db->query("UPDATE " . DB_PREFIX . "product SET 
-				product_id = " . (int)($data['id']) . ",
 				model = '" . $this->db->escape($data['model']) . "',
 				sku = '" . $this->db->escape($data['sku']) . "',
 				upc = '" . $this->db->escape($data['upc']) . "',
@@ -272,7 +270,7 @@ class ModelCatalogProduct extends Model {
 				tax_class_id = '" . (int)$data['tax_class_id'] . "',
 				sort_order = '" . (int)$data['sort_order'] . "',
 				date_added = NOW(),
-				date_modified = NOW() WHERE product_id=". (int)($data['id']) ."");
+				date_modified = NOW() WHERE sku='". $this->db->escape($data['sku']) ."'");
 		}
 
 			if (isset($data['product_attribute'])) {

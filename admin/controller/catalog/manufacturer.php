@@ -38,9 +38,12 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$return = json_decode($result, true);
 			// print_r($return);
+			// echo json_encode($return);
+			// return false;
 			// echo sizeof($return["brand"]);
 			// $dataBrand = array();
 			$this->db->query("DELETE from " . DB_PREFIX . "manufacturer");
+			$this->db->query("DELETE from " . DB_PREFIX . "manufacturer_to_store WHERE store_id=0");
 			for($i = 0; $i < sizeof($return["brand"]); $i++){
 				$dataBrand = array(
 					"id"=> $return["brand"][$i]["id"],

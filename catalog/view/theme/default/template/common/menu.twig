@@ -43,6 +43,32 @@
                 </div>
                 {% if categories %}
                 <ul class="menu menu-parent">
+                    <li class="menu-item menu-item--expanded">
+                        <a href="{{ '#' }}">
+                        Brand</a> 
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=1">{{ 'RC' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=2">{{ 'CELLUCOR' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=3">{{ 'VX' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=4">{{ 'ON' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=5">{{ 'DYMATIZE' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=6">{{ 'SCIVATION' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=7">{{ 'MT' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=8">{{ 'FITANGEL' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=9">{{ 'BAAM' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=10">{{ 'NW' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=11">{{ 'BLENDER BOTTLE' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=12">{{ 'BSN' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=13">{{ 'VITAXTRONG' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=14">{{ 'OPTIMUM NUTRITION' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=15">{{ 'NUTRITION WAREHOUSE' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=16">{{ 'RONNIE COLEMAN' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=17">{{ 'MUSCLE TECH' }}</a>
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=18">{{ 'PURELY INSPIRED' }}</a>
+                            </li>
+                        </ul>
+                    </li>
                     {% for category in categories %} {% if category.children %}
                     <li class="menu-item menu-item--expanded">
                         <a href="{{ category.url }}">

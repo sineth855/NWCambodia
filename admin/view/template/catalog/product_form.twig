@@ -506,10 +506,10 @@
 
                   <label class="radio-inline"> 
                     {% if not is_group_addon %}
-                      <input type="radio" name="is_group_addon" value="0" checked="checked"/>
+                      <input type="radio" name="is_group_addon" value="0"/>
                       {{ text_no }}
                     {% else %}
-                      <input type="radio" name="is_group_addon" value="0"/>
+                      <input type="radio" name="is_group_addon" value="0" checked="checked"/>
                       {{ text_no }}
                     {% endif %}
                   </label> 
@@ -524,14 +524,14 @@
                     <div class="form-group" id="remove-addon{{attribute_addon_row}}">
                       <p>
                         <div class="col-sm-1">
-                          <a href="" id="thumb-image{{attribute_addon_row}}" data-toggle="image" class="-img-thumbnail">
+                          <a href="" id="thumb-option-size{{attribute_addon_row}}" data-toggle="image" class="-img-thumbnail">
                             {% if product_addon.thumb != '' %}
                               <img src="{{ product_addon.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/>
                             {% else %}
                               <img src="{{ thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/>
                             {% endif %}
                           </a> 
-                          <input type="hidden" name="product_size[{{attribute_addon_row}}][image]" value="{{ product_addon.image }}" id="input-image{{attribute_addon_row}}"/>
+                          <input type="hidden" name="product_size[{{attribute_addon_row}}][image]" value="{{ product_addon.image }}" id="input-option-size{{attribute_addon_row}}"/>
                         </div>
                         <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Addon Title">Addon Title</span></label>
                         <div class="col-sm-4">
@@ -1570,8 +1570,8 @@
     html += '<div class="form-group" id="remove-addon'+attribute_addon_row+'">';
       html += '<p>';
         html += '<div class="col-sm-1">';
-          html += '<a href="" id="thumb-image'+attribute_addon_row+'" data-toggle="image" class="-img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a>';
-          html += '<input type="hidden" name="product_size['+attribute_addon_row+'][image]" value="" id="input-image"/>';
+          html += '<a href="" id="thumb-option-size'+attribute_addon_row+'" data-toggle="image" class="-img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a>';
+          html += '<input type="hidden" name="product_size['+attribute_addon_row+'][image]" value="" id="input-option-size'+attribute_addon_row+'"/>';
           html += '</div>';
         html += '<label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="Addon Title">Addon Title</span></label>';
         html += '<div class="col-sm-4">';

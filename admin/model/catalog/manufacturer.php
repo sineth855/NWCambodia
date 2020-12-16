@@ -35,7 +35,7 @@ class ModelCatalogManufacturer extends Model {
 		// return $data["id"].'=>'.$data["name"].',';
 		// return false;
 		$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer SET manufacturer_id = " . (int)$data['id'] . ", name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "'");
-
+		$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_to_store SET manufacturer_id = '" . (int)$data['id'] . "', store_id = 0");
 		$manufacturer_id = $this->db->getLastId();
 
 		if (isset($data['image'])) {
